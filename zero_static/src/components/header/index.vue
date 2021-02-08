@@ -13,7 +13,12 @@
             </div>
             <div class="head-middle"></div>
             <div class="head-end">
-                <a href="/help"><span title="文档中心">帮助与文档</span></a>
+                <a href="/help">
+                    <i class="el-icon-question" title="帮助与文档" />
+                    <span title=" 帮助与文档">
+                        帮助与文档
+                    </span>
+                </a>
             </div>
         </div>
     </div>
