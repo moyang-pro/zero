@@ -38,6 +38,19 @@ const constantRoutes = [
         path: '/help',
         name: 'Help',
         component: () => import('@/views/help')
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: () => import('@/views/register/index'),
+        redirect: '/register/wx',
+        children: [
+            {
+                path: 'wx',
+                name: 'WxRegister',
+                component: () => import('@/views/register/wx')
+            }
+        ]
     }
 ]
 

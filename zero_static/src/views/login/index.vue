@@ -116,7 +116,11 @@
                             <span>关于墨阳空间登录</span>
                             <p class="moyang-room-tip">
                                 初次使用的用户可以使用微信扫码关注“
-                                <span style="font-weight: bold">墨阳人生</span>
+                                <span
+                                    style="font-weight: bold;color: #20a0ff;cursor: pointer"
+                                >
+                                    墨阳人生
+                                </span>
                                 ”公众号自动授权登录，也可使用邮箱、QQ和墨阳账号注册登录，
                                 <span style="font-weight: bold">
                                     墨阳账号是墨阳系列产品的用户唯一标识。
