@@ -2,7 +2,7 @@
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
 
-const name = defaultSettings.title || 'MonkeyBack' // page title
+const name = defaultSettings.title || '墨阳空间' // page title
 
 function resolve(dir) {
     return path.join(__dirname, dir)

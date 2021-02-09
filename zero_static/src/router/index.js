@@ -49,6 +49,16 @@ const constantRoutes = [
                 path: 'wx',
                 name: 'WxRegister',
                 component: () => import('@/views/register/wx')
+            },
+            {
+                path: 'email',
+                name: 'EmailRegister',
+                component: () => import('@/views/register/email')
+            },
+            {
+                path: 'emy-account',
+                name: 'AccountRegister',
+                component: () => import('@/views/register/account')
             }
         ]
     }

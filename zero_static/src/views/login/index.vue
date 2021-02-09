@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <ZeroHeader></ZeroHeader>
-        <div class="login-card">
+        <div class="login-card vh-card">
             <div class="login-left-card">
                 <div class="block-left"></div>
                 <div class="block">

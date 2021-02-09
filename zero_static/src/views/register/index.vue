@@ -22,7 +22,7 @@
 import ZeroHeader from '@/components/header/index'
 import ZeroFooter from '@/components/footer/index'
 export default {
-    name: 'Index',
+    name: 'Register',
     components: {
         ZeroHeader,
         ZeroFooter
@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
+.register-card {
+    min-height: 980px;
+}
 .register-title {
     display: flex;
     height: 14%;
@@ -45,10 +48,10 @@ export default {
     height: 75%;
     width: 60%;
     margin: auto;
-    min-height: 600px;
+    min-height: 500px;
     min-width: 800px;
     max-width: 1180px;
-    max-height: 800px;
+    max-height: 650px;
 }
 .register-to-login {
     min-height: 50px;

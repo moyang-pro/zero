@@ -3,6 +3,8 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
+//自定义全局样式
+@import "./zero/customer.scss";
 
 body {
   height: 100%;
@@ -75,6 +77,7 @@ div:focus {
 }
 .vh-card{
     height: 100vh;
+    min-height: 980px;
 }
 .vw-card{
     width: 100vw;

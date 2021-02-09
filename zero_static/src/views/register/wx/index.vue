@@ -6,7 +6,9 @@
                     <svg-icon icon-class="weixin" />
                 </span>
             </i>
-            <span>微信快速注册</span>
+            <span style="vertical-align: middle;margin-left: 10px;">
+                微信快速注册
+            </span>
         </div>
         <div class="wx-register-card">
             <div class="layout-left-block"></div>
@@ -38,28 +40,38 @@
                 </div>
                 <div class="right-block-bottom">
                     <div class="other-register-way">
-                        <span
-                            class="other-register-way-text"
-                            @click="showOtherRegisterWay = true"
-                        >
+                        <span class="other-register-way-text">
                             其他登录方式>>
                         </span>
-                        <span v-show="showOtherRegisterWay">
+                        <span>
                             <i class="svg-item">
                                 <span class="svg-container">
                                     <svg-icon
                                         icon-class="email-blue"
                                         class="svg-item-li"
+                                        @click="
+                                            toOtherRegisterWay(
+                                                '/register/email'
+                                            )
+                                        "
                                     />
 
                                     <svg-icon
                                         icon-class="QQ-color"
                                         class="svg-item-li"
+                                        @click="
+                                            toOtherRegisterWay('/register/qq')
+                                        "
                                     />
 
                                     <svg-icon
                                         icon-class="account-blue"
                                         class="svg-item-li"
+                                        @click="
+                                            toOtherRegisterWay(
+                                                '/register/emy-account'
+                                            )
+                                        "
                                     />
                                 </span>
                             </i>
@@ -78,6 +90,15 @@ export default {
         return {
             showOtherRegisterWay: false
         }
+    },
+    methods: {
+        toOtherRegisterWay(path) {
+            if (path) {
+                this.$router.push(path)
+            } else {
+                this.$message.error('跳转页面失败！')
+            }
+        }
     }
 }
 </script>
@@ -90,10 +111,13 @@ export default {
     font-size: 18px;
     padding: 24px;
 }
+.wx-img {
+    vertical-align: middle;
+}
 .wx-register-card {
     background-color: #fff;
-    padding-bottom: 40px;
-    min-height: 600px;
+    padding-bottom: 20px;
+    max-height: 500px;
     display: flex;
 }
 .layout-left-block {
@@ -103,7 +127,7 @@ export default {
     width: 50%;
 }
 .register-card-divider {
-    height: 320px;
+    height: 300px;
     margin: 10%;
 }
 .wx-mp-register-img {
@@ -128,19 +152,18 @@ export default {
     min-height: 40px;
 }
 .other-register-way {
-    cursor: pointer;
     float: right;
 }
-.other-register-way-text:hover {
-    color: #20a0ff;
-}
+
 .svg-item {
     display: inline-block;
     line-height: 20px;
     font-size: 32px;
+    transition: all 0.4s ease-in-out;
 }
 .svg-item-li {
     margin-left: 12px;
     margin-bottom: -5px;
+    cursor: pointer;
 }
 </style>
