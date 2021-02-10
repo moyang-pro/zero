@@ -41,11 +41,11 @@ export default {}
     width: 100%;
 }
 .zero-logo {
-    width: 160px;
+    width: 200px;
     height: 60px;
-    padding: 18px;
+    padding: 10px;
     color: antiquewhite;
-    font-size: 20px;
+    font-size: 28px;
 }
 
 .logo-img {

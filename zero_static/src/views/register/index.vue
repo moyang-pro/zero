@@ -45,15 +45,12 @@ export default {
     max-width: 1180px;
 }
 .register-main-content {
-    height: 75%;
     width: 60%;
     margin: auto;
-    min-height: 500px;
-    min-width: 800px;
-    max-width: 1180px;
     max-height: 650px;
 }
 .register-to-login {
-    min-height: 50px;
+    height: 50px;
+    margin: 20px auto;
 }
 </style>

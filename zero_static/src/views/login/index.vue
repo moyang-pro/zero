@@ -5,67 +5,120 @@
             <div class="login-left-card">
                 <div class="block-left"></div>
                 <div class="block">
-                    <el-tabs v-model="way" @tab-click="handleClick">
-                        <el-tab-pane label="微信扫码登录" name="qrcode">
-                            <div class="login-title">
-                                <span>请使用微信扫一扫登录</span>
-                                |
-                                <span
-                                    class="qrcode-refresh"
-                                    style="cursor: pointer"
-                                >
-                                    刷新
-                                    <i
-                                        class="el-icon-refresh"
+                    <div class="tab-login" v-show="loginType === 0">
+                        <el-tabs v-model="way" @tab-click="handleClick">
+                            <el-tab-pane label="微信扫码登录" name="qrcode">
+                                <div class="login-title">
+                                    <span>请使用微信扫一扫登录</span>
+                                    |
+                                    <span
+                                        class="qrcode-refresh"
                                         style="cursor: pointer"
-                                    ></i>
-                                </span>
-                            </div>
-                            <div class="img-qrcode">
-                                <el-card
-                                    style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
-                                    body-style="padding:0;margin:0;box-sizing: border-box;"
-                                >
-                                    <img
-                                        style="width: 210px; height:210px"
-                                        title="点击刷新二维码"
-                                        :src="require('@/assets/mp-qrcode.jpg')"
-                                        alt="公众号二维码"
-                                    />
-                                </el-card>
-                            </div>
-                        </el-tab-pane>
-                        <el-tab-pane label="墨阳扫码登录" name="password">
-                            <div class="login-title">
-                                <span>请使用墨阳小程序扫一扫登录</span>
-                                |
-                                <span
-                                    class="qrcode-refresh"
-                                    style="cursor: pointer"
-                                >
-                                    刷新
-                                    <i
-                                        class="el-icon-refresh"
+                                    >
+                                        刷新
+                                        <i
+                                            class="el-icon-refresh"
+                                            style="cursor: pointer"
+                                        ></i>
+                                    </span>
+                                </div>
+                                <div class="img-qrcode">
+                                    <el-card
+                                        style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
+                                        body-style="padding:0;margin:0;box-sizing: border-box;"
+                                    >
+                                        <img
+                                            style="width: 210px; height:210px"
+                                            title="点击刷新二维码"
+                                            :src="
+                                                require('@/assets/mp-qrcode.jpg')
+                                            "
+                                            alt="公众号二维码"
+                                        />
+                                    </el-card>
+                                </div>
+                            </el-tab-pane>
+                            <el-tab-pane label="墨阳扫码登录" name="password">
+                                <div class="login-title">
+                                    <span>请使用墨阳小程序扫一扫登录</span>
+                                    |
+                                    <span
+                                        class="qrcode-refresh"
                                         style="cursor: pointer"
-                                    ></i>
-                                </span>
-                            </div>
-                            <div class="img-qrcode">
-                                <el-card
-                                    style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
-                                    body-style="padding:0;margin:0;box-sizing: border-box;"
-                                >
-                                    <img
-                                        style="width: 210px; height:210px"
-                                        title="点击刷新二维码"
-                                        :src="require('@/assets/mp-qrcode.jpg')"
-                                        alt="公众号二维码"
+                                    >
+                                        刷新
+                                        <i
+                                            class="el-icon-refresh"
+                                            style="cursor: pointer"
+                                        ></i>
+                                    </span>
+                                </div>
+                                <div class="img-qrcode">
+                                    <el-card
+                                        style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
+                                        body-style="padding:0;margin:0;box-sizing: border-box;"
+                                    >
+                                        <img
+                                            style="width: 210px; height:210px"
+                                            title="点击刷新二维码"
+                                            :src="
+                                                require('@/assets/mp-qrcode.jpg')
+                                            "
+                                            alt="公众号二维码"
+                                        />
+                                    </el-card>
+                                </div>
+                            </el-tab-pane>
+                        </el-tabs>
+                    </div>
+                    <div v-show="loginType === 1">
+                        <div class="account-login-title">
+                            <span>
+                                <i class="logo-img">
+                                    <span class="svg-container">
+                                        <svg-icon icon-class="account-blue" />
+                                    </span>
+                                </i>
+                                墨阳账号登录
+                            </span>
+                        </div>
+                        <div class="account-login-form">
+                            <Form
+                                ref="formRegister"
+                                :model="accountInfo"
+                                :rules="ruleCustom"
+                            >
+                                <FormItem prop="account">
+                                    <Input
+                                        type="text"
+                                        placeholder="墨阳账号emy"
+                                        v-model="accountInfo.account"
                                     />
-                                </el-card>
-                            </div>
-                        </el-tab-pane>
-                    </el-tabs>
-                    <div class="other-login-way">
+                                </FormItem>
+                                <FormItem prop="password">
+                                    <Input
+                                        type="password"
+                                        placeholder="密码"
+                                        v-model="accountInfo.password"
+                                    />
+                                </FormItem>
+                                <FormItem style="margin-bottom: 14px">
+                                    <div id="c1"></div>
+                                </FormItem>
+
+                                <FormItem>
+                                    <Button
+                                        style="height: 45px;width: 100%"
+                                        type="primary"
+                                        @click="handleSubmit('formRegister')"
+                                    >
+                                        确认登录
+                                    </Button>
+                                </FormItem>
+                            </Form>
+                        </div>
+                    </div>
+                    <div class="other-login-way" v-if="loginType === 0">
                         <span style="margin: 10px;color: #97a8be">
                             其他登录方式
                         </span>
@@ -85,13 +138,50 @@
                             </i>
                             QQ登录
                         </span>
-                        <span class="way-item" title="墨阳账号">
+                        <span
+                            class="way-item"
+                            title="扫码"
+                            @click="loginType = 1"
+                        >
                             <i class="logo-img">
                                 <span class="svg-container">
                                     <svg-icon icon-class="account" />
                                 </span>
                             </i>
-                            账号密码登录
+                            密码登录
+                        </span>
+                    </div>
+                    <div class="other-login-way" v-if="loginType === 1">
+                        <span style="margin: 10px;color: #97a8be">
+                            其他登录方式
+                        </span>
+                        <span class="way-item" title="邮箱">
+                            <i class="logo-img">
+                                <span class="svg-container">
+                                    <svg-icon icon-class="email-black" />
+                                </span>
+                            </i>
+                            邮箱登录
+                        </span>
+                        <span class="way-item" title="QQ">
+                            <i class="logo-img">
+                                <span class="svg-container">
+                                    <svg-icon icon-class="QQ" />
+                                </span>
+                            </i>
+                            QQ登录
+                        </span>
+                        <span
+                            class="way-item"
+                            title="扫码"
+                            @click="loginType = 0"
+                        >
+                            <i class="logo-img">
+                                <span class="svg-container">
+                                    <svg-icon icon-class="qrcode" />
+                                </span>
+                            </i>
+                            扫码登录
                         </span>
                     </div>
                     <div class="extra-block">
@@ -174,9 +264,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import ZeroHeader from '@/components/header/index.vue'
 import ZeroFooter from '@/components/footer/index.vue'
+import { delSpace } from '@/utils/validate'
 export default {
     name: 'Home',
     components: {
@@ -184,17 +274,56 @@ export default {
         ZeroFooter
     },
     data() {
+        const validateAccount = (rule, value, callback) => {
+            value = value.trim()
+            this.accountInfo.account = delSpace(this.accountInfo.account)
+            if (value === '') {
+                callback(new Error('请输入墨阳账号'))
+            } else {
+                if (!this.accountExist()) {
+                    callback(new Error('该账号不存在'))
+                }
+                callback()
+            }
+        }
+        const validatePassword = (rule, value, callback) => {
+            if (value === '') {
+                callback(new Error('请输入密码'))
+            } else {
+                callback()
+            }
+        }
         return {
             windowHeight: 0,
             way: 'qrcode',
             slogan: '因为有你，我们仍在进步！',
             slogans:
                 '没有昨天的今天，怎么会成就你最美的明天' +
-                '如果没有创造，设计毫无意义'
+                '如果没有创造，设计毫无意义',
+            loginType: 1,
+            accountInfo: {
+                account: '',
+                password: ''
+            },
+            ruleCustom: {
+                account: [
+                    {
+                        validator: validateAccount,
+                        trigger: 'blur'
+                    }
+                ],
+                password: [
+                    {
+                        validator: validatePassword,
+                        trigger: 'blur'
+                    }
+                ]
+            }
         }
     },
     created() {
         this.initPage()
+        this.checkedCallBack()
     },
     methods: {
         handleClick() {
@@ -208,6 +337,17 @@ export default {
         },
         getSloganImg() {
             return require('@/assets/working.jpg')
+        },
+        accountExist() {
+            return true
+        },
+        checkedCallBack(res) {
+            var myCaptcha = _dx.Captcha(document.getElementById('c1'), {
+                appId: 'bddc8400ea5ea537dfead20dbb94bdda', // appId，在控制台中“应用管理”或“应用配置”模块获取
+                success: function(token) {
+                    // console.log('token:', token)
+                }
+            })
         }
     }
 }
@@ -289,8 +429,10 @@ export default {
     height: 20%;
 }
 .text-work {
-    padding: 0 50px;
+    width: 60%;
+    margin: 15px auto;
 }
+
 .text-work li {
     line-height: 22px;
 }
@@ -312,7 +454,6 @@ export default {
 .slogan {
     width: 100%;
     margin-top: 20px;
-    position: relative;
 }
 .slogan-box {
     width: 80%;
@@ -321,7 +462,7 @@ export default {
     text-align: center;
 }
 .slogan-box-li {
-    font-size: 24px;
+    font-size: 20px;
 }
 .slogan-bottom {
     margin-right: 20%;
@@ -329,6 +470,17 @@ export default {
     text-align: right;
     color: #20a0ff;
     cursor: pointer;
+}
+</style>
+<style scoped>
+.account-login-title {
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.account-login-form {
+    width: 75%;
+    margin: 10px auto;
 }
 </style>
 <style lang="scss">

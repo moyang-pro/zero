@@ -38,46 +38,38 @@
                         若已关注则立即开始注册
                     </p>
                 </div>
-                <div class="right-block-bottom">
-                    <div class="other-register-way">
-                        <span class="other-register-way-text">
-                            其他登录方式>>
-                        </span>
-                        <span>
-                            <i class="svg-item">
-                                <span class="svg-container">
-                                    <svg-icon
-                                        icon-class="email-blue"
-                                        class="svg-item-li"
-                                        @click="
-                                            toOtherRegisterWay(
-                                                '/register/email'
-                                            )
-                                        "
-                                    />
+            </div>
+        </div>
+        <div class="right-block-bottom">
+            <div class="other-register-way">
+                <span class="other-register-way-text">
+                    其他登录方式>>
+                </span>
+                <span>
+                    <i class="svg-item">
+                        <span class="svg-container">
+                            <svg-icon
+                                icon-class="email-blue"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/email')"
+                            />
 
-                                    <svg-icon
-                                        icon-class="QQ-color"
-                                        class="svg-item-li"
-                                        @click="
-                                            toOtherRegisterWay('/register/qq')
-                                        "
-                                    />
+                            <svg-icon
+                                icon-class="QQ-color"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/qq')"
+                            />
 
-                                    <svg-icon
-                                        icon-class="account-blue"
-                                        class="svg-item-li"
-                                        @click="
-                                            toOtherRegisterWay(
-                                                '/register/emy-account'
-                                            )
-                                        "
-                                    />
-                                </span>
-                            </i>
+                            <svg-icon
+                                icon-class="account-blue"
+                                class="svg-item-li"
+                                @click="
+                                    toOtherRegisterWay('/register/emy-account')
+                                "
+                            />
                         </span>
-                    </div>
-                </div>
+                    </i>
+                </span>
             </div>
         </div>
     </div>
@@ -103,6 +95,9 @@ export default {
 }
 </script>
 <style scoped>
+.content-wx-register {
+    height: 620px;
+}
 .wx-register-title {
     height: 72px;
     border-bottom: #e5e5e5 1px solid;
@@ -116,8 +111,7 @@ export default {
 }
 .wx-register-card {
     background-color: #fff;
-    padding-bottom: 20px;
-    max-height: 500px;
+    height: 500px;
     display: flex;
 }
 .layout-left-block {
@@ -146,10 +140,9 @@ export default {
     min-height: 60px;
 }
 .right-block-bottom {
-    margin-top: 80px;
-    bottom: 0;
-    margin-right: 10px;
-    min-height: 40px;
+    padding-top: 10px;
+    padding-right: 10px;
+    height: 48px;
 }
 .other-register-way {
     float: right;

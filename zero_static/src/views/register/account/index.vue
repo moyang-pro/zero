@@ -32,7 +32,7 @@
                                 v-model="accountInfo.password"
                             />
                         </FormItem>
-                        <FormItem prop="passwordCheck">
+                        <FormItem prop="passwordCheck" style="margin-bottom: 0">
                             <Input
                                 type="password"
                                 placeholder="确认密码"
@@ -68,7 +68,7 @@
                                 }}
                             </Button>
                         </FormItem>
-                        <FormItem style="margin-bottom: 10px;text-align: left">
+                        <FormItem style="margin-bottom: 25px;text-align: left;">
                             <Checkbox v-model="checked">
                                 我已阅读并同意
                             </Checkbox>
@@ -90,7 +90,7 @@
                         </FormItem>
                         <FormItem>
                             <Button
-                                style="height: 45px;width: 100%"
+                                style="height: 40px;width: 100%"
                                 type="primary"
                                 @click="handleSubmit('formRegister')"
                             >
@@ -99,44 +99,36 @@
                         </FormItem>
                     </Form>
                 </div>
-                <div class="block-bottom">
-                    <div class="other-register-way">
-                        <span class="other-register-way-text">
-                            其他登录方式>>
-                        </span>
-                        <span>
-                            <i class="svg-item">
-                                <span class="svg-container">
-                                    <svg-icon
-                                        icon-class="email-blue"
-                                        class="svg-item-li"
-                                        @click="
-                                            toOtherRegisterWay(
-                                                '/register/email'
-                                            )
-                                        "
-                                    />
+            </div>
+        </div>
+        <div class="block-bottom">
+            <div class="other-register-way">
+                <span class="other-register-way-text">
+                    其他登录方式>>
+                </span>
+                <span>
+                    <i class="svg-item">
+                        <span class="svg-container">
+                            <svg-icon
+                                icon-class="email-blue"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/email')"
+                            />
 
-                                    <svg-icon
-                                        icon-class="QQ-color"
-                                        class="svg-item-li"
-                                        @click="
-                                            toOtherRegisterWay('/register/qq')
-                                        "
-                                    />
+                            <svg-icon
+                                icon-class="QQ-color"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/qq')"
+                            />
 
-                                    <svg-icon
-                                        icon-class="weixin"
-                                        class="svg-item-li"
-                                        @click="
-                                            toOtherRegisterWay('/register/wx')
-                                        "
-                                    />
-                                </span>
-                            </i>
+                            <svg-icon
+                                icon-class="weixin"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/wx')"
+                            />
                         </span>
-                    </div>
-                </div>
+                    </i>
+                </span>
             </div>
         </div>
     </div>
@@ -167,7 +159,6 @@ export default {
             }
         }
         const validatePassword = (rule, value, callback) => {
-            console.log(value + '1')
             if (value === '') {
                 callback(new Error('请输入密码'))
             } else if (checkSpaceExist(value)) {
@@ -274,6 +265,9 @@ export default {
 </script>
 
 <style scoped>
+.account-register-card {
+    height: 620px;
+}
 .account-register-title {
     height: 72px;
     border-bottom: #e5e5e5 1px solid;
@@ -298,25 +292,23 @@ export default {
 }
 .account-register-block {
     background-color: #fff;
-    padding-bottom: 20px;
-    max-height: 500px;
+    height: 500px;
 }
 .layout-block {
     width: 100%;
     margin: auto;
+    height: 500px;
 }
 .account-register-form {
     width: 45%;
     margin: auto;
-    padding: 30px;
-    max-height: 572px;
+    padding: 30px 30px 0 30px;
 }
 
 .block-bottom {
-    margin-top: -17px;
-    bottom: 0;
-    margin-right: 10px;
-    min-height: 40px;
+    padding-right: 10px;
+    padding-top: 10px;
+    height: 48px;
 }
 .other-register-way {
     float: right;
