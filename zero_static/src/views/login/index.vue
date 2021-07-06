@@ -6,7 +6,7 @@
                 <div class="block-left"></div>
                 <div class="block">
                     <div class="tab-login" v-show="loginType === 0">
-                        <el-tabs v-model="way" @tab-click="handleClick">
+                        <el-tabs v-model="way" @tab-click="handleClick" id="login-tab-code">
                             <el-tab-pane label="微信扫码登录" name="qrcode">
                                 <div class="login-title">
                                     <span>请使用微信扫一扫登录</span>
@@ -342,12 +342,6 @@ export default {
             return true
         },
         checkedCallBack(res) {
-            var myCaptcha = _dx.Captcha(document.getElementById('c1'), {
-                appId: 'bddc8400ea5ea537dfead20dbb94bdda', // appId，在控制台中“应用管理”或“应用配置”模块获取
-                success: function(token) {
-                    // console.log('token:', token)
-                }
-            })
         }
     }
 }
@@ -395,7 +389,7 @@ export default {
     margin-top: 10px;
 }
 .way-item {
-    margin: 10px;
+    margin: 10px 5px;
     cursor: pointer;
     font-size: 14px;
 }
@@ -484,10 +478,14 @@ export default {
 }
 </style>
 <style lang="scss">
-.el-tabs__item {
-    //width: 232px;
-    width: 100%;
-    padding: 0;
-    font-size: 20px;
+#login-tab-code{
+    .el-tabs__item {
+        width: 186px;
+        padding: 0;
+        font-size: 20px;
+    }
+    .el-tabs__active-bar{
+        width: 186px;
+    }
 }
 </style>

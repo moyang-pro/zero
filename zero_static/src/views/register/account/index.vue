@@ -39,7 +39,7 @@
                                 v-model="accountInfo.passwordCheck"
                             />
                         </FormItem>
-                        <Divider style="color: #99a9bf">手机信息</Divider>
+                        <el-divider style="color: #99a9bf">手机信息</el-divider>
                         <FormItem prop="phone">
                             <Input
                                 type="text"
@@ -72,12 +72,13 @@
                             <Checkbox v-model="checked">
                                 我已阅读并同意
                             </Checkbox>
+                            墨阳空间
                             <router-link
                                 class="see-page-agreement"
                                 to="/help/page/service"
                                 title="查看墨阳空间服务协议"
                             >
-                                墨阳空间服务协议
+                                服务协议
                             </router-link>
                             和
                             <router-link
@@ -85,7 +86,7 @@
                                 to="/help/page/privacy"
                                 title="查看墨阳空间隐私声明"
                             >
-                                墨阳空间隐私声明
+                                隐私声明
                             </router-link>
                         </FormItem>
                         <FormItem>
@@ -247,6 +248,7 @@ export default {
             }
         },
         getSmsCode(phone) {
+            this.verifyReShow = false;
             if (!this.verifyShow) {
                 // to do
                 const interval = setInterval(() => {
@@ -255,6 +257,7 @@ export default {
                         clearInterval(interval)
                         this.verifyReShow = true
                         this.verifyShow = false
+                        this.timeout = 60;
                     }
                 }, 1000)
             }

@@ -27,7 +27,8 @@ const constantRoutes = [
     {
         path: '/',
         name: 'Home',
-        component: Home
+        component: Home,
+        redirect: '/login'
     },
     {
         path: '/login',
@@ -43,7 +44,7 @@ const constantRoutes = [
         path: '/register',
         name: 'Register',
         component: () => import('@/views/register/index'),
-        redirect: '/register/wx',
+        redirect: '/register/emy-account',
         children: [
             {
                 path: 'wx',

@@ -131,12 +131,12 @@ export default {
 }
 .right-block-title {
     text-align: center;
-    margin: 20% 60% 10% 10%;
+    margin: 20% 50% 10% 10%;
 }
 .right-block-tip {
     font-size: 14px;
     color: #97a8be;
-    margin-right: 50%;
+    margin-right: 40%;
     min-height: 60px;
 }
 .right-block-bottom {
