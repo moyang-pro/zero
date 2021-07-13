@@ -1,7 +1,9 @@
 package com.moyang.zero.service;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.moyang.zero.entity.SysMember;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.moyang.zero.req.RegisterReq;
 
 /**
  * <p>
@@ -12,5 +14,14 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-02-08
  */
 public interface ISysMemberService extends IService<SysMember> {
+
+	/**
+	 * 注册新用户
+	 * @param req 注册请求参数
+	 * @return 处理结果
+	 */
+	boolean registerNewMember(RegisterReq req);
+
+
 
 }

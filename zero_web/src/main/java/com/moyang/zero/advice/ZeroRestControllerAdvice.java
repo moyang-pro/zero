@@ -2,9 +2,9 @@ package com.moyang.zero.advice;
 
 import com.alibaba.fastjson.JSON;
 import com.moyang.zero.common.exception.BusinessException;
-import com.moyang.zero.common.util.common.StringUtil;
-import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.utils.http.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -13,7 +13,6 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
@@ -42,19 +41,12 @@ public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
             BindingResult re = ((BindException) e).getBindingResult();
             List<ObjectError> allErrors = re.getAllErrors();
             List<String> collect = allErrors.stream().map(ObjectError::getDefaultMessage).collect(Collectors.toList());
-            return Result.fail(StringUtil.JOINER_COMMA.join(collect));
-        }
-        if (e instanceof MethodArgumentNotValidException) {
-            BindingResult re = ((MethodArgumentNotValidException) e).getBindingResult();
-            List<ObjectError> allErrors = re.getAllErrors();
-            List<String> collect = allErrors.stream().map(ObjectError::getDefaultMessage).collect(Collectors.toList());
-            return Result.fail(StringUtil.JOINER_COMMA.join(collect));
+            return Result.fail(StringUtils.join(collect));
         }
         return Result.fail("内部异常");
     }
 
     @Override
-    @SuppressWarnings("all")
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
         return true;
     }

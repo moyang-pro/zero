@@ -1,0 +1,18 @@
+1. vo bo dto po 等 object 的定义
+  
+  1）request 定义controller层接受前端的请求，简写xxReq
+  2）dto是service层内部产生的对象，向dao层传输，service层方法返回vo对象或者dto对象
+  3）po是数据库的表
+  4）bo是多张表的联合，dao层的方法往往返bo对象或po对象
+  5）vo是后端controller层返回给前端的对象
+  
+2. 常用英文简写
+  * department dept
+  * request req
+  * result res
+  * response resp
+  * 
+  
+3. web开发中细节：
+  -- service 层方法不能返回Result，
+     Result结果只能在web controller层构建（根据service层方法返回的处理结果）

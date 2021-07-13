@@ -2,6 +2,7 @@ package com.moyang.zero.service.impl;
 
 import com.moyang.zero.entity.SysMember;
 import com.moyang.zero.mapper.SysMemberMapper;
+import com.moyang.zero.req.RegisterReq;
 import com.moyang.zero.service.ISysMemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -17,4 +18,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember> implements ISysMemberService {
 
+	@Override
+	public boolean registerNewMember(RegisterReq req) {
+		return false;
+	}
 }

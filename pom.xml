@@ -48,13 +48,6 @@
             <artifactId>zero_common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>r05</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -127,8 +120,11 @@
             <artifactId>druid</artifactId>
             <version>1.2.4</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.75</version>
+        </dependency>
     </dependencies>
 
     <build>
