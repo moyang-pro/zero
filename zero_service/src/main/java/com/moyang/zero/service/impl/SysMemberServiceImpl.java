@@ -7,6 +7,8 @@ import com.moyang.zero.service.ISysMemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * <p>
  * 墨阳空间 ---平台---成员信息表 服务实现类
@@ -18,8 +20,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember> implements ISysMemberService {
 
+
 	@Override
 	public boolean registerNewMember(RegisterReq req) {
+		//
 		return false;
+	}
+
+	@Override
+	public String getCheckCode(String phone) {
+
+
+		return null;
 	}
 }

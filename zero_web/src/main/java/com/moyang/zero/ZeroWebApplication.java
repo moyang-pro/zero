@@ -1,7 +1,9 @@
 package com.moyang.zero;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * 零度----墨阳空间
@@ -9,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author liuchongyang3
  */
 @SpringBootApplication
+@MapperScan("com.moyang.zero.mapper")
+@PropertySource("classpath:db.properties")
 public class ZeroWebApplication {
 
 	/**

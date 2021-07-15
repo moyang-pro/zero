@@ -4,12 +4,9 @@ import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.utils.http.Result;
 import com.moyang.zero.req.RegisterReq;
 import com.moyang.zero.service.ISysMemberService;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -28,7 +25,21 @@ public class SysMemberController extends TemplateController {
 	@Resource
 	ISysMemberService memberService;
 
+	@GetMapping("/getCheckCode")
+	@ApiOperation(value = "墨阳空间-获取验证码")
+    Result<String> getCheckCode(@RequestParam("phone") String phone){
+    	if(StringUtils.isBlank(phone)){
+    		return Result.fail("手机号不能为空");
+	    }
+    	String checkCode =  memberService.getCheckCode(phone);
+    	if (StringUtils.isBlank(checkCode)){
+    		return Result.fail();
+	    }
+    	return Result.success(checkCode);
+    }
+
 	@PostMapping("/register")
+	@ApiOperation(value = "墨阳空间-新用户注册")
 	Result<Boolean> register(@RequestBody RegisterReq req){
          this.checkRegisterInfo(req);
 		 if(memberService.registerNewMember(req)) {

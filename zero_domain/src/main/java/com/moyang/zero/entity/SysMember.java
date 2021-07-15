@@ -1,6 +1,7 @@
 package com.moyang.zero.entity;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,6 +18,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value="SysMember对象", description="墨阳空间 ---平台---成员信息表")
+@TableName("sys_member")
 public class SysMember extends Template {
 
     private static final long serialVersionUID = 1L;

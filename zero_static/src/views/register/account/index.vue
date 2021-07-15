@@ -141,7 +141,9 @@ import {
     checkSpaceExist,
     delSpace,
     validPhoneFormat
-} from '@/utils/validate.js'
+} from '@/utils/validate.js';
+import { getCheckCode } from "@/api/register";
+
 export default {
     name: 'AccountRegister',
     data() {
@@ -248,6 +250,10 @@ export default {
             }
         },
         getSmsCode(phone) {
+            let param = {
+                phone: phone
+            }
+            getCheckCode(param);
             this.verifyReShow = false;
             if (!this.verifyShow) {
                 // to do

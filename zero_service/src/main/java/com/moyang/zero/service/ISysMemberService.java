@@ -22,6 +22,10 @@ public interface ISysMemberService extends IService<SysMember> {
 	 */
 	boolean registerNewMember(RegisterReq req);
 
-
-
+	/**
+	 * 获取验证码
+	 * @param phone 手机号
+	 * @return 6位验证码
+	 */
+	String getCheckCode(String phone);
 }
