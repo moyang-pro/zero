@@ -1,4 +1,4 @@
-package com.moyang.zero.util.redis;
+package com.moyang.zero.utils.redis;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -30,17 +30,14 @@ public final class RedisUtil {
 	 * 指定缓存失效时间
 	 * @param key 键
 	 * @param time 时间(秒)
-	 * @return
 	 */
-	public boolean expire(String key, long time) {
+	public void expire(String key, long time) {
 		try {
 			if (time > 0) {
 				redisTemplate.expire(key, time, TimeUnit.SECONDS);
 			}
-			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
 		}
 	}
 	/**
@@ -49,7 +46,12 @@ public final class RedisUtil {
 	 * @return 时间(秒) 返回0代表为永久有效
 	 */
 	public long getExpire(String key) {
-		return redisTemplate.getExpire(key, TimeUnit.SECONDS);
+
+		Long time = redisTemplate.getExpire(key, TimeUnit.SECONDS);
+		if (time == null) {
+			return 0L;
+		}
+		return time;
 	}
 	/**
 	 * 判断key是否存在
@@ -58,7 +60,11 @@ public final class RedisUtil {
 	 */
 	public boolean hasKey(String key) {
 		try {
-			return redisTemplate.hasKey(key);
+			Boolean flag = redisTemplate.hasKey(key);
+			if (flag == null) {
+				return false;
+			}
+			return flag;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -89,15 +95,12 @@ public final class RedisUtil {
 	 * 普通缓存放入
 	 * @param key 键
 	 * @param value 值
-	 * @return true成功 false失败
 	 */
-	public boolean set(String key, Object value) {
+	public void set(String key, Object value) {
 		try {
 			redisTemplate.opsForValue().set(key, value);
-			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
 		}
 	}
 	/**
@@ -106,7 +109,7 @@ public final class RedisUtil {
 	 * @param value 值
 	 * @return true成功 false失败
 	 */
-	public boolean setnx(String key, Object value) {
+	public boolean setNX(String key, Object value) {
 		try {
 			redisTemplate.opsForValue().setIfAbsent(key,value);
 			return true;
@@ -143,7 +146,7 @@ public final class RedisUtil {
 	 * @param time 时间(秒) time要大于0 如果time小于等于0 将设置无限期
 	 * @return true成功 false 失败
 	 */
-	public boolean setnx(String key, Object value, long time) {
+	public boolean setNX(String key, Object value, long time) {
 		try {
 			if (time > 0) {
 				redisTemplate.opsForValue().setIfAbsent(key, value, time, TimeUnit.SECONDS);
@@ -161,13 +164,17 @@ public final class RedisUtil {
 	 * 递增
 	 * @param key 键
 	 * @param delta 要增加几(大于0)
-	 * @return
+	 * @return 递增结果
 	 */
 	public long incr(String key, long delta) {
 		if (delta < 0) {
 			throw new RuntimeException("递增因子必须大于0");
 		}
-		return redisTemplate.opsForValue().increment(key, delta);
+		Long increment = redisTemplate.opsForValue().increment(key, delta);
+		if (increment == null){
+			throw new RuntimeException("结果为空");
+		}
+		return increment;
 	}
 	/**
 	 * 递减
@@ -239,7 +246,7 @@ public final class RedisUtil {
 	 * @param value 值
 	 * @return true 成功 false失败
 	 */
-	public boolean hset(String key, String item, Object value) {
+	public boolean hashset(String key, String item, Object value) {
 		try {
 			redisTemplate.opsForHash().put(key, item, value);
 			return true;
@@ -256,7 +263,7 @@ public final class RedisUtil {
 	 * @param time 时间(秒) 注意:如果已存在的hash表有时间,这里将会替换原有的时间
 	 * @return true 成功 false失败
 	 */
-	public boolean hset(String key, String item, Object value, long time) {
+	public boolean hashset(String key, String item, Object value, long time) {
 		try {
 			redisTemplate.opsForHash().put(key, item, value);
 			if (time > 0) {
@@ -273,7 +280,7 @@ public final class RedisUtil {
 	 * @param key 键 不能为null
 	 * @param item 项 可以使多个 不能为null
 	 */
-	public void hdel(String key, Object... item) {
+	public void hashDel(String key, Object... item) {
 		redisTemplate.opsForHash().delete(key, item);
 	}
 	/**
@@ -282,7 +289,7 @@ public final class RedisUtil {
 	 * @param item 项 不能为null
 	 * @return true 存在 false不存在
 	 */
-	public boolean hHasKey(String key, String item) {
+	public boolean hashHasKey(String key, String item) {
 		return redisTemplate.opsForHash().hasKey(key, item);
 	}
 	/**
@@ -292,7 +299,7 @@ public final class RedisUtil {
 	 * @param by 要增加几(大于0)
 	 * @return
 	 */
-	public double hincr(String key, String item, double by) {
+	public double hashIncr(String key, String item, double by) {
 		return redisTemplate.opsForHash().increment(key, item, by);
 	}
 	/**
@@ -300,15 +307,15 @@ public final class RedisUtil {
 	 * @param key 键
 	 * @param item 项
 	 * @param by 要减少记(小于0)
-	 * @return
+	 * @return 递减值
 	 */
-	public double hdecr(String key, String item, double by) {
+	public double hashDecr(String key, String item, double by) {
 		return redisTemplate.opsForHash().increment(key, item, -by);
 	}
 	/**
 	 * 根据key获取Set中的所有值
 	 * @param key 键
-	 * @return
+	 * @return Set中的所有值
 	 */
 	public Set<Object> sGet(String key) {
 		try {
@@ -324,7 +331,7 @@ public final class RedisUtil {
 	 * @param value 值
 	 * @return true 存在 false不存在
 	 */
-	public boolean sHasKey(String key, Object value) {
+	public Boolean sHasKey(String key, Object value) {
 		try {
 			return redisTemplate.opsForSet().isMember(key, value);
 		} catch (Exception e) {
@@ -338,12 +345,12 @@ public final class RedisUtil {
 	 * @param values 值 可以是多个
 	 * @return 成功个数
 	 */
-	public long sSet(String key, Object... values) {
+	public Long sSet(String key, Object... values) {
 		try {
 			return redisTemplate.opsForSet().add(key, values);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return 0;
+			return 0L;
 		}
 	}
 	/**
@@ -353,7 +360,7 @@ public final class RedisUtil {
 	 * @param values 值 可以是多个
 	 * @return 成功个数
 	 */
-	public long sSetAndTime(String key, long time, Object... values) {
+	public Long sSetAndTime(String key, long time, Object... values) {
 		try {
 			Long count = redisTemplate.opsForSet().add(key, values);
 			if (time > 0)
@@ -361,7 +368,7 @@ public final class RedisUtil {
 			return count;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return 0;
+			return 0L;
 		}
 	}
 	/**
@@ -425,7 +432,7 @@ public final class RedisUtil {
 	 * 通过索引 获取list中的值
 	 * @param key 键
 	 * @param index 索引 index>=0时， 0 表头，1 第二个元素，依次类推；index<0时，-1，表尾，-2倒数第二个元素，依次类推
-	 * @return
+	 * @return list
 	 */
 	public Object lGetIndex(String key, long index) {
 		try {
@@ -439,7 +446,7 @@ public final class RedisUtil {
 	 * 将list放入缓存
 	 * @param key 键
 	 * @param value 值
-	 * @return
+	 * @return 结果
 	 */
 	public boolean lSet(String key, Object value) {
 		try {
