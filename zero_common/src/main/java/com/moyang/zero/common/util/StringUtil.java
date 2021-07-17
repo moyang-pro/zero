@@ -1,4 +1,4 @@
-package com.moyang.zero.common.util.common;
+package com.moyang.zero.common.util;
 
 
 import org.apache.commons.lang3.StringUtils;

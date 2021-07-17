@@ -36,7 +36,7 @@ public class SysMember extends Template {
     private String avatar;
 
     @ApiModelProperty(value = "电话")
-    private String telphone;
+    private String telephone;
 
     private String email;
 

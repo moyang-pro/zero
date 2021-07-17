@@ -22,4 +22,9 @@ public class RegisterReq {
 	*/
 	private String checkCode;
 
+	/**
+	*  描述：平台信息
+	*/
+	private String platCode;
+
 }

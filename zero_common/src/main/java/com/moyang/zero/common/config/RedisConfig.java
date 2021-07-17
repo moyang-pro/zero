@@ -1,4 +1,4 @@
-package com.moyang.zero.config;
+package com.moyang.zero.common.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -9,11 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -25,29 +24,30 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
-import java.lang.reflect.Method;
-
 
 @Configuration
 @EnableCaching
-public class RedisConfig extends CachingConfigurerSupport {
+@PropertySource("classpath:/redis/redis.properties") //指定自定义配置文件位置和名称
+//@EnableConfigurationProperties(RedisConfig.class) //开启对应配置类的属性注入功能
+//@ConfigurationProperties(prefix = "test") //指定配置文件注入属性前缀
+public class RedisConfig{
 
 	private static final Logger log = LoggerFactory.getLogger(RedisConfig.class);
 
 	/**
 	 * redis配置属性读取
 	 */
-	@Value("${spring.redis.host}")
+	@Value("${moyang.redis.host}")
 	private  String host;
-	@Value("${spring.redis.port}")
+	@Value("${moyang.redis.port}")
 	private  int port;
-	@Value("${spring.redis.database}")
+	@Value("${moyang.redis.database}")
 	private  int database;
-	@Value("${spring.redis.jedis.pool.max-idle}")
+	@Value("${moyang.redis.jedis.pool.max-idle}")
 	private int maxIdle;
-	@Value("${spring.redis.jedis.pool.max-wait}")
+	@Value("${moyang.redis.jedis.pool.max-wait}")
 	private long maxWaitMillis;
-	@Value("${spring.redis.jedis.pool.max-active}")
+	@Value("${moyang.redis.jedis.pool.max-active}")
 	private int maxActive;
 
 
@@ -72,12 +72,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 	@Bean
 	public RedisConnectionFactory redisConnectionFactory(JedisPoolConfig jedisPoolConfig) {
 		log.info("初始化JedisConnectionFactory");
-        /* 在Spring Boot 1.x中已经过时，采用RedisStandaloneConfiguration配置
-        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(jedisPoolConfig);
-        jedisConnectionFactory.setHostName(host);
-        jedisConnectionFactory.setDatabase(database);*/
-
-		// JedisConnectionFactory配置hsot、database、password等参数
+		// JedisConnectionFactory配置host、database、password等参数
 		RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
 		redisStandaloneConfiguration.setHostName(host);
 		redisStandaloneConfiguration.setPort(port);
@@ -97,25 +92,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 	@Bean
 	public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
 		return RedisCacheManager.create(connectionFactory);
-	}
-
-
-	/**
-	 * 生成key的策略:根据类名+方法名+所有参数的值生成唯一的一个key
-	 * @return key
-	 */
-	@Bean
-	@Override
-	public KeyGenerator keyGenerator() {
-		return (Object target, Method method, Object... params) -> {
-			StringBuilder sb = new StringBuilder();
-			sb.append(target.getClass().getName());
-			sb.append(method.getName());
-			for (Object obj : params) {
-				sb.append(obj.toString());
-			}
-			return sb.toString();
-		};
 	}
 
 	/**
