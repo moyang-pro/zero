@@ -1,4 +1,4 @@
-package com.moyang.zero.common;
+package com.moyang.zero.common.constant;
 
 public class ApplicationConstant {
 

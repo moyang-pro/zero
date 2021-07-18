@@ -1,7 +1,7 @@
 package com.moyang.zero.manager;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.moyang.zero.common.ApplicationConstant;
+import com.moyang.zero.common.constant.ApplicationConstant;
 import com.moyang.zero.common.enums.DelEnum;
 import com.moyang.zero.entity.SysMember;
 import com.moyang.zero.mapper.SysMemberMapper;

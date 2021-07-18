@@ -1,6 +1,6 @@
 package com.moyang.zero.service.impl;
 
-import com.moyang.zero.common.ApplicationConstant;
+import com.moyang.zero.common.constant.ApplicationConstant;
 import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.entity.SysMember;
 import com.moyang.zero.manager.SysMemberManager;
