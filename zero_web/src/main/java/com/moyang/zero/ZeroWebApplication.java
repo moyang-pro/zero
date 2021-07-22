@@ -13,7 +13,12 @@ import org.springframework.context.annotation.PropertySource;
  */
 @SpringBootApplication
 @MapperScan("com.moyang.zero.mapper")
-@PropertySource("classpath:db.properties")
+@PropertySource("")
+//手动加载自定义配置文件
+@PropertySource(value = {
+		"classpath:db.properties",
+		"classpath:prop/common.properties",
+}, encoding = "utf-8")
 @EnableCaching
 //@ImportResource("classpath:/redis/redis.xml")//加载自定义XML配置文件位置
 public class ZeroWebApplication {

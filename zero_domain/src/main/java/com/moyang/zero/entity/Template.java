@@ -1,6 +1,7 @@
 package com.moyang.zero.entity;
 
 
+import com.moyang.zero.common.enums.DelEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -41,5 +42,62 @@ public class Template{
 
     @ApiModelProperty(value = "记录说明")
     private String remarks;
+
+    /**
+     *  创建新记录
+     * @param emy 用户账号
+     * @param remarks 记录描述
+     */
+    public void recordCreateInfo(String emy, String remarks){
+        LocalDateTime now = LocalDateTime.now();
+        this.createBy = emy;
+        this.createAt = now;
+        this.updateBy = emy;
+        this.updateAt = now;
+        this.remarks = remarks;
+    }
+
+    /**
+     *  创建新记录
+     * @param emy 用户账号
+     */
+    public void recordCreateInfo(String emy){
+        LocalDateTime now = LocalDateTime.now();
+        this.createBy = emy;
+        this.createAt = now;
+        this.updateBy = emy;
+        this.updateAt = now;
+        this.remarks = emy+"在"+now+"创建新记录";
+    }
+
+    /**
+     *  创建新记录
+     * @param emy 用户账号
+     * @param remarks 记录描述
+     */
+    public void recordUpdateInfo(String emy, String remarks){
+        LocalDateTime now = LocalDateTime.now();
+        this.updateBy = emy;
+        this.updateAt = now;
+        this.remarks = remarks;
+    }
+
+    /**
+     *  创建新记录
+     * @param emy 用户账号
+     */
+    public void recordUpdateInfo(String emy){
+        LocalDateTime now = LocalDateTime.now();
+        this.updateBy = emy;
+        this.updateAt = now;
+        this.remarks = emy+"在"+now+"更新记录";
+    }
+
+    public void deleted(){
+        this.delFlag = DelEnum.TRUE.getCode();
+    }
+    public void valid(){
+        this.delFlag = DelEnum.FALSE.getCode();
+    }
 
 }
