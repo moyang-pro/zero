@@ -1,5 +1,6 @@
 package com.moyang.zero.common.util;
 
+import com.moyang.zero.common.factory.Eum;
 import org.apache.commons.codec.digest.HmacUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -17,8 +18,10 @@ import java.util.Map;
  * @date 2021.07.23 00:51
  */
 public class SignUtil {
-    private static final String DEFAULT_SECRET = "1qaz@WSX#$%&";
+    private static final String DEFAULT_SECRET = "moyang-5251";
 
-
+   public static  String productOneEum(String emy,String phone,String platCode){
+         return Eum.builder().emy(emy).phone(phone).platCode(platCode).build().toString();
+   }
 
 }

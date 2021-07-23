@@ -1,9 +1,12 @@
 package com.moyang.zero.service.impl;
 
 import com.moyang.zero.common.constant.ApplicationConstant;
+import com.moyang.zero.common.enums.RoleEnum;
 import com.moyang.zero.common.exception.BusinessException;
+import com.moyang.zero.common.util.SignUtil;
 import com.moyang.zero.common.util.VerifyUtil;
 import com.moyang.zero.entity.SysMember;
+import com.moyang.zero.entity.SysMemberRole;
 import com.moyang.zero.manager.SysMemberManager;
 import com.moyang.zero.mapper.SysMemberMapper;
 import com.moyang.zero.req.RegisterReq;
@@ -67,8 +70,22 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		sysMember.recordCreateInfo(emy,"墨阳空间新用户账号注册！");
 		sysMember.valid();
 		//根据平台编码 用户账号 手机号 签名生成 eum
+        sysMember.setEum(SignUtil.productOneEum(emy,req.getPhone(),platCode));
+        //保存新的用户信息
+        this.save(sysMember);
+		System.out.println(sysMember);
+        this.newMemberInit(sysMember);
+		return true;
+	}
 
-		return false;
+	/**
+	 * 新用户 添加角色
+	 * @param sysMember 新用户
+	 */
+	private void newMemberInit(SysMember sysMember) {
+		SysMemberRole roleInfo = new SysMemberRole();
+		roleInfo.setRoleCode(RoleEnum.ROLE_MYCR.getCode());
+
 	}
 
 	@Override
