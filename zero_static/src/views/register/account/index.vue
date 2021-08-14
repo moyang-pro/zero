@@ -136,13 +136,8 @@
 </template>
 
 <script>
-import {
-    checkSpaceExist,
-    delSpace,
-    validPasswordFormat,
-    validPhoneFormat
-} from '@/utils/validate.js'
-import {getCheckCode} from '@/api/register'
+import {checkSpaceExist, delSpace, validPasswordFormat, validPhoneFormat} from '@/utils/validate.js'
+import {getCheckCode,} from '@/api/register'
 
 export default {
     name: 'AccountRegister',
