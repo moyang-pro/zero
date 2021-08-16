@@ -61,10 +61,10 @@
                             >
                                 {{
                                     verifyReShow
-                                        ? '重新获取验证码'
+                                        ? "重新获取验证码"
                                         : verifyShow
-                                        ? timeout + 's'
-                                        : '获取验证码'
+                                        ? timeout + "s"
+                                        : "获取验证码"
                                 }}
                             </Button>
                         </FormItem>
@@ -141,72 +141,72 @@ import {
     delSpace,
     validPasswordFormat,
     validPhoneFormat
-} from '@/utils/validate.js'
-import { getCheckCode } from '@/api/register'
+} from "@/utils/validate.js";
+import { getCheckCode, submitRegisterForm } from "@/api/register";
 
 export default {
-    name: 'AccountRegister',
+    name: "AccountRegister",
     data() {
         const validateAccount = (rule, value, callback) => {
-            value = value.trim()
-            this.accountInfo.account = delSpace(this.accountInfo.account)
-            if (value === '') {
-                callback(new Error('请输入墨阳账号'))
+            value = value.trim();
+            this.accountInfo.account = delSpace(this.accountInfo.account);
+            if (value === "") {
+                callback(new Error("请输入墨阳账号"));
             } else if (value.length < 6 || value.length > 32) {
-                callback(new Error('要求长度6-32个字符'))
+                callback(new Error("要求长度6-32个字符"));
             } else {
                 if (this.accountExist) {
-                    callback(new Error('该账号已经存在'))
+                    callback(new Error("该账号已经存在"));
                 }
-                callback()
+                callback();
             }
-        }
+        };
         const validatePassword = (rule, value, callback) => {
-            if (value === '') {
-                callback(new Error('请输入密码'))
+            if (value === "") {
+                callback(new Error("请输入密码"));
             } else if (checkSpaceExist(value)) {
-                callback(new Error('密码中不能包含空格'))
+                callback(new Error("密码中不能包含空格"));
             } else if (value.length < 6 || value.length > 32) {
-                callback(new Error('要求长度6-32个字符'))
+                callback(new Error("要求长度6-32个字符"));
             } else if (!validPasswordFormat(value)) {
                 callback(
                     new Error(
-                        '必须是数字、字母与特殊符号(除空格外)两种及以上的组合'
+                        "必须是数字、字母与特殊符号(除空格外)两种及以上的组合"
                     )
-                )
+                );
             } else {
-                if (this.accountInfo.passwordCheck !== '') {
+                if (this.accountInfo.passwordCheck !== "") {
                     // 对第二个密码框单独验证
-                    this.$refs.formRegister.validateField('passwordCheck')
+                    this.$refs.formRegister.validateField("passwordCheck");
                 }
-                callback()
+                callback();
             }
-        }
+        };
         const validatePasswordCheck = (rule, value, callback) => {
-            if (value === '') {
-                callback(new Error('请确认密码'))
+            if (value === "") {
+                callback(new Error("请确认密码"));
             } else if (value !== this.accountInfo.password) {
-                callback(new Error('两次输入的密码不匹配'))
+                callback(new Error("两次输入的密码不匹配"));
             } else {
-                callback()
+                callback();
             }
-        }
+        };
         const validatePhone = (rule, value, callback) => {
-            if (value === '') {
-                callback(new Error('请输入手机号'))
+            if (value === "") {
+                callback(new Error("请输入手机号"));
             } else if (!validPhoneFormat(value)) {
-                callback(new Error('手机号格式不正确'))
+                callback(new Error("手机号格式不正确"));
             } else {
-                callback()
+                callback();
             }
-        }
+        };
         return {
             accountInfo: {
-                account: '',
-                password: '',
-                passwordCheck: '',
-                phone: '',
-                smsCode: ''
+                account: "",
+                password: "",
+                passwordCheck: "",
+                phone: "",
+                smsCode: ""
             },
             accountExist: false,
             checked: false,
@@ -217,60 +217,67 @@ export default {
                 account: [
                     {
                         validator: validateAccount,
-                        trigger: 'blur'
+                        trigger: "blur"
                     }
                 ],
                 password: [
                     {
                         validator: validatePassword,
-                        trigger: 'blur'
+                        trigger: "blur"
                     }
                 ],
                 passwordCheck: [
                     {
                         validator: validatePasswordCheck,
-                        trigger: 'blur'
+                        trigger: "blur"
                     }
                 ],
                 phone: [
                     {
                         validator: validatePhone,
-                        trigger: 'blur'
+                        trigger: "blur"
                     }
                 ]
             }
-        }
+        };
     },
     methods: {
         toOtherRegisterWay(path) {
             if (path) {
-                this.$router.push(path)
+                this.$router.push(path);
             } else {
-                this.$message.error('跳转页面失败！')
+                this.$message.error("跳转页面失败！");
             }
         },
         getSmsCode(phone) {
             const param = {
                 phone: phone
-            }
-            getCheckCode(param)
-            this.verifyReShow = false
+            };
+            getCheckCode(param);
+            this.verifyReShow = false;
             if (!this.verifyShow) {
                 // to do
                 const interval = setInterval(() => {
-                    this.timeout = this.timeout - 1
+                    this.timeout = this.timeout - 1;
                     if (this.timeout === 0) {
-                        clearInterval(interval)
-                        this.verifyReShow = true
-                        this.verifyShow = false
-                        this.timeout = 60
+                        clearInterval(interval);
+                        this.verifyReShow = true;
+                        this.verifyShow = false;
+                        this.timeout = 60;
                     }
-                }, 1000)
+                }, 1000);
             }
-            this.verifyShow = true
+            this.verifyShow = true;
+        },
+        handleSubmit(formName) {
+            this.$ref[formName].validate(valid => {
+                if (valid) {
+                    submitRegisterForm(this.accountInfo);
+                }
+            });
         }
     }
-}
+};
 </script>
 
 <style scoped>
