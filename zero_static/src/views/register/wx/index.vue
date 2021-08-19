@@ -77,22 +77,22 @@
 
 <script>
 export default {
-    name: 'WxRegister',
+    name: "WxRegister",
     data() {
         return {
             showOtherRegisterWay: false
-        }
+        };
     },
     methods: {
         toOtherRegisterWay(path) {
             if (path) {
-                this.$router.push(path)
+                this.$router.push(path);
             } else {
-                this.$message.error('跳转页面失败！')
+                this.$message.error("跳转页面失败！");
             }
         }
     }
-}
+};
 </script>
 <style scoped>
 .content-wx-register {

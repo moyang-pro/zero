@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/home/index'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/home/index";
 /* Layout */
 // import Layout from '@/layout'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -25,59 +25,59 @@ Vue.use(VueRouter)
  */
 const constantRoutes = [
     {
-        path: '/',
-        name: 'Home',
+        path: "/",
+        name: "Home",
         component: Home,
-        redirect: '/login'
+        redirect: "/login"
     },
     {
-        path: '/login',
-        name: 'Login',
-        component: () => import('@/views/login')
+        path: "/login",
+        name: "Login",
+        component: () => import("@/views/login")
     },
     {
-        path: '/help',
-        name: 'Help',
-        component: () => import('@/views/help')
+        path: "/help",
+        name: "Help",
+        component: () => import("@/views/help")
     },
     {
-        path: '/register',
-        name: 'Register',
-        component: () => import('@/views/register/index'),
-        redirect: '/register/emy-account',
+        path: "/register",
+        name: "Register",
+        component: () => import("@/views/register/index"),
+        redirect: "/register/emy-account",
         children: [
             {
-                path: 'wx',
-                name: 'WxRegister',
-                component: () => import('@/views/register/wx')
+                path: "wx",
+                name: "WxRegister",
+                component: () => import("@/views/register/wx")
             },
             {
-                path: 'email',
-                name: 'EmailRegister',
-                component: () => import('@/views/register/email')
+                path: "email",
+                name: "EmailRegister",
+                component: () => import("@/views/register/email")
             },
             {
-                path: 'emy-account',
-                name: 'AccountRegister',
-                component: () => import('@/views/register/account')
+                path: "emy-account",
+                name: "AccountRegister",
+                component: () => import("@/views/register/account")
             }
         ]
     }
-]
+];
 
 const createRouter = () =>
     new VueRouter({
         // mode: 'history', // require service support
         scrollBehavior: () => ({ y: 0 }),
         routes: constantRoutes
-    })
+    });
 
-const router = createRouter()
+const router = createRouter();
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-    const newRouter = createRouter()
-    router.matcher = newRouter.matcher // reset router
+    const newRouter = createRouter();
+    router.matcher = newRouter.matcher; // reset router
 }
 
-export default router
+export default router;
