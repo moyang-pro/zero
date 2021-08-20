@@ -1,4 +1,4 @@
-package com.moyang.zero.utils.http;
+package com.moyang.zero.common.util.http;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

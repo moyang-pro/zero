@@ -1,8 +1,9 @@
 package com.moyang.zero.service;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import com.moyang.zero.entity.SysMember;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.entity.SysMember;
+import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
 
 /**
@@ -28,4 +29,11 @@ public interface ISysMemberService extends IService<SysMember> {
 	 * @return 6位验证码
 	 */
 	String getCheckCode(String phone);
+
+	/**
+	 * 用户账号密码登录
+	 * @param req 登录信息
+	 * @return 登录成功与失败
+	 */
+	Result<String> userAccountLogin(AccountLoginReq req);
 }

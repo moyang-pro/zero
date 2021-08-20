@@ -6,7 +6,11 @@
                 <div class="block-left"></div>
                 <div class="block">
                     <div class="tab-login" v-show="loginType === 0">
-                        <el-tabs v-model="way" @tab-click="handleClick" id="login-tab-code">
+                        <el-tabs
+                            v-model="way"
+                            @tab-click="handleClick"
+                            id="login-tab-code"
+                        >
                             <el-tab-pane label="微信扫码登录" name="qrcode">
                                 <div class="login-title">
                                     <span>请使用微信扫一扫登录</span>
@@ -84,7 +88,7 @@
                         </div>
                         <div class="account-login-form">
                             <Form
-                                ref="formRegister"
+                                ref="formLogin"
                                 :model="accountInfo"
                                 :rules="ruleCustom"
                             >
@@ -110,7 +114,7 @@
                                     <Button
                                         style="height: 45px;width: 100%"
                                         type="primary"
-                                        @click="handleSubmit('formRegister')"
+                                        @click="handleSubmit('formLogin')"
                                     >
                                         确认登录
                                     </Button>
@@ -264,87 +268,103 @@
 </template>
 
 <script>
-import ZeroHeader from '@/components/header/index.vue'
-import ZeroFooter from '@/components/footer/index.vue'
-import { delSpace } from '@/utils/validate'
+import ZeroHeader from "@/components/header/index.vue";
+import ZeroFooter from "@/components/footer/index.vue";
+import {delSpace} from "@/utils/validate";
+import {userAccountLogin} from "@/api/user.js";
+
 export default {
-    name: 'Home',
+    name: "Home",
     components: {
         ZeroHeader,
         ZeroFooter
     },
     data() {
         const validateAccount = (rule, value, callback) => {
-            value = value.trim()
-            this.accountInfo.account = delSpace(this.accountInfo.account)
-            if (value === '') {
-                callback(new Error('请输入墨阳账号'))
+            value = value.trim();
+            this.accountInfo.account = delSpace(this.accountInfo.account);
+            if (value === "") {
+                callback(new Error("请输入墨阳账号"));
             } else {
                 if (!this.accountExist()) {
-                    callback(new Error('该账号不存在'))
+                    callback(new Error("该账号不存在"));
                 }
-                callback()
+                callback();
             }
-        }
+        };
         const validatePassword = (rule, value, callback) => {
-            if (value === '') {
-                callback(new Error('请输入密码'))
+            if (value === "") {
+                callback(new Error("请输入密码"));
             } else {
-                callback()
+                callback();
             }
-        }
+        };
         return {
             windowHeight: 0,
-            way: 'qrcode',
-            slogan: '因为有你，我们仍在进步！',
+            way: "qrcode",
+            slogan: "因为有你，我们仍在进步！",
             slogans:
-                '没有昨天的今天，怎么会成就你最美的明天' +
-                '如果没有创造，设计毫无意义',
+                "没有昨天的今天，怎么会成就你最美的明天" +
+                "如果没有创造，设计毫无意义",
             loginType: 1,
             accountInfo: {
-                account: '',
-                password: ''
+                account: "",
+                password: ""
             },
             ruleCustom: {
                 account: [
                     {
                         validator: validateAccount,
-                        trigger: 'blur'
+                        trigger: "blur"
                     }
                 ],
                 password: [
                     {
                         validator: validatePassword,
-                        trigger: 'blur'
+                        trigger: "blur"
                     }
                 ]
             }
-        }
+        };
     },
     created() {
-        this.initPage()
-        this.checkedCallBack()
+        this.initPage();
+        this.checkedCallBack();
     },
     methods: {
         handleClick() {
-            console.log(this.windowHeight)
+            console.log(this.windowHeight);
         },
         initPage() {
-            this.windowHeight = window.innerHeight
+            this.windowHeight = window.innerHeight;
         },
         getLoginQrcode() {
-            return require('@/assets/mp-qrcode.jpg')
+            return require("@/assets/mp-qrcode.jpg");
         },
         getSloganImg() {
-            return require('@/assets/working.jpg')
+            return require("@/assets/working.jpg");
         },
         accountExist() {
-            return true
+            return true;
         },
         checkedCallBack(res) {
+            console.log(res);
+        },
+        /**
+         * 表单提交
+         */
+        handleSubmit() {
+            const loginInfo = {
+                emy: this.accountInfo.account,
+                pwd: this.accountInfo.password
+            };
+            console.log("loginInfo:{}", loginInfo);
+            userAccountLogin(loginInfo).then(res => {
+                this.$message.success(res.data);
+            });
         }
     }
-}
+};
 </script>
 <style>
 .login-card {
@@ -438,7 +458,7 @@ export default {
 }
 .img-show:after {
     position: absolute;
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     top: 0;
@@ -478,13 +498,13 @@ export default {
 }
 </style>
 <style lang="scss">
-#login-tab-code{
+#login-tab-code {
     .el-tabs__item {
         width: 186px;
         padding: 0;
         font-size: 20px;
     }
-    .el-tabs__active-bar{
+    .el-tabs__active-bar {
         width: 186px;
     }
 }

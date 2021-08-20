@@ -12,4 +12,6 @@ public class ApplicationConstant {
 	public static  final String REDIS_PREFIX_REGISTER = "CHECK-CODE-";
 
 	public static  final String MOYANG_PRE_UPPER = "MOYANG-";
+
+	public static final  String ZERO_API = "/zero/api";
 }

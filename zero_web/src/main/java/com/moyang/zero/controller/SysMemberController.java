@@ -1,14 +1,18 @@
 package com.moyang.zero.controller;
 
 import com.moyang.zero.common.exception.BusinessException;
-import com.moyang.zero.utils.http.Result;
+import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
 import com.moyang.zero.service.ISysMemberService;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+
+import static com.moyang.zero.common.constant.ApplicationConstant.ZERO_API;
 
 /**
  * <p>
@@ -19,7 +23,8 @@ import javax.annotation.Resource;
  * @since 2021-02-08
  */
 @RestController
-@RequestMapping("/sys-member")
+@RequestMapping(ZERO_API +"/sys-member")
+@Slf4j
 public class SysMemberController extends TemplateController {
 
 	@Resource
@@ -40,12 +45,33 @@ public class SysMemberController extends TemplateController {
 
 	@PostMapping("/register")
 	@ApiOperation(value = "墨阳空间-新用户注册")
-	Result<Boolean> register(@RequestBody RegisterReq req){
+	Result<Boolean> accountRegister(@RequestBody RegisterReq req){
          this.checkRegisterInfo(req);
 		 if(memberService.registerNewMember(req)) {
 		 	return Result.success();
 		 }
 		 return Result.fail();
+	}
+
+
+	@PostMapping("/login")
+	@ApiOperation(value = "墨阳空间-用户登录")
+	Result<String> accountLogin(@RequestBody AccountLoginReq req){
+		log.info("登录controller：{}", req);
+		this.checkAccountLoginInfo(req);
+		return memberService.userAccountLogin(req);
+	}
+
+	private void checkAccountLoginInfo(AccountLoginReq req) {
+		if (req == null){
+			throw new BusinessException("数据异常，登录信息不能为空！");
+		}
+		if(StringUtils.isBlank(req.getEmy())){
+			throw new BusinessException("数据异常，墨阳账号不能为空！");
+		}
+		if(StringUtils.isBlank(req.getPwd())){
+			throw new BusinessException("数据异常，密码不能为空！");
+		}
 	}
 
 	/**

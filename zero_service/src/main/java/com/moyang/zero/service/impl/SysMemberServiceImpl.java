@@ -1,18 +1,21 @@
 package com.moyang.zero.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.moyang.zero.common.constant.ApplicationConstant;
 import com.moyang.zero.common.enums.RoleEnum;
 import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.common.util.SignUtil;
 import com.moyang.zero.common.util.VerifyUtil;
+import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.common.util.redis.RedisUtil;
 import com.moyang.zero.entity.SysMember;
 import com.moyang.zero.entity.SysMemberRole;
 import com.moyang.zero.manager.SysMemberManager;
 import com.moyang.zero.mapper.SysMemberMapper;
+import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
 import com.moyang.zero.service.ISysMemberService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.moyang.zero.common.util.redis.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,7 @@ import javax.annotation.Resource;
  * @since 2021-02-08
  */
 @Service
+@Slf4j
 public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember> implements ISysMemberService {
 
 
@@ -96,5 +100,12 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
         	redisUtil.set(ApplicationConstant.REDIS_PREFIX_REGISTER+phone,code);
         }
 		return code;
+	}
+
+	@Override
+	public Result<String> userAccountLogin(AccountLoginReq req) {
+		log.info("登录：{}", req);
+		//Token
+		return Result.success();
 	}
 }

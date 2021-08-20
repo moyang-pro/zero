@@ -23,6 +23,8 @@ import org.springframework.util.Assert;
 import javax.annotation.Resource;
 import java.lang.reflect.Constructor;
 
+import static com.moyang.zero.common.constant.ApplicationConstant.ZERO_API;
+
 /**
  * 自定义web安全拦截配置
  * @author moyang
@@ -50,6 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				// 默认所有请求通过，但是我们要在需要权限的方法加上安全注解，这样比写死配置灵活很多
 				.anyRequest().permitAll()
+				.and().formLogin().loginProcessingUrl(ZERO_API+"/sys-member/login")
 				.and()
 				// 添加自己编写的两个过滤器
 				.addFilter(new JwtAuthenticationFilter(authenticationManager()))

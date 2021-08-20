@@ -2,7 +2,7 @@ package com.moyang.zero.auth.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.moyang.zero.auth.util.JwtUtil;
-import com.moyang.zero.utils.http.Result;
+import com.moyang.zero.common.util.http.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

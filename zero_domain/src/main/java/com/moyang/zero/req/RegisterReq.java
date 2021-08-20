@@ -2,6 +2,9 @@ package com.moyang.zero.req;
 
 import lombok.Data;
 
+/**
+ * @author moyang
+ */
 @Data
 public class RegisterReq {
 	/**

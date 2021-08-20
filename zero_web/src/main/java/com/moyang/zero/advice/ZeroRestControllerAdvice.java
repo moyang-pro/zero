@@ -2,7 +2,7 @@ package com.moyang.zero.advice;
 
 import com.alibaba.fastjson.JSON;
 import com.moyang.zero.common.exception.BusinessException;
-import com.moyang.zero.utils.http.Result;
+import com.moyang.zero.common.util.http.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.MethodParameter;
