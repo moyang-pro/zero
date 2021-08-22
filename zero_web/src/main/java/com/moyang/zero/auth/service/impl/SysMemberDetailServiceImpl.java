@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class SysMemberDetailServiceImpl implements ISysMemberDetailService {
 	@Override
 	public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+		System.out.println(s);
 		return null;
 	}
 }

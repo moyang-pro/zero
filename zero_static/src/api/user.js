@@ -1,32 +1,32 @@
-import request from "@/utils/request";
+import request from '@/utils/request';
 
 export function login(data) {
     return request({
-        url: "/vue-admin-template/user/login",
-        method: "post",
+        url: '/vue-admin-template/user/login',
+        method: 'post',
         data
     });
 }
 
 export function userAccountLogin(data) {
     return request({
-        url: "/sys-member/login",
-        method: "post",
+        url: '/sys-member/login',
+        method: 'post',
         data
     });
 }
 
 export function getInfo(token) {
     return request({
-        url: "/vue-admin-template/user/info",
-        method: "get",
+        url: '/vue-admin-template/user/info',
+        method: 'get',
         params: { token }
     });
 }
 
 export function logout() {
     return request({
-        url: "/vue-admin-template/user/logout",
-        method: "post"
+        url: '/vue-admin-template/user/logout',
+        method: 'post'
     });
 }

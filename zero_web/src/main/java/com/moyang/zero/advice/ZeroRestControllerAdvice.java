@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
  * @author sunjialin10
  * @date 2019/11/14 17:13
  */
-@RestControllerAdvice(basePackages = {"com.jd.icc.workbench.web.controller"})
+@RestControllerAdvice(basePackages = {"com.moyang.zero.controller"})
 @Slf4j
 public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
 

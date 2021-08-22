@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import ZeroHeader from "@/components/header/index";
-import ZeroFooter from "@/components/footer/index";
+import ZeroHeader from '@/components/header/index';
+import ZeroFooter from '@/components/footer/index';
 
 export default {
-    name: "Register",
+    name: 'Register',
     components: {
         ZeroHeader,
         ZeroFooter

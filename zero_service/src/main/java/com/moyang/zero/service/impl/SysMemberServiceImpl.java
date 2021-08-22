@@ -22,6 +22,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+import static com.moyang.zero.common.enums.PlatCodeEnum.DEFAULT_CODE;
+
 /**
  * <p>
  * 墨阳空间 ---平台---成员信息表 服务实现类
@@ -49,20 +51,21 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 
 	@Override
 	public boolean registerNewMember(RegisterReq req) {
-		//校验验证码
-		String code = req.getCheckCode();
-		String checkCode = redisUtil.getString(req.getPhone());
-		if (StringUtils.isBlank(checkCode)){
-			throw new BusinessException("验证码已失效或错误，请重试！");
-		}
-		if (!checkCode.equals(code)){
-			throw new BusinessException("验证码不正确，请重试！");
-		}
 		String emy = req.getEmy();
-		String platCode = req.getPlatCode();
+		String platCode = req.getPlatCode() == null ? DEFAULT_CODE.getCode(): req.getPlatCode();
+		//校验是否存在
 		SysMember exist = sysMemberManager.getMemberInfoByEmyAndPlat(emy,platCode);
 		if (exist != null){
 			throw new BusinessException("账号已经被注册，请换个账号");
+		}
+		//校验验证码
+		String code = req.getCheckCode();
+		String checkCode = redisUtil.getString(ApplicationConstant.REDIS_PREFIX_REGISTER+req.getPhone());
+		if (StringUtils.isBlank(checkCode)){
+			throw new BusinessException("验证码已失效或错误，请重新获取！");
+		}
+		if (!checkCode.equals(code)){
+			throw new BusinessException("验证码不正确，请重试！");
 		}
 		SysMember sysMember = new SysMember();
 

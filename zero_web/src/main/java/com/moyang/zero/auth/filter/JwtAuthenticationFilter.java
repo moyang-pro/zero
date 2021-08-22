@@ -43,8 +43,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 		// 从请求的 POST 中拿取 username 和 password 两个字段进行登入
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username = request.getParameter("emy");
+		String password = request.getParameter("pwd");
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
 		// 设置一些客户 IP 啥信息，后面想用的话可以用，虽然没啥用
 		setDetails(request, token);

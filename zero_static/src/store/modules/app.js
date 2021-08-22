@@ -1,13 +1,12 @@
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 const state = {
     sidebar: {
-        opened: Cookies.get("sidebarStatus")
-            ? !!+Cookies.get("sidebarStatus")
-            : true,
+        opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
         withoutAnimation: false
     },
-    device: "desktop"
+    device: 'desktop',
+    platCode: 'ZERO_CODE'
 };
 
 const mutations = {
@@ -15,30 +14,36 @@ const mutations = {
         state.sidebar.opened = !state.sidebar.opened;
         state.sidebar.withoutAnimation = false;
         if (state.sidebar.opened) {
-            Cookies.set("sidebarStatus", 1);
+            Cookies.set('sidebarStatus', 1);
         } else {
-            Cookies.set("sidebarStatus", 0);
+            Cookies.set('sidebarStatus', 0);
         }
     },
     CLOSE_SIDEBAR: (state, withoutAnimation) => {
-        Cookies.set("sidebarStatus", 0);
+        Cookies.set('sidebarStatus', 0);
         state.sidebar.opened = false;
         state.sidebar.withoutAnimation = withoutAnimation;
     },
     TOGGLE_DEVICE: (state, device) => {
         state.device = device;
+    },
+    TOGGLE_PLAT_CODE: (state, platCode) => {
+        state.platCode = platCode;
     }
 };
 
 const actions = {
     toggleSideBar({ commit }) {
-        commit("TOGGLE_SIDEBAR");
+        commit('TOGGLE_SIDEBAR');
     },
     closeSideBar({ commit }, { withoutAnimation }) {
-        commit("CLOSE_SIDEBAR", withoutAnimation);
+        commit('CLOSE_SIDEBAR', withoutAnimation);
     },
     toggleDevice({ commit }, device) {
-        commit("TOGGLE_DEVICE", device);
+        commit('TOGGLE_DEVICE', device);
+    },
+    togglePlatCode({ commit }, platCode) {
+        commit('TOGGLE_PLAT_CODE', platCode);
     }
 };
 

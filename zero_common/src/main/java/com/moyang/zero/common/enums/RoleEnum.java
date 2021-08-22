@@ -16,8 +16,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum RoleEnum {
 
+    /**
+     * 普通用户，基础权限
+     */
     ROLE_MYCR("COMMON_USER","普通用户"),
+    /**
+     *升级用户，部分高级权限
+     */
     ROLE_MYPR("PRO_USER","专业用户"),
+    /**
+     * 超级用户，全部权限
+     */
     ROLE_MYSR("PRO_USER","超级用户");
 
     private  String code;

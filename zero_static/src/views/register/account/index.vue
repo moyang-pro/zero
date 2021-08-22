@@ -13,11 +13,7 @@
         <div class="account-register-block">
             <div class="layout-block">
                 <div class="account-register-form">
-                    <Form
-                        ref="formRegister"
-                        :model="accountInfo"
-                        :rules="ruleCustom"
-                    >
+                    <Form ref="formRegister" :model="accountInfo" :rules="ruleCustom">
                         <FormItem prop="account">
                             <Input
                                 v-model="accountInfo.account"
@@ -41,13 +37,9 @@
                         </FormItem>
                         <el-divider style="color: #99a9bf">手机信息</el-divider>
                         <FormItem prop="phone">
-                            <Input
-                                v-model="accountInfo.phone"
-                                placeholder="手机号"
-                                type="text"
-                            />
+                            <Input v-model="accountInfo.phone" placeholder="手机号" type="text" />
                         </FormItem>
-                        <FormItem prop="smsCode" style="margin-bottom: 10px;">
+                        <FormItem prop="smsCode" style="margin-bottom: 19px;">
                             <Input
                                 v-model="accountInfo.smsCode"
                                 number
@@ -55,21 +47,18 @@
                                 style="width: 45%"
                                 type="text"
                             />
-                            <Button
-                                class="i-button-checked"
-                                @click="getSmsCode(accountInfo.phone)"
-                            >
+                            <Button class="i-button-checked" @click="getSmsCode(accountInfo.phone)">
                                 {{
                                     verifyReShow
-                                        ? "重新获取验证码"
+                                        ? '重新获取验证码'
                                         : verifyShow
-                                        ? timeout + "s"
-                                        : "获取验证码"
+                                        ? timeout + 's'
+                                        : '获取验证码'
                                 }}
                             </Button>
                         </FormItem>
-                        <FormItem style="margin-bottom: 25px;text-align: left;">
-                            <Checkbox v-model="checked">
+                        <FormItem style="margin-bottom: 25px;text-align: left;" prop="checked">
+                            <Checkbox v-model="accountInfo.checked">
                                 我已阅读并同意
                             </Checkbox>
                             墨阳空间
@@ -102,10 +91,10 @@
                 </div>
             </div>
         </div>
-        <div class="block-bottom">
+        <div class="block-bottom" v-show="false">
             <div class="other-register-way">
                 <span class="other-register-way-text">
-                    其他登录方式>>
+                    其他注册方式>>
                 </span>
                 <span>
                     <i class="svg-item">
@@ -136,101 +125,129 @@
 </template>
 
 <script>
-import {checkSpaceExist, delSpace, validPasswordFormat, validPhoneFormat} from "@/utils/validate.js";
-import {getCheckCode, submitRegisterForm} from "@/api/register";
+import {checkSpaceExist, delSpace, validPasswordFormat, validPhoneFormat} from '@/utils/validate.js';
+import {getCheckCode, submitRegisterForm} from '@/api/register';
 
 export default {
-    name: "AccountRegister",
+    name: 'AccountRegister',
     data() {
+        const agreement = (rule, value, callback) => {
+            if (!value) {
+                callback(new Error('请勾选同意协议内容'));
+            } else {
+                callback();
+            }
+        };
         const validateAccount = (rule, value, callback) => {
             value = value.trim();
             this.accountInfo.account = delSpace(this.accountInfo.account);
-            if (value === "") {
-                callback(new Error("请输入墨阳账号"));
+            if (value === '') {
+                callback(new Error('请输入墨阳账号'));
             } else if (value.length < 6 || value.length > 32) {
-                callback(new Error("要求长度6-32个字符"));
+                callback(new Error('要求长度6-32个字符'));
             } else {
                 if (this.accountExist) {
-                    callback(new Error("该账号已经存在"));
+                    callback(new Error('该账号已经存在'));
                 }
                 callback();
             }
         };
         const validatePassword = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("请输入密码"));
+            if (value === '') {
+                callback(new Error('请输入密码'));
             } else if (checkSpaceExist(value)) {
-                callback(new Error("密码中不能包含空格"));
+                callback(new Error('密码中不能包含空格'));
             } else if (value.length < 6 || value.length > 32) {
-                callback(new Error("要求长度6-32个字符"));
+                callback(new Error('要求长度6-32个字符'));
             } else if (!validPasswordFormat(value)) {
-                callback(
-                    new Error(
-                        "必须是数字、字母与特殊符号(除空格外)两种及以上的组合"
-                    )
-                );
+                callback(new Error('必须是数字、字母与特殊符号(除空格外)两种及以上的组合'));
             } else {
-                if (this.accountInfo.passwordCheck !== "") {
+                if (this.accountInfo.passwordCheck !== '') {
                     // 对第二个密码框单独验证
-                    this.$refs.formRegister.validateField("passwordCheck");
+                    this.$refs.formRegister.validateField('passwordCheck');
                 }
                 callback();
             }
         };
         const validatePasswordCheck = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("请确认密码"));
+            if (value === '') {
+                callback(new Error('请确认密码'));
             } else if (value !== this.accountInfo.password) {
-                callback(new Error("两次输入的密码不匹配"));
+                callback(new Error('两次输入的密码不匹配'));
             } else {
                 callback();
             }
         };
         const validatePhone = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("请输入手机号"));
+            if (value === '') {
+                callback(new Error('请输入手机号'));
             } else if (!validPhoneFormat(value)) {
-                callback(new Error("手机号格式不正确"));
+                callback(new Error('手机号格式不正确'));
+            } else {
+                callback();
+            }
+        };
+        const validateSmsCode = (rule, value, callback) => {
+            if (value === '') {
+                if (this.accountInfo.phone && validPhoneFormat(this.accountInfo.phone)) {
+                    callback(new Error('请输入验证码！'));
+                } else {
+                    callback();
+                }
             } else {
                 callback();
             }
         };
         return {
             accountInfo: {
-                account: "",
-                password: "",
-                passwordCheck: "",
-                phone: "",
-                smsCode: ""
+                account: '',
+                password: '',
+                passwordCheck: '',
+                phone: '',
+                smsCode: '',
+                checked: false
             },
             accountExist: false,
-            checked: false,
+            //获取验证码
             verifyShow: false,
+            //重新获取验证码
             verifyReShow: false,
             timeout: 60,
             ruleCustom: {
                 account: [
                     {
                         validator: validateAccount,
-                        trigger: "blur"
+                        trigger: 'blur'
                     }
                 ],
                 password: [
                     {
                         validator: validatePassword,
-                        trigger: "blur"
+                        trigger: 'blur'
                     }
                 ],
                 passwordCheck: [
                     {
                         validator: validatePasswordCheck,
-                        trigger: "blur"
+                        trigger: 'blur'
                     }
                 ],
                 phone: [
                     {
                         validator: validatePhone,
-                        trigger: "blur"
+                        trigger: 'blur'
+                    }
+                ],
+                smsCode: [
+                    {
+                        validator: validateSmsCode,
+                        trigger: 'blur'
+                    }
+                ],
+                checked: [
+                    {
+                        validator: agreement,
+                        trigger: 'blur'
                     }
                 ]
             }
@@ -241,14 +258,17 @@ export default {
             if (path) {
                 this.$router.push(path);
             } else {
-                this.$message.error("跳转页面失败！");
+                this.$message.error('跳转页面失败！');
             }
         },
         getSmsCode(phone) {
-            const param = {
-                phone: phone
-            };
-            getCheckCode(param);
+            //手机号为空或手机号格式不正确，返回
+            if (!phone || !validPhoneFormat(phone)) {
+                return;
+            }
+            if (!this.verifyShow || this.verifyReShow) {
+                this.sendGetCheckCodeReq(phone);
+            }
             this.verifyReShow = false;
             if (!this.verifyShow) {
                 // to do
@@ -264,13 +284,35 @@ export default {
             }
             this.verifyShow = true;
         },
-        handleSubmit(formName) {
-            this.$ref[formName].validate(valid => {
-                if (valid) {
-                    submitRegisterForm(this.accountInfo).then(() => {
-                        this.$message.success("新用户注册成功");
-                    });
+        sendGetCheckCodeReq(phone) {
+            const param = {
+                phone: phone
+            };
+            getCheckCode(param).then(res => {
+                if (res.success) {
+                    this.$message('验证码:' + res.data);
                 }
+            });
+        },
+        handleSubmit(formName) {
+            this.$nextTick(() => {
+                this.$refs[formName].validate(valid => {
+                    if (valid) {
+                        const registerInfo = {
+                            emy: this.accountInfo.account,
+                            pwd: this.accountInfo.password,
+                            phone: this.accountInfo.phone,
+                            checkCode: this.accountInfo.smsCode,
+                            platCode: this.$store.state.app.platCode
+                        };
+                        submitRegisterForm(registerInfo).then(() => {
+                            this.$message.success('新用户注册成功');
+                            this.$router.push('/login');
+                        });
+                    } else {
+                        return false;
+                    }
+                });
             });
         }
     }

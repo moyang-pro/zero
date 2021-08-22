@@ -6,24 +6,14 @@
                 <div class="block-left"></div>
                 <div class="block">
                     <div class="tab-login" v-show="loginType === 0">
-                        <el-tabs
-                            v-model="way"
-                            @tab-click="handleClick"
-                            id="login-tab-code"
-                        >
+                        <el-tabs v-model="way" @tab-click="handleClick" id="login-tab-code">
                             <el-tab-pane label="微信扫码登录" name="qrcode">
                                 <div class="login-title">
                                     <span>请使用微信扫一扫登录</span>
                                     |
-                                    <span
-                                        class="qrcode-refresh"
-                                        style="cursor: pointer"
-                                    >
+                                    <span class="qrcode-refresh" style="cursor: pointer">
                                         刷新
-                                        <i
-                                            class="el-icon-refresh"
-                                            style="cursor: pointer"
-                                        ></i>
+                                        <i class="el-icon-refresh" style="cursor: pointer"></i>
                                     </span>
                                 </div>
                                 <div class="img-qrcode">
@@ -34,27 +24,19 @@
                                         <img
                                             style="width: 210px; height:210px"
                                             title="点击刷新二维码"
-                                            :src="
-                                                require('@/assets/mp-qrcode.jpg')
-                                            "
+                                            :src="require('@/assets/mp-qrcode.jpg')"
                                             alt="公众号二维码"
                                         />
                                     </el-card>
                                 </div>
                             </el-tab-pane>
-                            <el-tab-pane label="墨阳扫码登录" name="password">
+                            <el-tab-pane label="墨阳扫码登录" name="password" v-if="false">
                                 <div class="login-title">
                                     <span>请使用墨阳小程序扫一扫登录</span>
                                     |
-                                    <span
-                                        class="qrcode-refresh"
-                                        style="cursor: pointer"
-                                    >
+                                    <span class="qrcode-refresh" style="cursor: pointer">
                                         刷新
-                                        <i
-                                            class="el-icon-refresh"
-                                            style="cursor: pointer"
-                                        ></i>
+                                        <i class="el-icon-refresh" style="cursor: pointer"></i>
                                     </span>
                                 </div>
                                 <div class="img-qrcode">
@@ -65,9 +47,7 @@
                                         <img
                                             style="width: 210px; height:210px"
                                             title="点击刷新二维码"
-                                            :src="
-                                                require('@/assets/mp-qrcode.jpg')
-                                            "
+                                            :src="require('@/assets/mp-qrcode.jpg')"
                                             alt="公众号二维码"
                                         />
                                     </el-card>
@@ -87,11 +67,7 @@
                             </span>
                         </div>
                         <div class="account-login-form">
-                            <Form
-                                ref="formLogin"
-                                :model="accountInfo"
-                                :rules="ruleCustom"
-                            >
+                            <Form ref="formLogin" :model="accountInfo" :rules="ruleCustom">
                                 <FormItem prop="account">
                                     <Input
                                         type="text"
@@ -142,11 +118,7 @@
                             </i>
                             QQ登录
                         </span>
-                        <span
-                            class="way-item"
-                            title="扫码"
-                            @click="loginType = 1"
-                        >
+                        <span class="way-item" title="扫码" @click="loginType = 1">
                             <i class="logo-img">
                                 <span class="svg-container">
                                     <svg-icon icon-class="account" />
@@ -155,7 +127,7 @@
                             密码登录
                         </span>
                     </div>
-                    <div class="other-login-way" v-if="loginType === 1">
+                    <div class="other-login-way" v-if="loginType === 1" v-show="false">
                         <span style="margin: 10px;color: #97a8be">
                             其他登录方式
                         </span>
@@ -175,11 +147,7 @@
                             </i>
                             QQ登录
                         </span>
-                        <span
-                            class="way-item"
-                            title="扫码"
-                            @click="loginType = 0"
-                        >
+                        <span class="way-item" title="扫码" @click="loginType = 0">
                             <i class="logo-img">
                                 <span class="svg-container">
                                     <svg-icon icon-class="qrcode" />
@@ -189,30 +157,24 @@
                         </span>
                     </div>
                     <div class="extra-block">
-                        <div
-                            style="border-top:1px #e4e4e4 dashed;width:100%;margin-top: 10px"
-                        />
+                        <div style="border-top:1px #e4e4e4 dashed;width:100%;margin-top: 10px" />
                         <div class="content-area-button">
                             <router-link to="/register">立即注册</router-link>
-                            <el-divider direction="vertical"></el-divider>
-                            <router-link to="/account/recover">
+                            <el-divider direction="vertical" v-if="false"></el-divider>
+                            <router-link to="/account/recover" v-if="false">
                                 忘记账号
                             </router-link>
                             <el-divider direction="vertical"></el-divider>
                             <router-link to="/register">忘记密码</router-link>
-                            <el-divider direction="vertical"></el-divider>
-                            <router-link to="/register">子账号登录</router-link>
+                            <el-divider direction="vertical" v-if="false"></el-divider>
+                            <router-link to="/register" v-if="false">子账号登录</router-link>
                         </div>
-                        <div
-                            style="border-top:1px #e4e4e4 dashed;width:100%;"
-                        />
+                        <div style="border-top:1px #e4e4e4 dashed;width:100%;" />
                         <div class="login-tip">
                             <span>关于墨阳空间登录</span>
                             <p class="moyang-room-tip">
                                 初次使用的用户可以使用微信扫码关注“
-                                <span
-                                    style="font-weight: bold;color: #20a0ff;cursor: pointer"
-                                >
+                                <span style="font-weight: bold;color: #20a0ff;cursor: pointer">
                                     墨阳人生
                                 </span>
                                 ”公众号自动授权登录，也可使用邮箱、QQ和墨阳账号注册登录，
@@ -224,10 +186,7 @@
                     </div>
                 </div>
             </div>
-            <el-divider
-                direction="vertical"
-                class="login-card-divider"
-            ></el-divider>
+            <el-divider direction="vertical" class="login-card-divider"></el-divider>
             <div class="login-right-card">
                 <div class="block">
                     <div class="show-card-title">
@@ -268,13 +227,13 @@
 </template>
 
 <script>
-import ZeroHeader from "@/components/header/index.vue";
-import ZeroFooter from "@/components/footer/index.vue";
-import {delSpace} from "@/utils/validate";
-import {userAccountLogin} from "@/api/user.js";
+import ZeroHeader from '@/components/header/index.vue';
+import ZeroFooter from '@/components/footer/index.vue';
+import {delSpace} from '@/utils/validate';
+import {userAccountLogin} from '@/api/user.js';
 
 export default {
-    name: "Home",
+    name: 'Home',
     components: {
         ZeroHeader,
         ZeroFooter
@@ -283,45 +242,43 @@ export default {
         const validateAccount = (rule, value, callback) => {
             value = value.trim();
             this.accountInfo.account = delSpace(this.accountInfo.account);
-            if (value === "") {
-                callback(new Error("请输入墨阳账号"));
+            if (value === '') {
+                callback(new Error('请输入墨阳账号'));
             } else {
                 if (!this.accountExist()) {
-                    callback(new Error("该账号不存在"));
+                    callback(new Error('该账号不存在'));
                 }
                 callback();
             }
         };
         const validatePassword = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("请输入密码"));
+            if (value === '') {
+                callback(new Error('请输入密码'));
             } else {
                 callback();
             }
         };
         return {
             windowHeight: 0,
-            way: "qrcode",
-            slogan: "因为有你，我们仍在进步！",
-            slogans:
-                "没有昨天的今天，怎么会成就你最美的明天" +
-                "如果没有创造，设计毫无意义",
+            way: 'qrcode',
+            slogan: '因为有你，我们仍在进步！',
+            slogans: '没有昨天的今天，怎么会成就你最美的明天' + '如果没有创造，设计毫无意义',
             loginType: 1,
             accountInfo: {
-                account: "",
-                password: ""
+                account: '',
+                password: ''
             },
             ruleCustom: {
                 account: [
                     {
                         validator: validateAccount,
-                        trigger: "blur"
+                        trigger: 'blur'
                     }
                 ],
                 password: [
                     {
                         validator: validatePassword,
-                        trigger: "blur"
+                        trigger: 'blur'
                     }
                 ]
             }
@@ -339,10 +296,10 @@ export default {
             this.windowHeight = window.innerHeight;
         },
         getLoginQrcode() {
-            return require("@/assets/mp-qrcode.jpg");
+            return require('@/assets/mp-qrcode.jpg');
         },
         getSloganImg() {
-            return require("@/assets/working.jpg");
+            return require('@/assets/working.jpg');
         },
         accountExist() {
             return true;
@@ -355,10 +312,10 @@ export default {
          */
         handleSubmit() {
             const loginInfo = {
-                emy: this.accountInfo.account,
-                pwd: this.accountInfo.password
+                username: this.accountInfo.account,
+                password: this.accountInfo.password
             };
-            console.log("loginInfo:{}", loginInfo);
+            console.log('loginInfo:{}', loginInfo);
             userAccountLogin(loginInfo).then(res => {
                 this.$message.success(res.data);
             });
@@ -458,7 +415,7 @@ export default {
 }
 .img-show:after {
     position: absolute;
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     top: 0;
