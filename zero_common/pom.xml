@@ -21,7 +21,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <optional>true</optional>
         </dependency>
         <!-- AOP依赖模块 -->
         <dependency>
@@ -82,6 +81,17 @@
             <artifactId>commons-codec</artifactId>
         </dependency>
         <!--redis end-->
+        <!-- MinIO SDK-->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+        </dependency>
+        <!-- I/O工具包，方便I/O操作-->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

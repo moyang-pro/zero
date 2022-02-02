@@ -25,6 +25,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
 
+/**
+ * @author moyang
+ */
 @Configuration
 @EnableCaching
 @PropertySource("classpath:/redis/redis.properties") //指定自定义配置文件位置和名称

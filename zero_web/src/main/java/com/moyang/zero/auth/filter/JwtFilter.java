@@ -1,6 +1,7 @@
 package com.moyang.zero.auth.filter;
 
 import com.moyang.zero.auth.token.JwtToken;
+import com.moyang.zero.auth.util.LoginContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,8 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 	protected boolean isLoginAttempt(ServletRequest request, ServletResponse response) {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String authorization = req.getHeader("Authorization");
+		log.info("authorization: ........." + authorization);
+		LoginContext.setLoginContextByRequest(req);
 		if(authorization != null) {
 			log.info("用户已经登录系统...");
 			return true;

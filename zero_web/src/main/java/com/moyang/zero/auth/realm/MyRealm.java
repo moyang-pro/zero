@@ -2,10 +2,13 @@ package com.moyang.zero.auth.realm;
 
 import com.moyang.zero.auth.token.JwtToken;
 import com.moyang.zero.auth.util.JwtUtil;
+import com.moyang.zero.auth.util.LoginContext;
+import com.moyang.zero.entity.SysMember;
 import com.moyang.zero.entity.auth.SysMemberDetail;
 import com.moyang.zero.entity.auth.SysPrivilegeDetail;
 import com.moyang.zero.entity.auth.SysRoleDetail;
 import com.moyang.zero.service.auth.ISysMemberDetailService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -24,6 +27,7 @@ import javax.annotation.Resource;
  * @Description: realm 自定义
  * @Version: V1.0
  **/
+@Slf4j
 public class MyRealm extends AuthorizingRealm {
 
 	@Resource
@@ -41,9 +45,11 @@ public class MyRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+		log.info("user request doGetAuthorizationInfo 鉴权........................");
 		String username = JwtUtil.getUsername(principals.toString());
 		String platCode = JwtUtil.getPlatCode(principals.toString());
-		SysMemberDetail sysMemberDetail = sysMemberDetailService.loadUserByUsername(username, platCode);
+		SysMemberDetail sysMemberDetail = sysMemberDetailService.loadAllInfoByUser(username, platCode);
+		LoginContext.setLoginContextBySysMember(sysMemberDetail);
 		SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
 		//获得用户的角色，及权限进行绑定
 		for(SysRoleDetail roleDetail : sysMemberDetail.getSysRoleList()){
@@ -63,6 +69,7 @@ public class MyRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+		log.info("user request doGetAuthenticationInfo 认证........................");
 		String token = (String) authenticationToken.getCredentials();
 		// 解密获得username，用于和数据库进行对比
 		String username = JwtUtil.getUsername(token);
@@ -70,11 +77,11 @@ public class MyRealm extends AuthorizingRealm {
 			throw new AuthenticationException("token 无效！");
 		}
 		String platCode = JwtUtil.getPlatCode(token);
-		SysMemberDetail sysMemberDetail = sysMemberDetailService.loadUserByUsername(username, platCode);
-		if (sysMemberDetail == null) {
+		SysMember sysMember = sysMemberDetailService.loadUserByUsername(username, platCode);
+		if (sysMember == null) {
 			throw new AuthenticationException("用户" + username + "不存在") ;
 		}
-		if (!JwtUtil.verify(token, username, platCode, sysMemberDetail.getPassword())) {
+		if (!JwtUtil.verify(token, username, platCode, sysMember.getPassword())) {
 			throw new AuthenticationException("账户密码错误!");
 		}
 		return new SimpleAuthenticationInfo(token, token, "my_realm");

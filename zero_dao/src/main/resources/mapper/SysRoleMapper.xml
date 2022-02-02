@@ -2,4 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.moyang.zero.mapper.SysRoleMapper">
 
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.moyang.zero.entity.SysRole">
+        <result column="id" property="id" />
+        <result column="create_at" property="createAt" />
+        <result column="create_by" property="createBy" />
+        <result column="update_at" property="updateAt" />
+        <result column="update_by" property="updateBy" />
+        <result column="del_flag" property="delFlag" />
+        <result column="remarks" property="remarks" />
+        <result column="role_name" property="roleName" />
+        <result column="role_code" property="roleCode" />
+        <result column="description" property="description" />
+        <result column="type" property="type" />
+        <result column="my_code" property="myCode" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        create_at,
+        create_by,
+        update_at,
+        update_by,
+        del_flag,
+        remarks,
+        role_name, role_code, description, type, my_code
+    </sql>
+
+    <select id="findRolesByUser" parameterType="String" resultMap="BaseResultMap">
+        select distinct sr.id, sr.create_at, sr.create_by, sr.update_at, sr.update_by, sr.del_flag, sr.remarks,
+               sr.role_name, sr.role_code, sr.description, sr.type, sr.my_code
+        from sys_role  sr right join  sys_member_role smr
+        on smr.del_flag = 0 and smr.my_code = #{platCode} and smr.emy = #{emy} and sr.role_code = smr.role_code
+        group by sr.role_code order by sr.id asc
+    </select>
 </mapper>

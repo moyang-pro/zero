@@ -8,3 +8,9 @@ ZERO项目拿到毕业证正式启动
 # 7.22
 Springboot + shiro + JWT + redis 实现 登录安全验证和权限管理
 密码加密 日志切面 自定义注解
+
+# 2022.2.3
+统一登录信息 request作用域的bean
+文件上传 oss整合minio
+blog markdown 文件编辑器 mavonEditor的使用
+#

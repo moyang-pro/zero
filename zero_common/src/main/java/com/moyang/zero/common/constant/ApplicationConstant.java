@@ -14,4 +14,9 @@ public class ApplicationConstant {
 	public static  final String MOYANG_PRE_UPPER = "MOYANG-";
 
 	public static final  String ZERO_API = "/zero/api";
+
+	public static  final String HTTP_PRE = "http://";
+
+	public static  final String HTTP = "http";
+
 }

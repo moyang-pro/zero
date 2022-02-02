@@ -7,3 +7,11 @@ export function writeBlog(data) {
         params: data
     });
 }
+
+export function uploadImg(data) {
+    return request({
+        url: '/file/blog/upload',
+        method: 'post',
+        data: data
+    });
+}

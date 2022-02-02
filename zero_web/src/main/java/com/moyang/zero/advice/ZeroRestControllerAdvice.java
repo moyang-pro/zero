@@ -5,6 +5,7 @@ import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.common.util.http.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
  * @author sunjialin10
  * @date 2019/11/14 17:13
  */
-@RestControllerAdvice(basePackages = {"com.moyang.zero.controller"})
+@RestControllerAdvice(basePackages = {"com.moyang.zero.controller","com.moyang.zero.auth.realm"})
 @Slf4j
 public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
 
@@ -36,6 +37,9 @@ public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
         log.error("统一异常处理", e);
         if (e instanceof BusinessException) {
             return Result.fail(e.getMessage());
+        }
+        if (e instanceof AuthenticationException) {
+            return Result.fail(401, e.getMessage());
         }
         if (e instanceof BindException) {
             BindingResult re = ((BindException) e).getBindingResult();
