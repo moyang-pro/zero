@@ -10,6 +10,7 @@ import com.moyang.zero.common.util.http.Result;
 import com.moyang.zero.common.util.redis.RedisUtil;
 import com.moyang.zero.entity.SysMember;
 import com.moyang.zero.entity.SysMemberRole;
+import com.moyang.zero.entity.auth.SysMemberDetail;
 import com.moyang.zero.manager.SysMemberManager;
 import com.moyang.zero.mapper.SysMemberMapper;
 import com.moyang.zero.req.AccountLoginReq;
@@ -21,8 +22,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-
-import static com.moyang.zero.common.enums.PlatCodeEnum.DEFAULT_CODE;
 
 /**
  * <p>
@@ -52,15 +51,15 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 	@Override
 	public boolean registerNewMember(RegisterReq req) {
 		String emy = req.getEmy();
-		String platCode = req.getPlatCode() == null ? DEFAULT_CODE.getCode(): req.getPlatCode();
+		String platCode = req.getPlatCode();
 		//校验是否存在
-		SysMember exist = sysMemberManager.getMemberInfoByEmyAndPlat(emy,platCode);
+		SysMember exist = sysMemberManager.getMemberInfoByEmyAndPlat(emy, platCode);
 		if (exist != null){
 			throw new BusinessException("账号已经被注册，请换个账号");
 		}
 		//校验验证码
 		String code = req.getCheckCode();
-		String checkCode = redisUtil.getString(ApplicationConstant.REDIS_PREFIX_REGISTER+req.getPhone());
+		String checkCode = redisUtil.getString(ApplicationConstant.REDIS_PREFIX_REGISTER + req.getPhone());
 		if (StringUtils.isBlank(checkCode)){
 			throw new BusinessException("验证码已失效或错误，请重新获取！");
 		}
@@ -77,10 +76,9 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		sysMember.recordCreateInfo(emy,"墨阳空间新用户账号注册！");
 		sysMember.valid();
 		//根据平台编码 用户账号 手机号 签名生成 eum
-        sysMember.setEum(SignUtil.productOneEum(emy,req.getPhone(),platCode));
+        sysMember.setEum(SignUtil.productOneEum(emy, req.getPhone(), platCode));
         //保存新的用户信息
         this.save(sysMember);
-		System.out.println(sysMember);
         this.newMemberInit(sysMember);
 		return true;
 	}
@@ -92,7 +90,6 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 	private void newMemberInit(SysMember sysMember) {
 		SysMemberRole roleInfo = new SysMemberRole();
 		roleInfo.setRoleCode(RoleEnum.ROLE_MYCR.getCode());
-
 	}
 
 	@Override
@@ -100,7 +97,7 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		String code = redisUtil.getString(phone);
         if (StringUtils.isBlank(code)){
         	code = VerifyUtil.getRandomRegisterCode(verifyNum);
-        	redisUtil.set(ApplicationConstant.REDIS_PREFIX_REGISTER+phone,code);
+        	redisUtil.set(ApplicationConstant.REDIS_PREFIX_REGISTER + phone, code);
         }
 		return code;
 	}
@@ -108,7 +105,16 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 	@Override
 	public Result<String> userAccountLogin(AccountLoginReq req) {
 		log.info("登录：{}", req);
-		//Token
+		String platCode = req.getPlatCode();
+		SysMember exist = sysMemberManager.getMemberInfoByEmyAndPlat(req.getEmy(), platCode);
+		if (exist == null){
+			return Result.fail("用户账号信息为空");
+		}
 		return Result.success();
+	}
+
+	@Override
+	public Result<SysMemberDetail> getSysMemberInfo() {
+		return null;
 	}
 }

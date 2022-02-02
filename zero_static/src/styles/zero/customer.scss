@@ -1,3 +1,25 @@
+.zero-header-container {
+    margin: 0;
+    padding: 0;
+}
+.zero-main-container {
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 125px);
+    width: 100%;
+}
+.zero-footer-container {
+    margin: 0;
+    padding: 0;
+}
+
+.text-ell{
+    overflow:hidden; //超出的文本隐藏
+    text-overflow:ellipsis; //溢出用省略号显示
+    white-space:nowrap; //溢出不换行
+}
+
+
 .ivu-input {
     height: 45px;
 }
@@ -9,4 +31,7 @@
 .ivu-form-item-content{
     line-height: 20px;
 }
+
+
+
 $primary-color: #00a4ff;

@@ -1,10 +1,11 @@
-export default [
+const homeRouter = [
     {
         path: '/home',
-        component: resolve => require(['@/views/home'], resolve),
+        component: () => import('@/views/home'),
         name: 'Home',
         meta: {
             nav: '首页'
         }
     }
-]
+];
+export default homeRouter;

@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/home/index';
 /* Layout */
 // import Layout from '@/layout'
+import homeRoute from '@/router/module/home';
+import blogRoute from '@/router/module/blog';
 
 Vue.use(VueRouter);
 /**
@@ -26,8 +27,7 @@ Vue.use(VueRouter);
 const constantRoutes = [
     {
         path: '/',
-        name: 'Home',
-        component: Home,
+        name: 'Main',
         redirect: '/login'
     },
     {
@@ -62,7 +62,9 @@ const constantRoutes = [
                 component: () => import('@/views/register/account')
             }
         ]
-    }
+    },
+    ...homeRoute,
+    ...blogRoute
 ];
 
 const createRouter = () =>

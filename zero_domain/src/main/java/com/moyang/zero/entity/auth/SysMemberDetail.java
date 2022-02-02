@@ -1,4 +1,4 @@
-package com.moyang.zero.auth.bean;
+package com.moyang.zero.entity.auth;
 
 import lombok.Data;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @Version: V1.0
  **/
 @Data
-public class SysMemberDetail {
+public class SysMemberDetail{
 
 	/**
 	 * 用户emy账号 平台上独一无二
@@ -55,4 +55,6 @@ public class SysMemberDetail {
 	 * 用户角色列表
 	 */
 	private List<SysRoleDetail> sysRoleList;
+
+
 }

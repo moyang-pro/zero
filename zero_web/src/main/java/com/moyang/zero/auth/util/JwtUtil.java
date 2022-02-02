@@ -5,55 +5,34 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.moyang.zero.common.enums.PlatCodeEnum;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;
 
 /**
  * @Author: moyang
- * @ClassName: JwtUtil
- * @Date: 2021/8/19 22:32
- * @Description: jwt工具类
+ * @ClassName: JWTUtil
+ * @Date: 2021/9/16 23:15
+ * @Description: JWT 工具类
  * @Version: V1.0
  **/
+@Slf4j
 public class JwtUtil {
 
-	/**
-	 *  过期时间30分钟
-	 */
-	private final static long EXPIRE_TIME = 30 * 60 * 1000;
+	/**过期时间24小时*/
+	private static final long EXPIRE_TIME = 24 * 60 * 60 * 1000;
 
-	/**
-	 * 生成签名,30min后过期
-	 * @param username 用户名
-	 * @param secret 用户的密码
-	 * @return 加密的token
-	 */
-	public static String sign(String username, String secret) {
-		Date expireDate = new Date(System.currentTimeMillis() + EXPIRE_TIME);
+	public static boolean verify(String token, String username, String platCode,  String secret) {
 		try {
-			Algorithm algorithm = Algorithm.HMAC256(secret);
-			return JWT.create()
-					.withClaim("username", username)
-					.withExpiresAt(expireDate)
-					.sign(algorithm);
-		} catch (Exception e) {
-			return null;
-		}
-	}
+			Algorithm algorithm = Algorithm.HMAC512(secret);
 
-	/**
-	 * 校验token是否正确
-	 * @param token 密钥
-	 * @param secret 用户的密码
-	 * @return 是否正确
-	 */
-	public static boolean verify(String token, String username, String secret) {
-		try {
-			Algorithm algorithm = Algorithm.HMAC256(secret);
 			JWTVerifier verifier = JWT.require(algorithm)
 					.withClaim("username", username)
+					.withClaim("platCode", platCode)
 					.build();
-			DecodedJWT jwt = verifier.verify(token);
+			verifier.verify(token);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -61,16 +40,48 @@ public class JwtUtil {
 	}
 
 	/**
-	 * 获得token中的信息无需secret解密也能获得
-	 * @return token中包含的用户名
+	 * @Title: getUsername
+	 * @Description: 获取token中的信息无需secret解密也能获得
+	 * @author: MoYang
+	 * @create: 2020-07-05 16:40
+	 * @param token token
 	 */
 	public static String getUsername(String token) {
 		try {
 			DecodedJWT jwt = JWT.decode(token);
-			return jwt.getClaim("username").asString();
+			System.out.println(jwt.getId());
+			return jwt.getId();
 		} catch (JWTDecodeException e) {
 			return null;
 		}
 	}
-}
 
+	/**
+	 * @Title: getPlatCode
+	 * @Description: 获取token中的信息无需secret解密也能获得
+	 * @author: MoYang
+	 * @create: 2020-07-05 16:40
+	 * @param token token
+	 */
+	public static String getPlatCode(String token) {
+		try {
+			DecodedJWT jwt = JWT.decode(token);
+			String platCode = jwt.getClaim("platCode").asString();
+			return StringUtils.isBlank(platCode) ? PlatCodeEnum.DEFAULT_CODE.getCode() : platCode;
+		} catch (JWTDecodeException e) {
+			return null;
+		}
+	}
+
+	public static String sign(String username, String platCode, String secret){
+		Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
+		Algorithm algorithm = Algorithm.HMAC512(secret);
+
+		// 附带username platCode信息
+		return JWT.create().withJWTId(username)
+				.withClaim("username", username)
+				.withClaim("platCode", platCode)
+				.withExpiresAt(date)
+				.sign(algorithm);
+	}
+}

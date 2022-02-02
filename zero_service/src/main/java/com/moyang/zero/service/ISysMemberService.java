@@ -3,6 +3,7 @@ package com.moyang.zero.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.moyang.zero.common.util.http.Result;
 import com.moyang.zero.entity.SysMember;
+import com.moyang.zero.entity.auth.SysMemberDetail;
 import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
 
@@ -36,4 +37,10 @@ public interface ISysMemberService extends IService<SysMember> {
 	 * @return 登录成功与失败
 	 */
 	Result<String> userAccountLogin(AccountLoginReq req);
+
+	/**
+	 * 获取用户角色权限全量信息
+	 * @return 用户角色权限全量信息
+	 */
+	Result<SysMemberDetail> getSysMemberInfo();
 }

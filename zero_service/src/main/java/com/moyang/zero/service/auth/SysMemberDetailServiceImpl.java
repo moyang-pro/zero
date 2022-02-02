@@ -1,8 +1,7 @@
-package com.moyang.zero.auth.service.impl;
+package com.moyang.zero.service.auth;
 
-import com.moyang.zero.auth.service.ISysMemberDetailService;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.moyang.zero.entity.auth.SysMemberDetail;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,9 +13,10 @@ import org.springframework.stereotype.Service;
  **/
 @Service("sysMemberDetailService")
 public class SysMemberDetailServiceImpl implements ISysMemberDetailService {
+
 	@Override
-	public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-		System.out.println(s);
+	public SysMemberDetail loadUserByUsername(String emy, String platCode){
 		return null;
 	}
+
 }

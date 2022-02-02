@@ -2,17 +2,9 @@ import request from '@/utils/request';
 
 export function login(data) {
     return request({
-        url: '/vue-admin-template/user/login',
+        url: '/sys-member/account/login',
         method: 'post',
-        data
-    });
-}
-
-export function userAccountLogin(data) {
-    return request({
-        url: '/sys-member/login',
-        method: 'post',
-        data
+        params: data
     });
 }
 

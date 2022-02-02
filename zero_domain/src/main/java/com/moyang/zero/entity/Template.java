@@ -67,7 +67,7 @@ public class Template{
         this.createAt = now;
         this.updateBy = emy;
         this.updateAt = now;
-        this.remarks = emy+"在"+now+"创建新记录";
+        this.remarks = emy + "在" + now + "创建新记录";
     }
 
     /**
@@ -90,7 +90,7 @@ public class Template{
         LocalDateTime now = LocalDateTime.now();
         this.updateBy = emy;
         this.updateAt = now;
-        this.remarks = emy+"在"+now+"更新记录";
+        this.remarks = emy + "在" + now +"更新记录";
     }
 
     public void deleted(){

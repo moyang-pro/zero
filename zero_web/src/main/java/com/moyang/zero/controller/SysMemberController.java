@@ -1,7 +1,9 @@
 package com.moyang.zero.controller;
 
+import com.moyang.zero.auth.util.JwtUtil;
 import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.entity.auth.SysMemberDetail;
 import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
 import com.moyang.zero.service.ISysMemberService;
@@ -54,12 +56,26 @@ public class SysMemberController extends TemplateController {
 	}
 
 
-	@PostMapping("/login")
+	@PostMapping("/account/login")
 	@ApiOperation(value = "墨阳空间-用户登录")
-	Result<String> accountLogin(@RequestBody AccountLoginReq req){
+	Result<String> accountLogin(@RequestParam("username") String emy,
+	                            @RequestParam("password") String pwd,
+	                            @RequestParam(name = "platCode", required = false) String platCode){
+		AccountLoginReq req = new AccountLoginReq(emy,pwd,platCode);
 		log.info("登录controller：{}", req);
 		this.checkAccountLoginInfo(req);
-		return memberService.userAccountLogin(req);
+		Result<String> loginResult = memberService.userAccountLogin(req);
+		if (loginResult.isSuccess()) {
+			String token = JwtUtil.sign(emy, pwd, req.getPlatCode());
+			return Result.success(token);
+		}
+		return loginResult;
+	}
+
+	@PostMapping("/info")
+	@ApiOperation(value = "墨阳空间-用户登录")
+	Result<SysMemberDetail> getSysMemberInfo(){
+		return memberService.getSysMemberInfo();
 	}
 
 	private void checkAccountLoginInfo(AccountLoginReq req) {

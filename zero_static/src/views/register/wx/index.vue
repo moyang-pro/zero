@@ -12,10 +12,7 @@
         </div>
         <div class="wx-register-card">
             <div class="layout-left-block"></div>
-            <el-divider
-                direction="vertical"
-                class="register-card-divider"
-            ></el-divider>
+            <el-divider direction="vertical" class="register-card-divider"></el-divider>
             <div class="layout-right-block">
                 <div class="right-block-title">
                     <span>微信扫码立即注册</span>
@@ -34,8 +31,7 @@
                 </div>
                 <div class="right-block-tip">
                     <p>
-                        扫码后「关注」服务号即可进入注册流程，
-                        若已关注则立即开始注册
+                        扫码后「关注」服务号即可进入注册流程， 若已关注则立即开始注册
                     </p>
                 </div>
             </div>
@@ -63,9 +59,7 @@
                             <svg-icon
                                 icon-class="account-blue"
                                 class="svg-item-li"
-                                @click="
-                                    toOtherRegisterWay('/register/emy-account')
-                                "
+                                @click="toOtherRegisterWay('/register/emy-account')"
                             />
                         </span>
                     </i>
@@ -77,7 +71,7 @@
 
 <script>
 export default {
-    name: "WxRegister",
+    name: 'WxRegister',
     data() {
         return {
             showOtherRegisterWay: false
@@ -88,7 +82,7 @@ export default {
             if (path) {
                 this.$router.push(path);
             } else {
-                this.$message.error("跳转页面失败！");
+                this.$message.error('跳转页面失败！');
             }
         }
     }

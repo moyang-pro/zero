@@ -194,7 +194,9 @@
                             墨阳空间-你的创业工作空间
                         </h2>
                         <div class="text-work">
-                            <ul style="text-align: start;color: #97a8be;">
+                            <ul
+                                style="display:inline-block ;text-align: start;color: #97a8be;margin: auto"
+                            >
                                 <li>模块一：创业思想指导，创业理论学习</li>
                                 <li>模块二：寻找创业合伙人</li>
                                 <li>模块三：创造产品，管理企业</li>
@@ -230,7 +232,6 @@
 import ZeroHeader from '@/components/header/index.vue';
 import ZeroFooter from '@/components/footer/index.vue';
 import {delSpace} from '@/utils/validate';
-import {userAccountLogin} from '@/api/user.js';
 
 export default {
     name: 'Home',
@@ -281,7 +282,9 @@ export default {
                         trigger: 'blur'
                     }
                 ]
-            }
+            },
+            redirect: undefined,
+            otherQuery: undefined
         };
     },
     created() {
@@ -313,12 +316,33 @@ export default {
         handleSubmit() {
             const loginInfo = {
                 username: this.accountInfo.account,
-                password: this.accountInfo.password
+                password: this.accountInfo.password,
+                platCode: this.$store.state.app.platCode
             };
             console.log('loginInfo:{}', loginInfo);
-            userAccountLogin(loginInfo).then(res => {
-                this.$message.success(res.data);
+            this.$store.dispatch('user/login', loginInfo).then(() => {
+                this.$router.push({ path: this.redirect || '/blog', query: this.otherQuery });
             });
+        },
+        getOtherQuery(query) {
+            return Object.keys(query).reduce((acc, cur) => {
+                if (cur !== 'redirect') {
+                    acc[cur] = query[cur];
+                }
+                return acc;
+            }, {});
+        }
+    },
+    watch: {
+        $route: {
+            handler: function(route) {
+                const query = route.query;
+                if (query) {
+                    this.redirect = query.redirect;
+                    this.otherQuery = this.getOtherQuery(query);
+                }
+            },
+            immediate: true
         }
     }
 };
@@ -400,8 +424,8 @@ export default {
     height: 20%;
 }
 .text-work {
-    width: 60%;
-    margin: 15px auto;
+    width: 100%;
+    margin: 15px 0;
 }
 
 .text-work li {

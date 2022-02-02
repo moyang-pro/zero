@@ -11,4 +11,4 @@ module.exports = {
      * @description Whether show the logo in sidebar
      */
     sidebarLogo: false
-}
+};

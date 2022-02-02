@@ -6,12 +6,12 @@
 
 <script>
 // @ is an alias to /src
-import ZeroHeader from '@/components/header/index.vue'
+import ZeroHeader from '@/components/header/index.vue';
 
 export default {
     name: 'Home',
     components: {
         ZeroHeader
     }
-}
+};
 </script>

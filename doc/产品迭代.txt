@@ -6,5 +6,5 @@ ZERO项目拿到毕业证正式启动
 4. 工作站设计 4
 
 # 7.22
-Spring Security + JWT + redis 实现 登录安全验证和权限管理
+Springboot + shiro + JWT + redis 实现 登录安全验证和权限管理
 密码加密 日志切面 自定义注解

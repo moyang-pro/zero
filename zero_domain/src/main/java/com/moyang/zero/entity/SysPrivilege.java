@@ -24,6 +24,7 @@ public class SysPrivilege extends Template {
     @ApiModelProperty(value = "权限编码")
     private String privCode;
 
+    @ApiModelProperty(value = "权限名称")
     private String privName;
 
     @ApiModelProperty(value = "权限描述")

@@ -1,10 +1,10 @@
 <template>
-    <div></div>
+    <div>read</div>
 </template>
 
 <script>
 export default {
-    name: 'Index'
+    name: 'read'
 };
 </script>
 

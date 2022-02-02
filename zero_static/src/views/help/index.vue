@@ -8,9 +8,9 @@ export default {
     data() {
         return {
             currentRole: 'adminDashboard'
-        }
+        };
     }
-}
+};
 </script>
 
 <style scoped></style>

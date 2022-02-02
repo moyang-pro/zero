@@ -1,6 +1,5 @@
-package com.moyang.zero.auth.bean;
+package com.moyang.zero.entity.auth;
 
-import com.moyang.zero.entity.SysPrivilege;
 import lombok.Data;
 
 import java.util.List;
@@ -42,5 +41,5 @@ public class SysRoleDetail {
 	/**
 	 * 角色权限列表
 	 */
-	private List<SysPrivilege> sysPrivilegeList;
+	private List<SysPrivilegeDetail> sysPrivilegeList;
 }
