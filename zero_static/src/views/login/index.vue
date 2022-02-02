@@ -231,7 +231,7 @@
 <script>
 import ZeroHeader from '@/components/header/index.vue';
 import ZeroFooter from '@/components/footer/index.vue';
-import {delSpace} from '@/utils/validate';
+import { delSpace } from '@/utils/validate';
 
 export default {
     name: 'Home',
