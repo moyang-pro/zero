@@ -1,8 +1,10 @@
 package com.moyang.zero.controller;
 
 import com.moyang.zero.auth.util.JwtUtil;
+import com.moyang.zero.auth.util.LoginContext;
 import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.dto.LoginInfo;
 import com.moyang.zero.entity.auth.SysMemberDetail;
 import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
@@ -10,6 +12,9 @@ import com.moyang.zero.service.ISysMemberService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -61,21 +66,23 @@ public class SysMemberController extends TemplateController {
 	Result<String> accountLogin(@RequestParam("username") String emy,
 	                            @RequestParam("password") String pwd,
 	                            @RequestParam(name = "platCode", required = false) String platCode){
-		AccountLoginReq req = new AccountLoginReq(emy,pwd,platCode);
-		log.info("登录controller：{}", req);
+		AccountLoginReq req = new AccountLoginReq(emy, pwd, platCode);
 		this.checkAccountLoginInfo(req);
 		Result<String> loginResult = memberService.userAccountLogin(req);
 		if (loginResult.isSuccess()) {
-			String token = JwtUtil.sign(emy, pwd, req.getPlatCode());
+			String token = JwtUtil.sign(emy, req.getPlatCode(), pwd);
 			return Result.success(token);
 		}
 		return loginResult;
 	}
 
-	@PostMapping("/info")
+	@GetMapping("/info")
 	@ApiOperation(value = "墨阳空间-用户登录")
-	Result<SysMemberDetail> getSysMemberInfo(){
-		return memberService.getSysMemberInfo();
+	@RequiresRoles(value ={"COMMON_USER","PRO_USER","SUPER_USER"},logical= Logical.OR)
+	@RequiresAuthentication
+	public SysMemberDetail getSysMemberInfo(){
+		LoginInfo loginInfo = LoginContext.getCurrentUser();
+		return memberService.getSysMemberInfo(loginInfo.getEmy(), loginInfo.getPlatCode());
 	}
 
 	private void checkAccountLoginInfo(AccountLoginReq req) {

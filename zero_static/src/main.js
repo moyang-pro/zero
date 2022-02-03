@@ -12,7 +12,7 @@ import mavonEditor from 'mavon-editor';
 import 'mavon-editor/dist/css/index.css';
 import 'normalize.css/normalize.css'; // A modern alternative to CSS resets
 import '@/icons'; // icon
-// import '@/permission' // permission control
+import '@/permission'; // permission control
 import '@/styles/index.scss'; // global css
 Vue.use(ElementUI);
 

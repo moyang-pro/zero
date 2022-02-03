@@ -2,4 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.moyang.zero.mapper.SysPrivilegeMapper">
 
+
+    <select id="findPrivListByUser" parameterType="String" resultType="com.moyang.zero.entity.SysPrivilege">
+        select distinct sp.id, sp.create_at, sp.create_by, sp.update_at, sp.update_by, sp.del_flag, sp.remarks,
+                        sp.priv_name, sp.priv_code, sp.description, sp.url, sp.my_code
+        from sys_privilege sp
+            inner join  sys_member_role smr on smr.del_flag = 0 and smr.my_code = #{platCode} and smr.emy = #{emy}
+            inner join sys_role sr on sr.del_flag = 0  and sr.role_code = smr.role_code
+            inner join sys_role_priv  srp on srp.del_flag = 0
+                                                 and srp.role_code = sr.role_code and sp.priv_code = srp.priv_code
+        where sp.my_code = #{platCode} and sp.del_flag = 0
+        group by sp.priv_code order by sp.id asc
+    </select>
+
 </mapper>

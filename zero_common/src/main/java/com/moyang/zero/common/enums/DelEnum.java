@@ -24,4 +24,11 @@ public enum DelEnum {
 
 	private Integer code;
 	private String description;
+
+	public static int deleted(){
+		return DelEnum.FALSE.getCode();
+	}
+	public static int valid(){
+		return DelEnum.TRUE.getCode();
+	}
 }

@@ -6,45 +6,124 @@
             v-model="content"
             :ishljs="true"
             :subfield="false"
-            fontSize="18px"
+            fontSize="16px"
             @change="blogContentChanged"
-            @save="saveBlog"
+            @save="saveContent"
             @imgAdd="addImage"
             @imgDel="delImage"
         />
+        <div class="blog-title-block">
+            <Form
+                ref="blogTitleForm"
+                :model="article"
+                :label-width="120"
+                :rules="rulesBlog"
+                label-position="left"
+            >
+                <FormItem label="文章标题：" prop="title">
+                    <Input v-model="article.title" placeholder="请输入文章标题......" />
+                </FormItem>
+                <FormItem label="内容概述：" prop="des">
+                    <Input
+                        v-model="article.des"
+                        type="textarea"
+                        :autosize="{ minRows: 2, maxRows: 5 }"
+                        placeholder="请对文章进行简要描述......"
+                    />
+                </FormItem>
+            </Form>
+        </div>
+        <div class="opt-block">
+            <el-button round @click="saveBlog">保存草稿</el-button>
+            <el-button type="warning" round>发布文章</el-button>
+        </div>
     </div>
 </template>
 
 <script>
-import {uploadImg, writeBlog} from '@/api/blog';
+import { uploadImg, writeBlog } from '@/api/blog';
 
 export default {
     name: 'write',
     data() {
         return {
-            content: ''
+            article: {
+                title: '',
+                des: '',
+                htmlContent: ''
+            },
+            content: '',
+            modified: false,
+            rulesBlog: {
+                title: [
+                    {
+                        required: true,
+                        message: '请输入文章标题',
+                        trigger: 'blur'
+                    },
+                    {
+                        type: 'string',
+                        max: 100,
+                        message: '描述文字最多100个字',
+                        trigger: 'blur'
+                    }
+                ],
+                des: [
+                    {
+                        required: true,
+                        message: '请对文章进行简要描述',
+                        trigger: 'blur'
+                    },
+                    {
+                        type: 'string',
+                        min: 20,
+                        max: 500,
+                        message: '描述文字至少20个字，最多500个字',
+                        trigger: 'blur'
+                    }
+                ]
+            }
         };
     },
     methods: {
-        blogContentChanged(data, htmlData) {
-            console.log('blogContentChanged: ' + data + htmlData);
+        blogContentChanged(value, render) {
+            // render 为 markdown 解析后的结果
+            this.article.htmlContent = render;
+            this.modified = true;
         },
-        saveBlog(data) {
-            writeBlog();
-            console.log('saveBlog: ' + data);
+        saveContent(value, render) {
+            this.article.htmlContent = render;
+            console.log('saveContent: ' + this.article.htmlContent);
         },
-        addImage(fileName, file) {
-            console.log('addImage: ' + fileName + file);
-            let formdata = new FormData();
-            formdata.append('image', file);
-            uploadImg(formdata)
-                .then(res => {
-                    console.log(res);
-                    this.$message.success('上传图片成功');
-                })
-                .catch(err => {
-                    this.$message.error(err.message);
-                });
+        saveBlog() {
+            console.log('saveBlog: {}', this.article);
+            this.$refs.blogTitleForm.validate(valid => {
+                if (valid) {
+                    if (!this.article.htmlContent) {
+                        this.$message.warning('文章内容不能为空！');
+                        return;
+                    }
+                    if (this.modified) {
+                        writeBlog(this.article).then(res => {
+                            this.modified = false;
+                            let id = res.data;
+                            this.$router.push({ path: `/blog/read/${id}.html` });
+                        });
+                    }
+                } else {
+                    this.$message.error('文章标题和概述格式错误！');
+                }
+            });
+        },
+        addImage(pos, file) {
+            console.log('addImage ' + pos + ' ..................');
+            let formData = new FormData();
+            formData.append('image', file);
+            uploadImg(formData).then(res => {
+                if (res) {
+                    this.$refs.mEditor.$img2Url(pos, res.data);
+                }
+            });
         },
         delImage(fileName) {
             console.log('delImage: ' + fileName);
@@ -53,8 +132,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .markdown-editor {
-    min-height: 960px;
+    min-height: calc(100vh - 426px);
+}
+.blog-title-block {
+    min-height: 120px;
+    margin: 20px 0;
+}
+.opt-block {
+    text-align: end;
+    margin-bottom: 20px;
 }
 </style>

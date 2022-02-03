@@ -13,6 +13,7 @@ import com.moyang.zero.entity.SysMemberRole;
 import com.moyang.zero.entity.auth.SysMemberDetail;
 import com.moyang.zero.manager.SysMemberManager;
 import com.moyang.zero.mapper.SysMemberMapper;
+import com.moyang.zero.mapper.SysMemberRoleMapper;
 import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
 import com.moyang.zero.service.ISysMemberService;
@@ -22,6 +23,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+
+import static com.moyang.zero.common.constant.ApplicationConstant.APP_NAME;
+import static com.moyang.zero.common.constant.RedisKeyConstant.REDIS_PREFIX_REGISTER;
 
 /**
  * <p>
@@ -42,6 +46,9 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 	@Resource
 	SysMemberManager sysMemberManager;
 
+	@Resource
+	SysMemberRoleMapper sysMemberRoleMapper;
+
 	/**
 	 * 验证码位数
 	 */
@@ -59,7 +66,7 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		}
 		//校验验证码
 		String code = req.getCheckCode();
-		String checkCode = redisUtil.getString(ApplicationConstant.REDIS_PREFIX_REGISTER + req.getPhone());
+		String checkCode = redisUtil.getString(REDIS_PREFIX_REGISTER + req.getPhone());
 		if (StringUtils.isBlank(checkCode)){
 			throw new BusinessException("验证码已失效或错误，请重新获取！");
 		}
@@ -90,6 +97,12 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 	private void newMemberInit(SysMember sysMember) {
 		SysMemberRole roleInfo = new SysMemberRole();
 		roleInfo.setRoleCode(RoleEnum.ROLE_MYCR.getCode());
+		roleInfo.setRoleName(RoleEnum.ROLE_MYCR.getDescription());
+		roleInfo.setEmy(sysMember.getEmy());
+		roleInfo.setMyCode(sysMember.getPlatCode());
+		roleInfo.recordCreateInfo(APP_NAME, "新用户角色初始化");
+		roleInfo.valid();
+		sysMemberRoleMapper.insert(roleInfo);
 	}
 
 	@Override
@@ -97,14 +110,14 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		String code = redisUtil.getString(phone);
         if (StringUtils.isBlank(code)){
         	code = VerifyUtil.getRandomRegisterCode(verifyNum);
-        	redisUtil.set(ApplicationConstant.REDIS_PREFIX_REGISTER + phone, code);
+        	redisUtil.set(REDIS_PREFIX_REGISTER + phone, code);
         }
 		return code;
 	}
 
 	@Override
 	public Result<String> userAccountLogin(AccountLoginReq req) {
-		log.info("登录：{}", req);
+		log.info("用户登录：emy == {}", req.getEmy());
 		String platCode = req.getPlatCode();
 		SysMember exist = sysMemberManager.getMemberInfoByEmyAndPlat(req.getEmy(), platCode);
 		if (exist == null){
@@ -114,7 +127,11 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 	}
 
 	@Override
-	public Result<SysMemberDetail> getSysMemberInfo() {
-		return null;
+	public SysMemberDetail getSysMemberInfo(String emy, String platCode) {
+		SysMemberDetail sysMemberDetail =  sysMemberManager.loadAllInfoByUser(emy, platCode);
+		if (sysMemberDetail != null) {
+			sysMemberDetail.setPassword("");
+		}
+		return sysMemberDetail;
 	}
 }

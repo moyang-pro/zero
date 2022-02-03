@@ -33,8 +33,9 @@
     <select id="findRolesByUser" parameterType="String" resultMap="BaseResultMap">
         select distinct sr.id, sr.create_at, sr.create_by, sr.update_at, sr.update_by, sr.del_flag, sr.remarks,
                sr.role_name, sr.role_code, sr.description, sr.type, sr.my_code
-        from sys_role  sr right join  sys_member_role smr
+        from sys_role  sr inner join  sys_member_role smr
         on smr.del_flag = 0 and smr.my_code = #{platCode} and smr.emy = #{emy} and sr.role_code = smr.role_code
+        where sr.del_flag = 0 and sr.my_code = #{platCode}
         group by sr.role_code order by sr.id asc
     </select>
 </mapper>

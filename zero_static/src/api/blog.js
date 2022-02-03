@@ -2,9 +2,17 @@ import request from '@/utils/request';
 
 export function writeBlog(data) {
     return request({
-        url: '/sys-member/account/login',
+        url: '/blog-article/save',
         method: 'post',
-        params: data
+        data: data
+    });
+}
+
+export function getBlog(id) {
+    return request({
+        url: '/blog-article/read',
+        method: 'get',
+        params: { id }
     });
 }
 

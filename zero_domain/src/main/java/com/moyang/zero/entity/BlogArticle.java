@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户信息表
+ * 博客文章信息主表
  * </p>
  *
  * @author moyang

@@ -27,7 +27,7 @@ public enum RoleEnum {
     /**
      * 超级用户，全部权限
      */
-    ROLE_MYSR("PRO_USER","超级用户");
+    ROLE_MYSR("SUPER_USER","超级用户");
 
     private  String code;
 

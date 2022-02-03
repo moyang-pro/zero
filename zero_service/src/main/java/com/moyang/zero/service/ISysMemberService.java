@@ -40,7 +40,9 @@ public interface ISysMemberService extends IService<SysMember> {
 
 	/**
 	 * 获取用户角色权限全量信息
+	 * @param emy  username
+	 * @param platCode 平台编码
 	 * @return 用户角色权限全量信息
 	 */
-	Result<SysMemberDetail> getSysMemberInfo();
+	SysMemberDetail getSysMemberInfo(String emy, String platCode);
 }

@@ -1,15 +1,15 @@
 <template>
-    <el-container class="root-container">
-        <el-header class="zero-header-container">
+    <Layout class="root-container">
+        <Header class="zero-header-container">
             <ZeroHeader />
-        </el-header>
-        <el-main class="zero-main-container">
+        </Header>
+        <Content class="zero-main-container">
             <router-view />
-        </el-main>
-        <el-footer class="zero-footer-container">
+        </Content>
+        <Footer class="zero-footer-container">
             <ZeroFooter />
-        </el-footer>
-    </el-container>
+        </Footer>
+    </Layout>
 </template>
 
 <script>

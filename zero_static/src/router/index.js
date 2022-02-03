@@ -64,7 +64,14 @@ const constantRoutes = [
         ]
     },
     ...homeRoute,
-    ...blogRoute
+    ...blogRoute,
+    {
+        path: '/404.html',
+        component: () => import('@/views/error-page/404'),
+        hidden: true
+    },
+    // 404 page must be placed at the end !!!
+    { path: '*', redirect: '/404.html', hidden: true }
 ];
 
 const createRouter = () =>

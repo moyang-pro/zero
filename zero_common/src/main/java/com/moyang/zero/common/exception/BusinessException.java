@@ -51,7 +51,7 @@ public class BusinessException extends RuntimeException {
     public BusinessException(String msg) {
         super(msg);
         this.msg = msg;
-        log.error(business,msg);
+        log.error(business, msg);
     }
 
     public BusinessException(String msg, Throwable e) {

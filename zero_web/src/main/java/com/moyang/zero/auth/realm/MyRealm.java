@@ -4,9 +4,9 @@ import com.moyang.zero.auth.token.JwtToken;
 import com.moyang.zero.auth.util.JwtUtil;
 import com.moyang.zero.auth.util.LoginContext;
 import com.moyang.zero.entity.SysMember;
+import com.moyang.zero.entity.SysPrivilege;
+import com.moyang.zero.entity.SysRole;
 import com.moyang.zero.entity.auth.SysMemberDetail;
-import com.moyang.zero.entity.auth.SysPrivilegeDetail;
-import com.moyang.zero.entity.auth.SysRoleDetail;
 import com.moyang.zero.service.auth.ISysMemberDetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
@@ -45,18 +45,18 @@ public class MyRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		log.info("user request doGetAuthorizationInfo 鉴权........................");
 		String username = JwtUtil.getUsername(principals.toString());
 		String platCode = JwtUtil.getPlatCode(principals.toString());
 		SysMemberDetail sysMemberDetail = sysMemberDetailService.loadAllInfoByUser(username, platCode);
+		log.info("user request doGetAuthorizationInfo 鉴权........................ ");
 		LoginContext.setLoginContextBySysMember(sysMemberDetail);
 		SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
 		//获得用户的角色，及权限进行绑定
-		for(SysRoleDetail roleDetail : sysMemberDetail.getSysRoleList()){
-			simpleAuthorizationInfo.addRole(roleDetail.getRoleCode());
-			for(SysPrivilegeDetail privilegeDetail : roleDetail.getSysPrivilegeList()){
-				simpleAuthorizationInfo.addStringPermission(privilegeDetail.getPrivCode());
-			}
+		for(SysRole role : sysMemberDetail.getSysRoleList()){
+			simpleAuthorizationInfo.addRole(role.getRoleCode());
+		}
+		for(SysPrivilege privilege : sysMemberDetail.getSysPrivilegeList()){
+			simpleAuthorizationInfo.addStringPermission(privilege.getPrivCode());
 		}
 		return simpleAuthorizationInfo;
 	}
@@ -84,6 +84,6 @@ public class MyRealm extends AuthorizingRealm {
 		if (!JwtUtil.verify(token, username, platCode, sysMember.getPassword())) {
 			throw new AuthenticationException("账户密码错误!");
 		}
-		return new SimpleAuthenticationInfo(token, token, "my_realm");
+		return new SimpleAuthenticationInfo(token, token, "myRealm");
 	}
 }

@@ -16,7 +16,7 @@ const blogRouter = [
                 component: () => import('@/views/blog/write')
             },
             {
-                path: 'read',
+                path: 'read/:id.html',
                 name: 'ReadBlog',
                 component: () => import('@/views/blog/read')
             }

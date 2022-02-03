@@ -1,6 +1,8 @@
 package com.moyang.zero.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.moyang.zero.common.enums.DelEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,6 +25,7 @@ public class Template{
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "主键")
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "创建时间")
@@ -94,10 +97,10 @@ public class Template{
     }
 
     public void deleted(){
-        this.delFlag = DelEnum.TRUE.getCode();
+        this.delFlag = DelEnum.FALSE.getCode();
     }
     public void valid(){
-        this.delFlag = DelEnum.FALSE.getCode();
+        this.delFlag = DelEnum.TRUE.getCode();
     }
 
 }

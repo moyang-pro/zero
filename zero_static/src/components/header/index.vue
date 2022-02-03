@@ -28,13 +28,13 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
 .zero-header {
     height: 60px;
     background-color: #2b303b;
     padding: 0 20px;
     width: 100%;
-    min-width: 980px;
+    /*min-width: 980px;*/
 }
 .zero-head-inner {
     display: flex;
@@ -56,7 +56,7 @@ export default {};
 }
 
 .head-middle {
-    width: 85%;
+    width: calc(100% - 360px);
 }
 .head-end {
     width: 160px;

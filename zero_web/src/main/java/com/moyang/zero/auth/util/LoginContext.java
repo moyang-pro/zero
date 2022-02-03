@@ -38,7 +38,6 @@ public class LoginContext implements ApplicationContextAware {
 
 	public static void setLoginContextBySysMember(SysMemberDetail sysMemberDetail) {
 		LoginInfo loginInfo = getCurrentUser();
-		System.out.println("ip............:" + loginInfo.getIp());
 		loginInfo.setEmy(sysMemberDetail.getEmy());
 		loginInfo.setNick(sysMemberDetail.getNick());
 		loginInfo.setPlatCode(sysMemberDetail.getPlatCode());

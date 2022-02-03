@@ -6,6 +6,9 @@ import com.moyang.zero.common.util.http.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.UnauthenticatedException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -28,7 +31,7 @@ import java.util.stream.Collectors;
  * @author sunjialin10
  * @date 2019/11/14 17:13
  */
-@RestControllerAdvice(basePackages = {"com.moyang.zero.controller","com.moyang.zero.auth.realm"})
+@RestControllerAdvice(basePackages = {"com.moyang.zero.controller"})
 @Slf4j
 public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
 
@@ -38,8 +41,11 @@ public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
         if (e instanceof BusinessException) {
             return Result.fail(e.getMessage());
         }
-        if (e instanceof AuthenticationException) {
+        if(e instanceof UnauthenticatedException || e instanceof UnauthorizedException){
             return Result.fail(401, e.getMessage());
+        }
+        if(e instanceof AuthenticationException || e instanceof AuthorizationException){
+            return Result.fail(402, e.getMessage());
         }
         if (e instanceof BindException) {
             BindingResult re = ((BindException) e).getBindingResult();

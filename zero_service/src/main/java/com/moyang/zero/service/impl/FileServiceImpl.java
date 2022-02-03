@@ -1,5 +1,6 @@
 package com.moyang.zero.service.impl;
 
+import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.common.util.oss.MinioUtil;
 import com.moyang.zero.dto.LoginInfo;
 import com.moyang.zero.service.IFileService;
@@ -22,12 +23,12 @@ public class FileServiceImpl implements IFileService {
 	@Override
 	public String upload(MultipartFile file, LoginInfo loginInfo) {
 		String relativePath = loginInfo.getEmy();
-//		if (StringUtils.isBlank(relativePath)) {
-//			throw  new BusinessException("参数错误： 文件存储相对路径（用户账号）为空");
-//		}
-		String url = MinioUtil.upload(file, "relativePath");
+		if (StringUtils.isBlank(relativePath)) {
+			throw  new BusinessException("参数错误： 文件存储相对路径（用户账号）为空");
+		}
+		String url = MinioUtil.upload(file, relativePath);
 		if (!StringUtils.isBlank(url)) {
-			log.info("用户" + loginInfo.toString() + "成功上传文件 " + url);
+			log.info("用户" + loginInfo.getEmy() + "成功上传文件 " + url);
 		}
 		return url;
 	}

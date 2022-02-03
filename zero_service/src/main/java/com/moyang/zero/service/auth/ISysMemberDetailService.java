@@ -2,9 +2,9 @@ package com.moyang.zero.service.auth;
 
 
 import com.moyang.zero.entity.SysMember;
+import com.moyang.zero.entity.SysPrivilege;
+import com.moyang.zero.entity.SysRole;
 import com.moyang.zero.entity.auth.SysMemberDetail;
-import com.moyang.zero.entity.auth.SysPrivilegeDetail;
-import com.moyang.zero.entity.auth.SysRoleDetail;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public  interface ISysMemberDetailService {
 	 * @param platCode 平台编码
 	 * @return 用户信息
 	 */
-	List<SysRoleDetail> loadRolesByUser(String emy, String platCode);
+	List<SysRole> loadRolesByUser(String emy, String platCode);
 
 	/**
 	 * 根据登录用户名获取用户所有权限信息
@@ -39,7 +39,7 @@ public  interface ISysMemberDetailService {
 	 * @param platCode 平台编码
 	 * @return 用户信息
 	 */
-	List<SysPrivilegeDetail> loadPrivByUser(String emy, String platCode);
+	List<SysPrivilege> loadPrivByUser(String emy, String platCode);
 
 	/**
 	 * 根据登录用户名获取用户所有信息

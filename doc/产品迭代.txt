@@ -13,4 +13,6 @@ Springboot + shiro + JWT + redis 实现 登录安全验证和权限管理
 统一登录信息 request作用域的bean
 文件上传 oss整合minio
 blog markdown 文件编辑器 mavonEditor的使用
-#
+# 2022.2.3
+角色权限查询 路由导航控制 界面的响应式适配
+

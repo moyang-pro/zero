@@ -49,7 +49,6 @@ public class JwtUtil {
 	public static String getUsername(String token) {
 		try {
 			DecodedJWT jwt = JWT.decode(token);
-			System.out.println(jwt.getId());
 			return jwt.getId();
 		} catch (JWTDecodeException e) {
 			return null;

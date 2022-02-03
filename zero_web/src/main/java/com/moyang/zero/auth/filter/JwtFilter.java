@@ -30,9 +30,9 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 	protected boolean isLoginAttempt(ServletRequest request, ServletResponse response) {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String authorization = req.getHeader("Authorization");
-		log.info("authorization: ........." + authorization);
+		String undefined =  "undefined";
 		LoginContext.setLoginContextByRequest(req);
-		if(authorization != null) {
+		if(authorization != null && !undefined.equals(authorization)) {
 			log.info("用户已经登录系统...");
 			return true;
 		}else {
