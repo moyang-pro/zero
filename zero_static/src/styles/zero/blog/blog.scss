@@ -1,10 +1,17 @@
 .blog-main-content {
-    width: 1480px;
+    width: 1630px;
     height: 100%;
     min-height: calc(100vh - 121px);/*高度自适应*/
     margin: 0 auto;
     padding-top: 80px;
 }
+
+@media screen and (max-width: 1630px) {
+    .blog-main-content {
+        width: 1480px;
+    }
+}
+
 @media screen and (max-width: 1480px) {
     .blog-main-content {
         width: 1024px;

@@ -1,15 +1,15 @@
 <template>
-    <Layout class="root-container">
-        <Header class="zero-header-container">
+    <el-container class="root-container">
+        <el-header class="zero-header-container">
             <ZeroHeader />
-        </Header>
-        <Content class="zero-main-container">
+        </el-header>
+        <el-main class="zero-main-container">
             <router-view />
-        </Content>
-        <Footer class="zero-footer-container">
+        </el-main>
+        <el-footer class="zero-footer-container">
             <ZeroFooter />
-        </Footer>
-    </Layout>
+        </el-footer>
+    </el-container>
 </template>
 
 <script>
@@ -26,4 +26,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

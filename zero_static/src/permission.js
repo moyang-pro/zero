@@ -8,7 +8,7 @@ import getPageTitle from '@/utils/get-page-title';
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
-const whiteList = ['/login']; // no redirect whitelist
+const whiteList = ['/login', '/register/emy-account']; // no redirect whitelist
 // eslint-disable-next-line
 router.beforeEach(async (to, from, next) => {
     // start progress bar

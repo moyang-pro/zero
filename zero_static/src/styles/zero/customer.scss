@@ -15,30 +15,16 @@
     width: 100%;
 }
 
-.ivu-layout-header {
-    background: #515a6e;
-    padding: 0;
-    height: 60px;
-    line-height: unset;
-}
-
-.text-ell{
+.text-one-line{
     overflow:hidden; //超出的文本隐藏
     text-overflow:ellipsis; //溢出用省略号显示
     white-space:nowrap; //溢出不换行
 }
 
 
-.ivu-input {
-    height: 45px;
-}
-.ivu-input-icon{
-    line-height: 45px;
-    height: 45px;
-}
-
-.ivu-form-item-content{
-    line-height: 20px;
-}
-
 $primary-color: #00a4ff;
+$danger-color: #F56C6C;
+
+.danger-color{
+    color: $danger-color
+}

@@ -13,41 +13,48 @@
         <div class="account-register-block">
             <div class="layout-block">
                 <div class="account-register-form">
-                    <Form ref="formRegister" :model="accountInfo" :rules="ruleCustom">
-                        <FormItem prop="account">
-                            <Input
+                    <el-form ref="formRegister" :model="accountInfo" :rules="ruleCustom">
+                        <el-form-item prop="account">
+                            <el-input
                                 v-model="accountInfo.account"
                                 placeholder="墨阳账号emy：6-32个字符"
                                 type="text"
                             />
-                        </FormItem>
-                        <FormItem prop="password">
-                            <Input
+                        </el-form-item>
+                        <el-form-item prop="password">
+                            <el-input
                                 v-model="accountInfo.password"
                                 placeholder="密码：6-32位的数字、字母与特殊符号(除空格外)两种及以上的组合"
                                 type="password"
                             />
-                        </FormItem>
-                        <FormItem prop="passwordCheck" style="margin-bottom: 0">
-                            <Input
+                        </el-form-item>
+                        <el-form-item prop="passwordCheck" style="margin-bottom: 0">
+                            <el-input
                                 v-model="accountInfo.passwordCheck"
                                 placeholder="确认密码"
                                 type="password"
                             />
-                        </FormItem>
+                        </el-form-item>
                         <el-divider style="color: #99a9bf">手机信息</el-divider>
-                        <FormItem prop="phone">
-                            <Input v-model="accountInfo.phone" placeholder="手机号" type="text" />
-                        </FormItem>
-                        <FormItem prop="smsCode" style="margin-bottom: 19px;">
-                            <Input
+                        <el-form-item prop="phone">
+                            <el-input
+                                v-model="accountInfo.phone"
+                                placeholder="手机号"
+                                type="text"
+                            />
+                        </el-form-item>
+                        <el-form-item prop="smsCode" style="margin-bottom: 19px;">
+                            <el-input
                                 v-model="accountInfo.smsCode"
                                 number
                                 placeholder="验证码"
                                 style="width: 45%"
                                 type="text"
                             />
-                            <Button class="i-button-checked" @click="getSmsCode(accountInfo.phone)">
+                            <el-button
+                                class="i-button-checked"
+                                @click="getSmsCode(accountInfo.phone)"
+                            >
                                 {{
                                     verifyReShow
                                         ? '重新获取验证码'
@@ -55,12 +62,12 @@
                                         ? timeout + 's'
                                         : '获取验证码'
                                 }}
-                            </Button>
-                        </FormItem>
-                        <FormItem style="margin-bottom: 25px;text-align: left;" prop="checked">
-                            <Checkbox v-model="accountInfo.checked">
+                            </el-button>
+                        </el-form-item>
+                        <el-form-item style="margin-bottom: 25px;text-align: left;" prop="checked">
+                            <el-checkbox v-model="accountInfo.checked">
                                 我已阅读并同意
-                            </Checkbox>
+                            </el-checkbox>
                             墨阳空间
                             <router-link
                                 class="see-page-agreement"
@@ -77,17 +84,17 @@
                             >
                                 隐私声明
                             </router-link>
-                        </FormItem>
-                        <FormItem>
-                            <Button
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button
                                 style="height: 40px;width: 100%"
                                 type="primary"
                                 @click="handleSubmit('formRegister')"
                             >
                                 同意协议并提交
-                            </Button>
-                        </FormItem>
-                    </Form>
+                            </el-button>
+                        </el-form-item>
+                    </el-form>
                 </div>
             </div>
         </div>
@@ -269,6 +276,7 @@ export default {
         getSmsCode(phone) {
             //手机号为空或手机号格式不正确，返回
             if (!phone || !validPhoneFormat(phone)) {
+                this.$message.warning('手机号为空或手机号格式不正确');
                 return;
             }
             if (!this.verifyShow || this.verifyReShow) {
@@ -294,9 +302,12 @@ export default {
                 phone: phone
             };
             getCheckCode(param).then(res => {
-                if (res.success) {
-                    this.$message('验证码:' + res.data);
-                }
+                this.$message({
+                    showClose: true,
+                    message: '验证码: ' + res.data,
+                    type: 'success',
+                    duration: 0
+                });
             });
         },
         handleSubmit(formName) {

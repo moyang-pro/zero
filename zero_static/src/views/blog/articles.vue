@@ -13,10 +13,10 @@
                                 ></el-avatar>
                             </el-col>
                             <el-col :span="12" :offset="2">
-                                <p class="user-nick text-ell" :title="userInfo.nick">
+                                <p class="user-nick text-one-line" :title="userInfo.nick">
                                     {{ userInfo.nick }}
                                 </p>
-                                <div class="text-ell">
+                                <div class="text-one-line">
                                     <span>墨阳账号：</span>
                                     <span class="user-account">{{ userInfo.emy }}</span>
                                 </div>
@@ -72,7 +72,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import './src/styles/zero/blog/blog.scss';
 .title-block {
     display: flex;
     justify-content: flex-start;

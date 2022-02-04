@@ -26,9 +26,9 @@ export default {
 .zero-footer-inner {
     color: #97a8be;
 }
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 600px) {
     .zero-footer {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 </style>

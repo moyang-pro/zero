@@ -123,7 +123,7 @@ public class SysMemberManager {
 		LambdaQueryWrapper<SysMember> lambdaQueryWrapper = new LambdaQueryWrapper<>();
 		lambdaQueryWrapper.eq(SysMember::getEmy, emy);
 		lambdaQueryWrapper.eq(SysMember::getPlatCode, plat);
-		lambdaQueryWrapper.eq(SysMember::getDelFlag, DelEnum.FALSE.getCode());
+		lambdaQueryWrapper.eq(SysMember::getDelFlag, DelEnum.TRUE.getCode());
 		return  sysMemberMapper.selectOne(lambdaQueryWrapper);
 	}
 
@@ -145,7 +145,7 @@ public class SysMemberManager {
 		lambdaQueryWrapper.eq(SysMember::getEmy, emy);
 		lambdaQueryWrapper.eq(SysMember::getPassword, pwd);
 		lambdaQueryWrapper.eq(SysMember::getPlatCode, plat);
-		lambdaQueryWrapper.eq(SysMember::getDelFlag, DelEnum.FALSE.getCode());
+		lambdaQueryWrapper.eq(SysMember::getDelFlag, DelEnum.TRUE.getCode());
 		return  sysMemberMapper.selectOne(lambdaQueryWrapper);
 	}
 }

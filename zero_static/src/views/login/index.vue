@@ -67,35 +67,35 @@
                             </span>
                         </div>
                         <div class="account-login-form">
-                            <Form ref="formLogin" :model="accountInfo" :rules="ruleCustom">
-                                <FormItem prop="account">
-                                    <Input
+                            <el-form ref="formLogin" :model="accountInfo" :rules="ruleCustom">
+                                <el-form-item prop="account">
+                                    <el-input
                                         type="text"
                                         placeholder="墨阳账号emy"
                                         v-model="accountInfo.account"
                                     />
-                                </FormItem>
-                                <FormItem prop="password">
-                                    <Input
+                                </el-form-item>
+                                <el-form-item prop="password">
+                                    <el-input
                                         type="password"
                                         placeholder="密码"
                                         v-model="accountInfo.password"
                                     />
-                                </FormItem>
-                                <FormItem style="margin-bottom: 14px">
+                                </el-form-item>
+                                <el-form-item style="margin-bottom: 14px">
                                     <div id="c1"></div>
-                                </FormItem>
+                                </el-form-item>
 
-                                <FormItem>
-                                    <Button
+                                <el-form-item>
+                                    <el-button
                                         style="height: 45px;width: 100%"
                                         type="primary"
                                         @click="handleSubmit('formLogin')"
                                     >
                                         确认登录
-                                    </Button>
-                                </FormItem>
-                            </Form>
+                                    </el-button>
+                                </el-form-item>
+                            </el-form>
                         </div>
                     </div>
                     <div class="other-login-way" v-if="loginType === 0">

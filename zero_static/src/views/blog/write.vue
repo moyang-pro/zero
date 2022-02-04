@@ -13,25 +13,25 @@
             @imgDel="delImage"
         />
         <div class="blog-title-block">
-            <Form
+            <el-form
                 ref="blogTitleForm"
                 :model="article"
-                :label-width="120"
+                label-width="120"
                 :rules="rulesBlog"
                 label-position="left"
             >
-                <FormItem label="文章标题：" prop="title">
-                    <Input v-model="article.title" placeholder="请输入文章标题......" />
-                </FormItem>
-                <FormItem label="内容概述：" prop="des">
-                    <Input
+                <el-form-item label="文章标题：" prop="title">
+                    <el-input v-model="article.title" placeholder="请输入文章标题......" />
+                </el-form-item>
+                <el-form-item label="内容概述：" prop="des">
+                    <el-input
                         v-model="article.des"
                         type="textarea"
                         :autosize="{ minRows: 2, maxRows: 5 }"
                         placeholder="请对文章进行简要描述......"
                     />
-                </FormItem>
-            </Form>
+                </el-form-item>
+            </el-form>
         </div>
         <div class="opt-block">
             <el-button round @click="saveBlog">保存草稿</el-button>
@@ -133,6 +133,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import './src/styles/zero/blog/blog.scss';
 .markdown-editor {
     min-height: calc(100vh - 426px);
 }
