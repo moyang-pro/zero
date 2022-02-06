@@ -8,9 +8,33 @@ export function writeBlog(data) {
     });
 }
 
+export function getMyBlogList(page) {
+    return request({
+        url: '/blog-article/myList',
+        method: 'post',
+        data: page
+    });
+}
+
 export function getBlog(id) {
     return request({
         url: '/blog-article/read',
+        method: 'get',
+        params: { id }
+    });
+}
+
+export function updateBlog(data) {
+    return request({
+        url: '/blog-article/update',
+        method: 'post',
+        data: data
+    });
+}
+
+export function deleteBlog(id) {
+    return request({
+        url: '/blog-article/delete',
         method: 'get',
         params: { id }
     });

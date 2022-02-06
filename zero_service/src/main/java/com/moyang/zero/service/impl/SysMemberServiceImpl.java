@@ -76,6 +76,7 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		SysMember sysMember = new SysMember();
 
 		sysMember.setAvatar(ApplicationConstant.AVATAR_DEFAULT);
+		sysMember.setNick("用户_" + sysMemberManager.countZeroUser());
 		sysMember.setTelephone(req.getPhone());
 		sysMember.setEmy(emy);
 		sysMember.setPassword(req.getPwd());

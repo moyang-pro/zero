@@ -12,11 +12,15 @@ import lombok.Data;
 @Data
 public class BlogSaveReq {
 
+	private Long id;
+
 	private String title;
 
 	private String des;
 
 	private String htmlContent;
+
+	private String textContent;
 
 	private String author;
 }

@@ -3,7 +3,7 @@
         <div class="blog-main-content">
             <div class="title-block">
                 <div class="user-show-block">
-                    <el-card class="blog-user-card blog-card">
+                    <el-card class="blog-user-card blog-card" :shadow="cardShadow">
                         <el-row>
                             <el-col :span="10">
                                 <el-avatar
@@ -26,15 +26,46 @@
                     </el-card>
                 </div>
                 <div class="tool-block">
-                    <el-card class="blog-tool-card blog-card"> </el-card>
+                    <el-card class="blog-tool-card blog-card blog-right-card" :shadow="cardShadow">
+                    </el-card>
                 </div>
             </div>
             <div class="notebook-block">
                 <div class="user-preference-block">
-                    <el-card class="blog-preference-card blog-card"> </el-card>
+                    <el-card class="blog-preference-card blog-card" :shadow="cardShadow"> </el-card>
                 </div>
                 <div class="article-block">
-                    <el-card class="blog-article-card blog-card"> </el-card>
+                    <el-card
+                        class="blog-article-card blog-card blog-right-card"
+                        :shadow="cardShadow"
+                    >
+                        <el-tabs v-model="tabActiveName" @tab-click="handleTabClick">
+                            <el-tab-pane name="articles">
+                                <span slot="label"
+                                    ><i class="el-icon-document"></i>{{ tabNames.articles }}</span
+                                >
+                                <div v-for="item in articlesInfo" :key="item.id">
+                                    <articleItem :article-info.sync="item"> </articleItem>
+                                </div>
+                                <div style="margin-top: 20px;text-align: end">
+                                    <el-pagination
+                                        @current-change="handleCurrentChange"
+                                        :hide-on-single-page="true"
+                                        :current-page.sync="page.pageIndex"
+                                        :page-size="page.pageSize"
+                                        layout="total, prev, pager, next"
+                                        :total="total"
+                                    >
+                                    </el-pagination>
+                                </div>
+                            </el-tab-pane>
+                            <el-tab-pane name="events">
+                                <span slot="label"
+                                    ><i class="el-icon-date"></i>{{ tabNames.events }}</span
+                                >
+                            </el-tab-pane>
+                        </el-tabs>
+                    </el-card>
                 </div>
             </div>
             <div class="float-button-block">
@@ -52,21 +83,63 @@
 </template>
 
 <script>
+import { getMyBlogList } from '@/api/blog';
+import articleItem from '@/components/blog/article/list-item/index';
+import PublicUtils from '@/utils/PublicUtils';
 export default {
     name: 'articles',
+    components: {
+        articleItem
+    },
     data() {
         return {
+            cardShadow: 'always',
             userInfo: {
-                nick: '一束温暖的阳光',
-                emy: '1542051400',
-                avatar: require('@/assets/img/avatar-default.png')
+                nick: '一米阳光',
+                emy: '',
+                avatar: require('@/assets/img/avatar.png')
             },
-            articlesInfo: []
+            total: 0,
+            articlesInfo: [],
+            tabActiveName: 'articles',
+            tabNames: {
+                articles: '文章',
+                events: '事件'
+            },
+            page: {
+                pageSize: 5,
+                pageIndex: 1
+            }
         };
+    },
+    created() {
+        this.getBlogListMine();
+        this.getMineInfo();
     },
     methods: {
         writeBlog() {
             this.$router.push('/blog/write');
+        },
+        getBlogListMine() {
+            let pageRequest = PublicUtils.getPageRequest(this.page.pageIndex, this.page.pageSize);
+            getMyBlogList(pageRequest).then(res => {
+                this.articlesInfo = res.list;
+                this.total = res.total;
+            });
+        },
+        handleTabClick() {
+            //this.tabActiveName = name;
+        },
+        handleCurrentChange(value) {
+            this.page.pageIndex = value;
+            this.getBlogListMine();
+        },
+        getMineInfo() {
+            let nick = this.$store.state.user.nick;
+            let avatar = this.$store.state.user.avatar;
+            this.userInfo.nick = nick ? nick : '一米阳光';
+            this.userInfo.avatar = avatar ? avatar : require('@/assets/img/avatar.png');
+            this.userInfo.emy = this.$store.state.user.name;
         }
     }
 };
@@ -79,6 +152,7 @@ export default {
     justify-content: flex-start;
 }
 .notebook-block {
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     margin: 20px 0;
@@ -89,7 +163,6 @@ export default {
     height: 240px;
 }
 .blog-tool-card {
-    width: 1040px;
     height: 240px;
     margin-left: 30px;
 }
@@ -99,7 +172,6 @@ export default {
     min-height: 720px;
 }
 .blog-article-card {
-    width: 1040px;
     min-height: 720px;
     margin-left: 30px;
 }
@@ -108,7 +180,7 @@ export default {
     height: 140px;
 }
 .blog-card {
-    padding: 20px;
+    padding: 0;
 }
 
 .user-nick {
@@ -121,12 +193,13 @@ export default {
     text-align: end;
 }
 .fab-write-button {
-    height: 80px;
-    width: 80px;
-    font-size: 28px;
+    height: 60px;
+    width: 60px;
+    font-size: 24px;
     position: relative;
     bottom: 160px;
     left: 45px;
-    box-shadow: 1px 1px 2px 1px #e6a23c;
+    box-shadow: 0 2px 12px 0 #cdcdcb;
+    //box-shadow: 1px 1px 2px 1px ;
 }
 </style>

@@ -3,6 +3,8 @@ package com.moyang.zero.controller;
 
 import com.moyang.zero.auth.util.LoginContext;
 import com.moyang.zero.common.exception.BusinessException;
+import com.moyang.zero.common.util.http.PageRequest;
+import com.moyang.zero.common.util.http.PageResult;
 import com.moyang.zero.common.util.http.Result;
 import com.moyang.zero.req.BlogSaveReq;
 import com.moyang.zero.service.IBlogArticleService;
@@ -43,6 +45,35 @@ public class BlogArticleController extends TemplateController {
 		return blogArticleService.saveBlog(blogSaveReq);
 	}
 
+	@PostMapping("/update")
+	@ApiOperation(value = "墨阳空间-博客文章更新")
+	@RequiresRoles("COMMON_USER")
+	@RequiresAuthentication
+	Result<Long> editBlog(@RequestBody BlogSaveReq blogSaveReq){
+		String author = LoginContext.getCurrentUser().getEmy();
+		// 校验权限
+		if (!author.equals(blogSaveReq.getAuthor())) {
+			return Result.fail("权限不足，用户只能编辑自己的文章！");
+		}
+		checkParams(blogSaveReq);
+		if (blogSaveReq.getId() == null || blogSaveReq.getId() < 0){
+			return Result.fail("文章ID错误！");
+		}
+		return blogArticleService.updateBlog(blogSaveReq);
+	}
+
+	@GetMapping("/delete")
+	@ApiOperation(value = "墨阳空间-博客文章删除（更新为无效文章）")
+	@RequiresRoles("COMMON_USER")
+	@RequiresAuthentication
+	Result<Boolean> deleteBlog(@RequestParam("id") Long blogId){
+		String author = LoginContext.getCurrentUser().getEmy();
+		if (blogId == null || blogId < 0){
+			return Result.fail("文章ID错误！");
+		}
+		return blogArticleService.deleteBlog(blogId, author);
+	}
+
 	@GetMapping("/read")
 	@ApiOperation(value = "墨阳空间-博客文章浏览")
 	@RequiresRoles("COMMON_USER")
@@ -52,6 +83,16 @@ public class BlogArticleController extends TemplateController {
 			return Result.fail("参数错误：id");
 		}
 		return blogArticleService.getBlogNoAuth(blogId);
+	}
+
+	@PostMapping("/myList")
+	@ApiOperation(value = "墨阳空间-博客文章列表")
+	@RequiresRoles("COMMON_USER")
+	@RequiresAuthentication
+	PageResult<BlogArticleVo> getMyBlogList(@RequestBody PageRequest<String> pageRequest){
+		String author = LoginContext.getCurrentUser().getEmy();
+		pageRequest.setData(author);
+		return blogArticleService.getBlogListOfAuthor(pageRequest);
 	}
 
 	private void checkParams(BlogSaveReq blogSaveReq) {

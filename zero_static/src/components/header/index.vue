@@ -44,7 +44,7 @@ export default {};
 .zero-logo {
     width: 200px;
     height: 60px;
-    padding: 10px;
+    line-height: 60px;
     color: antiquewhite;
     font-size: 28px;
 }

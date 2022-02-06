@@ -47,7 +47,7 @@ public class MyBeanCopier {
 	 * @param source    目标对象
 	 * @param supplier: 目标类::new(eg: UserVO::new)
 	 */
-	public static <T> T copyBean(Object source, Supplier<T> supplier) {
+	public static <T> T copyBean(Object source, Supplier<T> supplier){
 		T t = supplier.get();
 		getBeanCopier(source.getClass(), t.getClass()).copy(source, t, null);
 		return t;

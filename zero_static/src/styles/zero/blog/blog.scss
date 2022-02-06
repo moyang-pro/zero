@@ -6,6 +6,36 @@
     padding-top: 80px;
 }
 
+.blog-right-card {
+    width: 1180px;
+}
+
+@media screen and (max-width: 1630px) {
+    .blog-right-card {
+        width: 1480px;
+    }
+}
+
+@media screen and (max-width: 1480px) {
+    .blog-right-card {
+        width: 1130px;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .blog-right-card {
+        width: 780px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .blog-right-card {
+        width: 430px;
+    }
+}
+
+
+
 @media screen and (max-width: 1630px) {
     .blog-main-content {
         width: 1480px;

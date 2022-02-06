@@ -7,7 +7,7 @@ public class ApplicationConstant {
 
 	public static  final String APP_NAME = "moyang";
 
-	public static  final String AVATAR_DEFAULT = "sun";
+	public static  final String AVATAR_DEFAULT = "";
 
 	public static  final String MOYANG_PRE_UPPER = "MOYANG-";
 

@@ -6,23 +6,32 @@
             </div>
             <div class="blog-middle-block">
                 <el-card shadow="hover" class="article-read-card">
-                    <div slot="header" class="blog-title-header text-one-line">
-                        <h1>{{ blogInfo.title }}</h1>
+                    <div slot="header" class="blog-title-header">
+                        <h1 class="blog-title-h1 text-one-line">{{ blogInfo.title }}</h1>
                         <div class="article-opt-part">
                             <div class="opt-tag-start">
                                 <el-tag
-                                    type="success"
+                                    type="info"
                                     v-for="item in tagList"
                                     :key="item.index"
                                     class="article-tag"
                                     >{{ item }}</el-tag
                                 >
                             </div>
-                            <div class="opt-count-mid"></div>
-                            <div class="opt-part-end">
-                                <el-button type="text">编辑</el-button>
+                            <div class="opt-part-end" v-show="isMine">
+                                <el-link
+                                    :underline="false"
+                                    type="primary"
+                                    @click.stop="editBlog(blogInfo.id)"
+                                    >编辑</el-link
+                                >
                                 <el-divider direction="vertical"></el-divider>
-                                <el-button type="text" class="danger-color">删除</el-button>
+                                <el-link
+                                    :underline="false"
+                                    type="danger"
+                                    @click.stop="deleteBlog(blogInfo.id)"
+                                    >删除</el-link
+                                >
                             </div>
                         </div>
                     </div>
@@ -44,7 +53,8 @@
 </template>
 
 <script>
-import { getBlog } from '@/api/blog';
+import { deleteBlog, getBlog } from '@/api/blog';
+import NumberUtils from '@/utils/NumberUtils';
 
 export default {
     name: 'read',
@@ -52,8 +62,10 @@ export default {
         return {
             blogInfo: {
                 id: 0,
-                htmlContent: ''
+                htmlContent: '',
+                author: ''
             },
+            isMine: false,
             // 编程语言、技术领域、项目名称
             tagList: ['java语言', '博客', 'ZERO-BLOG']
         };
@@ -64,18 +76,56 @@ export default {
     },
     methods: {
         showBlog(id) {
-            console.log('blogId: ' + id);
-            if (!id) {
+            if (!NumberUtils.isValidateId(id)) {
                 this.$message.error('获取文章ID错误，请检查访问路径是否正确！');
+                this.$router.replace({ path: `/blog` });
                 return;
             }
             getBlog(id)
                 .then(res => {
                     this.blogInfo = res.data;
+                    this.isMine = this.blogInfo.author === this.$store.state.user.name;
                 })
                 .catch(() => {
+                    this.$router.replace({ path: `/blog` });
                     this.blogInfo = {};
                 });
+        },
+        editBlog(id) {
+            if (!NumberUtils.isValidateId(id)) {
+                this.$message.error('文章ID错误！');
+                return;
+            }
+            this.$router.push({ path: `/blog/edit/${id}.html` });
+        },
+        deleteBlog(id) {
+            if (!NumberUtils.isValidateId(id)) {
+                this.$message.error('文章ID错误！');
+                return;
+            }
+            this.$confirm('此操作将永久删除该博客, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            })
+                .then(() => {
+                    this.confirmDelete(id);
+                })
+                .catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+        },
+        confirmDelete(id) {
+            deleteBlog(id).then(() => {
+                this.$router.replace({ path: `/blog` });
+                this.$message({
+                    type: 'success',
+                    message: '删除成功!'
+                });
+            });
         }
     }
 };
@@ -104,28 +154,26 @@ export default {
 }
 .article-read-card .blog-title-header {
     text-align: left;
-    width: 60%;
+}
+.blog-title-h1 {
+    max-width: 80%;
 }
 .article-opt-part {
-    display: inline-block;
+    display: grid;
     height: 100%;
-    min-width: 100px;
-    text-align: justify;
-    text-align-last: justify;
+    width: 100%;
+    grid-template-columns: 60% 40%;
 }
 .opt-tag-start {
-    display: inline;
 }
 .article-tag {
     margin-right: 8px;
     cursor: pointer;
 }
 .opt-count-mid {
-    display: inline;
 }
 .opt-part-end {
-    display: inline;
-    float: end;
+    text-align: end;
 }
 .blog-right-block {
 }

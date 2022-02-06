@@ -2,6 +2,7 @@ package com.moyang.zero.advice;
 
 import com.alibaba.fastjson.JSON;
 import com.moyang.zero.common.exception.BusinessException;
+import com.moyang.zero.common.util.http.PageResult;
 import com.moyang.zero.common.util.http.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -71,6 +72,9 @@ public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
         }
         if (o instanceof Result) {
             return (Result<Object>) o;
+        }
+        if (o instanceof PageResult) {
+            return (PageResult<Object>) o;
         }
         if (o instanceof String) {
             return JSON.toJSON(Result.success(o)).toString();

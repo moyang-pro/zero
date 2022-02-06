@@ -28,11 +28,14 @@ public class BlogArticle extends Template {
     @ApiModelProperty(value = "文章简要描述")
     private String articleDes;
 
-    @ApiModelProperty(value = "文章内容")
+    @ApiModelProperty(value = "文章html内容")
     private String articleContent;
 
     @ApiModelProperty(value = "emy账号:作者")
     private String author;
+
+    @ApiModelProperty(value = "文章原始内容")
+    private String articleText;
 
 
 }

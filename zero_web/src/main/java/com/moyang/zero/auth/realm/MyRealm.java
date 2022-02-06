@@ -49,15 +49,17 @@ public class MyRealm extends AuthorizingRealm {
 		String platCode = JwtUtil.getPlatCode(principals.toString());
 		SysMemberDetail sysMemberDetail = sysMemberDetailService.loadAllInfoByUser(username, platCode);
 		log.info("user request doGetAuthorizationInfo 鉴权........................ ");
-		LoginContext.setLoginContextBySysMember(sysMemberDetail);
 		SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-		//获得用户的角色，及权限进行绑定
-		for(SysRole role : sysMemberDetail.getSysRoleList()){
-			simpleAuthorizationInfo.addRole(role.getRoleCode());
-		}
-		for(SysPrivilege privilege : sysMemberDetail.getSysPrivilegeList()){
-			simpleAuthorizationInfo.addStringPermission(privilege.getPrivCode());
-		}
+        if (sysMemberDetail != null) {
+	        LoginContext.setLoginContextBySysMember(sysMemberDetail);
+	        //获得用户的角色，及权限进行绑定
+	        for(SysRole role : sysMemberDetail.getSysRoleList()){
+		        simpleAuthorizationInfo.addRole(role.getRoleCode());
+	        }
+	        for(SysPrivilege privilege : sysMemberDetail.getSysPrivilegeList()){
+		        simpleAuthorizationInfo.addStringPermission(privilege.getPrivCode());
+	        }
+        }
 		return simpleAuthorizationInfo;
 	}
 

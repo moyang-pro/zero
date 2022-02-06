@@ -150,5 +150,4 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> fail(ResultCodeEnum codeEnum, T data, long total) {
         return new Result<>(false, codeEnum.getCode(), codeEnum.getMessage(), data, total);
     }
-
 }

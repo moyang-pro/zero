@@ -3,10 +3,12 @@ package com.moyang.zero.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.moyang.zero.common.enums.DelEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
 
@@ -20,6 +22,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @ApiModel(value="Template对象", description="用户信息表")
+@Slf4j
 public class Template{
 
     private static final long serialVersionUID = 1L;
@@ -28,12 +31,14 @@ public class Template{
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createAt;
 
     @ApiModelProperty(value = "创建者emy账号")
     private String createBy;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateAt;
 
@@ -58,6 +63,7 @@ public class Template{
         this.updateBy = emy;
         this.updateAt = now;
         this.remarks = remarks;
+        log.info(emy + "在" + now + remarks);
     }
 
     /**
@@ -71,6 +77,7 @@ public class Template{
         this.updateBy = emy;
         this.updateAt = now;
         this.remarks = emy + "在" + now + "创建新记录";
+        log.info(remarks);
     }
 
     /**
@@ -83,6 +90,7 @@ public class Template{
         this.updateBy = emy;
         this.updateAt = now;
         this.remarks = remarks;
+        log.info(emy + "在" + now + remarks);
     }
 
     /**
@@ -94,6 +102,7 @@ public class Template{
         this.updateBy = emy;
         this.updateAt = now;
         this.remarks = emy + "在" + now +"更新记录";
+        log.info(remarks);
     }
 
     public void deleted(){

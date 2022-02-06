@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * @Author: moyang
@@ -110,7 +111,9 @@ public class GenerateCode {
 		//驼峰转
 		strategy.setControllerMappingHyphenStyle(true);
 		//表名
-		strategy.setInclude("blog_article");
+		Scanner scanner = new Scanner(System.in);
+		System.out.print( "Please enter a table name : " );
+		strategy.setInclude(scanner.next());
 		strategy.setControllerMappingHyphenStyle(true);
 		//是否启用 builder 模式;
 		strategy.setChainModel(true);

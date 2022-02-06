@@ -10,7 +10,7 @@
     "dependencies": {
         "axios": "0.18.1",
         "core-js": "^3.8.3",
-        "element-ui": "^2.15.0",
+        "element-ui": "2.15.7",
         "github-markdown-css": "^5.1.0",
         "highlight.js": "^11.4.0",
         "js-cookie": "2.2.0",

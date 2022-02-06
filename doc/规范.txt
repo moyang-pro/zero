@@ -1,18 +1,36 @@
 1. vo bo dto po 等 object 的定义
   
   1）request 定义controller层接受前端的请求，简写xxReq
-  2）dto是service层内部产生的对象，向dao层传输，service层方法返回vo对象或者dto对象
-  3）po是数据库的表
-  4）bo是多张表的联合，dao层的方法往往返bo对象或po对象
-  5）vo是后端controller层返回给前端的对象
-  
-2. 常用英文简写
+  2）dto是service层内部产生的对象，向dao层传输，service层方法返回vo对象
+  3）po是数据库的表，bo是多张表的联合，dao层的方法往往返bo对象或po对象
+  4）manager层与dao层不同的是：manager层的输入输出可以是dto，而dao层的输入输出不允许出现dto，只能是po实体类或者bo
+  5）service层负责业务逻辑处理，主要包括 1.req转dto、bo或者po 2.调用manager层和dao层接口处理数据 3.处理后的数据对象dto、bo或po转换成vo返回
+  6）vo是后端controller层返回给前端的对象
+
+2. web开发层级与对象之间的约定：
+  -- controller层 接收请求时只做请求req参数校验和登录信息包装，业务逻辑处理完后，只能返回vo
+  -- service层用于处理业务逻辑的对象仅可以是dto、bo和po实体类
+  -- manager层用于数据处理的对象只能是dto、bo和po实体类
+  -- dao层用于数据库CRUD的只能是bo和po实体
+
+3. 代码提交规范流程
+   commit 信息格式：
+   分两种： 1. 需求-新内容开发-AR 2. 问题-bug优化-QA
+例如：
+  MoID: AR#2022B001
+  part: blog 【系统模块】
+  idea: 博客系统的基本功能 【功能模块】
+  desc: 博客文章前端展示【逻辑点】
+
+4. 常用英文简写
   * department dept
   * request req
   * result res
   * response resp
-  * 
-  
-3. web开发中细节：
-  -- service 层方法不能返回Result，
-     Result结果只能在web controller层构建（根据service层方法返回的处理结果）
+  * description des/desc
+  * option opt
+  * professional pro
+
+
+
+

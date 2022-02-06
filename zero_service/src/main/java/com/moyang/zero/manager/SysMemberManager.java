@@ -53,6 +53,12 @@ public class SysMemberManager {
 	private RedisUtil redisUtil;
 
 
+	public int countZeroUser(){
+		return new LambdaQueryChainWrapper<>(sysMemberMapper)
+				.eq(SysMember::getDelFlag, DelEnum.valid())
+				.count();
+	}
+
 	public SysMember loadUserByUsername(String emy, String platCode){
 		if (StringUtils.isBlank(platCode)) {
 			platCode = PlatCodeEnum.DEFAULT_CODE.getCode();
@@ -90,6 +96,9 @@ public class SysMemberManager {
 			} catch (JSONException jsonException) {
 				log.error("平台：{} 用户：{}的信息从Redis中获取类型转换失败！原因：{}", platCode, emy, jsonException.getMessage());
 				SysMemberDetail userInfo =  getUserDetailFromDb(emy, platCode);
+				if (userInfo == null) {
+					return null;
+				}
 				String jsonString = JSONObject.toJSONString(userInfo);
 				log.debug("user info json string: {}", jsonString);
 				redisUtil.set(userKey, jsonString, REDIS_DEFAULT_EXPIRE);
@@ -97,6 +106,9 @@ public class SysMemberManager {
 			}
 		}
 		SysMemberDetail userInfo =  getUserDetailFromDb(emy, platCode);
+		if (userInfo == null) {
+			return null;
+		}
 		String jsonString = JSONObject.toJSONString(userInfo);
 		redisUtil.set(userKey, jsonString, REDIS_DEFAULT_EXPIRE);
 		log.debug("user info json string: {}", jsonString);
@@ -105,6 +117,9 @@ public class SysMemberManager {
 
 	private SysMemberDetail getUserDetailFromDb(String emy, String platCode) {
 		SysMember sysMember = loadUserByUsername(emy, platCode);
+		if (sysMember == null) {
+			return null;
+		}
 		SysMemberDetail sysMemberDetail = MyBeanCopier.copyBean(sysMember, SysMemberDetail::new);
 		List<SysRole> roleList = loadRolesByUser(emy, platCode);
 		List<SysPrivilege> privilegeList = loadPrivByUser(emy, platCode);

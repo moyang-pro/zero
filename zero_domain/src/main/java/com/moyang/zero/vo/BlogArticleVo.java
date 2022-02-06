@@ -23,6 +23,8 @@ public class BlogArticleVo extends Template {
 
 	private String htmlContent;
 
+	private String textContent;
+
 	private String author;
 
 }
