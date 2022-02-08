@@ -12,7 +12,7 @@
             inner join sys_role_priv  srp on srp.del_flag = 0
                                                  and srp.role_code = sr.role_code and sp.priv_code = srp.priv_code
         where sp.my_code = #{platCode} and sp.del_flag = 0
-        group by sp.priv_code order by sp.id asc
+        group by sp.id,sp.priv_code order by sp.id asc
     </select>
 
 </mapper>

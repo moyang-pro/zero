@@ -12,7 +12,6 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -30,9 +29,6 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 @Configuration
 @EnableCaching
-@PropertySource("classpath:/redis/redis.properties") //指定自定义配置文件位置和名称
-//@EnableConfigurationProperties(RedisConfig.class) //开启对应配置类的属性注入功能
-//@ConfigurationProperties(prefix = "test") //指定配置文件注入属性前缀
 public class RedisConfig{
 
 	private static final Logger log = LoggerFactory.getLogger(RedisConfig.class);
@@ -40,17 +36,19 @@ public class RedisConfig{
 	/**
 	 * redis配置属性读取
 	 */
-	@Value("${moyang.redis.host}")
+	@Value("${spring.redis.host}")
 	private  String host;
-	@Value("${moyang.redis.port}")
+	@Value("${spring.redis.password}")
+	private  String password;
+	@Value("${spring.redis.port}")
 	private  int port;
-	@Value("${moyang.redis.database}")
+	@Value("${spring.redis.database}")
 	private  int database;
-	@Value("${moyang.redis.jedis.pool.max-idle}")
+	@Value("${spring.redis.jedis.pool.max-idle}")
 	private int maxIdle;
-	@Value("${moyang.redis.jedis.pool.max-wait}")
+	@Value("${spring.redis.jedis.pool.max-wait}")
 	private long maxWaitMillis;
-	@Value("${moyang.redis.jedis.pool.max-active}")
+	@Value("${spring.redis.jedis.pool.max-active}")
 	private int maxActive;
 
 
@@ -78,6 +76,7 @@ public class RedisConfig{
 		// JedisConnectionFactory配置host、database、password等参数
 		RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
 		redisStandaloneConfiguration.setHostName(host);
+		redisStandaloneConfiguration.setPassword(password);
 		redisStandaloneConfiguration.setPort(port);
 		redisStandaloneConfiguration.setDatabase(database);
 		// JedisConnectionFactory配置jedisPoolConfig

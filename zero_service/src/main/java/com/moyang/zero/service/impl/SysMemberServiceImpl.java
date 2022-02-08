@@ -124,6 +124,9 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		if (exist == null){
 			return Result.fail("用户账号信息为空");
 		}
+		if (!exist.getPassword().equals(req.getPwd())) {
+			return Result.fail("密码错误！");
+		}
 		return Result.success();
 	}
 

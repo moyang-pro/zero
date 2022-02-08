@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 import static com.moyang.zero.common.constant.ApplicationConstant.HTTP;
 import static com.moyang.zero.common.constant.ApplicationConstant.HTTP_PRE;
@@ -20,7 +19,6 @@ import static com.moyang.zero.common.constant.ApplicationConstant.HTTP_PRE;
  **/
 @Slf4j
 @Configuration
-@PropertySource("classpath:/oss/minio.properties")
 public class MinioConfig {
 
 	/**

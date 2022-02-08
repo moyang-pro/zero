@@ -14,15 +14,14 @@ import org.springframework.context.annotation.PropertySource;
  */
 @SpringBootApplication
 @MapperScan("com.moyang.zero.mapper")
-@PropertySource("")
-//手动加载自定义配置文件
 @PropertySource(value = {
 		"classpath:db.properties",
 		"classpath:prop/common.properties",
+		"classpath:prop/redis/redis.properties",
+		"classpath:prop/oss/minio.properties"
 }, encoding = "utf-8")
 @EnableCaching
 @ServletComponentScan
-//@ImportResource("classpath:/redis/redis.xml")//加载自定义XML配置文件位置
 public class ZeroWebApplication {
 
 	/**

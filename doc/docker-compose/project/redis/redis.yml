@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  redis:
+    image: redis:5.0.10
+    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server  --requirepass moyang --appendonly yes # 启动redis服务并添加密码为：moyang,并开启redis持久化配置
+    volumes:
+      - /zero/docker-compose/data/redis:/data
+#      - /zero/docker-compose/config/redis/redis.conf:/etc/redis/redis.conf"
+    networks:
+      - zero
+      
+networks:
+  zero:
+    external: true

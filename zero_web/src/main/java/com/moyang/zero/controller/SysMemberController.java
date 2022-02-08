@@ -12,7 +12,6 @@ import com.moyang.zero.service.ISysMemberService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +66,7 @@ public class SysMemberController extends TemplateController {
 	                            @RequestParam("password") String pwd,
 	                            @RequestParam(name = "platCode", required = false) String platCode){
 		AccountLoginReq req = new AccountLoginReq(emy, pwd, platCode);
+		log.info("用户 emy == {} 企图登陆系统", emy);
 		this.checkAccountLoginInfo(req);
 		Result<String> loginResult = memberService.userAccountLogin(req);
 		if (loginResult.isSuccess()) {
@@ -78,7 +78,7 @@ public class SysMemberController extends TemplateController {
 
 	@GetMapping("/info")
 	@ApiOperation(value = "墨阳空间-用户登录")
-	@RequiresRoles(value ={"COMMON_USER","PRO_USER","SUPER_USER"},logical= Logical.OR)
+	@RequiresRoles(value ={"COMMON_USER"})
 	@RequiresAuthentication
 	public SysMemberDetail getSysMemberInfo(){
 		LoginInfo loginInfo = LoginContext.getCurrentUser();

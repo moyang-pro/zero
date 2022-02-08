@@ -19,7 +19,7 @@ public class MybatisPlusConfig {
 	 * mybatis-plus分页插件
 	 */
 	@Bean
-	public MybatisPlusInterceptor MybatisPlusInterceptor() {
+	public MybatisPlusInterceptor mybatisPlusInterceptor() {
 		MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
 		//乐观锁
 		mybatisPlusInterceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());

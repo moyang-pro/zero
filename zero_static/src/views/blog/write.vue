@@ -42,7 +42,46 @@
         </div>
         <div class="opt-block">
             <el-button round @click="saveBlog">保存草稿</el-button>
-            <el-button type="warning" round>发布文章</el-button>
+            <el-button type="warning" round @click="openPublishDialog">发布文章</el-button>
+        </div>
+        <div class="dialog-block">
+            <el-dialog
+                :visible.sync="publishDialog.visible"
+                width="30%"
+                :close-on-click-modal="false"
+            >
+                <span slot="title" class="dialog-header">
+                    <span>{{ publishDialog.title }}</span>
+                </span>
+                <el-form class="publish-blog-form" label-position="left" label-width="100px">
+                    <el-form-item label="文章封面：">
+                        <el-radio-group v-model="blogForm.isCover">
+                            <el-radio :label="false">无封面</el-radio>
+                            <el-radio :label="true">有封面</el-radio>
+                        </el-radio-group>
+                        <el-upload
+                            action="#"
+                            list-type="picture-card"
+                            :auto-upload="false"
+                            :file-list="coverImgList"
+                            v-if="blogForm.isCover"
+                        >
+                            <i slot="default" class="el-icon-plus"></i>
+                            <div slot="file" slot-scope="{ file }">
+                                <img
+                                    class="el-upload-list__item-thumbnail"
+                                    :src="file.url"
+                                    alt=""
+                                />
+                            </div>
+                        </el-upload>
+                    </el-form-item>
+                </el-form>
+                <span slot="footer" class="dialog-footer">
+                    <el-button round @click="publishDialogClose">取 消</el-button>
+                    <el-button type="warning" round @click="publishBlog">发 布</el-button>
+                </span>
+            </el-dialog>
         </div>
     </div>
 </template>
@@ -60,7 +99,20 @@ export default {
                 htmlContent: '',
                 textContent: ''
             },
+            blogForm: {
+                isCover: false,
+                coverUrl: '',
+                type: 0,
+                tags: [],
+                publishType: 0,
+                articleInfo: null
+            },
             modified: false,
+            publishDialog: {
+                visible: false,
+                title: '发布文章'
+            },
+            coverImgList: [],
             rulesBlog: {
                 title: [
                     {
@@ -132,6 +184,13 @@ export default {
         },
         delImage(fileName) {
             console.log('delImage: ' + fileName);
+        },
+        openPublishDialog() {
+            this.publishDialog.visible = true;
+        },
+        publishBlog() {},
+        publishDialogClose() {
+            this.publishDialog.visible = false;
         }
     },
     mounted() {
@@ -175,5 +234,12 @@ export default {
 .opt-block {
     text-align: end;
     margin-bottom: 20px;
+}
+.dialog-block {
+    text-align: left;
+}
+.dialog-header {
+    font-size: 16px;
+    font-weight: bolder;
 }
 </style>

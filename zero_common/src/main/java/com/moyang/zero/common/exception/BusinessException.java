@@ -1,5 +1,6 @@
 package com.moyang.zero.common.exception;
 
+import com.moyang.zero.common.enums.HttpErrorEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ public class BusinessException extends RuntimeException {
     /**
      * 异常码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 异常描述
@@ -31,10 +32,11 @@ public class BusinessException extends RuntimeException {
      * @param code 异常码
      * @param msg 异常描述
      */
-    public BusinessException(String code, String msg, Throwable e) {
+    public BusinessException(Integer code, String msg, Throwable e) {
         super(msg, e);
         this.code = code;
         this.msg = msg;
+        log.error(business, msg);
     }
 
     /**
@@ -42,10 +44,11 @@ public class BusinessException extends RuntimeException {
      * @param code 异常码
      * @param msg 异常描述
      */
-    public BusinessException(String code, String msg) {
+    public BusinessException(Integer code, String msg) {
         super(msg);
         this.code = code;
         this.msg = msg;
+        log.error(business, msg);
     }
 
     public BusinessException(String msg) {
@@ -54,9 +57,17 @@ public class BusinessException extends RuntimeException {
         log.error(business, msg);
     }
 
+    public BusinessException(HttpErrorEnum errorEnum) {
+        super(errorEnum.getDescription());
+        this.msg = errorEnum.getDescription();
+        this.code = errorEnum.getCode();
+        log.error(business, msg);
+    }
+
     public BusinessException(String msg, Throwable e) {
         super(msg, e);
         this.msg = msg;
+        log.error(business, msg);
     }
 
 }

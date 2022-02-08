@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:8.0.13
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Hualing.5251
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+    ports:
+      - 3306:3306
+    volumes:
+      - /zero/docker-compose/data/mysql:/var/lib/mysql
+#      - /zero/docker-compose/config/:/etc/
+      - /zero/docker-compose/init/mysql/:/docker-entrypoint-initdb.d/
+    networks:
+      - zero
+networks:
+  zero:
+    external: true

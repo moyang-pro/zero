@@ -8,7 +8,7 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-const port = process.env.port || process.env.npm_config_port || 8080;
+const port = process.env.port || process.env.npm_config_port || 8081;
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
      * In most cases please use '/' !!!
      * Detail: https://cli.vuejs.org/config/#publicpath
      */
-    publicPath: '/',
+    publicPath: './',
     outputDir: 'dist',
     assetsDir: 'static',
     lintOnSave: process.env.NODE_ENV === 'development',
@@ -30,7 +30,7 @@ module.exports = {
         disableHostCheck: true,
         proxy: {
             '/api': {
-                target: 'http://dev.zero.moyang.pro', //代理地址，这里设置的地址会代替axios中设置的baseURL
+                target: 'http://dev.zero.moyang.pro:8080', //代理地址，这里设置的地址会代替axios中设置的baseURL
                 changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
                 //ws: true, // proxy websockets
                 //pathRewrite方法重写url

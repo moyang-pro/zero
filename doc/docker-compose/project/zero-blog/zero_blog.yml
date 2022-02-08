@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  zero:
+    container_name: zero-web-server
+    restart: always
+    build:
+      context: /zero/docker-compose/
+      dockerfile: /zero/docker-compose/project/zero-blog/Dockerfile
+    ports:
+      - 80:80
+      - 8080:8080
+    networks:
+      - zero
+    environment:
+      - COMPOSE_PROJECT_NAME=blog
+    volumes:
+      - /zero/docker-compose/log/zero-blog:/logs/
+      - /zero/docker-compose/config/zero-blog:/config/
+networks:
+  zero:
+    external: true
