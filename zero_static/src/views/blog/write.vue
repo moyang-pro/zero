@@ -60,19 +60,40 @@
                             <el-radio :label="true">有封面</el-radio>
                         </el-radio-group>
                         <el-upload
-                            action="#"
-                            list-type="picture-card"
-                            :auto-upload="false"
-                            :file-list="coverImgList"
+                            action=""
+                            accept="image/jpeg,image/gif,image/png"
+                            ref="blogCoverUpload"
+                            :show-file-list="false"
                             v-if="blogForm.isCover"
+                            :before-upload="beforeUploadCover"
+                            :http-request="uploadCover"
                         >
-                            <i slot="default" class="el-icon-plus"></i>
-                            <div slot="file" slot-scope="{ file }">
+                            <div
+                                :class="
+                                    coverImgSuccess ? 'cover_head_img' : 'cover_head_img_before'
+                                "
+                            >
                                 <img
-                                    class="el-upload-list__item-thumbnail"
-                                    :src="file.url"
-                                    alt=""
+                                    :src="this.blogForm.coverUrl"
+                                    class="cover-image-show"
+                                    alt="文章封面"
+                                    v-if="coverImgSuccess"
                                 />
+                                <div
+                                    class="cover-replace-item"
+                                    v-if="coverImgSuccess"
+                                    @click.stop="clickReplaceCover"
+                                >
+                                    <i class="el-icon-camera cover-replace"></i>
+                                </div>
+                                <span
+                                    class="cover-delete-item"
+                                    v-if="coverImgSuccess"
+                                    @click.stop="clickRemoveCover"
+                                >
+                                    X
+                                </span>
+                                <i class="el-icon-plus plus-img-tag" v-show="!coverImgSuccess"></i>
                             </div>
                         </el-upload>
                     </el-form-item>
@@ -87,7 +108,7 @@
 </template>
 
 <script>
-import { uploadImg, writeBlog } from '@/api/blog';
+import { uploadImg, writeBlog, uploadCoverImg } from '@/api/blog';
 
 export default {
     name: 'write',
@@ -112,7 +133,7 @@ export default {
                 visible: false,
                 title: '发布文章'
             },
-            coverImgList: [],
+            coverImgSuccess: false,
             rulesBlog: {
                 title: [
                     {
@@ -191,6 +212,41 @@ export default {
         publishBlog() {},
         publishDialogClose() {
             this.publishDialog.visible = false;
+        },
+        uploadCover(fileReq) {
+            if (!fileReq || !fileReq.file) {
+                this.$message.error('上传文件内容错误!');
+                return false;
+            }
+            let file = fileReq.file;
+            let formData = new FormData();
+            formData.append('image', file);
+            this.blogForm.coverUrl = '';
+            this.coverImgSuccess = false;
+            uploadCoverImg(formData)
+                .then(res => {
+                    this.blogForm.coverUrl = res.data;
+                    this.coverImgSuccess = true;
+                })
+                .catch(() => {
+                    this.blogForm.coverUrl = '';
+                    this.coverImgSuccess = false;
+                });
+        },
+        beforeUploadCover(file) {
+            // 校检文件大小
+            const isLt2M = file.size / 1024 / 1024 < 2;
+            if (!isLt2M) {
+                this.$message.error('上传文件大小不能超过 2MB!');
+                return false;
+            }
+            return true;
+        },
+        clickReplaceCover() {
+            console.log('clickReplaceCover');
+        },
+        clickRemoveCover() {
+            console.log('clickRemoveCover');
         }
     },
     mounted() {
@@ -241,5 +297,74 @@ export default {
 .dialog-header {
     font-size: 16px;
     font-weight: bolder;
+}
+.cover_head_img_before {
+    width: 160px;
+    height: 90px;
+    position: relative;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    background: #fff;
+    border: 1px dashed #bfbfbf;
+    border-radius: 4px;
+}
+
+.cover_head_img {
+    width: 160px;
+    height: 90px;
+    position: relative;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 4px;
+}
+.cover-image-show {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+}
+.plus-img-tag {
+    line-height: 90px;
+}
+.cover-replace-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 90px;
+    background: rgba(101, 101, 101, 0.6);
+    color: #ffffff;
+    opacity: 0;
+    border-radius: 4px;
+}
+.cover-replace-item:hover {
+    opacity: 1;
+}
+.cover-replace {
+    line-height: 90px;
+    font-size: 20px;
+}
+
+.cover-delete-item {
+    z-index: 9;
+    position: absolute;
+    background: #999;
+    color: #fff;
+    line-height: 20px;
+    right: -8px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+    background-size: contain;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+}
+.cover-delete-item:hover {
+    opacity: 1;
 }
 </style>

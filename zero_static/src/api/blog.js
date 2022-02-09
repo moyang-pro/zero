@@ -47,3 +47,11 @@ export function uploadImg(data) {
         data: data
     });
 }
+
+export function uploadCoverImg(data) {
+    return request({
+        url: '/file/blog/cover/upload',
+        method: 'post',
+        data: data
+    });
+}
