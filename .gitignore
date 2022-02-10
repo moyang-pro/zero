@@ -35,3 +35,4 @@ build/
 /zero_web/src/main/resources/public/
 
 zero.log.**
+/zero_static/dist/

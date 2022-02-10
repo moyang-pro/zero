@@ -55,3 +55,11 @@ export function uploadCoverImg(data) {
         data: data
     });
 }
+
+export function publishMyBlog(data) {
+    return request({
+        url: '/blog-article/publish',
+        method: 'post',
+        data: data
+    });
+}

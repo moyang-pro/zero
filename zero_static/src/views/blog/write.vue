@@ -53,8 +53,13 @@
                 <span slot="title" class="dialog-header">
                     <span>{{ publishDialog.title }}</span>
                 </span>
-                <el-form class="publish-blog-form" label-position="left" label-width="100px">
-                    <el-form-item label="文章封面：">
+                <el-form
+                    class="publish-blog-form"
+                    label-position="left"
+                    label-width="100px"
+                    ref="publishForm"
+                >
+                    <el-form-item label="文章封面：" required>
                         <el-radio-group v-model="blogForm.isCover">
                             <el-radio :label="false">无封面</el-radio>
                             <el-radio :label="true">有封面</el-radio>
@@ -82,7 +87,7 @@
                                 <div
                                     class="cover-replace-item"
                                     v-if="coverImgSuccess"
-                                    @click.stop="clickReplaceCover"
+                                    @click="clickReplaceCover"
                                 >
                                     <i class="el-icon-camera cover-replace"></i>
                                 </div>
@@ -97,6 +102,53 @@
                             </div>
                         </el-upload>
                     </el-form-item>
+                    <el-form-item label="文章标签：" required>
+                        <el-tag
+                            :key="tag"
+                            v-for="tag in blogForm.tags"
+                            closable
+                            :disable-transitions="false"
+                            @close="handleRemoveTag(tag)"
+                        >
+                            {{ tag }}
+                        </el-tag>
+                        <el-input
+                            class="input-new-tag"
+                            v-if="inputTagVisible"
+                            v-model="inputTagValue"
+                            ref="saveTagInput"
+                            size="small"
+                            @keyup.enter.native="handleInputTagConfirm"
+                            @blur="handleInputTagConfirm"
+                        >
+                        </el-input>
+                        <el-button v-else class="button-new-tag" size="small" @click="showTagInput"
+                            >+ 标签</el-button
+                        >
+                    </el-form-item>
+                    <el-form-item label="文章类型：" required>
+                        <el-radio-group v-model="blogForm.type">
+                            <el-radio :label="0">原创</el-radio>
+                            <el-radio :label="1">转载</el-radio>
+                            <el-radio :label="2">翻译</el-radio>
+                        </el-radio-group>
+                        <el-input
+                            placeholder="请填写原文链接"
+                            v-model="blogForm.quote"
+                            clearable
+                            v-if="blogForm.type !== 0"
+                            style="width: 90%"
+                        >
+                        </el-input>
+                        <span class="notice" v-if="blogForm.type !== 0">*</span>
+                    </el-form-item>
+                    <el-form-item label="发布形式：" required>
+                        <el-radio-group v-model="blogForm.publishType">
+                            <el-radio :label="0">公开</el-radio>
+                            <el-radio :label="1">私密</el-radio>
+                            <el-radio :label="2">粉丝可见</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
                 </el-form>
                 <span slot="footer" class="dialog-footer">
                     <el-button round @click="publishDialogClose">取 消</el-button>
@@ -108,12 +160,14 @@
 </template>
 
 <script>
-import { uploadImg, writeBlog, uploadCoverImg } from '@/api/blog';
+import { uploadImg, writeBlog, uploadCoverImg, publishMyBlog } from '@/api/blog';
 
 export default {
     name: 'write',
     data() {
         return {
+            inputTagVisible: false,
+            inputTagValue: '',
             article: {
                 title: '',
                 des: '',
@@ -126,6 +180,7 @@ export default {
                 type: 0,
                 tags: [],
                 publishType: 0,
+                quote: '',
                 articleInfo: null
             },
             modified: false,
@@ -209,9 +264,26 @@ export default {
         openPublishDialog() {
             this.publishDialog.visible = true;
         },
-        publishBlog() {},
+        publishBlog() {
+            if (this.blogForm.isCover && !this.blogForm.coverUrl) {
+                this.$message.error('请上传文章封面图片！');
+                return;
+            }
+            if (this.blogForm.type !== 0 && !this.blogForm.quote) {
+                this.$message.error('请输入原文链接！');
+                return;
+            }
+            publishMyBlog(this.blogForm)
+                .then(res => {
+                    console.log(res.data);
+                })
+                .then(err => {
+                    console.log(err.message);
+                });
+        },
         publishDialogClose() {
             this.publishDialog.visible = false;
+            // 清空发布信息
         },
         uploadCover(fileReq) {
             if (!fileReq || !fileReq.file) {
@@ -246,7 +318,31 @@ export default {
             console.log('clickReplaceCover');
         },
         clickRemoveCover() {
-            console.log('clickRemoveCover');
+            this.coverImgSuccess = false;
+            this.blogForm.coverUrl = '';
+        },
+        handleRemoveTag(tag) {
+            this.blogForm.tags.splice(this.blogForm.tags.indexOf(tag), 1);
+            console.log(this.blogForm.tags);
+        },
+        showTagInput() {
+            this.inputTagVisible = true;
+            this.$nextTick(() => {
+                this.$refs.saveTagInput.$refs.input.focus();
+            });
+        },
+
+        handleInputTagConfirm() {
+            let inputValue = this.inputTagValue;
+            if (this.blogForm.tags.indexOf(inputValue) !== -1) {
+                this.$message.warning('标签已存在！');
+                return;
+            }
+            if (inputValue) {
+                this.blogForm.tags.push(inputValue);
+            }
+            this.inputTagVisible = false;
+            this.inputTagValue = '';
         }
     },
     mounted() {
@@ -366,5 +462,29 @@ export default {
 }
 .cover-delete-item:hover {
     opacity: 1;
+}
+
+.el-tag {
+    height: 32px;
+    padding: 0 10px;
+    line-height: 30px;
+    margin-right: 10px;
+}
+.button-new-tag {
+    height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.input-new-tag {
+    width: 90px;
+    vertical-align: bottom;
+}
+
+.notice {
+    margin: 0 8px;
+    padding-top: 4px;
+    font-size: 16px;
+    color: #fc5531;
 }
 </style>

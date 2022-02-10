@@ -5,6 +5,7 @@ import com.moyang.zero.common.util.http.PageRequest;
 import com.moyang.zero.common.util.http.PageResult;
 import com.moyang.zero.common.util.http.Result;
 import com.moyang.zero.entity.BlogArticle;
+import com.moyang.zero.req.BlogPublishReq;
 import com.moyang.zero.req.BlogSaveReq;
 import com.moyang.zero.vo.BlogArticleVo;
 
@@ -53,4 +54,11 @@ public interface IBlogArticleService extends IService<BlogArticle> {
 	 * @return 结果
 	 */
 	Result<Boolean> deleteBlog(Long blogId, String author);
+
+	/**
+	 * 发布博客文章
+	 * @param blogPublishReq 文章发布信息
+	 * @return 博客ID
+	 */
+	Result<Long> publishBlog(BlogPublishReq blogPublishReq);
 }

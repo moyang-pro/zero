@@ -9,6 +9,7 @@ import com.moyang.zero.common.util.http.Result;
 import com.moyang.zero.entity.BlogArticle;
 import com.moyang.zero.manager.BlogArticleManager;
 import com.moyang.zero.mapper.BlogArticleMapper;
+import com.moyang.zero.req.BlogPublishReq;
 import com.moyang.zero.req.BlogSaveReq;
 import com.moyang.zero.service.IBlogArticleService;
 import com.moyang.zero.vo.BlogArticleVo;
@@ -105,6 +106,12 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		blogArticle.recordUpdateInfo(author, "删除文章信息");
 		this.updateById(blogArticle);
 		return Result.success();
+	}
+
+	@Override
+	public Result<Long> publishBlog(BlogPublishReq blogPublishReq) {
+		// TODO
+		return null;
 	}
 
 }
