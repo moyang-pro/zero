@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 public class BlogPublishReq {
 
-	private boolean isCover;
+	private boolean hasCover;
 
 	private String coverUrl;
 

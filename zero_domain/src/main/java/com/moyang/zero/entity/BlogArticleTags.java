@@ -1,6 +1,5 @@
 package com.moyang.zero.entity;
 
-import com.moyang.zero.entity.Template;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

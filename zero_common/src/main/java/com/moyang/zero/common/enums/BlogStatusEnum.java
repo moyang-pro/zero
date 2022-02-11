@@ -6,29 +6,34 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: moyang
- * @ClassName: BlogPublishTypeEnum
- * @Date: 2022/2/11 1:23
- * @Description: 博客发布类型
+ * @ClassName: BlogStatusEnum
+ * @Date: 2022/2/11 20:22
+ * @Description: 文章状态
  * @Version: V1.0
  **/
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public enum BlogPublishTypeEnum {
+public enum BlogStatusEnum {
 
 	/**
-	 * 公开，所有人可见
+	 * 草稿 默认值
 	 */
-	DEFAULT(0,"公开"),
+	DEFAULT(0,"草稿"),
 	/**
-	 * 私密
+	 * 发布
 	 */
-	MYSELF(1,"私密"),
+	PUBLISH(1,"发布"),
 
 	/**
-	 * 仅粉丝可见
+	 * 开放状态,审核通过
 	 */
-	FOLLOWER(2, "仅粉丝可见");
+	PUBLISHED(2, "开放状态"),
+
+	/**
+	 * 锁定
+	 */
+	LOCKED(3,"锁定");
 
 	private Integer code;
 
@@ -36,7 +41,7 @@ public enum BlogPublishTypeEnum {
 
 	public static boolean isInEnum(int code){
 
-		for (BlogPublishTypeEnum typeEnum : BlogPublishTypeEnum.values()) {
+		for (BlogStatusEnum typeEnum : BlogStatusEnum.values()) {
 			if (typeEnum.getCode() == code) {
 				return true;
 			}

@@ -38,4 +38,9 @@ public class LoginInfo {
 
 	private LocalDateTime loginTime;
 
+	/**
+	 * 来源url
+	 */
+	private String fromUrl;
+
 }

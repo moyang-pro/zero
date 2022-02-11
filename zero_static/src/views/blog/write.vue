@@ -60,7 +60,7 @@
                     ref="publishForm"
                 >
                     <el-form-item label="文章封面：" required>
-                        <el-radio-group v-model="blogForm.isCover">
+                        <el-radio-group v-model="blogForm.hasCover">
                             <el-radio :label="false">无封面</el-radio>
                             <el-radio :label="true">有封面</el-radio>
                         </el-radio-group>
@@ -69,7 +69,7 @@
                             accept="image/jpeg,image/gif,image/png"
                             ref="blogCoverUpload"
                             :show-file-list="false"
-                            v-if="blogForm.isCover"
+                            v-if="blogForm.hasCover"
                             :before-upload="beforeUploadCover"
                             :http-request="uploadCover"
                         >
@@ -118,8 +118,8 @@
                             v-model="inputTagValue"
                             ref="saveTagInput"
                             size="small"
-                            @keyup.enter.native="handleInputTagConfirm"
-                            @blur="handleInputTagConfirm"
+                            @keyup.enter.native.passive="handleInputTagConfirm"
+                            @blur.prevent="handleInputTagConfirm"
                         >
                         </el-input>
                         <el-button v-else class="button-new-tag" size="small" @click="showTagInput"
@@ -175,7 +175,7 @@ export default {
                 textContent: ''
             },
             blogForm: {
-                isCover: false,
+                hasCover: false,
                 coverUrl: '',
                 type: 0,
                 tags: [],
@@ -262,10 +262,21 @@ export default {
             console.log('delImage: ' + fileName);
         },
         openPublishDialog() {
-            this.publishDialog.visible = true;
+            if (!this.article.htmlContent || !this.article.textContent) {
+                this.$message.warning('文章内容不能为空！');
+                return;
+            }
+            this.$refs.blogTitleForm.validate(valid => {
+                if (valid) {
+                    this.publishDialog.visible = true;
+                    this.blogForm.articleInfo = this.article;
+                } else {
+                    this.$message.warning('文章标题或概述格式错误！');
+                }
+            });
         },
         publishBlog() {
-            if (this.blogForm.isCover && !this.blogForm.coverUrl) {
+            if (this.blogForm.hasCover && !this.blogForm.coverUrl) {
                 this.$message.error('请上传文章封面图片！');
                 return;
             }

@@ -3,6 +3,8 @@ package com.moyang.zero.vo;
 import com.moyang.zero.entity.Template;
 import lombok.*;
 
+import java.util.List;
+
 /**
  * @Author: moyang
  * @ClassName: BlogVo
@@ -26,5 +28,17 @@ public class BlogArticleVo extends Template {
 	private String textContent;
 
 	private String author;
+
+	private Integer articleType;
+
+	private Integer articleStatus;
+
+	private String coverUrl;
+
+	private Integer publishType;
+
+	private String quote;
+
+	private List<String> tags;
 
 }

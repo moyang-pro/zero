@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { deleteBlog, getBlog } from '@/api/blog';
+import { deleteBlog, getMyBlog } from '@/api/blog';
 import NumberUtils from '@/utils/NumberUtils';
 
 export default {
@@ -81,7 +81,7 @@ export default {
                 this.$router.replace({ path: `/blog` });
                 return;
             }
-            getBlog(id)
+            getMyBlog(id)
                 .then(res => {
                     this.blogInfo = res.data;
                     this.isMine = this.blogInfo.author === this.$store.state.user.name;

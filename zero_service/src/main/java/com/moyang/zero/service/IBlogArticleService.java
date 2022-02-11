@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.moyang.zero.common.util.http.PageRequest;
 import com.moyang.zero.common.util.http.PageResult;
 import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.dto.LoginInfo;
 import com.moyang.zero.entity.BlogArticle;
 import com.moyang.zero.req.BlogPublishReq;
 import com.moyang.zero.req.BlogSaveReq;
@@ -32,6 +33,24 @@ public interface IBlogArticleService extends IService<BlogArticle> {
 	 * @return 结果
 	 */
 	Result<BlogArticleVo> getBlogNoAuth(Long blogId);
+
+
+	/**
+	 * 获取博客文章
+	 * @param blogId 博客文章 ID
+	 * @param author 作者账号
+	 * @return 结果
+	 */
+	Result<BlogArticleVo> getBlogOfAuthor(Long blogId, String author);
+
+
+	/**
+	 * 用户读博客文章
+	 * @param blogId 博客文章 ID
+	 * @param loginInfo 登录用户信息
+	 * @return 结果
+	 */
+	Result<BlogArticleVo> readBlogArticle(Long blogId, LoginInfo loginInfo);
 
 	/**
 	 * 获取作者的全部文章

@@ -37,5 +37,19 @@ public class BlogArticle extends Template {
     @ApiModelProperty(value = "文章原始内容")
     private String articleText;
 
+    @ApiModelProperty(value = "文章类型")
+    private Integer articleType;
+
+    @ApiModelProperty(value = "文章生命周期状态")
+    private Integer articleStatus;
+
+    @ApiModelProperty(value = "文章封面图片链接")
+    private String coverUrl;
+
+    @ApiModelProperty(value = "文章可见性")
+    private Integer publishType;
+
+    @ApiModelProperty(value = "引用文章")
+    private String quote;
 
 }

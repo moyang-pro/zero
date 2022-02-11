@@ -16,9 +16,9 @@ export function getMyBlogList(page) {
     });
 }
 
-export function getBlog(id) {
+export function getMyBlog(id) {
     return request({
-        url: '/blog-article/read',
+        url: '/blog-article/read/me',
         method: 'get',
         params: { id }
     });

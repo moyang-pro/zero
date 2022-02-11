@@ -30,9 +30,6 @@ public class BlogArticleReadRecord extends Template {
     @ApiModelProperty(value = "读者账号")
     private String emy;
 
-    @ApiModelProperty(value = "平台编码")
-    private String platCode;
-
     @ApiModelProperty(value = "IP地址")
     private String ipAddr;
 

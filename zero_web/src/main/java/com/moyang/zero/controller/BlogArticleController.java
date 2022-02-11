@@ -93,15 +93,37 @@ public class BlogArticleController extends TemplateController {
 		return blogArticleService.deleteBlog(blogId, author);
 	}
 
-	@GetMapping("/read")
-	@ApiOperation(value = "墨阳空间-博客文章浏览")
-	@RequiresRoles("COMMON_USER")
-	@RequiresAuthentication
+	@GetMapping("/look")
+	@ApiOperation(value = "墨阳空间-博客文章浏览（游客）")
 	Result<BlogArticleVo> getBlog(@RequestParam("id") Long blogId){
 		if (blogId == null || blogId <= 0) {
 			return Result.fail("参数错误：id");
 		}
 		return blogArticleService.getBlogNoAuth(blogId);
+	}
+
+	@GetMapping("/read")
+	@ApiOperation(value = "墨阳空间-博客文章浏览(博客系统用户)")
+	@RequiresRoles("COMMON_USER")
+	@RequiresAuthentication
+	Result<BlogArticleVo> readBlog(@RequestParam("id") Long blogId){
+		if (blogId == null || blogId <= 0) {
+			return Result.fail("参数错误：id");
+		}
+		return blogArticleService.readBlogArticle(blogId, LoginContext.getCurrentUser());
+	}
+
+
+	@GetMapping("/read/me")
+	@ApiOperation(value = "墨阳空间-博客文章浏览(自己)")
+	@RequiresRoles("COMMON_USER")
+	@RequiresAuthentication
+	Result<BlogArticleVo> getMyBlog(@RequestParam("id") Long blogId){
+		if (blogId == null || blogId <= 0) {
+			return Result.fail("参数错误：id");
+		}
+		String author = LoginContext.getCurrentUser().getEmy();
+		return blogArticleService.getBlogOfAuthor(blogId, author);
 	}
 
 	@PostMapping("/myList")
@@ -134,7 +156,7 @@ public class BlogArticleController extends TemplateController {
 		if (blogPublishReq == null) {
 			throw new BusinessException("参数为空！");
 		}
-		if (blogPublishReq.isCover() && StringUtils.isBlank(blogPublishReq.getCoverUrl())) {
+		if (blogPublishReq.isHasCover() && StringUtils.isBlank(blogPublishReq.getCoverUrl())) {
 			throw new BusinessException("文章封面为空");
 		}
 		if (CollectionUtils.isEmpty(blogPublishReq.getTags())) {

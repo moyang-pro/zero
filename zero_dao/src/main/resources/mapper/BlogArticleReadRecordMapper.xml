@@ -13,7 +13,6 @@
         <result column="remarks" property="remarks" />
         <result column="article_id" property="articleId" />
         <result column="emy" property="emy" />
-        <result column="plat_code" property="platCode" />
         <result column="ip_addr" property="ipAddr" />
         <result column="from_url" property="fromUrl" />
         <result column="start_time" property="startTime" />
@@ -29,7 +28,7 @@
         update_by,
         del_flag,
         remarks,
-        article_id, emy, plat_code, ip_addr, from_url, start_time, end_time
+        article_id, emy, ip_addr, from_url, start_time, end_time
     </sql>
 
 </mapper>

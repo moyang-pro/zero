@@ -63,6 +63,7 @@ public class Template{
         this.updateBy = emy;
         this.updateAt = now;
         this.remarks = remarks;
+        this.valid();
         log.info(emy + "在" + now + remarks);
     }
 
@@ -77,6 +78,7 @@ public class Template{
         this.updateBy = emy;
         this.updateAt = now;
         this.remarks = emy + "在" + now + "创建新记录";
+        this.valid();
         log.info(remarks);
     }
 
