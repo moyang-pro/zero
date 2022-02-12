@@ -31,8 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+/zero_static/dist/
 /zero_static/node_modules/
 /zero_web/src/main/resources/public/
 
 zero.log.**
-/zero_static/dist/

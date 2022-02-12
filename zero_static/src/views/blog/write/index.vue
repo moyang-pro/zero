@@ -13,30 +13,12 @@
             @imgDel="delImage"
         />
         <div class="blog-title-block">
-            <el-form
-                ref="blogTitleForm"
-                :model="article"
-                label-width="120"
-                :rules="rulesBlog"
-                label-position="left"
-            >
+            <el-form ref="blogTitleForm" :model="article" label-width="120" :rules="rulesBlog" label-position="left">
                 <el-form-item label="文章标题：" prop="title">
-                    <el-input
-                        v-model="article.title"
-                        maxlength="100"
-                        show-word-limit
-                        placeholder="请输入文章标题（100字以内）......"
-                    />
+                    <el-input v-model="article.title" maxlength="100" show-word-limit placeholder="请输入文章标题（100字以内）......" />
                 </el-form-item>
                 <el-form-item label="内容概述：" prop="des">
-                    <el-input
-                        v-model="article.des"
-                        type="textarea"
-                        :autosize="{ minRows: 2, maxRows: 5 }"
-                        maxlength="500"
-                        show-word-limit
-                        placeholder="请对文章进行简要描述（20~500字）......"
-                    />
+                    <el-input v-model="article.des" type="textarea" :autosize="{ minRows: 2, maxRows: 5 }" maxlength="500" show-word-limit placeholder="请对文章进行简要描述（20~500字）......" />
                 </el-form-item>
             </el-form>
         </div>
@@ -45,20 +27,11 @@
             <el-button type="warning" round @click="openPublishDialog">发布文章</el-button>
         </div>
         <div class="dialog-block">
-            <el-dialog
-                :visible.sync="publishDialog.visible"
-                width="30%"
-                :close-on-click-modal="false"
-            >
+            <el-dialog :visible.sync="publishDialog.visible" width="30%" :close-on-click-modal="false">
                 <span slot="title" class="dialog-header">
                     <span>{{ publishDialog.title }}</span>
                 </span>
-                <el-form
-                    class="publish-blog-form"
-                    label-position="left"
-                    label-width="100px"
-                    ref="publishForm"
-                >
+                <el-form class="publish-blog-form" label-position="left" label-width="100px" ref="publishForm" @submit.native.prevent>
                     <el-form-item label="文章封面：" required>
                         <el-radio-group v-model="blogForm.hasCover">
                             <el-radio :label="false">无封面</el-radio>
@@ -73,29 +46,12 @@
                             :before-upload="beforeUploadCover"
                             :http-request="uploadCover"
                         >
-                            <div
-                                :class="
-                                    coverImgSuccess ? 'cover_head_img' : 'cover_head_img_before'
-                                "
-                            >
-                                <img
-                                    :src="this.blogForm.coverUrl"
-                                    class="cover-image-show"
-                                    alt="文章封面"
-                                    v-if="coverImgSuccess"
-                                />
-                                <div
-                                    class="cover-replace-item"
-                                    v-if="coverImgSuccess"
-                                    @click="clickReplaceCover"
-                                >
+                            <div :class="coverImgSuccess ? 'cover_head_img' : 'cover_head_img_before'">
+                                <img :src="this.blogForm.coverUrl" class="cover-image-show" alt="文章封面" v-if="coverImgSuccess" />
+                                <div class="cover-replace-item" v-if="coverImgSuccess" @click="clickReplaceCover">
                                     <i class="el-icon-camera cover-replace"></i>
                                 </div>
-                                <span
-                                    class="cover-delete-item"
-                                    v-if="coverImgSuccess"
-                                    @click.stop="clickRemoveCover"
-                                >
+                                <span class="cover-delete-item" v-if="coverImgSuccess" @click.stop="clickRemoveCover">
                                     X
                                 </span>
                                 <i class="el-icon-plus plus-img-tag" v-show="!coverImgSuccess"></i>
@@ -103,13 +59,7 @@
                         </el-upload>
                     </el-form-item>
                     <el-form-item label="文章标签：" required>
-                        <el-tag
-                            :key="tag"
-                            v-for="tag in blogForm.tags"
-                            closable
-                            :disable-transitions="false"
-                            @close="handleRemoveTag(tag)"
-                        >
+                        <el-tag :key="tag" v-for="tag in blogForm.tags" closable :disable-transitions="false" @close="handleRemoveTag(tag)">
                             {{ tag }}
                         </el-tag>
                         <el-input
@@ -122,9 +72,7 @@
                             @blur.prevent="handleInputTagConfirm"
                         >
                         </el-input>
-                        <el-button v-else class="button-new-tag" size="small" @click="showTagInput"
-                            >+ 标签</el-button
-                        >
+                        <el-button v-else class="button-new-tag" size="small" @click="showTagInput">+ 标签</el-button>
                     </el-form-item>
                     <el-form-item label="文章类型：" required>
                         <el-radio-group v-model="blogForm.type">
@@ -132,14 +80,7 @@
                             <el-radio :label="1">转载</el-radio>
                             <el-radio :label="2">翻译</el-radio>
                         </el-radio-group>
-                        <el-input
-                            placeholder="请填写原文链接"
-                            v-model="blogForm.quote"
-                            clearable
-                            v-if="blogForm.type !== 0"
-                            style="width: 90%"
-                        >
-                        </el-input>
+                        <el-input placeholder="请填写原文链接" v-model="blogForm.quote" clearable v-if="blogForm.type !== 0" style="width: 90%"> </el-input>
                         <span class="notice" v-if="blogForm.type !== 0">*</span>
                     </el-form-item>
                     <el-form-item label="发布形式：" required>
@@ -286,10 +227,12 @@ export default {
             }
             publishMyBlog(this.blogForm)
                 .then(res => {
-                    console.log(res.data);
+                    this.modified = false;
+                    let id = res.data;
+                    this.$router.push({ path: `/blog/read/${id}.html` });
                 })
-                .then(err => {
-                    console.log(err.message);
+                .then(() => {
+                    this.modified = true;
                 });
         },
         publishDialogClose() {
@@ -342,7 +285,6 @@ export default {
                 this.$refs.saveTagInput.$refs.input.focus();
             });
         },
-
         handleInputTagConfirm() {
             let inputValue = this.inputTagValue;
             if (this.blogForm.tags.indexOf(inputValue) !== -1) {
@@ -371,7 +313,7 @@ export default {
         window.onbeforeunload = null;
     },
     beforeRouteLeave(to, from, next) {
-        if (this.article.textContent) {
+        if (this.article.textContent && this.modified) {
             const answer = window.confirm('系统可能不会保存你所做的修改');
             if (answer) {
                 next();

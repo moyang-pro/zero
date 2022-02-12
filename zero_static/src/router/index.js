@@ -28,7 +28,7 @@ const constantRoutes = [
     {
         path: '/',
         name: 'Main',
-        redirect: '/login'
+        redirect: '/home'
     },
     {
         path: '/login',
@@ -73,6 +73,15 @@ const constantRoutes = [
     // 404 page must be placed at the end !!!
     { path: '*', redirect: '/404.html', hidden: true }
 ];
+
+/**
+ * 解决报错问题：报错显示是路由重复
+ * Error: Avoided redundant navigation to current location
+ */
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch(err => err);
+};
 
 const createRouter = () =>
     new VueRouter({

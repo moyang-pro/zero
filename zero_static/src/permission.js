@@ -8,7 +8,7 @@ import getPageTitle from '@/utils/get-page-title';
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
-const whiteList = ['/login', '/register/emy-account']; // no redirect whitelist
+const whiteList = ['/login', '/home', '/blog/home', '/register/emy-account']; // no redirect whitelist
 // eslint-disable-next-line
 router.beforeEach(async (to, from, next) => {
     // start progress bar
@@ -23,7 +23,7 @@ router.beforeEach(async (to, from, next) => {
     if (hasToken) {
         if (to.path === '/login') {
             // if is logged in, redirect to the home page
-            next({ path: '/blog' });
+            next({ path: `/home` });
             NProgress.done();
         } else {
             const hasGetUserInfo = store.getters.name;
@@ -46,7 +46,6 @@ router.beforeEach(async (to, from, next) => {
         }
     } else {
         /* has no token*/
-
         if (whiteList.indexOf(to.path) !== -1) {
             // in the free login whitelist, go directly
             next();

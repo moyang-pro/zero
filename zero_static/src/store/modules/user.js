@@ -83,16 +83,7 @@ const actions = {
                         return reject('Verification failed, please Login again.');
                     }
 
-                    const {
-                        emy,
-                        nick,
-                        avatar,
-                        platCode,
-                        email,
-                        phone,
-                        sysRoleList,
-                        sysPrivilegeList
-                    } = data;
+                    const { emy, nick, avatar, platCode, email, phone, sysRoleList, sysPrivilegeList } = data;
 
                     commit('SET_NAME', emy);
                     commit('SET_NICK', nick);

@@ -2,31 +2,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.moyang.zero.mapper.BlogArticleMapper">
 
-    <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.moyang.zero.entity.BlogArticle">
-        <result column="id" property="id" />
-        <result column="create_at" property="createAt" />
-        <result column="create_by" property="createBy" />
-        <result column="update_at" property="updateAt" />
-        <result column="update_by" property="updateBy" />
-        <result column="del_flag" property="delFlag" />
-        <result column="remarks" property="remarks" />
-        <result column="article_title" property="articleTitle" />
-        <result column="article_des" property="articleDes" />
-        <result column="article_content" property="articleContent" />
-        <result column="author" property="author" />
-    </resultMap>
 
-    <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-        id,
-        create_at,
-        create_by,
-        update_at,
-        update_by,
-        del_flag,
-        remarks,
-        article_title, article_des, article_content, author
-    </sql>
+    <select id="selectBlogAllInfoByPage" resultType="com.moyang.zero.bo.BlogArticleBo" parameterType="java.lang.String">
+        select ba.id, ba.create_at, ba.create_by, ba.update_at, ba.update_by, ba.del_flag, ba.remarks,
+                        ba.article_title, ba.article_des, ba.article_content, ba.author, ba.article_text,
+                        ba.article_type, ba.article_status, ba.cover_url, ba.publish_type, ba.quote,
+                        count(DISTINCT barrc.id) as click_count, count(DISTINCT barrr.id) as read_count,
+               count(distinct barrr.emy) as user_count from blog_article ba
+        left join blog_article_read_record barrc on barrc.del_flag = 0 and ba.id = barrc.article_id
+        left join blog_article_read_record barrr on barrr.del_flag = 0 and ba.id = barrr.article_id and
+                  barrr.emy != '${@com.moyang.zero.common.constant.ApplicationConstant@APP_NAME}'
+        where ba.del_flag = 0
+        <if test="author != null and author != ''">
+            and ba.author = #{author}
+        </if>
+        group by ba.id order by ba.id desc
+    </select>
 
+    <select id="selectBlogAllInfoById" resultType="com.moyang.zero.bo.BlogArticleBo">
+        select distinct ba.id, ba.create_at, ba.create_by, ba.update_at, ba.update_by, ba.del_flag, ba.remarks,
+                        ba.article_title, ba.article_des, ba.article_content, ba.author, ba.article_text,
+                        ba.article_type, ba.article_status, ba.cover_url, ba.publish_type, ba.quote,
+                        count(DISTINCT barrc.id) as click_count, count(DISTINCT barrr.id) as read_count,
+                        count(distinct barrr.emy) as user_count from blog_article ba
+                left join blog_article_read_record barrc on barrc.del_flag = 0 and ba.id = barrc.article_id
+                left join blog_article_read_record barrr on barrr.del_flag = 0 and ba.id = barrr.article_id and
+                barrr.emy != '${@com.moyang.zero.common.constant.ApplicationConstant@APP_NAME}'
+        where ba.del_flag = 0
+        <if test="blogId != null and blogId != ''">
+            and ba.id = #{blogId}
+        </if>
+        <if test="author != null and author != ''">
+            and ba.author = #{author}
+        </if>
+    </select>
 </mapper>

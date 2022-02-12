@@ -59,6 +59,7 @@ public class BlogArticleController extends TemplateController {
 	@RequiresAuthentication
 	Result<Long> saveBlog(@RequestBody BlogSaveReq blogSaveReq){
 		String author = LoginContext.getCurrentUser().getEmy();
+		// 以后端为主
 		blogSaveReq.setAuthor(author);
 		checkParams(blogSaveReq);
 		return blogArticleService.saveBlog(blogSaveReq);

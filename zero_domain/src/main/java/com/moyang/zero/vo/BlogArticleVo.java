@@ -41,4 +41,24 @@ public class BlogArticleVo extends Template {
 
 	private List<String> tags;
 
+	/**
+	 * 浏览量
+	 */
+	private int readCount;
+
+	/**
+	 * 阅读人数
+	 */
+	private int userCount;
+
+	/**
+	 * 点击量
+	 */
+	private int clickCount;
+
+	/**
+	 * 收藏次数
+	 */
+	private int collectCount;
+
 }

@@ -17,16 +17,8 @@
                                     </span>
                                 </div>
                                 <div class="img-qrcode">
-                                    <el-card
-                                        style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
-                                        body-style="padding:0;margin:0;box-sizing: border-box;"
-                                    >
-                                        <img
-                                            style="width: 210px; height:210px"
-                                            title="点击刷新二维码"
-                                            :src="require('@/assets/mp-qrcode.jpg')"
-                                            alt="公众号二维码"
-                                        />
+                                    <el-card style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;" body-style="padding:0;margin:0;box-sizing: border-box;">
+                                        <img style="width: 210px; height:210px" title="点击刷新二维码" :src="require('@/assets/mp-qrcode.jpg')" alt="公众号二维码" />
                                     </el-card>
                                 </div>
                             </el-tab-pane>
@@ -40,16 +32,8 @@
                                     </span>
                                 </div>
                                 <div class="img-qrcode">
-                                    <el-card
-                                        style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
-                                        body-style="padding:0;margin:0;box-sizing: border-box;"
-                                    >
-                                        <img
-                                            style="width: 210px; height:210px"
-                                            title="点击刷新二维码"
-                                            :src="require('@/assets/mp-qrcode.jpg')"
-                                            alt="公众号二维码"
-                                        />
+                                    <el-card style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;" body-style="padding:0;margin:0;box-sizing: border-box;">
+                                        <img style="width: 210px; height:210px" title="点击刷新二维码" :src="require('@/assets/mp-qrcode.jpg')" alt="公众号二维码" />
                                     </el-card>
                                 </div>
                             </el-tab-pane>
@@ -69,29 +53,17 @@
                         <div class="account-login-form">
                             <el-form ref="formLogin" :model="accountInfo" :rules="ruleCustom">
                                 <el-form-item prop="account">
-                                    <el-input
-                                        type="text"
-                                        placeholder="墨阳账号emy"
-                                        v-model="accountInfo.account"
-                                    />
+                                    <el-input type="text" placeholder="墨阳账号emy" v-model="accountInfo.account" />
                                 </el-form-item>
                                 <el-form-item prop="password">
-                                    <el-input
-                                        type="password"
-                                        placeholder="密码"
-                                        v-model="accountInfo.password"
-                                    />
+                                    <el-input type="password" placeholder="密码" v-model="accountInfo.password" />
                                 </el-form-item>
                                 <el-form-item style="margin-bottom: 14px">
                                     <div id="c1"></div>
                                 </el-form-item>
 
                                 <el-form-item>
-                                    <el-button
-                                        style="height: 45px;width: 100%"
-                                        type="primary"
-                                        @click="handleSubmit('formLogin')"
-                                    >
+                                    <el-button style="height: 45px;width: 100%" type="primary" @click="handleSubmit('formLogin')">
                                         确认登录
                                     </el-button>
                                 </el-form-item>
@@ -194,9 +166,7 @@
                             墨阳空间-你的创业工作空间
                         </h2>
                         <div class="text-work">
-                            <ul
-                                style="display:inline-block ;text-align: start;color: #97a8be;margin: auto"
-                            >
+                            <ul style="display:inline-block ;text-align: start;color: #97a8be;margin: auto">
                                 <li>模块一：创业思想指导，创业理论学习</li>
                                 <li>模块二：寻找创业合伙人</li>
                                 <li>模块三：创造产品，管理企业</li>
@@ -204,11 +174,7 @@
                         </div>
                     </div>
                     <div class="img-show">
-                        <img
-                            :src="require('@/assets/working.jpg')"
-                            alt="slogan图"
-                            style="height: 180px;width: 280px"
-                        />
+                        <img :src="require('@/assets/working.jpg')" alt="slogan图" style="height: 180px;width: 280px" />
                     </div>
                     <div class="slogan">
                         <div class="slogan-box">
@@ -319,9 +285,8 @@ export default {
                 password: this.accountInfo.password,
                 platCode: this.$store.state.app.platCode
             };
-            console.log('loginInfo:{}', loginInfo);
             this.$store.dispatch('user/login', loginInfo).then(() => {
-                this.$router.push({ path: this.redirect || '/blog', query: this.otherQuery });
+                this.$router.push({ path: this.redirect || `/blog/profile/${loginInfo.username}`, query: this.otherQuery });
             });
         },
         getOtherQuery(query) {

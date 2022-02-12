@@ -17,4 +17,6 @@ public class ApplicationConstant {
 
 	public static  final String HTTP = "http";
 
+	public static  final String IP_LOCALHOST = "127.0.0.1";
+
 }

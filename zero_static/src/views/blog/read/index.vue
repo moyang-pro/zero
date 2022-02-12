@@ -10,37 +10,17 @@
                         <h1 class="blog-title-h1 text-one-line">{{ blogInfo.title }}</h1>
                         <div class="article-opt-part">
                             <div class="opt-tag-start">
-                                <el-tag
-                                    type="info"
-                                    v-for="item in tagList"
-                                    :key="item.index"
-                                    class="article-tag"
-                                    >{{ item }}</el-tag
-                                >
+                                <el-tag type="info" v-for="item in tagList" :key="item.index" class="article-tag">{{ item }}</el-tag>
                             </div>
                             <div class="opt-part-end" v-show="isMine">
-                                <el-link
-                                    :underline="false"
-                                    type="primary"
-                                    @click.stop="editBlog(blogInfo.id)"
-                                    >编辑</el-link
-                                >
+                                <el-link :underline="false" type="primary" @click.stop="editBlog(blogInfo.id)">编辑</el-link>
                                 <el-divider direction="vertical"></el-divider>
-                                <el-link
-                                    :underline="false"
-                                    type="danger"
-                                    @click.stop="deleteBlog(blogInfo.id)"
-                                    >删除</el-link
-                                >
+                                <el-link :underline="false" type="danger" @click.stop="deleteBlog(blogInfo.id)">删除</el-link>
                             </div>
                         </div>
                     </div>
                     <!--class : markdown-body 自定义代码高亮语法 v-highlight-->
-                    <div
-                        class="blog-content-info markdown-body"
-                        v-highlight
-                        v-html="blogInfo.htmlContent"
-                    >
+                    <div class="blog-content-info markdown-body" v-highlight v-html="blogInfo.htmlContent">
                         {{ blogInfo.htmlContent }}
                     </div>
                 </el-card>
@@ -78,7 +58,7 @@ export default {
         showBlog(id) {
             if (!NumberUtils.isValidateId(id)) {
                 this.$message.error('获取文章ID错误，请检查访问路径是否正确！');
-                this.$router.replace({ path: `/blog` });
+                this.$router.replace({ path: `/blog/profile/${this.$store.state.user.name}` });
                 return;
             }
             getMyBlog(id)
@@ -87,7 +67,7 @@ export default {
                     this.isMine = this.blogInfo.author === this.$store.state.user.name;
                 })
                 .catch(() => {
-                    this.$router.replace({ path: `/blog` });
+                    this.$router.replace({ path: `/blog/profile/${this.$store.state.user.name}` });
                     this.blogInfo = {};
                 });
         },
@@ -120,7 +100,7 @@ export default {
         },
         confirmDelete(id) {
             deleteBlog(id).then(() => {
-                this.$router.replace({ path: `/blog` });
+                this.$router.replace({ path: `/blog/profile/${this.$store.state.user.name}` });
                 this.$message({
                     type: 'success',
                     message: '删除成功!'
@@ -132,8 +112,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import './src/styles/zero/blog/blog.scss';
-@import './src/styles/zero/blog/markdown.scss';
+@import 'src/styles/zero/blog/blog';
+@import 'src/styles/zero/blog/markdown';
 
 .zero-blog-wrapper {
     display: flex;

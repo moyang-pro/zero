@@ -43,9 +43,9 @@ public class GenerateCode {
 		//是否覆盖 已存在文件，默认 false 不覆盖
 		gc.setFileOverride(true);
 		//mapper.xml 是否生成 ResultMap，默认 false 不生成
-		gc.setBaseResultMap(true);
+		gc.setBaseResultMap(false);
 		//mapper.xml 是否生成 ColumnList，默认 false 不生成
-		gc.setBaseColumnList(true);
+		gc.setBaseColumnList(false);
 
 		mpg.setGlobalConfig(gc);
 
