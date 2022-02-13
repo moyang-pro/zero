@@ -25,6 +25,10 @@ Vue.use(ElementUI);
 // use
 Vue.use(mavonEditor);
 
+//按需引入 ant-design-vue 组件
+import { Timeline, Statistic } from 'ant-design-vue';
+Vue.use(Timeline).use(Statistic);
+
 Vue.config.productionTip = false;
 
 new Vue({

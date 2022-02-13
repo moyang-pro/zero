@@ -1,7 +1,7 @@
 <template>
     <el-carousel :interval="config.interval" :arrow="config.arrow" :height="config.height">
         <el-carousel-item v-for="item in imgDataList" :key="item.id">
-            <el-image :src="item.url" alt="" fit="fill" style="height: 100%;width: 100%;opacity:0.4;"> </el-image>
+            <el-image :src="item.url" alt="" fit="fill" style="height: 100%;width: 100%;opacity:0.9;"> </el-image>
             <!--            <div :style="{ background: 'url(' + item.url + ')' }"></div>-->
         </el-carousel-item>
     </el-carousel>

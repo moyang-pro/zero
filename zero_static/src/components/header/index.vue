@@ -11,7 +11,51 @@
                     墨阳空间
                 </a>
             </div>
-            <div class="head-middle"></div>
+            <div class="head-middle">
+                <div class="header-nav-menu">
+                    <el-menu
+                        v-if="menuShow"
+                        default-active="HOME"
+                        class="el-menu-zero"
+                        mode="horizontal"
+                        @select="handleSelectMenu"
+                        background-color="#2b303b"
+                        text-color="#fff"
+                        active-text-color="#ffd04b"
+                    >
+                        <menu-item v-for="item in menu" :key="item.code" :item="item" />
+                    </el-menu>
+                </div>
+                <div class="header-search-block" v-if="searchShow"><searchWidget /></div>
+                <div class="header-right-user" v-if="userLrShow">
+                    <span v-if="!this.hasUser">
+                        <span class="text-user-lr" @click.stop="login()">立即登录</span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span class="text-user-lr" @click.stop="register()">注册</span>
+                    </span>
+                    <el-dropdown v-else class="avatar-container" trigger="hover">
+                        <div class="avatar-wrapper">
+                            <img :src="avatar" class="user-avatar" alt="个人头像" />
+                        </div>
+                        <el-dropdown-menu slot="dropdown" class="user-dropdown">
+                            <router-link to="/home">
+                                <el-dropdown-item>
+                                    首页
+                                </el-dropdown-item>
+                            </router-link>
+                            <a target="_blank" href="https://github.com/moyang-pro">
+                                <el-dropdown-item>个人中心</el-dropdown-item>
+                            </a>
+                            <a target="_blank" href="https://github.com/moyang-pro">
+                                <el-dropdown-item>Github</el-dropdown-item>
+                            </a>
+                            <el-dropdown-item divided @click.native.stop="logout">
+                                <span style="display:block;">退出</span>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                </div>
+            </div>
             <div class="head-end">
                 <a href="/help">
                     <i class="el-icon-question" title="帮助与文档" />
@@ -25,7 +69,137 @@
 </template>
 
 <script>
-export default {};
+import menuItem from '@/components/menus/menu-item';
+import searchWidget from '@/components/search/index';
+export default {
+    name: 'ZeroHeader',
+    components: { menuItem, searchWidget },
+    props: {
+        menuConfig: {
+            type: Object,
+            required: false,
+            default: null
+        },
+        menuData: {
+            type: Array,
+            required: false,
+            default: null
+        },
+        menuShow: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        searchShow: {
+            type: Boolean,
+            required: false,
+            default: true
+        },
+        userLrShow: {
+            type: Boolean,
+            required: false,
+            default: true
+        }
+    },
+    data() {
+        return {
+            hasUser: false,
+            avatar: '',
+            menu: [
+                {
+                    code: 'HOME',
+                    name: '首页',
+                    path: '/home',
+                    level: 1,
+                    leaf: true,
+                    sortIndex: 1,
+                    iconClass: '',
+                    children: null
+                },
+                {
+                    code: 'WIKI_SYS',
+                    name: '知识系统',
+                    path: '/blog/home',
+                    level: 1,
+                    leaf: true,
+                    sortIndex: 1,
+                    iconClass: '',
+                    children: []
+                },
+                {
+                    code: 'IDEA_SYS',
+                    name: '创意中心',
+                    path: '/idea/home',
+                    level: 1,
+                    leaf: true,
+                    sortIndex: 3,
+                    iconClass: '',
+                    children: []
+                },
+                {
+                    code: 'TEAM_SYS',
+                    name: '团队构建',
+                    path: '/team/home',
+                    level: 1,
+                    leaf: true,
+                    sortIndex: 2,
+                    iconClass: '',
+                    children: []
+                },
+                {
+                    code: 'ERP_SYS',
+                    name: '企业管理中心',
+                    path: '/erp/home',
+                    level: 1,
+                    leaf: true,
+                    sortIndex: 4,
+                    iconClass: '',
+                    children: [
+                        {
+                            code: 'PROCESS',
+                            name: '流程中心',
+                            path: '/erp/process',
+                            level: 2,
+                            leaf: true,
+                            iconClass: '',
+                            children: null
+                        }
+                    ]
+                },
+                {
+                    code: 'ABOUT',
+                    name: '关于我们',
+                    path: '/about',
+                    level: 1,
+                    leaf: true,
+                    sortIndex: 5,
+                    iconClass: '',
+                    children: []
+                }
+            ]
+        };
+    },
+    created() {
+        this.initUserInfo();
+    },
+    methods: {
+        initUserInfo() {
+            this.hasUser = !!this.$store.state.user.name;
+            this.avatar = require('@/assets/img/avatar.png');
+        },
+        handleSelectMenu() {},
+        async logout() {
+            await this.$store.dispatch('user/logout');
+            await this.$router.push(`/login?redirect=${this.$route.fullPath}`);
+        },
+        login() {
+            this.$router.push(`/login`);
+        },
+        register() {
+            this.$router.push(`/register`);
+        }
+    }
+};
 </script>
 
 <style lang="scss">
@@ -57,6 +231,8 @@ export default {};
 
 .head-middle {
     width: calc(100% - 360px);
+    display: flex;
+    justify-content: space-between;
 }
 .head-end {
     width: 160px;
@@ -67,5 +243,39 @@ export default {};
 }
 .head-end span:hover {
     color: rgb(26, 111, 160);
+}
+.el-menu-zero {
+    display: flex;
+    justify-content: start;
+    line-height: 60px;
+    height: 60px;
+}
+.el-menu.el-menu--horizontal {
+    border-bottom: 0;
+}
+.header-search-block {
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+}
+.header-right-user {
+    height: 60px;
+    line-height: 60px;
+    min-width: 120px;
+}
+.header-right-user {
+    color: white;
+}
+.text-user-lr {
+    cursor: pointer;
+}
+.text-user-lr:hover {
+    color: #e6a23c;
+}
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 20px;
 }
 </style>

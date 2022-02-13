@@ -8,7 +8,9 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "ant-design-vue": "^1.7.8",
         "axios": "0.18.1",
+        "babel-plugin-import": "^1.13.3",
         "core-js": "^3.8.3",
         "element-ui": "2.15.7",
         "github-markdown-css": "^5.1.0",

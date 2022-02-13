@@ -10,7 +10,7 @@
                         <h1 class="blog-title-h1 text-one-line">{{ blogInfo.title }}</h1>
                         <div class="article-opt-part">
                             <div class="opt-tag-start">
-                                <el-tag type="info" v-for="item in tagList" :key="item.index" class="article-tag">{{ item }}</el-tag>
+                                <el-tag type="warning" v-for="item in blogInfo.tags" :key="item.index" class="article-tag">{{ item }}</el-tag>
                             </div>
                             <div class="opt-part-end" v-show="isMine">
                                 <el-link :underline="false" type="primary" @click.stop="editBlog(blogInfo.id)">编辑</el-link>

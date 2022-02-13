@@ -65,3 +65,12 @@
     line-height: 20px;
 }
 
+.head-middle .el-menu--collapse .el-menu .el-submenu, .el-menu--popup{
+    min-width: 120px!important;
+}
+
+.head-middle .el-menu .el-submenu .el-submenu__icon-arrow{
+    right: 5px;
+}
+
+
