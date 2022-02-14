@@ -23,7 +23,7 @@
                         text-color="#fff"
                         active-text-color="#ffd04b"
                     >
-                        <menu-item v-for="item in menu" :key="item.code" :item="item" />
+                        <menu-item v-for="item in menuData" :key="item.code" :item="item" />
                     </el-menu>
                 </div>
                 <div class="header-search-block" v-if="searchShow"><searchWidget /></div>
@@ -104,79 +104,7 @@ export default {
     data() {
         return {
             hasUser: false,
-            avatar: '',
-            menu: [
-                {
-                    code: 'HOME',
-                    name: '首页',
-                    path: '/home',
-                    level: 1,
-                    leaf: true,
-                    sortIndex: 1,
-                    iconClass: '',
-                    children: null
-                },
-                {
-                    code: 'WIKI_SYS',
-                    name: '知识系统',
-                    path: '/blog/home',
-                    level: 1,
-                    leaf: true,
-                    sortIndex: 1,
-                    iconClass: '',
-                    children: []
-                },
-                {
-                    code: 'IDEA_SYS',
-                    name: '创意中心',
-                    path: '/idea/home',
-                    level: 1,
-                    leaf: true,
-                    sortIndex: 3,
-                    iconClass: '',
-                    children: []
-                },
-                {
-                    code: 'TEAM_SYS',
-                    name: '团队构建',
-                    path: '/team/home',
-                    level: 1,
-                    leaf: true,
-                    sortIndex: 2,
-                    iconClass: '',
-                    children: []
-                },
-                {
-                    code: 'ERP_SYS',
-                    name: '企业管理中心',
-                    path: '/erp/home',
-                    level: 1,
-                    leaf: true,
-                    sortIndex: 4,
-                    iconClass: '',
-                    children: [
-                        {
-                            code: 'PROCESS',
-                            name: '流程中心',
-                            path: '/erp/process',
-                            level: 2,
-                            leaf: true,
-                            iconClass: '',
-                            children: null
-                        }
-                    ]
-                },
-                {
-                    code: 'ABOUT',
-                    name: '关于我们',
-                    path: '/about',
-                    level: 1,
-                    leaf: true,
-                    sortIndex: 5,
-                    iconClass: '',
-                    children: []
-                }
-            ]
+            avatar: ''
         };
     },
     created() {

@@ -5,7 +5,7 @@
 解决：
 --------------------------------------------------1---------------------------------------------------
 报错：
-javax.management.InstanceNotFoundException: org.springframework.boot:type=Admin,name=SpringApplication
+
 问题：
 
 解决：

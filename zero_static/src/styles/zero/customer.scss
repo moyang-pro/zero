@@ -29,6 +29,10 @@
     -webkit-line-clamp:2; //显示的行
 }
 
+.main-content{
+    min-height: calc(100vh - 121px);
+    width: 100%;
+}
 
 $primary-color: #00a4ff;
 $danger-color: #F56C6C;

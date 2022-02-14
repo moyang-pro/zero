@@ -1,11 +1,13 @@
 <template>
     <div v-if="!item.hidden" class="menu-item-div">
         <template v-if="!hasShowingChild(item) && item.leaf">
-            <!-- 情况二：没子集的情况-->
-            <el-menu-item :key="item.code" :index="item.code">
-                <i :class="item.iconClass" v-if="item.iconClass"></i>
-                <span slot="title">{{ item.name }}</span>
-            </el-menu-item>
+            <zero-link :to="item.path">
+                <!-- 情况二：没子集的情况-->
+                <el-menu-item :key="item.code" :index="item.code">
+                    <i :class="item.iconClass" v-if="item.iconClass"></i>
+                    <span slot="title">{{ item.name }}</span>
+                </el-menu-item>
+            </zero-link>
         </template>
         <!--情况一：有子集的情况 -->
         <el-submenu :key="item.code" :index="item.code" v-else>
@@ -19,8 +21,12 @@
 </template>
 
 <script>
+import zeroLink from '@/components/menus/zero-link';
 export default {
     name: 'menu-item',
+    components: {
+        zeroLink
+    },
     props: {
         item: {
             type: Object,

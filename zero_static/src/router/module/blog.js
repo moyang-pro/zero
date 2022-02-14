@@ -6,11 +6,6 @@ const blogRouter = [
         redirect: '/blog/home',
         children: [
             {
-                path: 'home',
-                name: 'BlogHome',
-                component: () => import('@/views/blog/home/index')
-            },
-            {
                 path: 'profile/:emy',
                 name: 'UserProfile',
                 component: () => import('@/views/blog/profile/index')
@@ -31,6 +26,11 @@ const blogRouter = [
                 component: () => import('@/views/blog/read/index')
             }
         ]
+    },
+    {
+        path: '/blog/home',
+        name: 'BlogHome',
+        component: () => import('@/views/blog/home/index')
     }
 ];
 export default blogRouter;

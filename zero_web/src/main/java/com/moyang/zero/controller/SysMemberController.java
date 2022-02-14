@@ -76,6 +76,14 @@ public class SysMemberController extends TemplateController {
 		return loginResult;
 	}
 
+	@PostMapping("/logout")
+	@ApiOperation(value = "墨阳空间-用户登录")
+	Result<String> logout(){
+		String emy = LoginContext.getCurrentUser().getEmy();
+		log.info("用户 emy == {} 登出系统", emy);
+		return Result.success();
+	}
+
 	@GetMapping("/info")
 	@ApiOperation(value = "墨阳空间-用户登录")
 	@RequiresRoles(value ={"COMMON_USER"})

@@ -110,6 +110,7 @@ export default {
 }
 .blog-card {
     padding: 0;
+    border-radius: 20px;
 }
 
 .user-nick {
