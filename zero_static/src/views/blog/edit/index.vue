@@ -1,13 +1,36 @@
 <template>
     <div class="blog-main-content">
-        <mavon-editor ref="mEditor" class="markdown-editor" v-model="article.textContent" :ishljs="true" :subfield="false" fontSize="16px" @change="blogContentChanged" @save="saveContent" @imgAdd="addImage" @imgDel="delImage" />
+        <mavon-editor
+            ref="mEditor"
+            class="markdown-editor"
+            v-model="article.textContent"
+            :ishljs="true"
+            :subfield="false"
+            fontSize="16px"
+            @change="blogContentChanged"
+            @save="saveContent"
+            @imgAdd="addImage"
+            @imgDel="delImage"
+        />
         <div class="blog-title-block">
-            <el-form ref="blogTitleForm" :model="article" label-width="120" :rules="rulesBlog" label-position="left" @submit.native.prevent>
+            <el-form
+                ref="blogTitleForm"
+                :model="article"
+                label-width="120"
+                :rules="rulesBlog"
+                label-position="left"
+                @submit.native.prevent
+            >
                 <el-form-item label="文章标题：" prop="title">
                     <el-input v-model="article.title" placeholder="请输入文章标题......" />
                 </el-form-item>
                 <el-form-item label="内容概述：" prop="des">
-                    <el-input v-model="article.des" type="textarea" :autosize="{ minRows: 2, maxRows: 5 }" placeholder="请对文章进行简要描述......" />
+                    <el-input
+                        v-model="article.des"
+                        type="textarea"
+                        :autosize="{ minRows: 2, maxRows: 5 }"
+                        placeholder="请对文章进行简要描述......"
+                    />
                 </el-form-item>
             </el-form>
         </div>
@@ -26,9 +49,22 @@
                             <el-radio :label="false">无封面</el-radio>
                             <el-radio :label="true">有封面</el-radio>
                         </el-radio-group>
-                        <el-upload action="" accept="image/jpeg,image/gif,image/png" ref="blogCoverUpload" :show-file-list="false" v-if="blogForm.hasCover" :before-upload="beforeUploadCover" :http-request="uploadCover">
+                        <el-upload
+                            action=""
+                            accept="image/jpeg,image/gif,image/png"
+                            ref="blogCoverUpload"
+                            :show-file-list="false"
+                            v-if="blogForm.hasCover"
+                            :before-upload="beforeUploadCover"
+                            :http-request="uploadCover"
+                        >
                             <div :class="coverImgSuccess ? 'cover_head_img' : 'cover_head_img_before'">
-                                <img :src="this.blogForm.coverUrl" class="cover-image-show" alt="文章封面" v-if="coverImgSuccess" />
+                                <img
+                                    :src="this.blogForm.coverUrl"
+                                    class="cover-image-show"
+                                    alt="文章封面"
+                                    v-if="coverImgSuccess"
+                                />
                                 <div class="cover-replace-item" v-if="coverImgSuccess" @click="clickReplaceCover">
                                     <i class="el-icon-camera cover-replace"></i>
                                 </div>
@@ -40,10 +76,25 @@
                         </el-upload>
                     </el-form-item>
                     <el-form-item label="文章标签：" required>
-                        <el-tag :key="tag" v-for="tag in blogForm.tags" closable :disable-transitions="false" @close="handleRemoveTag(tag)">
+                        <el-tag
+                            :key="tag"
+                            v-for="tag in blogForm.tags"
+                            closable
+                            :disable-transitions="false"
+                            @close="handleRemoveTag(tag)"
+                        >
                             {{ tag }}
                         </el-tag>
-                        <el-input class="input-new-tag" v-if="inputTagVisible" v-model="inputTagValue" ref="saveTagInput" size="small" @keyup.enter.native.passive="handleInputTagConfirm" @blur.prevent="handleInputTagConfirm"> </el-input>
+                        <el-input
+                            class="input-new-tag"
+                            v-if="inputTagVisible"
+                            v-model="inputTagValue"
+                            ref="saveTagInput"
+                            size="small"
+                            @keyup.enter.native.passive="handleInputTagConfirm"
+                            @blur.prevent="handleInputTagConfirm"
+                        >
+                        </el-input>
                         <el-button v-else class="button-new-tag" size="small" @click="showTagInput">+ 标签</el-button>
                     </el-form-item>
                     <el-form-item label="文章类型：" required>
@@ -52,7 +103,14 @@
                             <el-radio :label="1">转载</el-radio>
                             <el-radio :label="2">翻译</el-radio>
                         </el-radio-group>
-                        <el-input placeholder="请填写原文链接" v-model="blogForm.quote" clearable v-if="blogForm.type !== 0" style="width: 90%"> </el-input>
+                        <el-input
+                            placeholder="请填写原文链接"
+                            v-model="blogForm.quote"
+                            clearable
+                            v-if="blogForm.type !== 0"
+                            style="width: 90%"
+                        >
+                        </el-input>
                         <span class="notice" v-if="blogForm.type !== 0">*</span>
                     </el-form-item>
                     <el-form-item label="发布形式：" required>

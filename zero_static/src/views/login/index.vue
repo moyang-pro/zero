@@ -17,8 +17,16 @@
                                     </span>
                                 </div>
                                 <div class="img-qrcode">
-                                    <el-card style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;" body-style="padding:0;margin:0;box-sizing: border-box;">
-                                        <img style="width: 210px; height:210px" title="点击刷新二维码" :src="require('@/assets/mp-qrcode.jpg')" alt="公众号二维码" />
+                                    <el-card
+                                        style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
+                                        body-style="padding:0;margin:0;box-sizing: border-box;"
+                                    >
+                                        <img
+                                            style="width: 210px; height:210px"
+                                            title="点击刷新二维码"
+                                            :src="require('@/assets/mp-qrcode.jpg')"
+                                            alt="公众号二维码"
+                                        />
                                     </el-card>
                                 </div>
                             </el-tab-pane>
@@ -32,8 +40,16 @@
                                     </span>
                                 </div>
                                 <div class="img-qrcode">
-                                    <el-card style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;" body-style="padding:0;margin:0;box-sizing: border-box;">
-                                        <img style="width: 210px; height:210px" title="点击刷新二维码" :src="require('@/assets/mp-qrcode.jpg')" alt="公众号二维码" />
+                                    <el-card
+                                        style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
+                                        body-style="padding:0;margin:0;box-sizing: border-box;"
+                                    >
+                                        <img
+                                            style="width: 210px; height:210px"
+                                            title="点击刷新二维码"
+                                            :src="require('@/assets/mp-qrcode.jpg')"
+                                            alt="公众号二维码"
+                                        />
                                     </el-card>
                                 </div>
                             </el-tab-pane>
@@ -63,7 +79,11 @@
                                 </el-form-item>
 
                                 <el-form-item>
-                                    <el-button style="height: 45px;width: 100%" type="primary" @click="handleSubmit('formLogin')">
+                                    <el-button
+                                        style="height: 45px;width: 100%"
+                                        type="primary"
+                                        @click="handleSubmit('formLogin')"
+                                    >
                                         确认登录
                                     </el-button>
                                 </el-form-item>
@@ -286,7 +306,10 @@ export default {
                 platCode: this.$store.state.app.platCode
             };
             this.$store.dispatch('user/login', loginInfo).then(() => {
-                this.$router.push({ path: this.redirect || `/blog/profile/${loginInfo.username}`, query: this.otherQuery });
+                this.$router.push({
+                    path: this.redirect || `/blog/profile/${loginInfo.username}`,
+                    query: this.otherQuery
+                });
             });
         },
         getOtherQuery(query) {

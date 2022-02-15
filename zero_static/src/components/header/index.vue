@@ -35,7 +35,7 @@
                     </span>
                     <el-dropdown v-else class="avatar-container" trigger="hover">
                         <div class="avatar-wrapper">
-                            <img :src="avatar" class="user-avatar" alt="个人头像" />
+                            <img :src="avatar" class="user-avatar" alt="个人头像" @click.stop="goUserProfile" />
                         </div>
                         <el-dropdown-menu slot="dropdown" class="user-dropdown">
                             <router-link to="/home">
@@ -125,6 +125,10 @@ export default {
         },
         register() {
             this.$router.push(`/register`);
+        },
+        goUserProfile() {
+            let emy = this.$store.state.user.name;
+            this.$router.push({ path: `/blog/profile/${emy}` });
         }
     }
 };
@@ -136,7 +140,6 @@ export default {
     background-color: #2b303b;
     padding: 0 20px;
     width: 100%;
-    /*min-width: 980px;*/
 }
 .zero-head-inner {
     display: flex;
@@ -174,7 +177,7 @@ export default {
 }
 .el-menu-zero {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     line-height: 60px;
     height: 60px;
 }

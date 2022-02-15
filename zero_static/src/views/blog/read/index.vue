@@ -10,12 +10,22 @@
                         <h1 class="blog-title-h1 text-one-line">{{ blogInfo.title }}</h1>
                         <div class="article-opt-part">
                             <div class="opt-tag-start">
-                                <el-tag type="warning" v-for="item in blogInfo.tags" :key="item.index" class="article-tag">{{ item }}</el-tag>
+                                <el-tag
+                                    type="warning"
+                                    v-for="item in blogInfo.tags"
+                                    :key="item.index"
+                                    class="article-tag"
+                                    >{{ item }}</el-tag
+                                >
                             </div>
                             <div class="opt-part-end" v-show="isMine">
-                                <el-link :underline="false" type="primary" @click.stop="editBlog(blogInfo.id)">编辑</el-link>
+                                <el-link :underline="false" type="primary" @click.stop="editBlog(blogInfo.id)"
+                                    >编辑</el-link
+                                >
                                 <el-divider direction="vertical"></el-divider>
-                                <el-link :underline="false" type="danger" @click.stop="deleteBlog(blogInfo.id)">删除</el-link>
+                                <el-link :underline="false" type="danger" @click.stop="deleteBlog(blogInfo.id)"
+                                    >删除</el-link
+                                >
                             </div>
                         </div>
                     </div>

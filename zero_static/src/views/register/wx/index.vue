@@ -18,8 +18,15 @@
                     <span>微信扫码立即注册</span>
                 </div>
                 <div class="wx-mp-register-img">
-                    <el-card style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;" body-style="padding:0;margin:0;box-sizing: border-box;">
-                        <img style="width: 180px; height:180px" :src="require('@/assets/mp-qrcode.jpg')" alt="公众号二维码" />
+                    <el-card
+                        style="margin: 0;padding: 0;cursor: pointer;box-shadow: unset;"
+                        body-style="padding:0;margin:0;box-sizing: border-box;"
+                    >
+                        <img
+                            style="width: 180px; height:180px"
+                            :src="require('@/assets/mp-qrcode.jpg')"
+                            alt="公众号二维码"
+                        />
                     </el-card>
                 </div>
                 <div class="right-block-tip">
@@ -37,11 +44,23 @@
                 <span>
                     <i class="svg-item">
                         <span class="svg-container">
-                            <svg-icon icon-class="email-blue" class="svg-item-li" @click="toOtherRegisterWay('/register/email')" />
+                            <svg-icon
+                                icon-class="email-blue"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/email')"
+                            />
 
-                            <svg-icon icon-class="QQ-color" class="svg-item-li" @click="toOtherRegisterWay('/register/qq')" />
+                            <svg-icon
+                                icon-class="QQ-color"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/qq')"
+                            />
 
-                            <svg-icon icon-class="account-blue" class="svg-item-li" @click="toOtherRegisterWay('/register/emy-account')" />
+                            <svg-icon
+                                icon-class="account-blue"
+                                class="svg-item-li"
+                                @click="toOtherRegisterWay('/register/emy-account')"
+                            />
                         </span>
                     </i>
                 </span>

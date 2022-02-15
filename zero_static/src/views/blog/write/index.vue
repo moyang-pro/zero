@@ -15,10 +15,22 @@
         <div class="blog-title-block">
             <el-form ref="blogTitleForm" :model="article" label-width="120" :rules="rulesBlog" label-position="left">
                 <el-form-item label="文章标题：" prop="title">
-                    <el-input v-model="article.title" maxlength="100" show-word-limit placeholder="请输入文章标题（100字以内）......" />
+                    <el-input
+                        v-model="article.title"
+                        maxlength="100"
+                        show-word-limit
+                        placeholder="请输入文章标题（100字以内）......"
+                    />
                 </el-form-item>
                 <el-form-item label="内容概述：" prop="des">
-                    <el-input v-model="article.des" type="textarea" :autosize="{ minRows: 2, maxRows: 5 }" maxlength="500" show-word-limit placeholder="请对文章进行简要描述（20~500字）......" />
+                    <el-input
+                        v-model="article.des"
+                        type="textarea"
+                        :autosize="{ minRows: 2, maxRows: 5 }"
+                        maxlength="500"
+                        show-word-limit
+                        placeholder="请对文章进行简要描述（20~500字）......"
+                    />
                 </el-form-item>
             </el-form>
         </div>
@@ -31,7 +43,13 @@
                 <span slot="title" class="dialog-header">
                     <span>{{ publishDialog.title }}</span>
                 </span>
-                <el-form class="publish-blog-form" label-position="left" label-width="100px" ref="publishForm" @submit.native.prevent>
+                <el-form
+                    class="publish-blog-form"
+                    label-position="left"
+                    label-width="100px"
+                    ref="publishForm"
+                    @submit.native.prevent
+                >
                     <el-form-item label="文章封面：" required>
                         <el-radio-group v-model="blogForm.hasCover">
                             <el-radio :label="false">无封面</el-radio>
@@ -47,7 +65,12 @@
                             :http-request="uploadCover"
                         >
                             <div :class="coverImgSuccess ? 'cover_head_img' : 'cover_head_img_before'">
-                                <img :src="this.blogForm.coverUrl" class="cover-image-show" alt="文章封面" v-if="coverImgSuccess" />
+                                <img
+                                    :src="this.blogForm.coverUrl"
+                                    class="cover-image-show"
+                                    alt="文章封面"
+                                    v-if="coverImgSuccess"
+                                />
                                 <div class="cover-replace-item" v-if="coverImgSuccess" @click="clickReplaceCover">
                                     <i class="el-icon-camera cover-replace"></i>
                                 </div>
@@ -59,7 +82,13 @@
                         </el-upload>
                     </el-form-item>
                     <el-form-item label="文章标签：" required>
-                        <el-tag :key="tag" v-for="tag in blogForm.tags" closable :disable-transitions="false" @close="handleRemoveTag(tag)">
+                        <el-tag
+                            :key="tag"
+                            v-for="tag in blogForm.tags"
+                            closable
+                            :disable-transitions="false"
+                            @close="handleRemoveTag(tag)"
+                        >
                             {{ tag }}
                         </el-tag>
                         <el-input
@@ -80,7 +109,14 @@
                             <el-radio :label="1">转载</el-radio>
                             <el-radio :label="2">翻译</el-radio>
                         </el-radio-group>
-                        <el-input placeholder="请填写原文链接" v-model="blogForm.quote" clearable v-if="blogForm.type !== 0" style="width: 90%"> </el-input>
+                        <el-input
+                            placeholder="请填写原文链接"
+                            v-model="blogForm.quote"
+                            clearable
+                            v-if="blogForm.type !== 0"
+                            style="width: 90%"
+                        >
+                        </el-input>
                         <span class="notice" v-if="blogForm.type !== 0">*</span>
                     </el-form-item>
                     <el-form-item label="发布形式：" required>

@@ -18,7 +18,11 @@
                             <el-input v-model="accountInfo.account" placeholder="墨阳账号emy：6-32个字符" type="text" />
                         </el-form-item>
                         <el-form-item prop="password">
-                            <el-input v-model="accountInfo.password" placeholder="密码：6-32位的数字、字母与特殊符号(除空格外)两种及以上的组合" type="password" />
+                            <el-input
+                                v-model="accountInfo.password"
+                                placeholder="密码：6-32位的数字、字母与特殊符号(除空格外)两种及以上的组合"
+                                type="password"
+                            />
                         </el-form-item>
                         <el-form-item prop="passwordCheck" style="margin-bottom: 0">
                             <el-input v-model="accountInfo.passwordCheck" placeholder="确认密码" type="password" />
@@ -28,7 +32,13 @@
                             <el-input v-model="accountInfo.phone" placeholder="手机号" type="text" />
                         </el-form-item>
                         <el-form-item prop="smsCode" style="margin-bottom: 19px;">
-                            <el-input v-model="accountInfo.smsCode" number placeholder="验证码" style="width: 45%" type="text" />
+                            <el-input
+                                v-model="accountInfo.smsCode"
+                                number
+                                placeholder="验证码"
+                                style="width: 45%"
+                                type="text"
+                            />
                             <el-button class="i-button-checked" @click="getSmsCode(accountInfo.phone)">
                                 {{ verifyReShow ? '重新获取验证码' : verifyShow ? timeout + 's' : '获取验证码' }}
                             </el-button>
@@ -38,16 +48,28 @@
                                 我已阅读并同意
                             </el-checkbox>
                             墨阳空间
-                            <router-link class="see-page-agreement" title="查看墨阳空间服务协议" to="/help/page/service">
+                            <router-link
+                                class="see-page-agreement"
+                                title="查看墨阳空间服务协议"
+                                to="/help/page/service"
+                            >
                                 服务协议
                             </router-link>
                             和
-                            <router-link class="see-page-agreement" title="查看墨阳空间隐私声明" to="/help/page/privacy">
+                            <router-link
+                                class="see-page-agreement"
+                                title="查看墨阳空间隐私声明"
+                                to="/help/page/privacy"
+                            >
                                 隐私声明
                             </router-link>
                         </el-form-item>
                         <el-form-item>
-                            <el-button style="height: 40px;width: 100%" type="primary" @click="handleSubmit('formRegister')">
+                            <el-button
+                                style="height: 40px;width: 100%"
+                                type="primary"
+                                @click="handleSubmit('formRegister')"
+                            >
                                 同意协议并提交
                             </el-button>
                         </el-form-item>
@@ -63,9 +85,21 @@
                 <span>
                     <i class="svg-item">
                         <span class="svg-container">
-                            <svg-icon class="svg-item-li" icon-class="email-blue" @click="toOtherRegisterWay('/register/email')" />
-                            <svg-icon class="svg-item-li" icon-class="QQ-color" @click="toOtherRegisterWay('/register/qq')" />
-                            <svg-icon class="svg-item-li" icon-class="weixin" @click="toOtherRegisterWay('/register/wx')" />
+                            <svg-icon
+                                class="svg-item-li"
+                                icon-class="email-blue"
+                                @click="toOtherRegisterWay('/register/email')"
+                            />
+                            <svg-icon
+                                class="svg-item-li"
+                                icon-class="QQ-color"
+                                @click="toOtherRegisterWay('/register/qq')"
+                            />
+                            <svg-icon
+                                class="svg-item-li"
+                                icon-class="weixin"
+                                @click="toOtherRegisterWay('/register/wx')"
+                            />
                         </span>
                     </i>
                 </span>
