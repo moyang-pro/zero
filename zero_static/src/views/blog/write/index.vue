@@ -226,7 +226,6 @@ export default {
             });
         },
         addImage(pos, file) {
-            console.log('addImage ' + pos + ' ..................');
             let formData = new FormData();
             formData.append('image', file);
             uploadImg(formData).then(res => {
@@ -313,7 +312,6 @@ export default {
         },
         handleRemoveTag(tag) {
             this.blogForm.tags.splice(this.blogForm.tags.indexOf(tag), 1);
-            console.log(this.blogForm.tags);
         },
         showTagInput() {
             this.inputTagVisible = true;

@@ -133,7 +133,6 @@ export default {
     },
     created() {
         this.emy = this.$route.params.emy;
-        console.log('当前用户：emy ' + this.emy);
         this.getMineInfo();
     },
     methods: {

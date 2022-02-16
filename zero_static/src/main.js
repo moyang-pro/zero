@@ -25,6 +25,10 @@ Vue.use(ElementUI);
 // use
 Vue.use(mavonEditor);
 
+// 引入echarts 新的引入方式 eChart5
+import * as echarts from 'echarts';
+Vue.prototype.$echarts = echarts;
+
 //按需引入 ant-design-vue 组件
 import { Timeline, Statistic } from 'ant-design-vue';
 Vue.use(Timeline).use(Statistic);

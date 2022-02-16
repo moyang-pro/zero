@@ -4,17 +4,64 @@
             <span>墨风</span>
             <el-button style="float: right; padding: 3px 0" type="text">翻转</el-button>
         </div>
+        <div class="tag-collection-block">
+            <div ref="tagPieChart" class="tag-pie-chart-box"></div>
+        </div>
     </el-card>
 </template>
 
 <script>
+import EChart from '@/utils/EChart';
+
 export default {
     name: 'preferenceCard',
     data() {
         return {
             emy: '',
-            cardShadow: 'always'
+            cardShadow: 'always',
+            tagsData: [
+                {
+                    label: 'java',
+                    count: 3
+                },
+                {
+                    label: 'spring',
+                    count: 5
+                },
+                {
+                    label: 'mysql',
+                    count: 2
+                },
+                {
+                    label: 'js',
+                    count: 5
+                },
+                {
+                    label: 'css',
+                    count: 14
+                },
+                {
+                    label: 'html',
+                    count: 16
+                }
+            ]
         };
+    },
+    created() {},
+    mounted() {
+        this.$nextTick(() => {
+            this.drawLine();
+        });
+    },
+    methods: {
+        drawLine() {
+            let config = {
+                type: 'pie'
+            };
+            // 基于准备好的dom，初始化echarts实例
+            let myChart = this.$echarts.init(this.$refs.tagPieChart);
+            EChart.showLineChart(myChart, config, this.tagsData);
+        }
     }
 };
 </script>
@@ -24,5 +71,9 @@ export default {
 .blog-preference-card {
     width: 420px;
     min-height: 720px;
+}
+.tag-pie-chart-box {
+    height: 300px;
+    width: 100%;
 }
 </style>

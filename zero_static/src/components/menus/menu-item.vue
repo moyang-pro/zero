@@ -33,9 +33,7 @@ export default {
             required: true
         }
     },
-    created() {
-        console.log(this.item);
-    },
+    created() {},
     methods: {
         hasShowingChild(parent) {
             if (!parent || !parent.children) {

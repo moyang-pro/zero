@@ -1,9 +1,9 @@
-2022-02-16 00:00:55.483  INFO 89516 --- [http-nio-8080-exec-9] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:00:55.484  INFO 89516 --- [http-nio-8080-exec-9] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:00:55.484  INFO 89516 --- [http-nio-8080-exec-9] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:00:55.485  WARN 89516 --- [http-nio-8080-exec-9] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 110580
-2022-02-16 00:00:55.502 ERROR 89516 --- [http-nio-8080-exec-9] c.m.z.c.exception.BusinessException      : 业务异常：
-2022-02-16 00:00:55.514  WARN 89516 --- [http-nio-8080-exec-9] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@18cc7058].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
+2022-02-17 00:06:14.392  INFO 119956 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-02-17 00:06:14.411  INFO 119956 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-02-17 00:06:14.411  INFO 119956 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-02-17 00:06:14.422  WARN 119956 --- [http-nio-8080-exec-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 973016
+2022-02-17 00:06:14.472 ERROR 119956 --- [http-nio-8080-exec-1] c.m.z.c.exception.BusinessException      : 业务异常：
+2022-02-17 00:06:14.489  WARN 119956 --- [http-nio-8080-exec-1] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@3afcb8fa].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
 
 com.moyang.zero.common.exception.BusinessException: 账户密码错误!
 	at com.moyang.zero.auth.realm.MyRealm.doGetAuthenticationInfo(MyRealm.java:89) ~[classes/:na]
@@ -57,11 +57,11 @@ com.moyang.zero.common.exception.BusinessException: 账户密码错误!
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2022-02-16 00:00:55.514  INFO 89516 --- [http-nio-8080-exec-9] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:00:55.514  INFO 89516 --- [http-nio-8080-exec-9] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:00:55.514  INFO 89516 --- [http-nio-8080-exec-9] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:00:55.516 ERROR 89516 --- [http-nio-8080-exec-9] c.m.z.c.exception.BusinessException      : 业务异常：
-2022-02-16 00:00:55.517  WARN 89516 --- [http-nio-8080-exec-9] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@5c8ea823].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
+2022-02-17 00:06:14.491  INFO 119956 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-02-17 00:06:14.491  INFO 119956 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-02-17 00:06:14.491  INFO 119956 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-02-17 00:06:14.498 ERROR 119956 --- [http-nio-8080-exec-1] c.m.z.c.exception.BusinessException      : 业务异常：
+2022-02-17 00:06:14.499  WARN 119956 --- [http-nio-8080-exec-1] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@56c0493].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
 
 com.moyang.zero.common.exception.BusinessException: 账户密码错误!
 	at com.moyang.zero.auth.realm.MyRealm.doGetAuthenticationInfo(MyRealm.java:89) ~[classes/:na]
@@ -116,7 +116,7 @@ com.moyang.zero.common.exception.BusinessException: 账户密码错误!
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2022-02-16 00:00:55.520 ERROR 89516 --- [http-nio-8080-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.authc.AuthenticationException: Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@5c8ea823].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).] with root cause
+2022-02-17 00:06:14.502 ERROR 119956 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.authc.AuthenticationException: Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@56c0493].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).] with root cause
 
 com.moyang.zero.common.exception.BusinessException: 账户密码错误!
 	at com.moyang.zero.auth.realm.MyRealm.doGetAuthenticationInfo(MyRealm.java:89) ~[classes/:na]
@@ -171,193 +171,3 @@ com.moyang.zero.common.exception.BusinessException: 账户密码错误!
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2022-02-16 00:01:04.034  INFO 89516 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:01:04.036  INFO 89516 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:01:04.036  INFO 89516 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:01:04.045 ERROR 89516 --- [http-nio-8080-exec-10] c.m.z.c.exception.BusinessException      : 业务异常：
-2022-02-16 00:01:04.046  WARN 89516 --- [http-nio-8080-exec-10] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@524330cd].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-
-com.moyang.zero.common.exception.BusinessException: 账户密码错误!
-	at com.moyang.zero.auth.realm.MyRealm.doGetAuthenticationInfo(MyRealm.java:89) ~[classes/:na]
-	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:274) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260) ~[shiro-core-1.4.0.jar:1.4.0]
-	at com.moyang.zero.auth.filter.JwtFilter.executeLogin(JwtFilter.java:55) ~[classes/:na]
-	at com.moyang.zero.auth.filter.JwtFilter.isAccessAllowed(JwtFilter.java:73) ~[classes/:na]
-	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178) ~[shiro-web-1.4.0.jar:1.4.0]
-	at com.moyang.zero.auth.filter.JwtFilter.preHandle(JwtFilter.java:96) ~[classes/:na]
-	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-
-2022-02-16 00:01:04.046  INFO 89516 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:01:04.046  INFO 89516 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:01:04.046  INFO 89516 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:01:04.053 ERROR 89516 --- [http-nio-8080-exec-10] c.m.z.c.exception.BusinessException      : 业务异常：
-2022-02-16 00:01:04.054  WARN 89516 --- [http-nio-8080-exec-10] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@7ef149d6].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
-
-com.moyang.zero.common.exception.BusinessException: 账户密码错误!
-	at com.moyang.zero.auth.realm.MyRealm.doGetAuthenticationInfo(MyRealm.java:89) ~[classes/:na]
-	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:274) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260) ~[shiro-core-1.4.0.jar:1.4.0]
-	at com.moyang.zero.auth.filter.JwtFilter.executeLogin(JwtFilter.java:55) ~[classes/:na]
-	at org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter.onAccessDenied(BasicHttpAuthenticationFilter.java:245) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.AccessControlFilter.onAccessDenied(AccessControlFilter.java:133) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178) ~[shiro-web-1.4.0.jar:1.4.0]
-	at com.moyang.zero.auth.filter.JwtFilter.preHandle(JwtFilter.java:96) ~[classes/:na]
-	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-
-2022-02-16 00:01:04.055 ERROR 89516 --- [http-nio-8080-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [org.apache.shiro.authc.AuthenticationException: Authentication failed for token submission [com.moyang.zero.auth.token.JwtToken@7ef149d6].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).] with root cause
-
-com.moyang.zero.common.exception.BusinessException: 账户密码错误!
-	at com.moyang.zero.auth.realm.MyRealm.doGetAuthenticationInfo(MyRealm.java:89) ~[classes/:na]
-	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:274) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260) ~[shiro-core-1.4.0.jar:1.4.0]
-	at com.moyang.zero.auth.filter.JwtFilter.executeLogin(JwtFilter.java:55) ~[classes/:na]
-	at org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter.onAccessDenied(BasicHttpAuthenticationFilter.java:245) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.AccessControlFilter.onAccessDenied(AccessControlFilter.java:133) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178) ~[shiro-web-1.4.0.jar:1.4.0]
-	at com.moyang.zero.auth.filter.JwtFilter.preHandle(JwtFilter.java:96) ~[classes/:na]
-	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) ~[shiro-core-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-
-2022-02-16 00:01:06.907  INFO 89516 --- [http-nio-8080-exec-1] c.m.zero.controller.SysMemberController  : 用户 emy == 1542051400 企图登陆系统
-2022-02-16 00:01:06.907  INFO 89516 --- [http-nio-8080-exec-1] c.m.z.service.impl.SysMemberServiceImpl  : 用户登录：emy == 1542051400
-2022-02-16 00:01:07.186  INFO 89516 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:01:07.186  INFO 89516 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:01:07.186  INFO 89516 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:01:07.229  INFO 89516 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
-2022-02-16 00:01:07.464  INFO 89516 --- [http-nio-8080-exec-3] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:01:07.464  INFO 89516 --- [http-nio-8080-exec-3] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:01:07.464  INFO 89516 --- [http-nio-8080-exec-3] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:01:07.485  INFO 89516 --- [http-nio-8080-exec-3] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
-2022-02-16 00:01:29.102  INFO 89516 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:01:29.102  INFO 89516 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:01:29.102  INFO 89516 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:01:29.113  INFO 89516 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
-2022-02-16 00:02:04.719  INFO 89516 --- [http-nio-8080-exec-5] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-02-16 00:02:04.719  INFO 89516 --- [http-nio-8080-exec-5] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-02-16 00:02:04.719  INFO 89516 --- [http-nio-8080-exec-5] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-02-16 00:02:04.733  INFO 89516 --- [http-nio-8080-exec-5] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
