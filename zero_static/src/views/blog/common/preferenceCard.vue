@@ -7,6 +7,12 @@
         <div class="tag-collection-block">
             <div ref="tagPieChart" class="tag-pie-chart-box"></div>
         </div>
+        <div class="city-collection-block">
+            <div class="city-first-box-header">
+                <span>行业精选</span>
+            </div>
+            <div class="city-first-box"></div>
+        </div>
     </el-card>
 </template>
 
@@ -72,8 +78,19 @@ export default {
     width: 420px;
     min-height: 720px;
 }
+
 .tag-pie-chart-box {
     height: 300px;
+    width: 100%;
+}
+.city-first-box-header {
+    text-align: start;
+    padding: 5px 5px;
+    border-bottom: 1px solid #ebeef5;
+    font-weight: bold;
+}
+.city-first-box {
+    min-height: 300px;
     width: 100%;
 }
 </style>

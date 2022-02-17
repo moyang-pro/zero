@@ -10,7 +10,6 @@ let Highlight = function(Vue) {
         // querySelectorAll可以根据自己的富文本生成的代码做调整 我这里默认刚好
         let blocks = el.querySelectorAll('pre code');
         blocks.forEach(block => {
-            console.log('code block : {}', block);
             hljs.highlightBlock(block);
         });
     });

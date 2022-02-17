@@ -2,7 +2,26 @@
     <div class="blog-main-content">
         <div class="zero-blog-wrapper">
             <div class="blog-left-block">
-                <el-card shadow="hover" class="article-info-card article-show-card"> </el-card>
+                <el-card shadow="hover" class="article-info-card article-show-card">
+                    <div class="toc-nav-box">
+                        <div class="toc-nav-title">
+                            <span>目录</span>
+                        </div>
+                        <div>
+                            <el-tree
+                                :data="tocTree"
+                                default-expand-all
+                                node-key="id"
+                                highlight-current
+                                :expand-on-click-node="false"
+                            >
+                                <span class="custom-tree-node" slot-scope="{ node, data }">
+                                    <span>{{ node.label }}</span>
+                                </span>
+                            </el-tree>
+                        </div>
+                    </div>
+                </el-card>
             </div>
             <div class="blog-middle-block">
                 <el-card shadow="hover" class="article-read-card">
@@ -46,6 +65,8 @@
 import { deleteBlog, getMyBlog } from '@/api/blog';
 import NumberUtils from '@/utils/NumberUtils';
 
+import toToc from '@/utils/blog/TocUtil';
+
 export default {
     name: 'read',
     data() {
@@ -57,7 +78,9 @@ export default {
             },
             isMine: false,
             // 编程语言、技术领域、项目名称
-            tagList: ['java语言', '博客', 'ZERO-BLOG']
+            tagList: ['java语言', '博客', 'ZERO-BLOG'],
+            tocList: [],
+            tocTree: []
         };
     },
     created() {
@@ -74,6 +97,8 @@ export default {
             getMyBlog(id)
                 .then(res => {
                     this.blogInfo = res.data;
+                    console.log(this.blogInfo.htmlContent);
+                    this.toToc(this.blogInfo.htmlContent);
                     this.isMine = this.blogInfo.author === this.$store.state.user.name;
                 })
                 .catch(() => {
@@ -116,6 +141,29 @@ export default {
                     message: '删除成功!'
                 });
             });
+        },
+        toToc(html) {
+            const tocs = html.match(/<[hH][1-6]>.*?<\/[hH][1-6]>/g); // 通过正则的方式
+            console.log('tocs', tocs);
+            tocs.forEach((item, index) => {
+                let _toc = `<div name='toc-title' id='${index}'>${item} </div>`;
+                html = html.replace(item, _toc);
+            });
+            console.log('html ', html);
+            this.tocList = toToc(tocs);
+            console.log('tocs', this.tocList);
+        }
+    },
+    watch: {
+        $route: {
+            handler: function(val, oldVal) {
+                const data = document.getElementsByClassName(`toc-link-${val.hash}`)[0];
+                this.tocList.forEach(list => {
+                    data === list ? list.classList.add('active') : list.classList.remove('active');
+                });
+            },
+            // 深度观察监听
+            deep: true
         }
     }
 };
@@ -134,13 +182,21 @@ export default {
     min-height: 400px;
 }
 .blog-left-block {
+    margin-bottom: 40px;
 }
 .article-info-card {
+}
+.toc-nav-title {
+    text-align: start;
+    padding: 5px 5px;
+    border-bottom: 1px solid #ebeef5;
+    font-weight: bold;
+    font-size: 18px;
 }
 //中间card
 .blog-middle-block {
     width: calc(100% - 600px);
-    margin: 0 10px;
+    margin: 0 10px 40px 10px;
 }
 .article-read-card .blog-title-header {
     text-align: left;
@@ -166,6 +222,7 @@ export default {
     text-align: end;
 }
 .blog-right-block {
+    margin-bottom: 40px;
 }
 
 .article-user-card {
