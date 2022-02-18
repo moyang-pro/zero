@@ -1,7 +1,7 @@
 <template>
     <el-container class="root-container">
         <el-header class="zero-header-container">
-            <ZeroHeader :menuShow="true" :menu-data="menu" />
+            <ZeroHeader :menuShow="true" :menu-data="menu" :fixed="true" />
         </el-header>
         <el-main class="zero-main-container">
             <router-view />

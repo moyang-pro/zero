@@ -1,5 +1,5 @@
 <template>
-    <div id="zero-header" class="zero-header">
+    <div id="zero-header" :class="fixed ? 'zero-header-fixed' : 'zero-header'">
         <div style="margin:0;padding:0;" class="zero-head-inner">
             <div class="zero-logo">
                 <a href="/">
@@ -75,6 +75,11 @@ export default {
     name: 'ZeroHeader',
     components: { menuItem, searchWidget },
     props: {
+        fixed: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
         menuConfig: {
             type: Object,
             required: false,
@@ -135,6 +140,15 @@ export default {
 </script>
 
 <style lang="scss">
+.zero-header-fixed {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    height: 60px;
+    background-color: #2b303b;
+    padding: 0 20px;
+    width: 100%;
+}
 .zero-header {
     height: 60px;
     background-color: #2b303b;

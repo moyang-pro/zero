@@ -1,8 +1,8 @@
 <template>
     <div class="blog-main-content">
         <div class="zero-blog-wrapper">
-            <div class="blog-left-block">
-                <el-card shadow="hover" class="article-info-card article-show-card">
+            <div class="blog-left-block" :class="fixedToc ? 'fixed-toc' : ''">
+                <el-card :shadow="cardShadow" class="article-info-card article-show-card">
                     <div class="toc-nav-box">
                         <div class="toc-nav-title">
                             <span>目录</span>
@@ -12,19 +12,33 @@
                                 :data="tocTree"
                                 default-expand-all
                                 node-key="id"
-                                highlight-current
+                                :highlight-current="false"
+                                icon-class="none-icon"
                                 :expand-on-click-node="false"
                             >
-                                <span class="custom-tree-node" slot-scope="{ node, data }">
-                                    <span>{{ node.label }}</span>
+                                <span
+                                    class="custom-tree-node"
+                                    slot-scope="{ node, data }"
+                                    @click.stop.prevent="tocTreeClick(data)"
+                                >
+                                    <svg-icon
+                                        :icon-class="activeIndex === data.id ? 'li-blue' : 'li-black'"
+                                        class="svgIcon"
+                                        style="font-size: 5px;align-items: center"
+                                    />
+                                    <span
+                                        :class="activeIndex === data.id ? 'toc-node-label-active' : 'toc-node-label'"
+                                        >{{ node.label }}</span
+                                    >
                                 </span>
                             </el-tree>
                         </div>
                     </div>
                 </el-card>
             </div>
+            <div class="blog-left-block article-show-card" v-if="fixedToc"></div>
             <div class="blog-middle-block">
-                <el-card shadow="hover" class="article-read-card">
+                <el-card :shadow="cardShadow" class="article-read-card">
                     <div slot="header" class="blog-title-header">
                         <h1 class="blog-title-h1 text-one-line">{{ blogInfo.title }}</h1>
                         <div class="article-opt-part">
@@ -55,7 +69,7 @@
                 </el-card>
             </div>
             <div class="blog-right-block author-info-block">
-                <el-card shadow="hover" class="article-user-card article-show-card"> </el-card>
+                <el-card :shadow="cardShadow" class="article-user-card article-show-card"> </el-card>
             </div>
         </div>
     </div>
@@ -65,12 +79,11 @@
 import { deleteBlog, getMyBlog } from '@/api/blog';
 import NumberUtils from '@/utils/NumberUtils';
 
-import toToc from '@/utils/blog/TocUtil';
-
 export default {
     name: 'read',
     data() {
         return {
+            cardShadow: 'always',
             blogInfo: {
                 id: 0,
                 htmlContent: '',
@@ -80,12 +93,21 @@ export default {
             // 编程语言、技术领域、项目名称
             tagList: ['java语言', '博客', 'ZERO-BLOG'],
             tocList: [],
-            tocTree: []
+            tocTree: [],
+            activeIndex: -1,
+            fixedToc: false
         };
     },
     created() {
         let blogId = this.$route.params.id;
         this.showBlog(blogId);
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll, true);
+    },
+    destroyed() {
+        // 离开该页面需要移除这个监听的事件，不然会报错
+        window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
         showBlog(id) {
@@ -97,7 +119,6 @@ export default {
             getMyBlog(id)
                 .then(res => {
                     this.blogInfo = res.data;
-                    console.log(this.blogInfo.htmlContent);
                     this.toToc(this.blogInfo.htmlContent);
                     this.isMine = this.blogInfo.author === this.$store.state.user.name;
                 })
@@ -142,30 +163,74 @@ export default {
                 });
             });
         },
-        toToc(html) {
-            const tocs = html.match(/<[hH][1-6]>.*?<\/[hH][1-6]>/g); // 通过正则的方式
-            console.log('tocs', tocs);
-            tocs.forEach((item, index) => {
-                let _toc = `<div name='toc-title' id='${index}'>${item} </div>`;
-                html = html.replace(item, _toc);
+        tocTreeClick(data) {
+            this.activeIndex = data.id;
+            let selectorId = 'toc-' + data.id;
+            const anchor = document.getElementById(selectorId); //获取元素
+            if (anchor) {
+                let offsetTop = anchor.offsetTop;
+                this.$nextTick(() => {
+                    window.scrollTo({ behavior: 'smooth', top: offsetTop - 60 });
+                });
+            }
+        },
+        handleScroll() {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            this.fixedToc = scrollY > 150;
+            console.log(scrollY);
+        },
+        async toToc(html) {
+            const tocArr = html.match(/<[hH][1-6]>.*?<\/[hH][1-6]>/g); // 通过正则的方式
+            let arrLevel = [];
+
+            tocArr.forEach((item, index) => {
+                let _toc = `<div id='toc-${index}'>${item} </div>`;
+                this.blogInfo.htmlContent = '<div>' + this.blogInfo.htmlContent.replace(item, _toc) + '</div>';
             });
-            console.log('html ', html);
-            this.tocList = toToc(tocs);
-            console.log('tocs', this.tocList);
+
+            tocArr.forEach(item => {
+                let itemLevel = item.match(/(?<=<h)\w(?=>)/)[0]; // 匹配h?标签<h?>
+                arrLevel.push(itemLevel);
+            });
+            tocArr.forEach((item, index) => {
+                let itemLevel = item.match(/(?<=<h)\w(?=>)/)[0]; // 匹配h?标签<h?>
+                let itemText = item.replace(/<[^>]+>/g, ''); // 匹配h标签的文字
+                let listItem = {
+                    id: index,
+                    level: itemLevel,
+                    label: itemText,
+                    parentId: this.findLeftSmallerFirstIndex(arrLevel, itemLevel, index)
+                };
+                this.tocList.push(listItem);
+            });
+            this.tocTree = this.makeTree(this.tocList);
+        },
+        findLeftSmallerFirstIndex(arr, value, index) {
+            index--;
+            while (index >= 0) {
+                if (arr[index] < value) {
+                    return index;
+                } else {
+                    index--;
+                }
+            }
+            return -1;
+        },
+        makeTree(data, children = 'children') {
+            const root = { depth: -1, [children]: [] };
+            const nodeMap = {};
+            data.forEach(it => {
+                const { id, parentId } = it;
+                const parent = nodeMap[parentId] ?? root;
+                const node = { ...it, depth: parent.depth + 1 };
+                parent.children ??= [];
+                parent.children.push(node);
+                nodeMap[id] = node;
+            });
+            return root.children;
         }
     },
-    watch: {
-        $route: {
-            handler: function(val, oldVal) {
-                const data = document.getElementsByClassName(`toc-link-${val.hash}`)[0];
-                this.tocList.forEach(list => {
-                    data === list ? list.classList.add('active') : list.classList.remove('active');
-                });
-            },
-            // 深度观察监听
-            deep: true
-        }
-    }
+    watch: {}
 };
 </script>
 
@@ -193,6 +258,23 @@ export default {
     font-weight: bold;
     font-size: 18px;
 }
+.custom-tree-node {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.toc-node-label-active {
+    margin-left: 5px;
+    color: #00a4ff;
+}
+.toc-node-label {
+    margin-left: 5px;
+}
+.fixed-toc {
+    position: fixed;
+    top: 65px;
+}
+
 //中间card
 .blog-middle-block {
     width: calc(100% - 600px);

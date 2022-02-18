@@ -33,6 +33,8 @@ Vue.prototype.$echarts = echarts;
 import { Timeline, Statistic } from 'ant-design-vue';
 Vue.use(Timeline).use(Statistic);
 
+import 'wowjs/css/libs/animate.css';
+
 Vue.config.productionTip = false;
 
 new Vue({
