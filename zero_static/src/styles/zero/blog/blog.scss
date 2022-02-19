@@ -6,6 +6,17 @@
     padding-top: 80px;
 }
 
+.article-read-card {
+    .markdown-body{
+        background-color: unset;
+    }
+}
+.href-link-text{
+    cursor: pointer;
+}
+.href-link-text:hover{
+    color: #00a4ff;
+}
 .blog-right-card {
     width: 1180px;
 }

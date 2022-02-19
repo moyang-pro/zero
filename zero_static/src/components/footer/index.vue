@@ -2,7 +2,7 @@
     <div id="zero-footer" class="zero-footer">
         <div class="zero-footer-inner">
             <span>
-                Copyright © 2020-2022 Moyang Room. All Rights Reserved. 零度墨阳 版权所有
+                Copyright © 2020-2022 零度墨阳. 京ICP备案号20016809号-2
             </span>
         </div>
     </div>

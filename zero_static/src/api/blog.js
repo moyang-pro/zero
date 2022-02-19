@@ -16,6 +16,14 @@ export function getMyBlogList(page) {
     });
 }
 
+export function getOneBlog(id) {
+    return request({
+        url: '/blog-article/read',
+        method: 'get',
+        params: { id }
+    });
+}
+
 export function getMyBlog(id) {
     return request({
         url: '/blog-article/read/me',

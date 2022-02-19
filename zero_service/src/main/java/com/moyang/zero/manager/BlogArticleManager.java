@@ -43,6 +43,9 @@ public class BlogArticleManager {
 
 	public boolean checkBlogArticleAuth(BlogArticleBo blogArticleBo, LoginInfo loginInfo) {
 		// 一定是登录用户
+		if(loginInfo.getEmy().equals(blogArticleBo.getAuthor())){
+			return true;
+		}
 		// 私密 一定不可见
 		if (BlogPublishTypeEnum.MYSELF.getCode().equals(blogArticleBo.getPublishType())) {
 			return false;
