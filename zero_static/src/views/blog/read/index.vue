@@ -3,7 +3,7 @@
         <div class="blog-main-content">
             <div class="zero-blog-wrapper">
                 <div class="blog-left-block">
-                    <el-card :shadow="cardShadow" class="article-info-card article-show-card"> </el-card>
+                    <recommend ref="recommendCard" />
                 </div>
                 <div class="blog-middle-block">
                     <el-card :shadow="cardShadow" class="article-read-card">
@@ -12,12 +12,15 @@
                             <div class="article-opt-part">
                                 <div class="opt-tag-start">
                                     <el-tag
-                                        type="warning"
-                                        v-for="item in blogInfo.tags"
-                                        :key="item.index"
+                                        :type="tagTypeArr[index % 5]"
+                                        size="mini"
+                                        :hit="true"
+                                        v-for="(item, index) in blogInfo.tags"
+                                        :key="item"
                                         class="article-tag"
                                         >{{ item }}</el-tag
                                     >
+                                    <articleCount :article-info="blogInfo" />
                                 </div>
                                 <div class="opt-part-end" v-show="isMine">
                                     <el-link :underline="false" type="primary" @click.stop="editBlog(blogInfo.id)"
@@ -30,11 +33,19 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="copy-right">
+                                <div class="copy-right text-one-line">
                                     <strong>版权</strong>
-                                    <span v-if="blogInfo.articleType === blogEnum.TYPE_DEFAULT">
+                                    <span v-if="blogInfo.articleType === blogEnum.TYPE_REPRINT">
+                                        本文为转载文章，转载请注明来自
+                                        <a class="href-link-text" :href="blogInfo.quote">blogInfo.quote</a>
+                                    </span>
+                                    <span v-else-if="blogInfo.articleType === blogEnum.TYPE_TRANSLATION">
+                                        本文为翻译文章，转载请注明来自
+                                        <a class="href-link-text" :href="blogInfo.quote">blogInfo.quote</a>
+                                    </span>
+                                    <span v-else>
                                         本文为墨阳空间原创文章，转载无需和我联系，但请注明来自
-                                        <a class="href-link-text" href="http://www.moyang.pro">墨阳空间</a>
+                                        <a class="href-link-text" href="http://www.moyang.pro">http://www.moyang.pro</a>
                                     </span>
                                 </div>
                             </div>
@@ -46,55 +57,7 @@
                     </el-card>
                 </div>
                 <div class="blog-right-block author-info-block">
-                    <div :class="fixedToc ? 'fixed-toc' : ''">
-                        <el-card :shadow="cardShadow" class="article-user-card article-show-card">
-                            <div
-                                class="author-box"
-                                v-on:mousedown.left="createLoves($event)"
-                                v-on:mouseup="removeSmallHeart"
-                            >
-                                <h1>dd</h1>
-                                <mini-heart ref="miniHeart"></mini-heart>
-                            </div>
-                        </el-card>
-                        <el-card :shadow="cardShadow" class="article-toc-card article-show-card">
-                            <div class="toc-nav-box">
-                                <div class="toc-nav-title">
-                                    <span>目录</span>
-                                </div>
-                                <div>
-                                    <el-tree
-                                        :data="tocTree"
-                                        default-expand-all
-                                        node-key="id"
-                                        :highlight-current="false"
-                                        icon-class="none-icon"
-                                        :expand-on-click-node="false"
-                                    >
-                                        <span
-                                            class="custom-tree-node"
-                                            :class="'toc-title-level-' + data.depth"
-                                            slot-scope="{ node, data }"
-                                            @click.stop.prevent="tocTreeClick(data)"
-                                        >
-                                            <svg-icon
-                                                :icon-class="activeIndex === data.id ? 'li-blue' : 'li-black'"
-                                                class="svgIcon toc-icon"
-                                                :class="'toc-icon-depth-' + data.depth"
-                                            />
-                                            <span
-                                                class="text-one-line"
-                                                :class="
-                                                    activeIndex === data.id ? 'toc-node-label-active' : 'toc-node-label'
-                                                "
-                                                >{{ node.label }}</span
-                                            >
-                                        </span>
-                                    </el-tree>
-                                </div>
-                            </div>
-                        </el-card>
-                    </div>
+                    <tocCard ref="tocCard" :toc-arr.sync="tocArr"></tocCard>
                 </div>
             </div>
         </div>
@@ -104,16 +67,21 @@
 <script>
 import { deleteBlog, getOneBlog } from '@/api/blog';
 import NumberUtils from '@/utils/NumberUtils';
-import miniHeart from '@/components/biubiubiu/index';
+import recommend from '@/components/blog/article/recommend/index';
 import BlogEnum from '@/utils/enum/blogEnum';
 const { Loading } = require('element-ui');
+import articleCount from '@/components/blog/article/count';
+import tocCard from '@/components/blog/article/toc/tocCard';
 export default {
     name: 'read',
     components: {
-        miniHeart
+        articleCount,
+        tocCard,
+        recommend
     },
     data() {
         return {
+            tagTypeArr: ['primary', 'danger', 'warning', 'success', 'info'],
             cardShadow: 'always',
             blogInfo: {
                 articleStatus: 0,
@@ -142,10 +110,7 @@ export default {
             isMine: false,
             // 编程语言、技术领域、项目名称
             tagList: ['java语言', '博客', 'ZERO-BLOG'],
-            tocList: [],
-            tocTree: [],
-            activeIndex: 0,
-            fixedToc: false,
+            tocArr: [],
             blogEnum: BlogEnum
         };
     },
@@ -153,20 +118,7 @@ export default {
         let blogId = this.$route.params.id;
         this.showBlog(blogId);
     },
-    mounted() {
-        window.addEventListener('scroll', this.handleScroll, true);
-    },
-    destroyed() {
-        // 离开该页面需要移除这个监听的事件，不然会报错
-        window.removeEventListener('scroll', this.handleScroll);
-    },
     methods: {
-        createLoves(evt) {
-            this.$refs.miniHeart.createLoves(evt);
-        },
-        removeSmallHeart() {
-            this.$refs.miniHeart.removeSmallHeart();
-        },
         showBlog(id) {
             if (!NumberUtils.isValidateId(id)) {
                 this.$message.error('获取文章ID错误，请检查访问路径是否正确！');
@@ -182,7 +134,8 @@ export default {
                 .then(res => {
                     this.blogInfo = res.data;
                     loading.close();
-                    this.toToc(this.blogInfo.htmlContent);
+                    // 生成目录
+                    this.markToc();
                     console.log('moyang blog:', this.blogInfo);
                     this.isMine = this.blogInfo.author === this.$store.state.user.name;
                 })
@@ -228,70 +181,13 @@ export default {
                 });
             });
         },
-        tocTreeClick(data) {
-            this.activeIndex = data.id;
-            let selectorId = 'toc-' + data.id;
-            const anchor = document.getElementById(selectorId); //获取元素
-            if (anchor) {
-                let offsetTop = anchor.offsetTop;
-                this.$nextTick(() => {
-                    window.scrollTo({ behavior: 'smooth', top: offsetTop - 80 });
-                });
-            }
-        },
-        handleScroll() {
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            this.fixedToc = scrollY > 150;
-        },
-        async toToc(html) {
-            const tocArr = html.match(/<[hH][1-6]>.*?<\/[hH][1-6]>/g); // 通过正则的方式
-            let arrLevel = [];
-
-            tocArr.forEach((item, index) => {
+        markToc() {
+            this.tocArr = this.blogInfo.htmlContent.match(/<[hH][1-6]>.*?<\/[hH][1-6]>/g); // 通过正则的方式
+            this.tocArr.forEach((item, index) => {
                 let _toc = `<div id='toc-${index}'>${item} </div>`;
                 this.blogInfo.htmlContent = '<div>' + this.blogInfo.htmlContent.replace(item, _toc) + '</div>';
             });
-
-            tocArr.forEach(item => {
-                let itemLevel = item.match(/(?<=<h)\w(?=>)/)[0]; // 匹配h?标签<h?>
-                arrLevel.push(itemLevel);
-            });
-            tocArr.forEach((item, index) => {
-                let itemLevel = item.match(/(?<=<h)\w(?=>)/)[0]; // 匹配h?标签<h?>
-                let itemText = item.replace(/<[^>]+>/g, ''); // 匹配h标签的文字
-                let listItem = {
-                    id: index,
-                    level: itemLevel,
-                    label: itemText,
-                    parentId: this.findLeftSmallerFirstIndex(arrLevel, itemLevel, index)
-                };
-                this.tocList.push(listItem);
-            });
-            this.tocTree = this.makeTree(this.tocList);
-        },
-        findLeftSmallerFirstIndex(arr, value, index) {
-            index--;
-            while (index >= 0) {
-                if (arr[index] < value) {
-                    return index;
-                } else {
-                    index--;
-                }
-            }
-            return -1;
-        },
-        makeTree(data, children = 'children') {
-            const root = { depth: -1, [children]: [] };
-            const nodeMap = {};
-            data.forEach(it => {
-                const { id, parentId } = it;
-                const parent = nodeMap[parentId] ?? root;
-                const node = { ...it, depth: parent.depth + 1 };
-                parent.children ??= [];
-                parent.children.push(node);
-                nodeMap[id] = node;
-            });
-            return root.children;
+            this.$refs.tocCard.toToc(this.tocArr);
         }
     },
     watch: {}
@@ -316,48 +212,6 @@ export default {
 }
 .blog-left-block {
     margin-bottom: 40px;
-}
-
-.article-info-card {
-}
-
-.article-toc-card {
-    margin-top: 20px;
-}
-.toc-nav-title {
-    text-align: start;
-    padding: 5px 5px;
-    border-bottom: 1px solid #ebeef5;
-    font-weight: bold;
-    font-size: 18px;
-}
-.custom-tree-node {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-weight: normal;
-}
-.toc-node-label-active {
-    margin-left: 5px;
-    color: #00a4ff;
-}
-.toc-node-label {
-    margin-left: 5px;
-}
-.fixed-toc {
-    position: fixed;
-    top: 65px;
-}
-.toc-title-level-0 {
-    font-weight: 700;
-}
-.toc-icon {
-    font-size: 4px;
-    align-items: center;
-}
-.toc-icon-depth-0 {
-    font-size: 6px;
-    align-items: center;
 }
 
 //中间card
@@ -402,11 +256,5 @@ export default {
 }
 .blog-right-block {
     margin-bottom: 40px;
-}
-.author-box {
-    width: 100%;
-    height: 100%;
-}
-.article-user-card {
 }
 </style>

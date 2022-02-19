@@ -10,7 +10,7 @@ const BlogEnum = {
     /**
      *  翻译
      */
-    TRANSLATION: 2
+    TYPE_TRANSLATION: 2
 };
 
 export default BlogEnum;
