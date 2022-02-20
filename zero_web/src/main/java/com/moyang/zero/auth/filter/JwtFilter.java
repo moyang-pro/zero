@@ -3,6 +3,8 @@ package com.moyang.zero.auth.filter;
 import com.moyang.zero.auth.token.JwtToken;
 import com.moyang.zero.auth.util.LoginContext;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,6 +59,12 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 		return true;
 	}
 
+	@Override
+	protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
+		log.error("AuthenticationToken:{}",e.getMessage());
+		return super.onLoginFailure(token, e, request, response);
+	}
+
 	/**
 	 * 这里我们详细说明下为什么最终返回的都是true，即允许访问
 	 * 例如我们提供一个地址 GET /article
@@ -76,6 +84,12 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+		log.error("onAccessDenied:{}",response);
+		return super.onAccessDenied(request, response);
 	}
 
 	/**

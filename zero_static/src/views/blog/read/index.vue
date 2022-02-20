@@ -4,6 +4,7 @@
             <div class="zero-blog-wrapper">
                 <div class="blog-left-block">
                     <recommend ref="recommendCard" />
+                    <toolbox></toolbox>
                 </div>
                 <div class="blog-middle-block">
                     <el-card :shadow="cardShadow" class="article-read-card">
@@ -67,17 +68,19 @@
 <script>
 import { deleteBlog, getOneBlog } from '@/api/blog';
 import NumberUtils from '@/utils/NumberUtils';
-import recommend from '@/components/blog/article/recommend/index';
 import BlogEnum from '@/utils/enum/blogEnum';
 const { Loading } = require('element-ui');
 import articleCount from '@/components/blog/article/count';
 import tocCard from '@/components/blog/article/toc/tocCard';
+import recommend from '@/components/blog/article/recommend/index';
+import toolbox from '@/components/blog/article/toolbox/index';
 export default {
     name: 'read',
     components: {
         articleCount,
         tocCard,
-        recommend
+        recommend,
+        toolbox
     },
     data() {
         return {

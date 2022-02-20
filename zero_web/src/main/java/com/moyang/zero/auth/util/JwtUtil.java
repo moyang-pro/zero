@@ -21,8 +21,8 @@ import java.util.Date;
 @Slf4j
 public class JwtUtil {
 
-	/**过期时间24小时*/
-	private static final long EXPIRE_TIME = 24 * 60 * 60 * 1000;
+	/**过期时间24小时 24 * 60 * 60 * */
+	private static final long EXPIRE_TIME = 1000;
 
 	public static boolean verify(String token, String username, String platCode,  String secret) {
 		try {

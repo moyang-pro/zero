@@ -4,7 +4,6 @@ import com.moyang.zero.auth.token.JwtToken;
 import com.moyang.zero.auth.util.JwtUtil;
 import com.moyang.zero.auth.util.LoginContext;
 import com.moyang.zero.common.enums.HttpErrorEnum;
-import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.entity.SysMember;
 import com.moyang.zero.entity.SysPrivilege;
 import com.moyang.zero.entity.SysRole;
@@ -72,21 +71,21 @@ public class MyRealm extends AuthorizingRealm {
 	 * @throws AuthenticationException 认证失败
 	 */
 	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws BusinessException {
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
 		log.info("user request doGetAuthenticationInfo 认证........................");
 		String token = (String) authenticationToken.getCredentials();
 		// 解密获得username，用于和数据库进行对比
 		String username = JwtUtil.getUsername(token);
 		if (username == null) {
-			throw new BusinessException(HttpErrorEnum.TOKEN_EXPIRED);
+			throw new AuthenticationException(HttpErrorEnum.TOKEN_EXPIRED.getDescription());
 		}
 		String platCode = JwtUtil.getPlatCode(token);
 		SysMember sysMember = sysMemberDetailService.loadUserByUsername(username, platCode);
 		if (sysMember == null) {
-			throw new BusinessException("用户" + username + "不存在") ;
+			throw new AuthenticationException("用户" + username + "不存在") ;
 		}
 		if (!JwtUtil.verify(token, username, platCode, sysMember.getPassword())) {
-			throw new BusinessException("账户密码错误!");
+			throw new AuthenticationException("账户密码错误!");
 		}
 		return new SimpleAuthenticationInfo(token, token, "myRealm");
 	}

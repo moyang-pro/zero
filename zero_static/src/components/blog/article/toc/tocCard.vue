@@ -277,7 +277,7 @@ export default {
 }
 .toc-node-label-active {
     margin-left: 5px;
-    color: #00a4ff;
+    color: #409eff;
 }
 .toc-node-label {
     margin-left: 5px;

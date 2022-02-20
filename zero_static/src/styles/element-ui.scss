@@ -77,4 +77,10 @@
     margin-right: -10px ;
     z-index: -1 ;
 }
-
+.tool-box .el-badge__content.is-fixed {
+    right: 15px;
+    top: 5px;
+}
+.tool-box .el-badge__content--info {
+    background-color: #b9bdc6;
+}
