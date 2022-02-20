@@ -203,7 +203,7 @@ export default {
         },
         handleScroll() {
             const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            this.fixedToc = scrollY > 150;
+            this.fixedToc = scrollY > 80;
         },
         async toToc(tocArr) {
             let arrLevel = [];
