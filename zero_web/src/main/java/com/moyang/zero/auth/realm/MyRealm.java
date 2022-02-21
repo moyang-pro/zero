@@ -16,6 +16,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.authz.UnauthenticatedException;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
@@ -71,21 +72,21 @@ public class MyRealm extends AuthorizingRealm {
 	 * @throws AuthenticationException 认证失败
 	 */
 	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken){
 		log.info("user request doGetAuthenticationInfo 认证........................");
 		String token = (String) authenticationToken.getCredentials();
 		// 解密获得username，用于和数据库进行对比
 		String username = JwtUtil.getUsername(token);
 		if (username == null) {
-			throw new AuthenticationException(HttpErrorEnum.TOKEN_EXPIRED.getDescription());
+			throw new UnauthenticatedException(HttpErrorEnum.ILL_TOKEN.getDescription());
 		}
 		String platCode = JwtUtil.getPlatCode(token);
 		SysMember sysMember = sysMemberDetailService.loadUserByUsername(username, platCode);
 		if (sysMember == null) {
-			throw new AuthenticationException("用户" + username + "不存在") ;
+			throw new UnauthenticatedException("用户" + username + "不存在") ;
 		}
 		if (!JwtUtil.verify(token, username, platCode, sysMember.getPassword())) {
-			throw new AuthenticationException("账户密码错误!");
+			throw new AuthenticationException(HttpErrorEnum.TOKEN_EXPIRED.getDescription());
 		}
 		return new SimpleAuthenticationInfo(token, token, "myRealm");
 	}

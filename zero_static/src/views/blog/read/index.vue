@@ -4,7 +4,7 @@
             <div class="zero-blog-wrapper">
                 <div class="blog-left-block">
                     <recommend ref="recommendCard" />
-                    <toolbox></toolbox>
+                    <toolbox />
                 </div>
                 <div class="blog-middle-block">
                     <el-card :shadow="cardShadow" class="article-read-card">
@@ -56,6 +56,7 @@
                             {{ blogInfo.htmlContent }}
                         </div>
                     </el-card>
+                    <comment-box />
                 </div>
                 <div class="blog-right-block author-info-block">
                     <tocCard ref="tocCard" :toc-arr.sync="tocArr"></tocCard>
@@ -74,13 +75,15 @@ import articleCount from '@/components/blog/article/count';
 import tocCard from '@/components/blog/article/toc/tocCard';
 import recommend from '@/components/blog/article/recommend/index';
 import toolbox from '@/components/blog/article/toolbox/index';
+import commentBox from '@/components/comment/index';
 export default {
     name: 'read',
     components: {
         articleCount,
         tocCard,
         recommend,
-        toolbox
+        toolbox,
+        commentBox
     },
     data() {
         return {

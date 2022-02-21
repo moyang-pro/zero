@@ -30,6 +30,11 @@ public enum ResultCodeEnum {
     NO_EXISTS(404, "资源不存在"),
 
     /**
+     * 未授权认证
+     */
+    NO_AUTH(402, "未授权认证"),
+
+    /**
      * 未登录
      */
     NO_LOGIN(401, "未登录");

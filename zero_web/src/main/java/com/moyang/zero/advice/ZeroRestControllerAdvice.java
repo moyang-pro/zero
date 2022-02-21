@@ -6,10 +6,6 @@ import com.moyang.zero.common.util.http.PageResult;
 import com.moyang.zero.common.util.http.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authz.AuthorizationException;
-import org.apache.shiro.authz.UnauthenticatedException;
-import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -41,12 +37,6 @@ public class ZeroRestControllerAdvice implements ResponseBodyAdvice<Object> {
         log.error("统一异常处理", e);
         if (e instanceof BusinessException) {
             return Result.fail(e.getMessage());
-        }
-        if(e instanceof UnauthenticatedException || e instanceof UnauthorizedException){
-            return Result.fail(401, e.getMessage());
-        }
-        if(e instanceof AuthenticationException || e instanceof AuthorizationException){
-            return Result.fail(402, e.getMessage());
         }
         if (e instanceof BindException) {
             BindingResult re = ((BindException) e).getBindingResult();

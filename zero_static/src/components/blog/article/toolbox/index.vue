@@ -66,7 +66,7 @@ export default {
     methods: {
         handleScroll() {
             const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            this.fixedToolBox = scrollY > 500;
+            this.fixedToolBox = scrollY > 200;
         },
         focusBtn(index) {
             this.focusBtnIndex = index;

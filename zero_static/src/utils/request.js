@@ -53,18 +53,14 @@ service.interceptors.response.use(
                 duration: 5 * 1000
             });
 
-            // 508: Illegal token; 512: Other clients logged in; 514: Token expired;
-            if (res.code === 508 || res.code === 512 || res.code === 514) {
+            // 402: Illegal token; 401: Token expired;
+            if (res.code === 402 || res.code === 401) {
                 // to re-login
-                MessageBox.confirm(
-                    'You have been logged out, you can cancel to stay on this page, or login again',
-                    'Confirm logout',
-                    {
-                        confirmButtonText: 'Re-Login',
-                        cancelButtonText: 'Cancel',
-                        type: 'warning'
-                    }
-                ).then(() => {
+                MessageBox.confirm('您已经退出登录，可能是未授权认证成功或Token过期失效，请重新登录', '确认登出', {
+                    confirmButtonText: '重新登录',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
                     store.dispatch('user/resetToken').then(() => {
                         location.reload();
                     });
@@ -76,7 +72,6 @@ service.interceptors.response.use(
         }
     },
     error => {
-        console.log('err' + error); // for debug
         Message({
             message: error.message,
             type: 'error',

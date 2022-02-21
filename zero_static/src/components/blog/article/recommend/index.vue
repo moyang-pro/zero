@@ -1,43 +1,49 @@
 <template>
-    <el-card :shadow="cardShadow" class="article-info-card">
-        <div slot="header" class="card-header-title-start">
-            <span>相关推荐</span>
-            <el-button style="float: right; padding: 3px 0" type="text">换一批</el-button>
-        </div>
-        <div class="recommend-article-box">
-            <div class="recommend-article-item" v-for="articleItem in recommendList" :key="articleItem.id">
-                <div class="recommend-article-title text-one-line">
-                    <span>{{ articleItem.title }}</span>
-                </div>
-                <div class="recommend-article-line">
-                    <span>
-                        <span class="ra-author-avatar-box">
-                            <el-avatar :src="articleItem.authorAvatar" class="ra-author-avatar"></el-avatar>
-                            <span class="ra-author-text-vip" v-if="articleItem.vipCode > 0">v</span>
+    <div class="ra-article-info" id="recommend-article-wrapper">
+        <el-card :shadow="cardShadow" class="article-info-card" v-show="false">
+            <div slot="header" class="card-header-title-start">
+                <span>相关推荐</span>
+                <el-button style="float: right; padding: 3px 0" type="text">换一批</el-button>
+            </div>
+            <div class="recommend-article-box">
+                <div class="recommend-article-item" v-for="articleItem in recommendList" :key="articleItem.id">
+                    <div class="recommend-article-title text-one-line">
+                        <el-tooltip effect="light" :content="articleItem.title" placement="left">
+                            <span>{{ articleItem.title }}</span>
+                        </el-tooltip>
+                    </div>
+                    <div class="recommend-article-line">
+                        <span>
+                            <el-tooltip effect="light" :content="articleItem.author" placement="left">
+                                <span class="ra-author-avatar-box">
+                                    <el-avatar :src="articleItem.authorAvatar" class="ra-author-avatar"></el-avatar>
+                                    <span class="ra-author-text-vip" v-if="articleItem.vipCode > 0">v</span>
+                                </span>
+                            </el-tooltip>
                         </span>
-                    </span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span>
-                        点赞
-                        <span v-if="articleItem.likeCount < 1000"> {{ articleItem.likeCount }}</span>
-                        <span v-else> 12k+</span>
-                    </span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span>
-                        评论
-                        <span v-if="articleItem.commentCount < 1000"> {{ articleItem.commentCount }}</span>
-                        <span v-else> 999+</span>
-                    </span>
-                    <el-divider direction="vertical"></el-divider>
-                    <span>
-                        浏览量
-                        <span v-if="articleItem.clickCount < 1000"> {{ articleItem.clickCount }}</span>
-                        <span v-else> 999+</span>
-                    </span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span>
+                            点赞
+                            <span v-if="articleItem.likeCount < 1000"> {{ articleItem.likeCount }}</span>
+                            <span v-else> 12k+</span>
+                        </span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span>
+                            评论
+                            <span v-if="articleItem.commentCount < 1000"> {{ articleItem.commentCount }}</span>
+                            <span v-else> 999+</span>
+                        </span>
+                        <el-divider direction="vertical"></el-divider>
+                        <span>
+                            浏览量
+                            <span v-if="articleItem.clickCount < 1000"> {{ articleItem.clickCount }}</span>
+                            <span v-else> 999+</span>
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </el-card>
+        </el-card>
+    </div>
 </template>
 
 <script>
@@ -77,9 +83,11 @@ export default {
 .card-header-title-start {
     text-align: start;
 }
-.article-info-card {
+.ra-article-info {
     width: 300px;
-    min-height: 500px;
+    min-height: 200px;
+}
+.article-info-card {
     border-radius: 10px;
 }
 .recommend-article-item {
@@ -89,6 +97,7 @@ export default {
     text-align: start;
     font-size: 16px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .recommend-article-line {
     font-size: 12px;
@@ -105,6 +114,7 @@ export default {
     justify-content: space-between;
     position: relative;
     max-width: 80px;
+    cursor: pointer;
 }
 .ra-author-avatar {
     height: 30px;
