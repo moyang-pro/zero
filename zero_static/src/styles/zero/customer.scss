@@ -29,6 +29,14 @@
     -webkit-line-clamp:2; //显示的行
 }
 
+.div-text-no-click{
+    //禁用连续点击选中文字
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .blog-preference-card .el-card__body {
     padding: 10px 0;
 }

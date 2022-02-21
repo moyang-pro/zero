@@ -15,4 +15,7 @@ Springboot + shiro + JWT + redis 实现 登录安全验证和权限管理
 blog markdown 文件编辑器 mavonEditor的使用
 # 2022.2.3
 角色权限查询 路由导航控制 界面的响应式适配
+# 2022.2.22
+AR#2022B004 用户体验优化
+用户登录异常处理，MyErrorController处理filter异常
 

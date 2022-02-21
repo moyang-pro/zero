@@ -3,7 +3,7 @@
         <div class="tool-box" :class="fixedToolBox ? 'tool-box-fixed' : ''">
             <el-badge :value="likeCount" class="tool-badge-item" :type="likeBtn ? 'primary' : 'info'">
                 <div
-                    class="article-tool-item"
+                    class="article-tool-item div-text-no-click"
                     @mouseover="focusBtn(1)"
                     @mouseleave="focusBtn(0)"
                     @click.prevent="clickLikeBtn()"
@@ -14,17 +14,17 @@
                 </div>
             </el-badge>
             <el-badge :value="commentCount" class="item" type="info">
-                <div class="article-tool-item" @mouseover="focusBtn(2)" @mouseleave="focusBtn(0)">
+                <div class="article-tool-item div-text-no-click" @mouseover="focusBtn(2)" @mouseleave="focusBtn(0)">
                     <svg-icon icon-class="comment-focus" v-if="focusBtnIndex === 2"></svg-icon>
                     <svg-icon icon-class="comment" v-else></svg-icon>
                 </div>
             </el-badge>
-            <div class="article-tool-item" @mouseover="focusBtn(3)" @mouseleave="focusBtn(0)">
+            <div class="article-tool-item div-text-no-click" @mouseover="focusBtn(3)" @mouseleave="focusBtn(0)">
                 <svg-icon icon-class="share-focus" v-if="focusBtnIndex === 3"></svg-icon>
                 <svg-icon icon-class="share" v-else></svg-icon>
             </div>
             <div
-                class="article-tool-item"
+                class="article-tool-item div-text-no-click"
                 @mouseover="focusBtn(4)"
                 @mouseleave="focusBtn(0)"
                 @click.prevent="clickCollectBtn()"
@@ -33,7 +33,7 @@
                 <svg-icon icon-class="collected" v-else-if="collectBtn"></svg-icon>
                 <svg-icon icon-class="collect" v-else></svg-icon>
             </div>
-            <div class="article-tool-item" @mouseover="focusBtn(5)" @mouseleave="focusBtn(0)">
+            <div class="article-tool-item div-text-no-click" @mouseover="focusBtn(5)" @mouseleave="focusBtn(0)">
                 <svg-icon icon-class="report-focus" v-if="focusBtnIndex === 5"></svg-icon>
                 <svg-icon icon-class="report" v-else></svg-icon>
             </div>
@@ -116,11 +116,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    //禁用连续点击选中文字
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 .article-tool-item:hover {
     -webkit-filter: drop-shadow(1px 1px 2px #ffffff);

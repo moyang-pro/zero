@@ -159,7 +159,7 @@ $content-bg-color: #fff;
         display: flex;
         flex-direction: column;
         padding: 10px;
-        border-bottom: 1px solid $border-fourth;
+        border-bottom: 1px solid #f2f6fc;
         .info {
             display: flex;
             align-items: center;
@@ -222,7 +222,7 @@ $content-bg-color: #fff;
         }
         .reply {
             margin: 10px 0;
-            border-left: 2px solid $border-first;
+            border-left: 2px solid #dcdfe6;
             .item {
                 margin: 0 10px;
                 padding: 10px 0;

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import commentList from '@/components/comment/comment';
+import commentList from '@/components/comment/commentList';
 export default {
     name: 'index',
     components: {
