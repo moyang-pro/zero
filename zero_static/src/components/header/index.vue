@@ -49,6 +49,9 @@
                             <a target="_blank" href="https://github.com/moyang-pro">
                                 <el-dropdown-item>Github</el-dropdown-item>
                             </a>
+                            <el-dropdown-item divided @click.native.stop="goUserProfile">
+                                <span style="display:block;">个人博客</span>
+                            </el-dropdown-item>
                             <el-dropdown-item divided @click.native.stop="logout">
                                 <span style="display:block;">退出</span>
                             </el-dropdown-item>

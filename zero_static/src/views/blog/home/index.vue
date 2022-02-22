@@ -4,7 +4,21 @@
             <ZeroHeader :menuShow="true" :menu-data="menu" />
         </el-header>
         <el-main class="zero-main-container">
-            <div class="blog-home-page main-content"></div>
+            <div class="bm-page-main bm-main">
+                <div class="bm-notice-show">
+                    <BlogNotice></BlogNotice>
+                </div>
+                <div class="bm-notice-right">
+                    <div class="ad-block"></div>
+                    <div class="ca-block"></div>
+                </div>
+                <div class="bm-main-show">
+                    <div class="bm-article-show">
+                        <HomeBlogItem></HomeBlogItem>
+                    </div>
+                </div>
+                <div class="bm-count-show"></div>
+            </div>
         </el-main>
         <el-footer class="zero-footer-container">
             <ZeroFooter />
@@ -15,11 +29,15 @@
 <script>
 import ZeroHeader from '@/components/header/index.vue';
 import ZeroFooter from '@/components/footer/index';
+import BlogNotice from '@/components/blog/home/notice/index';
+import HomeBlogItem from '@/components/blog/home/blogList/item';
 export default {
     name: 'index',
     components: {
         ZeroHeader,
-        ZeroFooter
+        ZeroFooter,
+        BlogNotice,
+        HomeBlogItem
     },
     data() {
         return {
@@ -128,7 +146,29 @@ export default {
 };
 </script>
 
-<style scoped>
-.blog-home-page {
+<style scoped lang="scss">
+@import 'src/styles/zero/blog/blog';
+.bm-page-main {
+    display: grid;
+    grid-template-columns: 1020px 420px;
+    grid-template-rows: 640px auto;
+}
+.bm-notice-show {
+    margin: 20px;
+}
+.bm-notice-right {
+    margin: 20px 0 20px 0;
+}
+.ad-block {
+    padding: 10px;
+    background-color: #e6a23c;
+    height: 50%;
+    margin-bottom: 10px;
+}
+.ca-block {
+    margin-top: 10px;
+    padding: 10px;
+    height: 50%;
+    background-color: #e6a23c;
 }
 </style>

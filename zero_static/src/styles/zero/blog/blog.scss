@@ -98,6 +98,13 @@
     text-align: start;
 }
 
+.bm-main{
+    width: 1440px;
+    height: 100%;
+    min-height: calc(100vh - 121px);/*高度自适应*/
+    margin: 0 auto;
+}
+
 
 
 

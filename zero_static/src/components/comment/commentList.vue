@@ -88,7 +88,7 @@ export default {
     data() {
         return {
             inputComment: '',
-            showItemId: 0,
+            showItemId: -1,
             commentList: [
                 {
                     id: 'comment0001', //主键id
@@ -175,7 +175,7 @@ export default {
          * 点击取消按钮
          */
         cancel() {
-            this.showItemId = 0;
+            this.showItemId = -1;
         },
 
         /**
