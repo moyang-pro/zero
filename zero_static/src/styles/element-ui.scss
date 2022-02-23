@@ -91,3 +91,11 @@
     padding: 10px;
 }
 
+.blog-home-notice .el-carousel__button {
+    height: 8px;
+    width: 8px;
+}
+.blog-home-notice .el-carousel__indicators--horizontal{
+    left: unset;
+    right: 0;
+}

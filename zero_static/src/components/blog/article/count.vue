@@ -1,12 +1,16 @@
 <template>
     <span class="text-span-line">
         <span class="text-span-item" title="发布时间">
-            <i class="el-icon-time"></i> {{ recently ? recentTimeDes : articleInfo.createAt }}</span
+            <i class="el-icon-time right-one-span"></i> {{ recently ? recentTimeDes : articleInfo.createAt }}</span
         >
-        <span class="text-span-item" title="浏览量"><i class="el-icon-view"></i>{{ articleInfo.readCount }}</span>
-        <span class="text-span-item" title="浏览人数"><i class="el-icon-user"></i>{{ articleInfo.userCount }}</span>
+        <span class="text-span-item" title="浏览量"
+            ><i class="el-icon-view right-one-span"></i>{{ articleInfo.readCount }}</span
+        >
+        <span class="text-span-item" title="浏览人数"
+            ><i class="el-icon-user right-one-span"></i>{{ articleInfo.userCount }}</span
+        >
         <span class="text-span-item" title="Star数量"
-            ><i class="el-icon-star-on"></i>{{ articleInfo.collectCount }}</span
+            ><i class="el-icon-star-on right-one-span"></i>{{ articleInfo.collectCount }}</span
         >
     </span>
 </template>
@@ -50,5 +54,8 @@ export default {
 .text-span-item {
     margin-left: 20px;
     cursor: pointer;
+}
+.right-one-span {
+    margin-right: 2px;
 }
 </style>

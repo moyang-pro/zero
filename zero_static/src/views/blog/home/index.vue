@@ -9,13 +9,26 @@
                     <BlogNotice></BlogNotice>
                 </div>
                 <div class="bm-notice-right">
-                    <div class="ad-block"></div>
-                    <div class="ca-block"></div>
+                    <div class="ad-ca-block">
+                        <a :href="adInfo.link">
+                            <el-image :src="adInfo.url" alt="" fit="fill" class="box-100" />
+                            <div class="ad-ca-title">
+                                <span>{{ adInfo.title }}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div style="height: 20px"></div>
+                    <div class="ad-ca-block">
+                        <a :href="caInfo.link">
+                            <el-image :src="caInfo.url" alt="" fit="fill" class="box-100" />
+                            <div class="ad-ca-title">
+                                <span>{{ caInfo.title }}</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class="bm-main-show">
-                    <div class="bm-article-show">
-                        <HomeBlogItem></HomeBlogItem>
-                    </div>
+                    <HomeBlog></HomeBlog>
                 </div>
                 <div class="bm-count-show"></div>
             </div>
@@ -30,17 +43,27 @@
 import ZeroHeader from '@/components/header/index.vue';
 import ZeroFooter from '@/components/footer/index';
 import BlogNotice from '@/components/blog/home/notice/index';
-import HomeBlogItem from '@/components/blog/home/blogList/item';
+import HomeBlog from '@/components/blog/home/blogList/index';
 export default {
     name: 'index',
     components: {
         ZeroHeader,
         ZeroFooter,
         BlogNotice,
-        HomeBlogItem
+        HomeBlog
     },
     data() {
         return {
+            adInfo: {
+                url: require('@/assets/img/break.jpg'),
+                title: 'Windows环境下配置蘑菇博客环境',
+                link: 'http://www.baidu.com'
+            },
+            caInfo: {
+                url: require('@/assets/img/lake.jpg'),
+                title: 'Windows环境下配置蘑菇博客环境',
+                link: 'http://www.baidu.com'
+            },
             menu: [
                 {
                     code: 'BLOG_HOME',
@@ -148,27 +171,32 @@ export default {
 
 <style scoped lang="scss">
 @import 'src/styles/zero/blog/blog';
-.bm-page-main {
-    display: grid;
-    grid-template-columns: 1020px 420px;
-    grid-template-rows: 640px auto;
-}
+
 .bm-notice-show {
     margin: 20px;
 }
 .bm-notice-right {
     margin: 20px 0 20px 0;
+    display: grid;
+    grid-template-rows: 270px 20px 270px;
 }
-.ad-block {
-    padding: 10px;
-    background-color: #e6a23c;
-    height: 50%;
-    margin-bottom: 10px;
+.ad-ca-block {
+    position: relative;
 }
-.ca-block {
-    margin-top: 10px;
-    padding: 10px;
-    height: 50%;
-    background-color: #e6a23c;
+.ad-ca-title {
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+.bm-main-show {
+    margin: 20px;
 }
 </style>
