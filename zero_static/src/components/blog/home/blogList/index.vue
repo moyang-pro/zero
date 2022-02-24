@@ -3,19 +3,19 @@
         <el-tab-pane :name="blogTabEnum.TAB_LAST">
             <span slot="label"><i class="el-icon-collection-tag"></i> 最新</span>
             <div class="bm-article-list">
-                <ArticleItem v-for="item in articleList" :article-info="item" :key="item"> </ArticleItem>
+                <ArticleItem v-for="item in articleList" :article-info="item" :key="item.id"> </ArticleItem>
             </div>
         </el-tab-pane>
         <el-tab-pane :name="blogTabEnum.TAB_POP">
             <span slot="label"><i class="el-icon-magic-stick"></i> 最热</span>
             <div class="bm-article-list">
-                <ArticleItem v-for="item in articleList" :article-info="item" :key="item"> </ArticleItem>
+                <ArticleItem v-for="item in articleList" :article-info="item" :key="item.id"> </ArticleItem>
             </div>
         </el-tab-pane>
         <el-tab-pane :name="blogTabEnum.TAB_CITY">
             <span slot="label"><i class="el-icon-data-line"></i> 行业精选</span>
             <div class="bm-article-list">
-                <ArticleItem v-for="item in articleList" :article-info="item" :key="item"> </ArticleItem>
+                <ArticleItem v-for="item in articleList" :article-info="item" :key="item.id"> </ArticleItem>
             </div>
         </el-tab-pane>
     </el-tabs>
@@ -31,7 +31,7 @@ export default {
     },
     data() {
         return {
-            activeTab: '',
+            activeTab: BlogTabEnum.TAB_LAST,
             blogTabEnum: BlogTabEnum,
             articleList: []
         };
@@ -43,12 +43,14 @@ export default {
                 this.articleList = [
                     {
                         articleType: 0,
-                        author: '墨阳',
+                        author: '忍者物理得到的',
+                        vipCode: 1,
+                        authorAvatar: require('@/assets/img/avatar.png'),
                         clickCount: 0,
                         collectCount: 0,
-                        coverUrl: null,
+                        coverUrl: require('@/assets/img/blonde.jpg'),
                         des:
-                            '我是一个小小程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员',
+                            '我是一个小小程序员我是一个小小我是一个小小程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员',
                         id: 1,
                         readCount: 25,
                         tags: ['java', '后端', 'Spring'],
@@ -57,16 +59,19 @@ export default {
                     },
                     {
                         articleType: 0,
-                        author: '',
+                        author: '忍者物理得到的',
+                        vipCode: 1,
+                        authorAvatar: require('@/assets/img/avatar.png'),
                         clickCount: 0,
                         collectCount: 0,
                         coverUrl: null,
-                        des: '',
-                        id: 1,
-                        readCount: '',
-                        tags: '',
-                        title: '',
-                        userCount: ''
+                        des:
+                            '我是一个小小程序员我一个小小程序员程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员',
+                        id: 2,
+                        readCount: 0,
+                        tags: ['java', '后端', 'Spring'],
+                        title: '我是一个小小程序员我是一个小小程序员',
+                        userCount: 5
                     }
                 ];
             }

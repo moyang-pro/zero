@@ -59,6 +59,12 @@
     height: 1px;
 }
 
+.el-tabs__item:focus.is-active.is-focus:not(:active) {
+    box-shadow: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
 .el-tag {
     height: 22px;
     padding: 0 3px;
@@ -99,3 +105,8 @@
     left: unset;
     right: 0;
 }
+
+.bm-article-card .el-card__body{
+    padding: 10px;
+}
+
