@@ -80,4 +80,11 @@ public interface IBlogArticleService extends IService<BlogArticle> {
 	 * @return 博客ID
 	 */
 	Result<Long> publishBlog(BlogPublishReq blogPublishReq);
+
+	/**
+	 * 获取博客首页的文章列表
+	 * @param pageRequest tabType 分栏信息
+	 * @return 文章信息列表
+	 */
+	PageResult<BlogArticleVo> getBlogHomeList(PageRequest<String> pageRequest);
 }

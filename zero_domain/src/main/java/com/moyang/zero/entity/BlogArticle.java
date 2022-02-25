@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDateTime;
+
 /**
  * <p>
  * 博客文章信息主表
@@ -51,5 +53,8 @@ public class BlogArticle extends Template {
 
     @ApiModelProperty(value = "引用文章")
     private String quote;
+
+    @ApiModelProperty(value = "发布时间")
+    private LocalDateTime publishTime;
 
 }

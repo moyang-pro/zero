@@ -3,6 +3,7 @@ package com.moyang.zero.vo;
 import com.moyang.zero.entity.Template;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -39,6 +40,18 @@ public class BlogArticleVo extends Template {
 
 	private String quote;
 
+	private LocalDateTime publishTime;
+
+	/**
+	 * 作者头像
+	 */
+	private String authorAvatar;
+
+	/**
+	 * 作者头衔
+	 */
+	private Integer vipCode;
+
 	private List<String> tags;
 
 	/**
@@ -60,5 +73,15 @@ public class BlogArticleVo extends Template {
 	 * 收藏次数
 	 */
 	private int collectCount;
+
+	/**
+	 * 点赞次数
+	 */
+	private int likeCount;
+
+	/**
+	 * 评论次数
+	 */
+	private int commentCount;
 
 }

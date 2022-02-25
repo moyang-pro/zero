@@ -1,15 +1,7 @@
 <template>
     <div class="bm-article-card">
         <el-card class="article-show-item">
-            <div class="inline-article">
-                <div style="height: 120px;width: 160px">
-                    <el-image
-                        :src="articleInfo.coverUrl ? articleInfo.coverUrl : defaultUrl"
-                        alt=""
-                        fit="fill"
-                        class="box-100"
-                    />
-                </div>
+            <div :class="articleInfo.coverUrl ? 'inline-article' : ''">
                 <div class="article-info-show">
                     <el-link :underline="false" @click.stop="showArticle(articleInfo.id)">
                         <h3 class="text-one-line title-line-width text-title" :title="articleInfo.title">
@@ -50,6 +42,9 @@
                         >
                         <articleCount :article-info="articleInfo" />
                     </div>
+                </div>
+                <div style="height: 120px;width: 160px" v-if="articleInfo.coverUrl">
+                    <el-image :src="articleInfo.coverUrl" alt="" fit="fill" class="box-100" />
                 </div>
             </div>
         </el-card>
@@ -95,7 +90,7 @@ export default {
 }
 .inline-article {
     display: grid;
-    grid-template-columns: 160px auto;
+    grid-template-columns: auto 160px;
     max-height: 180px;
 }
 .article-info-show {
@@ -123,7 +118,7 @@ export default {
     font-size: 12px;
     text-align: start;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     line-height: 30px;
     height: 30px;
     align-items: center;

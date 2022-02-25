@@ -24,6 +24,8 @@
 <script>
 import ArticleItem from '@/components/blog/home/blogList/item';
 import BlogTabEnum from '@/utils/enum/blogTabEnum';
+import { getHomeBlogList } from '@/api/blog';
+import PublicUtils from '@/utils/PublicUtils';
 export default {
     name: 'index',
     components: {
@@ -33,49 +35,31 @@ export default {
         return {
             activeTab: BlogTabEnum.TAB_LAST,
             blogTabEnum: BlogTabEnum,
-            articleList: []
+            articleList: [],
+            page: {
+                pageIndex: 1,
+                pageSize: 15,
+                total: 0
+            }
         };
     },
     methods: {
         handleClick() {
             this.articleList = [];
             if (this.activeTab === BlogTabEnum.TAB_LAST) {
-                this.articleList = [
-                    {
-                        articleType: 0,
-                        author: '忍者物理得到的',
-                        vipCode: 1,
-                        authorAvatar: require('@/assets/img/avatar.png'),
-                        clickCount: 0,
-                        collectCount: 0,
-                        coverUrl: require('@/assets/img/blonde.jpg'),
-                        des:
-                            '我是一个小小程序员我是一个小小我是一个小小程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员',
-                        id: 1,
-                        readCount: 25,
-                        tags: ['java', '后端', 'Spring'],
-                        title: '我是一个小小程序员我是一个小小程序员',
-                        userCount: 20
-                    },
-                    {
-                        articleType: 0,
-                        author: '忍者物理得到的',
-                        vipCode: 1,
-                        authorAvatar: require('@/assets/img/avatar.png'),
-                        clickCount: 0,
-                        collectCount: 0,
-                        coverUrl: null,
-                        des:
-                            '我是一个小小程序员我一个小小程序员程序员我是一个小小程序员我是一个小小程序员我是一个小小程序员',
-                        id: 2,
-                        readCount: 0,
-                        tags: ['java', '后端', 'Spring'],
-                        title: '我是一个小小程序员我是一个小小程序员',
-                        userCount: 5
-                    }
-                ];
+                console.log(this.activeTab);
             }
+        },
+        getBlogHomeList() {
+            let pageRequest = PublicUtils.getPageRequest(this.page.pageIndex, this.page.pageSize, '', this.activeTab);
+            getHomeBlogList(pageRequest).then(res => {
+                console.log(res);
+                this.articleList = res.data;
+            });
         }
+    },
+    created() {
+        this.getBlogHomeList();
     }
 };
 </script>

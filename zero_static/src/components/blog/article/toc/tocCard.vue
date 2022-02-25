@@ -174,7 +174,6 @@ export default {
         },
         followAuthor(evt) {
             // 关注作者
-            console.log(this.authorInfo.followed);
             if (!this.authorInfo.followed) {
                 this.authorInfo.followed = true;
             }

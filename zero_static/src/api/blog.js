@@ -71,3 +71,11 @@ export function publishMyBlog(data) {
         data: data
     });
 }
+
+export function getHomeBlogList(pageReq) {
+    return request({
+        url: '/blog-article/page/home/list',
+        method: 'post',
+        data: pageReq
+    });
+}

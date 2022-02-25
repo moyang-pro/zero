@@ -5,7 +5,7 @@
             <el-button style="float: right; padding: 3px 0" type="text">翻转</el-button>
         </div>
         <div class="tag-collection-block">
-            <div ref="tagPieChart" class="tag-pie-chart-box"></div>
+            <div ref="tagLineChart" class="tag-pie-chart-box"></div>
         </div>
         <div class="city-collection-block">
             <div class="city-first-box-header">
@@ -53,19 +53,20 @@ export default {
             ]
         };
     },
-    created() {},
-    mounted() {
+    created() {
         this.$nextTick(() => {
             this.drawLine();
         });
     },
+    mounted() {},
     methods: {
         drawLine() {
             let config = {
                 type: 'pie'
             };
             // 基于准备好的dom，初始化echarts实例
-            let myChart = this.$echarts.init(this.$refs.tagPieChart);
+            let myChart = this.$echarts.init(this.$refs.tagLineChart);
+            console.log(myChart);
             EChart.showLineChart(myChart, config, this.tagsData);
         }
     }

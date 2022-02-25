@@ -38,6 +38,12 @@ public class BlogArticleController extends TemplateController {
 	@Resource
 	IBlogArticleService blogArticleService;
 
+	@PostMapping("/page/home/list")
+	@ApiOperation(value = "墨阳空间-博客文章列表")
+	PageResult<BlogArticleVo> getHomeBlogList(@RequestBody PageRequest<String> pageRequest){
+		return blogArticleService.getBlogHomeList(pageRequest);
+	}
+
 	@PostMapping("/publish")
 	@ApiOperation(value = "墨阳空间-博客文章发布")
 	@RequiresRoles("COMMON_USER")

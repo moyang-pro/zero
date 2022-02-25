@@ -132,7 +132,7 @@ export default {
 .comment-body-input {
     text-align: start;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 20px 0 10px;
 }
 .comment-user {

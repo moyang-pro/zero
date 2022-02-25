@@ -256,4 +256,9 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		return Result.success(blogArticle.getId());
 	}
 
+	@Override
+	public PageResult<BlogArticleVo> getBlogHomeList(PageRequest<String> pageRequest) {
+		return null;
+	}
+
 }

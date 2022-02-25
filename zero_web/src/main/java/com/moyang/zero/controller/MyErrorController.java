@@ -58,6 +58,7 @@ public class MyErrorController extends BasicErrorController {
 		Map<String, Object> body = getErrorAttributes(request, getErrorAttributeOptions(request, MediaType.ALL));
 		//错误信息
 		String msg = (String)body.get("message");
+		HttpStatus status = this.getStatus(request);
 		int code = ResultCodeEnum.FAIL.getCode();
         switch(msg){
 	        case AUTHENTICATION_EXCEPTION:
@@ -69,7 +70,7 @@ public class MyErrorController extends BasicErrorController {
 		        code = ResultCodeEnum.NO_AUTH.getCode();
 		        break;
             default :
-	            break;
+	            return new ResponseEntity(body, status);
         }
 		return new ResponseEntity<>(Result.fail(code, msg), HttpStatus.OK);
 	}

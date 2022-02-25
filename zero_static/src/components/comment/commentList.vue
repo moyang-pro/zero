@@ -197,7 +197,7 @@ export default {
 }
 .cmt-user-info {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 .cmt-user-avatar {
     height: 36px;
@@ -267,6 +267,6 @@ export default {
 .cmt-write-reply-opt {
     margin-top: 10px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 </style>
