@@ -3,10 +3,7 @@ package com.moyang.zero.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.moyang.zero.bo.BlogArticleBo;
 import com.moyang.zero.common.constant.ApplicationConstant;
-import com.moyang.zero.common.enums.BlogPublishTypeEnum;
-import com.moyang.zero.common.enums.BlogStatusEnum;
-import com.moyang.zero.common.enums.BlogTypeEnum;
-import com.moyang.zero.common.enums.DelEnum;
+import com.moyang.zero.common.enums.*;
 import com.moyang.zero.common.util.MyBeanCopier;
 import com.moyang.zero.common.util.http.PageRequest;
 import com.moyang.zero.common.util.http.PageResult;
@@ -258,6 +255,14 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 
 	@Override
 	public PageResult<BlogArticleVo> getBlogHomeList(PageRequest<String> pageRequest) {
+		String tab = pageRequest.getData();
+		if (BlogHomeTabEnum.LAST.getCode().equals(tab)){
+			// 最新
+
+		}else if (BlogHomeTabEnum.POP.getCode().equals(tab)){
+
+		}
+
 		return null;
 	}
 

@@ -35,5 +35,30 @@ public class BlogArticleBo extends BlogArticle {
 	 */
 	private int collectCount;
 
+	/**
+	 * 点赞次数
+	 */
+	private int likeCount;
+
+	/**
+	 * 评论次数
+	 */
+	private int commentCount;
+
+
+	/**
+	 * 作者头像
+	 */
+	private String authorAvatar;
+
+	/**
+	 * 博主是否为VIP用户 0否 1普通VIP 2超级VIP
+	 */
+	private int vipCode;
+
+	/**
+	 * 作者昵称
+	 */
+	private String nick;
 
 }

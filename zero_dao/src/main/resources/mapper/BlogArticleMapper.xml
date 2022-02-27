@@ -6,12 +6,19 @@
     <select id="selectBlogAllInfoByPage" resultType="com.moyang.zero.bo.BlogArticleBo" parameterType="java.lang.String">
         select ba.id, ba.create_at, ba.create_by, ba.update_at, ba.update_by, ba.del_flag, ba.remarks,
                         ba.article_title, ba.article_des, ba.article_content, ba.author, ba.article_text,
-                        ba.article_type, ba.article_status, ba.cover_url, ba.publish_type, ba.quote,
+                        ba.article_type, ba.article_status, ba.cover_url, ba.publish_type, ba.quote, ba.publish_time,
                         count(DISTINCT barrc.id) as click_count, count(DISTINCT barrr.id) as read_count,
-               count(distinct barrr.emy) as user_count from blog_article ba
+        count(distinct barrr.emy) as user_count, count(distinct bal.id) as like_count, count(distinct bacmt.id) as comment_count,
+        count(distinct bac.id) as collect_count, bu.avatar as author_avatar, bu.nick_name as nick,
+        bu.vip_code as vip_code
+        from blog_article ba
+        join blog_user bu on bu.del_flag = 0 and ba.author = bu.blog_user
         left join blog_article_read_record barrc on barrc.del_flag = 0 and ba.id = barrc.article_id
         left join blog_article_read_record barrr on barrr.del_flag = 0 and ba.id = barrr.article_id and
                   barrr.emy != '${@com.moyang.zero.common.constant.ApplicationConstant@APP_NAME}'
+        left join blog_article_like bal on bal.del_flag = 0 and ba.id = bal.article_id and bal.dislike = 0
+        left join blog_article_collection bac on bac.del_flag = 0 and ba.id = bac.article_id
+        left join blog_article_comment bacmt on bacmt.del_flag = 0 and ba.id = bacmt.article_id
         where ba.del_flag = 0
         <if test="author != null and author != ''">
             and ba.author = #{author}
@@ -22,12 +29,19 @@
     <select id="selectBlogAllInfoById" resultType="com.moyang.zero.bo.BlogArticleBo">
         select distinct ba.id, ba.create_at, ba.create_by, ba.update_at, ba.update_by, ba.del_flag, ba.remarks,
                         ba.article_title, ba.article_des, ba.article_content, ba.author, ba.article_text,
-                        ba.article_type, ba.article_status, ba.cover_url, ba.publish_type, ba.quote,
-                        count(DISTINCT barrc.id) as click_count, count(DISTINCT barrr.id) as read_count,
-                        count(distinct barrr.emy) as user_count from blog_article ba
+                        ba.article_type, ba.article_status, ba.cover_url, ba.publish_type, ba.quote, ba.publish_time,
+        count(DISTINCT barrc.id) as click_count, count(DISTINCT barrr.id) as read_count, count(distinct barrr.emy)
+        as user_count count(distinct bal.id) as like_count, count(distinct bacmt.id) as comment_count,
+        count(distinct bac.id) as collect_count, bu.avatar as author_avatar, bu.nick_name as nick,
+        bu.vip_code as vip_code
+        from blog_article ba
+        join blog_user bu on bu.del_flag = 0 and ba.author = bu.blog_user
                 left join blog_article_read_record barrc on barrc.del_flag = 0 and ba.id = barrc.article_id
                 left join blog_article_read_record barrr on barrr.del_flag = 0 and ba.id = barrr.article_id and
                 barrr.emy != '${@com.moyang.zero.common.constant.ApplicationConstant@APP_NAME}'
+        left join blog_article_like bal on bal.del_flag = 0 and ba.id = bal.article_id and bal.dislike = 0
+        left join blog_article_collection bac on bac.del_flag = 0 and ba.id = bac.article_id
+        left join blog_article_comment bacmt on bacmt.del_flag = 0 and ba.id = bacmt.article_id
         where ba.del_flag = 0
         <if test="blogId != null and blogId != ''">
             and ba.id = #{blogId}
