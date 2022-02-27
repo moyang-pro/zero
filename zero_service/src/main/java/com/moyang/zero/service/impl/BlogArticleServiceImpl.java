@@ -1,6 +1,7 @@
 package com.moyang.zero.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.moyang.zero.ColumnUtil;
 import com.moyang.zero.bo.BlogArticleBo;
 import com.moyang.zero.common.constant.ApplicationConstant;
 import com.moyang.zero.common.enums.*;
@@ -13,6 +14,7 @@ import com.moyang.zero.entity.BlogArticle;
 import com.moyang.zero.entity.BlogArticleReadRecord;
 import com.moyang.zero.manager.BlogArticleManager;
 import com.moyang.zero.mapper.BlogArticleMapper;
+import com.moyang.zero.pojo.blog.BlogSelectParam;
 import com.moyang.zero.req.BlogPublishReq;
 import com.moyang.zero.req.BlogSaveReq;
 import com.moyang.zero.service.IBlogArticleReadRecordService;
@@ -153,8 +155,10 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 
 	@Override
 	public PageResult<BlogArticleVo> getBlogListOfAuthor(PageRequest<String> pageRequest) {
+		BlogSelectParam param = new BlogSelectParam();
+		param.setAuthor(pageRequest.getData());
 		PageResult<BlogArticleBo> articlePage = blogArticleManager
-				.getBlogAllInfoListByAuthor(pageRequest);
+				.getBlogAllInfoListByAuthor(pageRequest.getPageIndex(), pageRequest.getPageSize(), param);
 		List<BlogArticleBo> articleList = articlePage.getList();
 		if (CollectionUtils.isEmpty(articleList)){
 			return PageResult.emptyList();
@@ -231,6 +235,7 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		blogArticle.setArticleContent(blogSaveReq.getHtmlContent());
 		blogArticle.setAuthor(blogSaveReq.getAuthor());
 		blogArticle.setArticleText(blogSaveReq.getTextContent());
+		blogArticle.setPublishTime(LocalDateTime.now());
 
 		blogArticle.setArticleType(blogPublishReq.getType());
 		if (blogPublishReq.isHasCover()) {
@@ -258,7 +263,12 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		String tab = pageRequest.getData();
 		if (BlogHomeTabEnum.LAST.getCode().equals(tab)){
 			// 最新
-
+			BlogSelectParam blogSelectParam = new BlogSelectParam();
+			blogSelectParam.setSortColumn(ColumnUtil.getName(BlogArticleBo::getCreateAt));
+			blogSelectParam.setDesc(true);
+			PageResult<BlogArticleBo> articlePage = blogArticleManager
+					.getHomeBlogListByTab(pageRequest.getPageIndex(), pageRequest.getPageSize(), blogSelectParam);
+			List<BlogArticleBo> articleList = articlePage.getList();
 		}else if (BlogHomeTabEnum.POP.getCode().equals(tab)){
 
 		}

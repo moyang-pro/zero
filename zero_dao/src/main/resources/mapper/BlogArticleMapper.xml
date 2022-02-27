@@ -20,10 +20,22 @@
         left join blog_article_collection bac on bac.del_flag = 0 and ba.id = bac.article_id
         left join blog_article_comment bacmt on bacmt.del_flag = 0 and ba.id = bacmt.article_id
         where ba.del_flag = 0
-        <if test="author != null and author != ''">
-            and ba.author = #{author}
+        <if test="param.author != null and param.author != ''">
+            and ba.author = #{param.author}
         </if>
-        group by ba.id order by ba.id desc
+        group by ba.id
+        <choose>
+            <when test="param.sortColumn != null and param.sortColumn != ''">
+                order by #{param.sortColumn}
+            </when>
+            <otherwise>
+                order by ba.id
+            </otherwise>
+        </choose>
+        <if test="param.isDesc == true ">
+            desc
+        </if>
+
     </select>
 
     <select id="selectBlogAllInfoById" resultType="com.moyang.zero.bo.BlogArticleBo">

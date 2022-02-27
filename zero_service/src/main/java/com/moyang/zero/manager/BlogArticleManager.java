@@ -15,6 +15,7 @@ import com.moyang.zero.entity.BlogArticle;
 import com.moyang.zero.entity.BlogArticleTags;
 import com.moyang.zero.mapper.BlogArticleMapper;
 import com.moyang.zero.mapper.BlogArticleTagsMapper;
+import com.moyang.zero.pojo.blog.BlogSelectParam;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -137,16 +138,18 @@ public class BlogArticleManager {
 
 	/**
 	 * 获取作者的全部文章
-	 * @param pageRequest 作者账号,分页信息
+	 * @param pageIndex 当前页
+	 * @param pageSize 每页数量
+	 * @param param 查询参数 作者账号
 	 * @return 博客信息
 	 */
-	public PageResult<BlogArticleBo> getBlogAllInfoListByAuthor(PageRequest<String> pageRequest) {
-		String author = pageRequest.getData();
+	public PageResult<BlogArticleBo> getBlogAllInfoListByAuthor(int pageIndex, int pageSize, BlogSelectParam param) {
+		String author = param.getAuthor();
 		if (StringUtils.isBlank(author)) {
 			return PageResult.emptyList();
 		}
-		Page<BlogArticleBo> page = new Page<>(pageRequest.getPageIndex(), pageRequest.getPageSize());
-		IPage<BlogArticleBo> articlePage = blogArticleMapper.selectBlogAllInfoByPage(page, author);
+		Page<BlogArticleBo> page = new Page<>(pageIndex, pageSize);
+		IPage<BlogArticleBo> articlePage = blogArticleMapper.selectBlogAllInfoByPage(page, param);
 		return PageResult.success(articlePage.getRecords(), articlePage.getTotal());
 	}
 
@@ -160,5 +163,19 @@ public class BlogArticleManager {
 				.eq(BlogArticleTags::getArticleId, blogId)
 				.eq(BlogArticleTags::getDelFlag, DelEnum.valid())
 				.list().stream().map(BlogArticleTags::getArticleTag).collect(Collectors.toList());
+	}
+
+
+	/**
+	 * 获取作者的全部文章
+	 * @param pageIndex 当前页
+	 * @param pageSize 每页数量
+	 * @param param 排序字段
+	 * @return 博客信息
+	 */
+	public PageResult<BlogArticleBo> getHomeBlogListByTab(int pageIndex, int pageSize, BlogSelectParam param) {
+		Page<BlogArticleBo> page = new Page<>(pageIndex, pageSize);
+		IPage<BlogArticleBo> articlePage = blogArticleMapper.selectBlogAllInfoByPage(page, param);
+		return PageResult.success(articlePage.getRecords(), articlePage.getTotal());
 	}
 }

@@ -52,6 +52,7 @@ export default {
         },
         getBlogHomeList() {
             let pageRequest = PublicUtils.getPageRequest(this.page.pageIndex, this.page.pageSize, '', this.activeTab);
+            console.log(pageRequest);
             getHomeBlogList(pageRequest).then(res => {
                 console.log(res);
                 this.articleList = res.data;

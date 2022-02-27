@@ -57,4 +57,9 @@ public class BlogArticle extends Template {
     @ApiModelProperty(value = "发布时间")
     private LocalDateTime publishTime;
 
+    @ApiModelProperty(value = "类别")
+    private String category;
+
+    @ApiModelProperty(value = "排序位次")
+    private Integer sortIndex;
 }

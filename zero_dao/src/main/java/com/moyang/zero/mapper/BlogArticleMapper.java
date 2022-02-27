@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.moyang.zero.bo.BlogArticleBo;
 import com.moyang.zero.entity.BlogArticle;
+import com.moyang.zero.pojo.blog.BlogSelectParam;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -21,10 +22,10 @@ public interface BlogArticleMapper extends BaseMapper<BlogArticle> {
 	/**
 	 * 分页查询作者的全部博客文章信息
 	 * @param page 分页信息
-	 * @param author 作者账号
+	 * @param param 查询参数
 	 * @return 文章全部信息
 	 */
-	IPage<BlogArticleBo> selectBlogAllInfoByPage(Page<BlogArticleBo> page, @Param("author") String author);
+	IPage<BlogArticleBo> selectBlogAllInfoByPage(Page<BlogArticleBo> page, @Param("param") BlogSelectParam param);
 
 
 	/**
