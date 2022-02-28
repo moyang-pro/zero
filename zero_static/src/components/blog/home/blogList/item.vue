@@ -70,6 +70,9 @@ export default {
             defaultUrl: require('@/assets/img/break.jpg')
         };
     },
+    mounted() {
+        console.log(this.articleInfo);
+    },
     methods: {
         showArticle(id) {
             if (!id || !Number.isSafeInteger(id)) {

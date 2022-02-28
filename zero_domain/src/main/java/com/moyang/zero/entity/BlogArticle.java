@@ -62,4 +62,22 @@ public class BlogArticle extends Template {
 
     @ApiModelProperty(value = "排序位次")
     private Integer sortIndex;
+
+    @ApiModelProperty(value = "浏览量")
+    private int readCount;
+
+    @ApiModelProperty(value = "阅读人数")
+    private int userCount;
+
+    @ApiModelProperty(value = "点击量")
+    private int clickCount;
+
+    @ApiModelProperty(value = "收藏次数")
+    private int collectCount;
+
+    @ApiModelProperty(value = "点赞次数")
+    private int likeCount;
+
+    @ApiModelProperty(value = "评论次数")
+    private int commentCount;
 }

@@ -43,18 +43,6 @@ public class BlogArticleVo extends Template {
 	private LocalDateTime publishTime;
 
 	/**
-	 * 作者头像
-	 */
-	private String authorAvatar;
-
-	/**
-	 * 作者头衔
-	 */
-	private Integer vipCode;
-
-	private List<String> tags;
-
-	/**
 	 * 浏览量
 	 */
 	private int readCount;
@@ -83,5 +71,27 @@ public class BlogArticleVo extends Template {
 	 * 评论次数
 	 */
 	private int commentCount;
+
+
+
+	/**
+	 * 作者头像
+	 */
+	private String authorAvatar;
+
+	/**
+	 * 博主是否为VIP用户 0否 1普通VIP 2超级VIP
+	 */
+	private int vipCode;
+
+	/**
+	 * 作者昵称
+	 */
+	private String nick;
+
+	/**
+	 * 文章标签
+	 */
+	private List<String> tags;
 
 }

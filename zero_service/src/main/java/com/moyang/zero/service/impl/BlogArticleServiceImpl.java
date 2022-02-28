@@ -28,6 +28,7 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 import static com.moyang.zero.common.constant.ApplicationConstant.IP_LOCALHOST;
@@ -66,7 +67,7 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		blogArticle.setArticleText(blog.getTextContent());
 		blogArticle.setAuthor(blog.getAuthor());
 		blogArticle.setArticleStatus(BlogStatusEnum.DEFAULT.getCode());
-		blogArticle.recordCreateInfo(blog.getAuthor(), "保存新文章");
+		blogArticle.recordCreateInfo(blog.getAuthor(), "保存新文章草稿");
 		this.save(blogArticle);
 		return Result.success(blogArticle.getId());
 	}
@@ -96,9 +97,6 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 
 		BlogArticleVo blogArticleVo = getBlogArticleVo(blogArticleBo);
 
-		List<String> tags = blogArticleManager.getBlogArticleTags(blogId);
-		blogArticleVo.setTags(tags);
-
 		return Result.success(blogArticleVo);
 	}
 
@@ -107,10 +105,6 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		BlogArticleBo blogArticleBo = blogArticleManager.getMyBlogAllInfo(blogId, author);
 
 		BlogArticleVo blogArticleVo = getBlogArticleVo(blogArticleBo);
-
-		List<String> tags = blogArticleManager.getBlogArticleTags(blogId);
-		blogArticleVo.setTags(tags);
-
 		return Result.success(blogArticleVo);
 	}
 
@@ -125,52 +119,13 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 	}
 
 	@Override
-	@Transactional(rollbackFor = {Exception.class})
-	public Result<BlogArticleVo> readBlogArticle(Long blogId, LoginInfo loginInfo){
-		BlogArticleBo blogArticleBo = blogArticleManager.getBlogAllInfoById(blogId);
-		// 校验权限 + 记录浏览
-		boolean auth = blogArticleManager.checkBlogArticleAuth(blogArticleBo, loginInfo);
-		if (!auth) {
-			return Result.fail(401,"无权限查看该文章");
-		}
-
-		BlogArticleReadRecord readRecord = new BlogArticleReadRecord();
-		readRecord.setArticleId(blogId);
-		readRecord.setEmy(loginInfo.getEmy());
-		readRecord.setIpAddr(loginInfo.getIp());
-		readRecord.setStartTime(LocalDateTime.now());
-		// 临时写法
-		readRecord.setFromUrl(loginInfo.getFromUrl());
-		readRecord.setEndTime(LocalDateTime.now());
-		readRecordService.save(readRecord);
-
-		BlogArticleVo blogArticleVo = getBlogArticleVo(blogArticleBo);
-		List<String> tags = blogArticleManager.getBlogArticleTags(blogId);
-		blogArticleVo.setTags(tags);
-
-        return Result.success(blogArticleVo);
-	}
-
-
-
-	@Override
 	public PageResult<BlogArticleVo> getBlogListOfAuthor(PageRequest<String> pageRequest) {
 		BlogSelectParam param = new BlogSelectParam();
 		param.setAuthor(pageRequest.getData());
 		PageResult<BlogArticleBo> articlePage = blogArticleManager
 				.getBlogAllInfoListByAuthor(pageRequest.getPageIndex(), pageRequest.getPageSize(), param);
 		List<BlogArticleBo> articleList = articlePage.getList();
-		if (CollectionUtils.isEmpty(articleList)){
-			return PageResult.emptyList();
-		}
-		List<BlogArticleVo> blogArticleVoList = MyBeanCopier.copyList(articleList, BlogArticleVo::new);
-		for (int i =0; i< articleList.size(); i++) {
-			blogArticleVoList.get(i).setTitle(articleList.get(i).getArticleTitle());
-			blogArticleVoList.get(i).setAuthor(articleList.get(i).getAuthor());
-			blogArticleVoList.get(i).setDes(articleList.get(i).getArticleDes());
-			blogArticleVoList.get(i).setHtmlContent(articleList.get(i).getArticleContent());
-			blogArticleVoList.get(i).setTextContent(articleList.get(i).getArticleText());
-		}
+		List<BlogArticleVo> blogArticleVoList =  transferBoList2VoList(articleList);
 		return PageResult.success(blogArticleVoList, articlePage.getTotal());
 	}
 
@@ -259,21 +214,68 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 	}
 
 	@Override
+	@Transactional(rollbackFor = {Exception.class})
+	public Result<BlogArticleVo> readBlogArticle(Long blogId, LoginInfo loginInfo){
+		BlogArticleBo blogArticleBo = blogArticleManager.getBlogAllInfoById(blogId);
+		// 校验权限 + 记录浏览
+		boolean auth = blogArticleManager.checkBlogArticleAuth(blogArticleBo, loginInfo);
+		if (!auth) {
+			return Result.fail(402,"无权限查看该文章");
+		}
+
+		BlogArticleReadRecord readRecord = new BlogArticleReadRecord();
+		readRecord.setArticleId(blogId);
+		readRecord.setEmy(loginInfo.getEmy());
+		readRecord.setIpAddr(loginInfo.getIp());
+		readRecord.setStartTime(LocalDateTime.now());
+		// 临时写法
+		readRecord.setFromUrl(loginInfo.getFromUrl());
+		readRecord.setEndTime(LocalDateTime.now());
+		readRecordService.save(readRecord);
+
+		BlogArticleVo blogArticleVo = getBlogArticleVo(blogArticleBo);
+
+		return Result.success(blogArticleVo);
+	}
+
+	@Override
 	public PageResult<BlogArticleVo> getBlogHomeList(PageRequest<String> pageRequest) {
 		String tab = pageRequest.getData();
 		if (BlogHomeTabEnum.LAST.getCode().equals(tab)){
 			// 最新
-			BlogSelectParam blogSelectParam = new BlogSelectParam();
-			blogSelectParam.setSortColumn(ColumnUtil.getName(BlogArticleBo::getCreateAt));
-			blogSelectParam.setDesc(true);
-			PageResult<BlogArticleBo> articlePage = blogArticleManager
-					.getHomeBlogListByTab(pageRequest.getPageIndex(), pageRequest.getPageSize(), blogSelectParam);
-			List<BlogArticleBo> articleList = articlePage.getList();
+			return getBlogArticleVoPageResult(pageRequest, ColumnUtil.getName(BlogArticleBo::getPublishTime));
 		}else if (BlogHomeTabEnum.POP.getCode().equals(tab)){
-
+            // 最热
+			return getBlogArticleVoPageResult(pageRequest, ColumnUtil.getName(BlogArticleBo::getClickCount));
 		}
 
-		return null;
+		return PageResult.emptyList();
 	}
 
+	private PageResult<BlogArticleVo> getBlogArticleVoPageResult(PageRequest<String> pageRequest, String name) {
+		BlogSelectParam blogSelectParam = new BlogSelectParam();
+		blogSelectParam.setSortColumn(name);
+		blogSelectParam.setDesc(true);
+		PageResult<BlogArticleBo> articlePage = blogArticleManager
+				.getHomeBlogListByTab(pageRequest.getPageIndex(), pageRequest.getPageSize(), blogSelectParam);
+
+		List<BlogArticleBo> articleList = articlePage.getList();
+		List<BlogArticleVo> blogArticleVoList =  transferBoList2VoList(articleList);
+		return PageResult.success(blogArticleVoList, articlePage.getTotal());
+	}
+
+	List<BlogArticleVo> transferBoList2VoList(List<BlogArticleBo> articleList){
+		if (CollectionUtils.isEmpty(articleList)){
+			return Collections.emptyList();
+		}
+		List<BlogArticleVo> blogArticleVoList = MyBeanCopier.copyList(articleList, BlogArticleVo::new);
+		for (int i =0; i< articleList.size(); i++) {
+			blogArticleVoList.get(i).setTitle(articleList.get(i).getArticleTitle());
+			blogArticleVoList.get(i).setAuthor(articleList.get(i).getAuthor());
+			blogArticleVoList.get(i).setDes(articleList.get(i).getArticleDes());
+			blogArticleVoList.get(i).setHtmlContent(articleList.get(i).getArticleContent());
+			blogArticleVoList.get(i).setTextContent(articleList.get(i).getArticleText());
+		}
+		return blogArticleVoList;
+	}
 }
