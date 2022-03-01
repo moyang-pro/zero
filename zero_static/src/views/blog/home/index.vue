@@ -30,12 +30,18 @@
                 <div class="bm-main-show">
                     <HomeBlog></HomeBlog>
                 </div>
-                <div class="bm-count-show"></div>
+                <div class="bm-count-show">
+                    <div class="bm-count-block-title"><span>博客统计数据</span></div>
+                    <UserPop class="bm-slide-bar"></UserPop>
+                </div>
             </div>
         </el-main>
         <el-footer class="zero-footer-container">
             <ZeroFooter />
         </el-footer>
+        <el-backtop :visibility-height="220" :bottom="80" :right="20" class="toTop">
+            <div><svg-icon icon-class="backtop" style="font-size: 25px;"></svg-icon></div>
+        </el-backtop>
     </el-container>
 </template>
 
@@ -44,13 +50,15 @@ import ZeroHeader from '@/components/header/index.vue';
 import ZeroFooter from '@/components/footer/index';
 import BlogNotice from '@/components/blog/home/notice/index';
 import HomeBlog from '@/components/blog/home/blogList/index';
+import UserPop from '@/components/blog/home/count/userPop';
 export default {
     name: 'index',
     components: {
         ZeroHeader,
         ZeroFooter,
         BlogNotice,
-        HomeBlog
+        HomeBlog,
+        UserPop
     },
     data() {
         return {
@@ -198,5 +206,23 @@ export default {
 }
 .bm-main-show {
     margin: 20px;
+}
+.bm-count-show {
+    margin: 20px;
+}
+.bm-count-block-title {
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.toTop {
+    height: 50px;
+    width: 50px;
+    background-color: #e6a23c;
+    color: #f9f9f9;
+}
+.bm-slide-bar {
+    margin-top: 15px;
+    text-align: left;
 }
 </style>

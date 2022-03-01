@@ -38,11 +38,11 @@
                                     <strong>版权</strong>
                                     <span v-if="blogInfo.articleType === blogEnum.TYPE_REPRINT">
                                         本文为转载文章，转载请注明来自
-                                        <a class="href-link-text" :href="blogInfo.quote">blogInfo.quote</a>
+                                        <a class="href-link-text" :href="blogInfo.quote">{{ blogInfo.quote }}</a>
                                     </span>
                                     <span v-else-if="blogInfo.articleType === blogEnum.TYPE_TRANSLATION">
                                         本文为翻译文章，转载请注明来自
-                                        <a class="href-link-text" :href="blogInfo.quote">blogInfo.quote</a>
+                                        <a class="href-link-text" :href="blogInfo.quote">{{ blogInfo.quote }}</a>
                                     </span>
                                     <span v-else>
                                         本文为墨阳空间原创文章，转载无需和我联系，但请注明来自
@@ -142,11 +142,11 @@ export default {
                     loading.close();
                     // 生成目录
                     this.markToc();
-                    console.log('moyang blog:', this.blogInfo);
                     this.isMine = this.blogInfo.author === this.$store.state.user.name;
                 })
-                .catch(() => {
+                .catch(err => {
                     loading.close();
+                    console.log('moyang blog:', err);
                     this.$router.replace({ path: `/blog/profile/${this.$store.state.user.name}` });
                     this.blogInfo = {};
                 });
@@ -189,11 +189,13 @@ export default {
         },
         markToc() {
             this.tocArr = this.blogInfo.htmlContent.match(/<[hH][1-6]>.*?<\/[hH][1-6]>/g); // 通过正则的方式
-            this.tocArr.forEach((item, index) => {
-                let _toc = `<div id='toc-${index}'>${item} </div>`;
-                this.blogInfo.htmlContent = '<div>' + this.blogInfo.htmlContent.replace(item, _toc) + '</div>';
-            });
-            this.$refs.tocCard.toToc(this.tocArr);
+            if (this.tocArr) {
+                this.tocArr.forEach((item, index) => {
+                    let _toc = `<div id='toc-${index}'>${item} </div>`;
+                    this.blogInfo.htmlContent = '<div>' + this.blogInfo.htmlContent.replace(item, _toc) + '</div>';
+                });
+                this.$refs.tocCard.toToc(this.tocArr);
+            }
         }
     },
     watch: {}

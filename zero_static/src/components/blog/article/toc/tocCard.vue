@@ -277,9 +277,11 @@ export default {
 .toc-node-label-active {
     margin-left: 5px;
     color: #409eff;
+    max-width: 260px;
 }
 .toc-node-label {
     margin-left: 5px;
+    max-width: 260px;
 }
 .fixed-toc {
     position: fixed;

@@ -70,9 +70,6 @@ export default {
             defaultUrl: require('@/assets/img/break.jpg')
         };
     },
-    mounted() {
-        console.log(this.articleInfo);
-    },
     methods: {
         showArticle(id) {
             if (!id || !Number.isSafeInteger(id)) {
@@ -89,7 +86,7 @@ export default {
 .article-show-item {
     text-align: left;
     min-height: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .inline-article {
     display: grid;

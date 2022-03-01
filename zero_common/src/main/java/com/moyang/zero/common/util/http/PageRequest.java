@@ -20,7 +20,7 @@ public class PageRequest<T> {
 
 	private static int DEFAULT_PAGE_INDEX = 1;
 
-	private static int DEFAULT_PAGE_SIZE = 5;
+	private static int DEFAULT_PAGE_SIZE = 1;
 
 	/**
 	 * 页码
