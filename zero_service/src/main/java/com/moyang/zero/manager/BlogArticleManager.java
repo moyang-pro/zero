@@ -178,4 +178,12 @@ public class BlogArticleManager {
 		IPage<BlogArticleBo> articlePage = blogArticleMapper.selectBlogAllInfoByPage(page, param);
 		return PageResult.success(articlePage.getRecords(), articlePage.getTotal());
 	}
+
+
+	public List<BlogArticle> getHomeBlogTop3(){
+		return new LambdaQueryChainWrapper<>(blogArticleMapper)
+				.isNotNull(BlogArticle::getCoverUrl).eq(BlogArticle::getDelFlag, DelEnum.valid())
+				.orderByDesc(BlogArticle::getPublishTime).apply("limit {0}", 3)
+				.list();
+	}
 }

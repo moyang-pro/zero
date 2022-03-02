@@ -8,6 +8,7 @@ import com.moyang.zero.common.exception.BusinessException;
 import com.moyang.zero.common.util.http.PageRequest;
 import com.moyang.zero.common.util.http.PageResult;
 import com.moyang.zero.common.util.http.Result;
+import com.moyang.zero.entity.BlogArticle;
 import com.moyang.zero.req.BlogPublishReq;
 import com.moyang.zero.req.BlogSaveReq;
 import com.moyang.zero.service.IBlogArticleService;
@@ -20,6 +21,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 import static com.moyang.zero.common.constant.ApplicationConstant.ZERO_API;
 
@@ -39,9 +41,15 @@ public class BlogArticleController extends TemplateController {
 	IBlogArticleService blogArticleService;
 
 	@PostMapping("/page/home/list")
-	@ApiOperation(value = "墨阳空间-博客文章列表")
+	@ApiOperation(value = "墨阳空间-博客系统首页TAB页文章列表")
 	PageResult<BlogArticleVo> getHomeBlogList(@RequestBody PageRequest<String> pageRequest){
 		return blogArticleService.getBlogHomeList(pageRequest);
+	}
+
+	@PostMapping("/page/home/top")
+	@ApiOperation(value = "墨阳空间-博客系统首页top文章列表")
+	List<BlogArticle> getHomeBlogTopList(){
+		return blogArticleService.getHomeTopBlogList();
 	}
 
 	@PostMapping("/publish")

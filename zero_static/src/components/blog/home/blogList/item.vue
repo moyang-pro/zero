@@ -18,13 +18,13 @@
                     </div>
 
                     <div class="article-item-opt">
-                        <span class="ra-author-avatar-box">
+                        <span class="ra-author-avatar-box" @click.stop="visitAuthorProfile">
                             <el-avatar :src="articleInfo.authorAvatar" class="ra-author-avatar"></el-avatar>
                             <span class="ra-author-text-vip" v-if="articleInfo.vipCode > 0">v</span>
                         </span>
-
-                        <span class="right-10px text-one-line max-width-100px"> {{ articleInfo.author }}</span>
-
+                        <span class="right-10px text-one-line max-width-100px">
+                            {{ articleInfo.author }}
+                        </span>
                         <el-tag type="success" v-if="articleInfo.articleType === 0" class="right-10px">原创</el-tag>
                         <el-tag type="warning" v-else-if="articleInfo.articleType === 1" class="right-10px"
                             >转载</el-tag
@@ -66,8 +66,7 @@ export default {
     },
     data() {
         return {
-            tagTypeArr: ['primary', 'danger', 'warning', 'success', 'info'],
-            defaultUrl: require('@/assets/img/break.jpg')
+            tagTypeArr: ['primary', 'danger', 'warning', 'success', 'info']
         };
     },
     methods: {
@@ -76,6 +75,13 @@ export default {
                 this.$message.error('文章ID错误！');
             }
             this.$router.push({ path: `/blog/read/${id}.html` });
+        },
+        visitAuthorProfile() {
+            if (this.articleInfo.author) {
+                this.$router.push({ path: `/blog/profile/${this.articleInfo.author}` });
+            } else {
+                this.$message.error('作者信息错误');
+            }
         }
     }
 };
@@ -132,7 +138,6 @@ export default {
 }
 .article-tag {
     margin-right: 8px;
-    cursor: pointer;
 }
 .ra-author-avatar-box {
     display: flex;

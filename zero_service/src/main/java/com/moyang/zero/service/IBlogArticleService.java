@@ -10,6 +10,8 @@ import com.moyang.zero.req.BlogPublishReq;
 import com.moyang.zero.req.BlogSaveReq;
 import com.moyang.zero.vo.BlogArticleVo;
 
+import java.util.List;
+
 /**
  * <p>
  * 用户信息表 服务类
@@ -82,9 +84,15 @@ public interface IBlogArticleService extends IService<BlogArticle> {
 	Result<Long> publishBlog(BlogPublishReq blogPublishReq);
 
 	/**
-	 * 获取博客首页的文章列表
+	 * 获取博客首页TAB的文章列表
 	 * @param pageRequest tabType 分栏信息
 	 * @return 文章信息列表
 	 */
 	PageResult<BlogArticleVo> getBlogHomeList(PageRequest<String> pageRequest);
+
+	/**
+	 * 获取博客首页TOP的文章列表
+	 * @return 文章信息列表
+	 */
+	List<BlogArticle> getHomeTopBlogList();
 }

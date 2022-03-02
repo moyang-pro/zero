@@ -27,6 +27,11 @@
                     </el-menu>
                 </div>
                 <div class="header-search-block" v-if="searchShow"><searchWidget /></div>
+                <div style="line-height: 60px;padding: 0 20px">
+                    <el-button size="mini" type="warning" round class="el-icon-edit-outline">
+                        创作
+                    </el-button>
+                </div>
                 <div class="header-right-user" v-if="userLrShow">
                     <span v-if="!this.hasUser">
                         <span class="text-user-lr" @click.stop="login()">立即登录</span>
@@ -35,8 +40,16 @@
                     </span>
                     <el-dropdown v-else class="avatar-container" trigger="hover">
                         <div class="avatar-wrapper">
-                            <img :src="avatar" class="user-avatar" alt="个人头像" @click.stop="goUserProfile" />
+                            <div>
+                                <img :src="avatar" class="user-avatar" alt="个人头像" @click.stop="goUserProfile" />
+                            </div>
+                            <div class="header-notice-block">
+                                <el-badge :value="noticeCount" class="item">
+                                    <svg-icon icon-class="notice"> </svg-icon>
+                                </el-badge>
+                            </div>
                         </div>
+
                         <el-dropdown-menu slot="dropdown" class="user-dropdown">
                             <router-link to="/home">
                                 <el-dropdown-item>
@@ -112,7 +125,8 @@ export default {
     data() {
         return {
             hasUser: false,
-            avatar: ''
+            avatar: '',
+            noticeCount: 0
         };
     },
     created() {
@@ -174,7 +188,7 @@ export default {
 .logo-img {
     width: 60px;
     height: 60px;
-    background: require('@/assets/logo.png');
+    background: url('/zero_static/src/assets/logo.png');
 }
 
 .head-middle {
@@ -220,10 +234,27 @@ export default {
 .text-user-lr:hover {
     color: #e6a23c;
 }
+.avatar-wrapper {
+    display: grid;
+    grid-template-columns: 40px 60px;
+}
 .user-avatar {
     width: 40px;
     height: 40px;
     cursor: pointer;
     border-radius: 20px;
+}
+.header-notice-block {
+    font-size: 32px;
+    cursor: pointer;
+}
+.avatar-wrapper .el-badge__content.is-fixed {
+    top: 20px;
+    right: 15px;
+}
+.avatar-wrapper .el-badge__content {
+    height: 15px;
+    line-height: 15px;
+    padding: 0 3px;
 }
 </style>

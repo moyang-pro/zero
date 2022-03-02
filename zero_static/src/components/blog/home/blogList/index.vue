@@ -5,10 +5,10 @@
             <div class="bm-article-list" ref="bmArticleBlock">
                 <ArticleItem v-for="item in articleList" :articleInfo="item" :key="item.id"> </ArticleItem>
             </div>
-            <div class="bm-more-item" v-if="articleList.length < page.total">
+            <div class="bm-more-item" v-if="articleList.length < page.total && !loading">
                 <el-button type="warning" size="mini" round @click.stop="queryMore">查看更多</el-button>
             </div>
-            <div v-else><span>你已经看完我喽~</span></div>
+            <div v-if="articleList.length >= page.total"><span>你已经看完喽~</span></div>
         </el-tab-pane>
         <el-tab-pane :name="blogTabEnum.TAB_POP">
             <span slot="label"><i class="el-icon-magic-stick"></i> 最热</span>
@@ -46,18 +46,21 @@ export default {
             articleList: [],
             page: {
                 pageIndex: 1,
-                pageSize: 3,
+                pageSize: 5,
                 total: 0
-            }
+            },
+            loading: false
         };
     },
     methods: {
         handleClick() {
             sessionStorage.setItem('bmTab', this.activeTab); // 本地存储一份
             this.articleList = [];
+            this.page.pageIndex = 1;
             this.getBlogHomeList();
         },
         getBlogHomeList(isMore = false) {
+            this.loading = true;
             showLoading(this.$refs.bmArticleBlock);
             let pageRequest = PublicUtils.getPageRequest(this.page.pageIndex, this.page.pageSize, '', this.activeTab);
             getHomeBlogList(pageRequest)
@@ -71,8 +74,10 @@ export default {
                     }
                     this.page.total = res.total;
                     hideLoading();
+                    this.loading = false;
                 })
                 .catch(() => {
+                    this.loading = false;
                     hideLoading();
                 });
         },
@@ -88,6 +93,7 @@ export default {
         }
         this.$nextTick(() => {
             this.articleList = [];
+            this.page.pageIndex = 1;
             this.getBlogHomeList();
         });
     }

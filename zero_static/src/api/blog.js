@@ -72,6 +72,13 @@ export function publishMyBlog(data) {
     });
 }
 
+export function getHomeTopBlogList() {
+    return request({
+        url: '/blog-article/page/home/top',
+        method: 'get'
+    });
+}
+
 export function getHomeBlogList(pageReq) {
     return request({
         url: '/blog-article/page/home/list',

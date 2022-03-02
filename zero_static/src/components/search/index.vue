@@ -37,7 +37,7 @@ export default {
 <style lang="scss">
 .header-search-tool {
     text-align: end;
-    margin-right: 100px;
+    margin-right: 40px;
 }
 .searchWidget-240 {
     width: 240px;

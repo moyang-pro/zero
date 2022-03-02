@@ -12,7 +12,7 @@
                     <div class="ad-ca-block">
                         <a :href="adInfo.link">
                             <el-image :src="adInfo.url" alt="" fit="fill" class="box-100" />
-                            <div class="ad-ca-title">
+                            <div class="ad-ca-title text-one-line">
                                 <span>{{ adInfo.title }}</span>
                             </div>
                         </a>
@@ -21,7 +21,7 @@
                     <div class="ad-ca-block">
                         <a :href="caInfo.link">
                             <el-image :src="caInfo.url" alt="" fit="fill" class="box-100" />
-                            <div class="ad-ca-title">
+                            <div class="ad-ca-title text-one-line">
                                 <span>{{ caInfo.title }}</span>
                             </div>
                         </a>
@@ -40,7 +40,7 @@
             <ZeroFooter />
         </el-footer>
         <el-backtop :visibility-height="220" :bottom="80" :right="20" class="toTop">
-            <div><svg-icon icon-class="backtop" style="font-size: 25px;"></svg-icon></div>
+            <div><svg-icon icon-class="backtop" style="font-size: 22px;"></svg-icon></div>
         </el-backtop>
     </el-container>
 </template>
@@ -203,6 +203,7 @@ export default {
     line-height: 40px;
     text-align: center;
     background: rgba(0, 0, 0, 0.3);
+    padding: 0 20px;
 }
 .bm-main-show {
     margin: 20px;

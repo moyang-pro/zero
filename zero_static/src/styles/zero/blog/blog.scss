@@ -112,27 +112,6 @@
     grid-template-rows: 600px auto;
 }
 
-@media screen and (max-width: 1480px) {
-    .bm-main{
-        width: 1140px;
-    }
-    .bm-page-main {
-        display: grid;
-        grid-template-columns: 720px 370px;
-        grid-template-rows: 480px auto;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .bm-main{
-        width: 900px;
-    }
-    .bm-page-main {
-        display: grid;
-        grid-template-columns: 640px 360px;
-        grid-template-rows: 360px auto;
-    }
-}
 
 
 

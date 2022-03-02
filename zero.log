@@ -1,5 +1,285 @@
-2022-03-02 00:06:31.782  INFO 49872 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
-2022-03-02 00:06:31.800  INFO 49872 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : Login ...
-2022-03-02 00:06:31.801  INFO 49872 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
-2022-03-02 00:06:31.807  WARN 49872 --- [http-nio-8080-exec-2] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 431484
-2022-03-02 00:06:31.869  INFO 49872 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 00:09:31.023  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 00:09:31.026  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 00:09:31.027  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 00:09:31.033  WARN 4024 --- [http-nio-8080-exec-8] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 809048
+2022-03-03 00:09:31.060  INFO 4024 --- [http-nio-8080-exec-8] c.m.zero.controller.SysMemberController  : 用户 emy == null 登出系统
+2022-03-03 00:14:33.189  WARN 4024 --- [http-nio-8080-exec-10] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 302128
+2022-03-03 00:14:33.229  INFO 4024 --- [http-nio-8080-exec-10] com.moyang.zero.entity.Template          : 墨阳人生哈哈哈哈在2022-03-03T00:14:33.226160300墨阳空间新用户账号注册！
+2022-03-03 00:14:33.260  INFO 4024 --- [http-nio-8080-exec-10] com.moyang.zero.entity.Template          : moyang在2022-03-03T00:14:33.259223800新用户角色初始化
+2022-03-03 00:14:43.957  INFO 4024 --- [http-nio-8080-exec-1] c.m.zero.controller.SysMemberController  : 用户 emy == 墨阳人生哈哈哈哈 企图登陆系统
+2022-03-03 00:14:43.957  INFO 4024 --- [http-nio-8080-exec-1] c.m.z.service.impl.SysMemberServiceImpl  : 用户登录：emy == 墨阳人生哈哈哈哈
+2022-03-03 00:14:44.219  INFO 4024 --- [http-nio-8080-exec-3] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 00:14:44.219  INFO 4024 --- [http-nio-8080-exec-3] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 00:14:44.219  INFO 4024 --- [http-nio-8080-exec-3] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 00:14:44.243  INFO 4024 --- [http-nio-8080-exec-3] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 00:14:44.362  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 00:14:44.362  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 00:14:44.362  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 00:14:44.372  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 00:16:16.779  WARN 4024 --- [http-nio-8080-exec-4] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 92399
+2022-03-03 00:19:38.938  WARN 4024 --- [http-nio-8080-exec-2] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 202110
+2022-03-03 00:23:54.847  WARN 4024 --- [http-nio-8080-exec-5] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 244100
+2022-03-03 00:31:58.162  WARN 4024 --- [http-nio-8080-exec-5] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 96398
+2022-03-03 00:34:25.458  WARN 4024 --- [http-nio-8080-exec-2] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 65267
+2022-03-03 00:44:22.645  WARN 4024 --- [http-nio-8080-exec-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 380539
+2022-03-03 00:45:31.093  WARN 4024 --- [http-nio-8080-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 68424
+2022-03-03 00:46:45.094  WARN 4024 --- [http-nio-8080-exec-5] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 73973
+2022-03-03 00:47:53.077  INFO 4024 --- [http-nio-8080-exec-4] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 00:47:53.077  INFO 4024 --- [http-nio-8080-exec-4] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 00:47:53.077  INFO 4024 --- [http-nio-8080-exec-4] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 00:47:53.079  WARN 4024 --- [http-nio-8080-exec-4] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 67947
+2022-03-03 00:47:53.133  INFO 4024 --- [http-nio-8080-exec-4] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 00:56:07.515  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 00:56:07.515  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 00:56:07.515  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 00:56:07.518  WARN 4024 --- [http-nio-8080-exec-6] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 491659
+2022-03-03 00:56:07.586  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 00:57:14.039  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 00:57:14.040  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 00:57:14.040  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 00:57:14.059  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 00:58:11.334  INFO 4024 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 00:58:11.334  INFO 4024 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 00:58:11.334  INFO 4024 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 00:58:11.361  INFO 4024 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:01:08.024  WARN 4024 --- [http-nio-8080-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 163752
+2022-03-03 01:03:48.894  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:03:48.894  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:03:48.894  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:03:48.896  WARN 4024 --- [http-nio-8080-exec-5] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 160852
+2022-03-03 01:03:48.962  INFO 4024 --- [http-nio-8080-exec-5] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:06:14.551  INFO 4024 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:06:14.552  INFO 4024 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:06:14.552  INFO 4024 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:06:14.555  WARN 4024 --- [http-nio-8080-exec-2] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/zero?serverTimezone=UTC&tinyInt1isBit=false, version : 1.2.4, lastPacketReceivedIdleMillis : 145206
+2022-03-03 01:06:14.610  INFO 4024 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:06:14.621 ERROR 4024 --- [http-nio-8080-exec-2] c.m.z.c.exception.BusinessException      : 业务异常：
+2022-03-03 01:06:14.661 ERROR 4024 --- [http-nio-8080-exec-2] c.m.z.advice.ZeroRestControllerAdvice    : 统一异常处理
+
+com.moyang.zero.common.exception.BusinessException: 无效的博客文章ID！
+	at com.moyang.zero.manager.BlogArticleManager.getBlogAllInfoById(BlogArticleManager.java:117) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl.readBlogArticle(BlogArticleServiceImpl.java:219) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$4f7dda61.readBlogArticle(<generated>) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$5f836f3.readBlogArticle(<generated>) ~[classes/:na]
+	at com.moyang.zero.controller.BlogArticleController.readBlog(BlogArticleController.java:120) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:782) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.apache.shiro.spring.security.interceptor.AopAllianceAnnotationsAuthorizingMethodInterceptor$1.proceed(AopAllianceAnnotationsAuthorizingMethodInterceptor.java:82) ~[shiro-spring-1.4.0.jar:1.4.0]
+	at org.apache.shiro.authz.aop.AuthorizingMethodInterceptor.invoke(AuthorizingMethodInterceptor.java:39) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.spring.security.interceptor.AopAllianceAnnotationsAuthorizingMethodInterceptor.invoke(AopAllianceAnnotationsAuthorizingMethodInterceptor.java:115) ~[shiro-spring-1.4.0.jar:1.4.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.controller.BlogArticleController$$EnhancerBySpringCGLIB$$10b12817.readBlog(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2022-03-03 01:06:14.674  WARN 4024 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BusinessException(code=null, msg=无效的博客文章ID！, business=业务异常：)]
+2022-03-03 01:06:14.869  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:06:14.870  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:06:14.870  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:06:14.887  INFO 4024 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:06:34.193  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:06:34.193  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:06:34.193  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:06:34.207  INFO 4024 --- [http-nio-8080-exec-8] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:06:34.215 ERROR 4024 --- [http-nio-8080-exec-8] c.m.z.c.exception.BusinessException      : 业务异常：
+2022-03-03 01:06:34.222 ERROR 4024 --- [http-nio-8080-exec-8] c.m.z.advice.ZeroRestControllerAdvice    : 统一异常处理
+
+com.moyang.zero.common.exception.BusinessException: 无效的博客文章ID！
+	at com.moyang.zero.manager.BlogArticleManager.getBlogAllInfoById(BlogArticleManager.java:117) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl.readBlogArticle(BlogArticleServiceImpl.java:219) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$4f7dda61.readBlogArticle(<generated>) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$5f836f3.readBlogArticle(<generated>) ~[classes/:na]
+	at com.moyang.zero.controller.BlogArticleController.readBlog(BlogArticleController.java:120) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:782) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.apache.shiro.spring.security.interceptor.AopAllianceAnnotationsAuthorizingMethodInterceptor$1.proceed(AopAllianceAnnotationsAuthorizingMethodInterceptor.java:82) ~[shiro-spring-1.4.0.jar:1.4.0]
+	at org.apache.shiro.authz.aop.AuthorizingMethodInterceptor.invoke(AuthorizingMethodInterceptor.java:39) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.spring.security.interceptor.AopAllianceAnnotationsAuthorizingMethodInterceptor.invoke(AopAllianceAnnotationsAuthorizingMethodInterceptor.java:115) ~[shiro-spring-1.4.0.jar:1.4.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.controller.BlogArticleController$$EnhancerBySpringCGLIB$$10b12817.readBlog(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2022-03-03 01:06:34.230  WARN 4024 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [BusinessException(code=null, msg=无效的博客文章ID！, business=业务异常：)]
+2022-03-03 01:06:34.470  INFO 4024 --- [http-nio-8080-exec-9] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:06:34.471  INFO 4024 --- [http-nio-8080-exec-9] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:06:34.471  INFO 4024 --- [http-nio-8080-exec-9] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:06:34.504  INFO 4024 --- [http-nio-8080-exec-9] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 

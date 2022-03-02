@@ -252,6 +252,11 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		return PageResult.emptyList();
 	}
 
+	@Override
+	public List<BlogArticle> getHomeTopBlogList() {
+		return blogArticleManager.getHomeBlogTop3();
+	}
+
 	private PageResult<BlogArticleVo> getBlogArticleVoPageResult(PageRequest<String> pageRequest, String name) {
 		BlogSelectParam blogSelectParam = new BlogSelectParam();
 		blogSelectParam.setSortColumn(name);
