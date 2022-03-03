@@ -1,6 +1,5 @@
 package com.moyang.zero.entity;
 
-import com.moyang.zero.entity.Template;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -34,6 +33,12 @@ public class ZeroBanner extends Template {
 
     @ApiModelProperty(value = "外部链接地址")
     private String adLink;
+
+    @ApiModelProperty(value = "应用编码")
+    private String appCode;
+
+    @ApiModelProperty(value = "排序")
+    private Integer sortIndex;
 
 
 }

@@ -86,3 +86,26 @@ export function getHomeBlogList(pageReq) {
         data: pageReq
     });
 }
+
+export function getHomeTopBannerList() {
+    return request({
+        url: '/zero-banner/page/blog/banner',
+        method: 'get'
+    });
+}
+
+export function followAuthorOfBlog(author) {
+    return request({
+        url: '/blog-follower/follow',
+        method: 'post',
+        data: { author }
+    });
+}
+
+export function unfollowAuthorOfBlog(author) {
+    return request({
+        url: '/blog-follower/unfollow',
+        method: 'post',
+        data: { author }
+    });
+}

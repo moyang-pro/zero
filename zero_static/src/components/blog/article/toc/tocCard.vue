@@ -119,6 +119,7 @@
 
 <script>
 import miniHeart from '@/components/biubiubiu';
+import { followAuthorOfBlog, unfollowAuthorOfBlog } from '@/api/blog';
 export default {
     //文章目录+作者
     name: 'toc',
@@ -175,7 +176,11 @@ export default {
         followAuthor(evt) {
             // 关注作者
             if (!this.authorInfo.followed) {
-                this.authorInfo.followed = true;
+                followAuthorOfBlog().then(res => {
+                    if (res.data) {
+                        this.authorInfo.followed = true;
+                    }
+                });
             }
             this.createLoves(evt);
             setTimeout(() => {
@@ -185,7 +190,11 @@ export default {
         unFollowAuthor() {
             // 取消关注作者
             if (this.authorInfo.followed) {
-                this.authorInfo.followed = false;
+                unfollowAuthorOfBlog().then(res => {
+                    if (res.data) {
+                        this.authorInfo.followed = false;
+                    }
+                });
             }
         },
         msgWithAuthor() {},

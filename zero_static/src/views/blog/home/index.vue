@@ -8,24 +8,8 @@
                 <div class="bm-notice-show">
                     <BlogNotice></BlogNotice>
                 </div>
-                <div class="bm-notice-right">
-                    <div class="ad-ca-block">
-                        <a :href="adInfo.link">
-                            <el-image :src="adInfo.url" alt="" fit="fill" class="box-100" />
-                            <div class="ad-ca-title text-one-line">
-                                <span>{{ adInfo.title }}</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div style="height: 20px"></div>
-                    <div class="ad-ca-block">
-                        <a :href="caInfo.link">
-                            <el-image :src="caInfo.url" alt="" fit="fill" class="box-100" />
-                            <div class="ad-ca-title text-one-line">
-                                <span>{{ caInfo.title }}</span>
-                            </div>
-                        </a>
-                    </div>
+                <div class="bm-banner-show">
+                    <BlogBanner></BlogBanner>
                 </div>
                 <div class="bm-main-show">
                     <HomeBlog></HomeBlog>
@@ -49,6 +33,7 @@
 import ZeroHeader from '@/components/header/index.vue';
 import ZeroFooter from '@/components/footer/index';
 import BlogNotice from '@/components/blog/home/notice/index';
+import BlogBanner from '@/components/blog/home/banner/banner';
 import HomeBlog from '@/components/blog/home/blogList/index';
 import UserPop from '@/components/blog/home/count/userPop';
 export default {
@@ -57,21 +42,12 @@ export default {
         ZeroHeader,
         ZeroFooter,
         BlogNotice,
+        BlogBanner,
         HomeBlog,
         UserPop
     },
     data() {
         return {
-            adInfo: {
-                url: require('@/assets/img/break.jpg'),
-                title: 'Windows环境下配置蘑菇博客环境',
-                link: 'http://www.baidu.com'
-            },
-            caInfo: {
-                url: require('@/assets/img/lake.jpg'),
-                title: 'Windows环境下配置蘑菇博客环境',
-                link: 'http://www.baidu.com'
-            },
             menu: [
                 {
                     code: 'BLOG_HOME',
@@ -183,28 +159,7 @@ export default {
 .bm-notice-show {
     margin: 20px;
 }
-.bm-notice-right {
-    margin: 20px 0 20px 0;
-    display: grid;
-    grid-template-rows: 270px 20px 270px;
-}
-.ad-ca-block {
-    position: relative;
-}
-.ad-ca-title {
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    position: absolute;
-    z-index: 10;
-    bottom: 0;
-    height: 40px;
-    width: 100%;
-    line-height: 40px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 0 20px;
-}
+
 .bm-main-show {
     margin: 20px;
 }
