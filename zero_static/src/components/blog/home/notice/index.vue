@@ -11,7 +11,7 @@
                 >
                 </el-image>
                 <div class="bm-carousel-title text-one-line" @click.stop="showArticle(item.id)">
-                    <span class="">{{ item.title }}</span>
+                    <span class="">{{ item.articleTitle }}</span>
                 </div>
             </el-carousel-item>
         </el-carousel>
@@ -29,24 +29,7 @@ export default {
                 arrow: 'never',
                 height: '560px'
             },
-            topList: [
-                {
-                    id: 1,
-                    coverUrl: require('@/assets/img/blonde.jpg'),
-                    title: 'Windows环境下配置蘑菇博客环境Windows环境下配置蘑菇博客环境Windows环境下配置蘑菇博客环境'
-                },
-                {
-                    id: 2,
-                    coverUrl: require('@/assets/img/mountains.jpg'),
-                    title: 'Windows环境下配置蘑菇博客环境'
-                },
-                {
-                    id: 3,
-                    coverUrl: require('@/assets/img/whale.jpg'),
-                    title: 'Windows环境下配置蘑菇博客环境',
-                    link: 'http://www.baidu.com'
-                }
-            ]
+            topList: []
         };
     },
     methods: {

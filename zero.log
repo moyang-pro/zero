@@ -283,3 +283,711 @@ com.moyang.zero.common.exception.BusinessException: 无效的博客文章ID！
 2022-03-03 01:06:34.471  INFO 4024 --- [http-nio-8080-exec-9] com.moyang.zero.auth.filter.JwtFilter    : Login ...
 2022-03-03 01:06:34.471  INFO 4024 --- [http-nio-8080-exec-9] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
 2022-03-03 01:06:34.504  INFO 4024 --- [http-nio-8080-exec-9] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:25:50.799  INFO 17996 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Starting ZeroWebApplication using Java 11.0.12 on DESKTOP-O5SE1DB with PID 17996 (D:\moyang\code\web\zero\zero_web\target\classes started by moyang in D:\moyang\code\web\zero)
+2022-03-03 01:25:50.800  INFO 17996 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : The following profiles are active: dev
+2022-03-03 01:25:50.840  INFO 17996 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-03 01:25:50.841  INFO 17996 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-03 01:25:51.456  INFO 17996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-03 01:25:51.457  INFO 17996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-03 01:25:51.509  INFO 17996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 0 Redis repository interfaces.
+2022-03-03 01:25:51.711  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.moyang.zero.config.ShiroConfig$$EnhancerBySpringCGLIB$$de6f57ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:51.786  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:51.788  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.moyang.zero.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$a1e4d58a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:51.796  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusInterceptor' of type [com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:51.800  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$8f4e4f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:51.800  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:51.814  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:51.838  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.755  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.759  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.760  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.762  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [com.sun.proxy.$Proxy71] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.763  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.763  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [com.sun.proxy.$Proxy72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.764  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.764  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [com.sun.proxy.$Proxy73] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.776  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.moyang.zero.common.config.RedisConfig$$EnhancerBySpringCGLIB$$ae0ccf6b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.779  INFO 17996 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisPoolConfig
+2022-03-03 01:25:52.780  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jedisPoolConfig' of type [redis.clients.jedis.JedisPoolConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.780  INFO 17996 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisConnectionFactory
+2022-03-03 01:25:52.807  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.844  INFO 17996 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : objectMapper: com.fasterxml.jackson.databind.ObjectMapper@73af7b3f
+2022-03-03 01:25:52.851  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.852  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.852  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisUtil' of type [com.moyang.zero.common.util.redis.RedisUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.852  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberManager' of type [com.moyang.zero.manager.SysMemberManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.853  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberDetailService' of type [com.moyang.zero.service.auth.SysMemberDetailServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.853  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myRealm' of type [com.moyang.zero.auth.realm.MyRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.887  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:52.887  INFO 17996 --- [restartedMain] com.moyang.zero.config.ShiroConfig       : ShiroFilterFactoryBean config init start ...
+2022-03-03 01:25:52.920  INFO 17996 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:25:53.239  INFO 17996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 01:25:53.248  INFO 17996 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 01:25:53.249  INFO 17996 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-03-03 01:25:53.250  INFO 17996 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-03-03 01:25:53.250  INFO 17996 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-03-03 01:25:53.250  INFO 17996 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-03 01:25:53.252  INFO 17996 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-03-03 01:25:53.331  INFO 17996 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 01:25:53.332  INFO 17996 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2491 ms
+2022-03-03 01:25:53.960  INFO 17996 --- [restartedMain] c.moyang.zero.common.config.MinioConfig  : initMinio start ...
+2022-03-03 01:25:54.139  INFO 17996 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 01:25:54.848  INFO 17996 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-03 01:25:55.049  INFO 17996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-03 01:25:55.066  INFO 17996 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Started ZeroWebApplication in 4.619 seconds (JVM running for 5.581)
+2022-03-03 01:26:51.245  INFO 17996 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03 01:26:51.247  INFO 17996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-03 01:26:51.255  INFO 17996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-03-03 01:26:51.413  INFO 17996 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:26:51.417  INFO 17996 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:26:51.428  INFO 17996 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:26:52.287  INFO 17996 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-03 01:26:53.219  WARN 17996 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [333] milliseconds.
+2022-03-03 01:26:53.383  INFO 17996 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:26:53.747  WARN 17996 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2022-03-03 01:27:15.945  INFO 18180 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Starting ZeroWebApplication using Java 11.0.12 on DESKTOP-O5SE1DB with PID 18180 (D:\moyang\code\web\zero\zero_web\target\classes started by moyang in D:\moyang\code\web\zero)
+2022-03-03 01:27:15.947  INFO 18180 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : The following profiles are active: dev
+2022-03-03 01:27:15.998  INFO 18180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-03 01:27:15.999  INFO 18180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-03 01:27:16.613  INFO 18180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-03 01:27:16.615  INFO 18180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-03 01:27:16.665  INFO 18180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces.
+2022-03-03 01:27:16.846  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.moyang.zero.config.ShiroConfig$$EnhancerBySpringCGLIB$$3eec1ced] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:16.954  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:16.964  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.moyang.zero.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$2619a89] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:16.989  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusInterceptor' of type [com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:16.994  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$6971a9f3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:16.995  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:17.029  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:17.082  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.512  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.519  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.521  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.527  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [com.sun.proxy.$Proxy71] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.529  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.529  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [com.sun.proxy.$Proxy72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.530  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.530  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [com.sun.proxy.$Proxy73] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.546  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.moyang.zero.common.config.RedisConfig$$EnhancerBySpringCGLIB$$e89946a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.550  INFO 18180 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisPoolConfig
+2022-03-03 01:27:18.551  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jedisPoolConfig' of type [redis.clients.jedis.JedisPoolConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.551  INFO 18180 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisConnectionFactory
+2022-03-03 01:27:18.599  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.644  INFO 18180 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : objectMapper: com.fasterxml.jackson.databind.ObjectMapper@623c2fa
+2022-03-03 01:27:18.651  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.652  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.652  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisUtil' of type [com.moyang.zero.common.util.redis.RedisUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.652  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberManager' of type [com.moyang.zero.manager.SysMemberManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.653  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberDetailService' of type [com.moyang.zero.service.auth.SysMemberDetailServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.653  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myRealm' of type [com.moyang.zero.auth.realm.MyRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.690  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.691  INFO 18180 --- [restartedMain] com.moyang.zero.config.ShiroConfig       : ShiroFilterFactoryBean config init start ...
+2022-03-03 01:27:18.712  INFO 18180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:18.947  INFO 18180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 01:27:18.956  INFO 18180 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 01:27:18.956  INFO 18180 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-03-03 01:27:18.958  INFO 18180 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-03-03 01:27:18.958  INFO 18180 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-03-03 01:27:18.958  INFO 18180 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-03 01:27:18.960  INFO 18180 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-03-03 01:27:19.033  INFO 18180 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 01:27:19.033  INFO 18180 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3034 ms
+2022-03-03 01:27:19.611  INFO 18180 --- [restartedMain] c.moyang.zero.common.config.MinioConfig  : initMinio start ...
+2022-03-03 01:27:19.750  INFO 18180 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 01:27:20.254  INFO 18180 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-03 01:27:20.351  INFO 18180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-03 01:27:20.359  INFO 18180 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Started ZeroWebApplication in 4.873 seconds (JVM running for 5.982)
+2022-03-03 01:27:24.097  INFO 18180 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03 01:27:24.098  INFO 18180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-03 01:27:24.102  INFO 18180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-03-03 01:27:24.185  INFO 18180 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:27:24.187  INFO 18180 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:27:24.193  INFO 18180 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:27:24.626  INFO 18180 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-03 01:27:25.204  WARN 18180 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [238] milliseconds.
+2022-03-03 01:27:25.314  INFO 18180 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:27:25.672 ERROR 18180 --- [http-nio-8080-exec-2] c.m.z.advice.ZeroRestControllerAdvice    : 统一异常处理
+
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+### The error may exist in com/moyang/zero/mapper/BlogArticleMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,article_title,article_des,article_content,author,article_text,article_type,article_status,cover_url,publish_type,quote,publish_time,category,sort_index,read_count,user_count,click_count,collect_count,like_count,comment_count,create_at,create_by,update_at,update_by,del_flag,remarks  FROM blog_article     WHERE (cover_url IS NOT NULL AND del_flag = ? AND limit ?) ORDER BY publish_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:239) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:88) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:440) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	at com.sun.proxy.$Proxy70.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:223) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:173) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:78) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.sun.proxy.$Proxy96.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.conditions.query.ChainQuery.list(ChainQuery.java:39) ~[mybatis-plus-extension-3.4.1.jar:3.4.1]
+	at com.moyang.zero.manager.BlogArticleManager.getHomeBlogTop3(BlogArticleManager.java:187) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl.getHomeTopBlogList(BlogArticleServiceImpl.java:257) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$e1e6233a.getHomeTopBlogList(<generated>) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$98607fcc.getHomeTopBlogList(<generated>) ~[classes/:na]
+	at com.moyang.zero.controller.BlogArticleController.getHomeBlogTopList(BlogArticleController.java:52) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:782) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.controller.BlogArticleController$$EnhancerBySpringCGLIB$$9d93649.getHomeBlogTopList(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:371) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:497) ~[druid-1.2.4.jar:1.2.4]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.5.6.jar:3.5.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy141.query(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doQuery(MybatisSimpleExecutor.java:69) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.query(MybatisCachingExecutor.java:165) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:65) ~[mybatis-plus-extension-3.4.1.jar:3.4.1]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy139.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.6.jar:3.5.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	... 90 common frames omitted
+
+2022-03-03 01:27:25.691  WARN 18180 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+### The error may exist in com/moyang/zero/mapper/BlogArticleMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,article_title,article_des,article_content,author,article_text,article_type,article_status,cover_url,publish_type,quote,publish_time,category,sort_index,read_count,user_count,click_count,collect_count,like_count,comment_count,create_at,create_by,update_at,update_by,del_flag,remarks  FROM blog_article     WHERE (cover_url IS NOT NULL AND del_flag = ? AND limit ?) ORDER BY publish_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3]
+2022-03-03 01:27:48.931  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Starting ZeroWebApplication using Java 11.0.12 on DESKTOP-O5SE1DB with PID 7392 (D:\moyang\code\web\zero\zero_web\target\classes started by moyang in D:\moyang\code\web\zero)
+2022-03-03 01:27:48.933  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : The following profiles are active: dev
+2022-03-03 01:27:48.972  INFO 7392 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-03 01:27:48.973  INFO 7392 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-03 01:27:49.659  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-03 01:27:49.661  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-03 01:27:49.714  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 0 Redis repository interfaces.
+2022-03-03 01:27:49.908  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.moyang.zero.config.ShiroConfig$$EnhancerBySpringCGLIB$$132e083a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:49.989  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:49.991  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.moyang.zero.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$d6a385d6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.000  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusInterceptor' of type [com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.006  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$3db39540] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.007  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.023  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.050  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.978  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.981  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.982  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.984  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [com.sun.proxy.$Proxy71] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.984  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.985  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [com.sun.proxy.$Proxy72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.985  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.986  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [com.sun.proxy.$Proxy73] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.992  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.moyang.zero.common.config.RedisConfig$$EnhancerBySpringCGLIB$$e2cb7fb7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.995  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisPoolConfig
+2022-03-03 01:27:50.996  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jedisPoolConfig' of type [redis.clients.jedis.JedisPoolConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:50.996  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisConnectionFactory
+2022-03-03 01:27:51.025  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.065  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : objectMapper: com.fasterxml.jackson.databind.ObjectMapper@26ac4d4e
+2022-03-03 01:27:51.072  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.073  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.073  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisUtil' of type [com.moyang.zero.common.util.redis.RedisUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.074  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberManager' of type [com.moyang.zero.manager.SysMemberManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.074  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberDetailService' of type [com.moyang.zero.service.auth.SysMemberDetailServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.074  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myRealm' of type [com.moyang.zero.auth.realm.MyRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.114  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.115  INFO 7392 --- [restartedMain] com.moyang.zero.config.ShiroConfig       : ShiroFilterFactoryBean config init start ...
+2022-03-03 01:27:51.139  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:27:51.488  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 01:27:51.515  INFO 7392 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 01:27:51.515  INFO 7392 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-03-03 01:27:51.522  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-03-03 01:27:51.522  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-03-03 01:27:51.522  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-03 01:27:51.529  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-03-03 01:27:51.695  INFO 7392 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 01:27:51.696  INFO 7392 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2723 ms
+2022-03-03 01:27:52.500  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.MinioConfig  : initMinio start ...
+2022-03-03 01:27:52.651  INFO 7392 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 01:27:53.719  INFO 7392 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-03 01:27:54.015  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-03 01:27:54.025  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Started ZeroWebApplication in 5.425 seconds (JVM running for 6.368)
+2022-03-03 01:27:54.726  INFO 7392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03 01:27:54.727  INFO 7392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-03 01:27:54.733  INFO 7392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-03-03 01:27:54.833  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:27:54.835  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:27:54.849  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:27:55.756  INFO 7392 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-03-03 01:27:56.359  WARN 7392 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [236] milliseconds.
+2022-03-03 01:27:56.579  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:27:56.992 ERROR 7392 --- [http-nio-8080-exec-3] c.m.z.advice.ZeroRestControllerAdvice    : 统一异常处理
+
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+### The error may exist in com/moyang/zero/mapper/BlogArticleMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,article_title,article_des,article_content,author,article_text,article_type,article_status,cover_url,publish_type,quote,publish_time,category,sort_index,read_count,user_count,click_count,collect_count,like_count,comment_count,create_at,create_by,update_at,update_by,del_flag,remarks  FROM blog_article     WHERE (cover_url IS NOT NULL AND del_flag = ? AND  limit ?) ORDER BY publish_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:239) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70) ~[spring-jdbc-5.3.3.jar:5.3.3]
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:88) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:440) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	at com.sun.proxy.$Proxy70.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:223) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:173) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:78) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:148) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.sun.proxy.$Proxy96.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.extension.conditions.query.ChainQuery.list(ChainQuery.java:39) ~[mybatis-plus-extension-3.4.1.jar:3.4.1]
+	at com.moyang.zero.manager.BlogArticleManager.getHomeBlogTop3(BlogArticleManager.java:187) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl.getHomeTopBlogList(BlogArticleServiceImpl.java:257) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$a4441f02.getHomeTopBlogList(<generated>) ~[classes/:na]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$FastClassBySpringCGLIB$$200ffa4e.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.service.impl.BlogArticleServiceImpl$$EnhancerBySpringCGLIB$$5abe7b94.getHomeTopBlogList(<generated>) ~[classes/:na]
+	at com.moyang.zero.controller.BlogArticleController.getHomeBlogTopList(BlogArticleController.java:52) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:782) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.3.jar:5.3.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.3.jar:5.3.3]
+	at com.moyang.zero.controller.BlogArticleController$$EnhancerBySpringCGLIB$$31b92b20.getHomeBlogTopList(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) ~[shiro-core-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) ~[shiro-web-1.4.0.jar:1.4.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:371) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:497) ~[druid-1.2.4.jar:1.2.4]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.5.6.jar:3.5.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy141.query(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doQuery(MybatisSimpleExecutor.java:69) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.baomidou.mybatisplus.core.executor.MybatisCachingExecutor.query(MybatisCachingExecutor.java:165) ~[mybatis-plus-core-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:65) ~[mybatis-plus-extension-3.4.1.jar:3.4.1]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy139.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.6.jar:3.5.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426) ~[mybatis-spring-2.0.5.jar:2.0.5]
+	... 90 common frames omitted
+
+2022-03-03 01:27:57.013  WARN 7392 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+### The error may exist in com/moyang/zero/mapper/BlogArticleMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  id,article_title,article_des,article_content,author,article_text,article_type,article_status,cover_url,publish_type,quote,publish_time,category,sort_index,read_count,user_count,click_count,collect_count,like_count,comment_count,create_at,create_by,update_at,update_by,del_flag,remarks  FROM blog_article     WHERE (cover_url IS NOT NULL AND del_flag = ? AND  limit ?) ORDER BY publish_time DESC
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'limit 3) ORDER BY publish_time DESC' at line 3]
+2022-03-03 01:28:43.639  INFO 7392 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-03-03 01:28:43.650  INFO 7392 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-03-03 01:28:43.657  INFO 7392 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-03-03 01:28:43.965  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Starting ZeroWebApplication using Java 11.0.12 on DESKTOP-O5SE1DB with PID 7392 (D:\moyang\code\web\zero\zero_web\target\classes started by moyang in D:\moyang\code\web\zero)
+2022-03-03 01:28:43.965  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : The following profiles are active: dev
+2022-03-03 01:28:44.381  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-03 01:28:44.381  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-03 01:28:44.417  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
+2022-03-03 01:28:44.478  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.moyang.zero.config.ShiroConfig$$EnhancerBySpringCGLIB$$132e083a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:44.501  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:44.502  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.moyang.zero.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$d6a385d6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:44.504  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusInterceptor' of type [com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:44.507  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$3db39540] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:44.508  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:44.514  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:44.525  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.288  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.289  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.290  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.292  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [com.sun.proxy.$Proxy143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.293  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.293  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [com.sun.proxy.$Proxy144] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.294  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.294  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [com.sun.proxy.$Proxy145] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.296  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.moyang.zero.common.config.RedisConfig$$EnhancerBySpringCGLIB$$e2cb7fb7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.297  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisPoolConfig
+2022-03-03 01:28:45.297  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jedisPoolConfig' of type [redis.clients.jedis.JedisPoolConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.298  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisConnectionFactory
+2022-03-03 01:28:45.300  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.301  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : objectMapper: com.fasterxml.jackson.databind.ObjectMapper@116dd469
+2022-03-03 01:28:45.301  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.302  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.303  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisUtil' of type [com.moyang.zero.common.util.redis.RedisUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.303  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberManager' of type [com.moyang.zero.manager.SysMemberManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.303  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberDetailService' of type [com.moyang.zero.service.auth.SysMemberDetailServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.303  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myRealm' of type [com.moyang.zero.auth.realm.MyRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.304  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.305  INFO 7392 --- [restartedMain] com.moyang.zero.config.ShiroConfig       : ShiroFilterFactoryBean config init start ...
+2022-03-03 01:28:45.312  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:45.359  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 01:28:45.359  INFO 7392 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 01:28:45.359  INFO 7392 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-03-03 01:28:45.360  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-03-03 01:28:45.360  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-03-03 01:28:45.360  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-03 01:28:45.360  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-03-03 01:28:45.388  INFO 7392 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 01:28:45.388  INFO 7392 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1416 ms
+2022-03-03 01:28:46.219  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.MinioConfig  : initMinio start ...
+2022-03-03 01:28:46.276  INFO 7392 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 01:28:46.445  INFO 7392 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-03 01:28:46.490  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-03 01:28:46.492  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Started ZeroWebApplication in 2.707 seconds (JVM running for 58.836)
+2022-03-03 01:28:46.494  INFO 7392 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-03 01:28:48.214  INFO 7392 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-03-03 01:28:48.215  INFO 7392 --- [Thread-8] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2022-03-03 01:28:48.370  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Starting ZeroWebApplication using Java 11.0.12 on DESKTOP-O5SE1DB with PID 7392 (D:\moyang\code\web\zero\zero_web\target\classes started by moyang in D:\moyang\code\web\zero)
+2022-03-03 01:28:48.371  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : The following profiles are active: dev
+2022-03-03 01:28:48.976  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-03 01:28:48.977  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-03 01:28:49.101  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 0 Redis repository interfaces.
+2022-03-03 01:28:49.365  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.moyang.zero.config.ShiroConfig$$EnhancerBySpringCGLIB$$132e083a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:49.412  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:49.413  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.moyang.zero.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$d6a385d6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:49.414  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusInterceptor' of type [com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:49.416  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$3db39540] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:49.416  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:49.431  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:49.442  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.700  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.701  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.701  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.702  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [com.sun.proxy.$Proxy170] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.703  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.705  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [com.sun.proxy.$Proxy171] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.706  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.707  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [com.sun.proxy.$Proxy172] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.713  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.moyang.zero.common.config.RedisConfig$$EnhancerBySpringCGLIB$$e2cb7fb7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.715  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisPoolConfig
+2022-03-03 01:28:50.715  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jedisPoolConfig' of type [redis.clients.jedis.JedisPoolConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.715  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisConnectionFactory
+2022-03-03 01:28:50.717  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.718  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : objectMapper: com.fasterxml.jackson.databind.ObjectMapper@6333effa
+2022-03-03 01:28:50.718  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.719  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.719  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisUtil' of type [com.moyang.zero.common.util.redis.RedisUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.719  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberManager' of type [com.moyang.zero.manager.SysMemberManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.719  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberDetailService' of type [com.moyang.zero.service.auth.SysMemberDetailServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.719  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myRealm' of type [com.moyang.zero.auth.realm.MyRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.721  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.721  INFO 7392 --- [restartedMain] com.moyang.zero.config.ShiroConfig       : ShiroFilterFactoryBean config init start ...
+2022-03-03 01:28:50.732  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 01:28:50.772  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 01:28:50.772  INFO 7392 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 01:28:50.773  INFO 7392 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-03-03 01:28:50.773  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-03-03 01:28:50.773  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-03-03 01:28:50.773  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-03 01:28:50.773  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-03-03 01:28:50.799  INFO 7392 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 01:28:50.799  INFO 7392 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2425 ms
+2022-03-03 01:28:51.336  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.MinioConfig  : initMinio start ...
+2022-03-03 01:28:51.401  INFO 7392 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 01:28:51.556  INFO 7392 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-03 01:28:51.597  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-03 01:28:51.601  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Started ZeroWebApplication in 3.283 seconds (JVM running for 63.945)
+2022-03-03 01:28:51.602  INFO 7392 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-03 01:28:52.643  INFO 7392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03 01:28:52.646  INFO 7392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-03 01:28:52.648  INFO 7392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-03-03 01:28:52.654  INFO 7392 --- [http-nio-8080-exec-1] c.m.zero.controller.SysMemberController  : 用户 emy == 墨阳人生哈哈哈哈 企图登陆系统
+2022-03-03 01:28:52.675  INFO 7392 --- [http-nio-8080-exec-1] c.m.z.service.impl.SysMemberServiceImpl  : 用户登录：emy == 墨阳人生哈哈哈哈
+2022-03-03 01:28:52.688  INFO 7392 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2022-03-03 01:28:52.793  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:28:52.795  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:28:52.798  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:28:52.849  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 01:29:34.531  INFO 7392 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 01:29:34.531  INFO 7392 --- [http-nio-8080-exec-6] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 01:29:34.531  INFO 7392 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 01:29:34.548  INFO 7392 --- [http-nio-8080-exec-6] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 22:28:49.667  INFO 7392 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 22:28:49.667  INFO 7392 --- [http-nio-8080-exec-2] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 22:28:49.667  INFO 7392 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 22:28:49.730  INFO 7392 --- [http-nio-8080-exec-2] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 22:29:13.192  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 22:29:13.194  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 22:29:13.195  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 22:29:13.234  INFO 7392 --- [http-nio-8080-exec-1] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 22:29:17.223  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : 用户已经登录系统...
+2022-03-03 22:29:17.225  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.filter.JwtFilter    : Login ...
+2022-03-03 22:29:17.225  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthenticationInfo 认证........................
+2022-03-03 22:29:17.243  INFO 7392 --- [http-nio-8080-exec-10] com.moyang.zero.auth.realm.MyRealm       : user request doGetAuthorizationInfo 鉴权........................ 
+2022-03-03 23:10:45.898  INFO 7392 --- [Thread-13] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-03-03 23:10:45.914  INFO 7392 --- [Thread-13] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closing ...
+2022-03-03 23:10:45.920  INFO 7392 --- [Thread-13] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2022-03-03 23:10:46.472  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Starting ZeroWebApplication using Java 11.0.12 on DESKTOP-O5SE1DB with PID 7392 (D:\moyang\code\web\zero\zero_web\target\classes started by moyang in D:\moyang\code\web\zero)
+2022-03-03 23:10:46.472  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : The following profiles are active: dev
+2022-03-03 23:10:49.157  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-03 23:10:49.159  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-03 23:10:49.197  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
+2022-03-03 23:10:49.302  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.moyang.zero.config.ShiroConfig$$EnhancerBySpringCGLIB$$132e083a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:49.334  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:49.336  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.moyang.zero.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$d6a385d6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:49.339  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusInterceptor' of type [com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:49.341  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$3db39540] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:49.341  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:49.348  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:49.359  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.419  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.422  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.423  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.428  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [com.sun.proxy.$Proxy199] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.429  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.430  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [com.sun.proxy.$Proxy200] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.432  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.435  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [com.sun.proxy.$Proxy201] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.443  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.moyang.zero.common.config.RedisConfig$$EnhancerBySpringCGLIB$$e2cb7fb7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.450  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisPoolConfig
+2022-03-03 23:10:50.451  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jedisPoolConfig' of type [redis.clients.jedis.JedisPoolConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.452  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisConnectionFactory
+2022-03-03 23:10:50.464  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.466  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : objectMapper: com.fasterxml.jackson.databind.ObjectMapper@345a5d21
+2022-03-03 23:10:50.468  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.472  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.472  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisUtil' of type [com.moyang.zero.common.util.redis.RedisUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.472  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberManager' of type [com.moyang.zero.manager.SysMemberManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.473  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberDetailService' of type [com.moyang.zero.service.auth.SysMemberDetailServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.473  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myRealm' of type [com.moyang.zero.auth.realm.MyRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.475  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.476  INFO 7392 --- [restartedMain] com.moyang.zero.config.ShiroConfig       : ShiroFilterFactoryBean config init start ...
+2022-03-03 23:10:50.489  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:50.649  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 23:10:50.649  INFO 7392 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 23:10:50.650  INFO 7392 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-03-03 23:10:50.650  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-03-03 23:10:50.650  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-03-03 23:10:50.650  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-03 23:10:50.657  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-03-03 23:10:50.691  INFO 7392 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 23:10:50.691  INFO 7392 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4212 ms
+2022-03-03 23:10:51.447  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.MinioConfig  : initMinio start ...
+2022-03-03 23:10:51.570  INFO 7392 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 23:10:52.163  INFO 7392 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-03 23:10:52.336  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-03 23:10:52.346  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Started ZeroWebApplication in 5.956 seconds (JVM running for 78184.69)
+2022-03-03 23:10:52.356  INFO 7392 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-03-03 23:10:54.044  INFO 7392 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-03-03 23:10:54.048  INFO 7392 --- [Thread-18] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2022-03-03 23:10:54.329  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Starting ZeroWebApplication using Java 11.0.12 on DESKTOP-O5SE1DB with PID 7392 (D:\moyang\code\web\zero\zero_web\target\classes started by moyang in D:\moyang\code\web\zero)
+2022-03-03 23:10:54.330  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : The following profiles are active: dev
+2022-03-03 23:10:55.032  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-03 23:10:55.032  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-03 23:10:55.113  INFO 7392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 0 Redis repository interfaces.
+2022-03-03 23:10:55.260  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.moyang.zero.config.ShiroConfig$$EnhancerBySpringCGLIB$$132e083a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:55.298  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:55.299  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusConfig' of type [com.moyang.zero.config.MybatisPlusConfig$$EnhancerBySpringCGLIB$$d6a385d6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:55.302  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatisPlusInterceptor' of type [com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:55.308  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$3db39540] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:55.308  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:55.314  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:55.326  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.477  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.480  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.480  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.482  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberMapper' of type [com.sun.proxy.$Proxy226] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.483  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.484  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysRoleMapper' of type [com.sun.proxy.$Proxy227] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.484  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.485  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysPrivilegeMapper' of type [com.sun.proxy.$Proxy228] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.487  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.moyang.zero.common.config.RedisConfig$$EnhancerBySpringCGLIB$$e2cb7fb7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.492  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisPoolConfig
+2022-03-03 23:10:56.492  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jedisPoolConfig' of type [redis.clients.jedis.JedisPoolConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.493  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : 初始化JedisConnectionFactory
+2022-03-03 23:10:56.497  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.500  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.RedisConfig  : objectMapper: com.fasterxml.jackson.databind.ObjectMapper@791207ce
+2022-03-03 23:10:56.500  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.501  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'stringRedisTemplate' of type [org.springframework.data.redis.core.StringRedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.501  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisUtil' of type [com.moyang.zero.common.util.redis.RedisUtil] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.501  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberManager' of type [com.moyang.zero.manager.SysMemberManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.501  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sysMemberDetailService' of type [com.moyang.zero.service.auth.SysMemberDetailServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.502  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myRealm' of type [com.moyang.zero.auth.realm.MyRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.503  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.504  INFO 7392 --- [restartedMain] com.moyang.zero.config.ShiroConfig       : ShiroFilterFactoryBean config init start ...
+2022-03-03 23:10:56.511  INFO 7392 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-03-03 23:10:56.584  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-03 23:10:56.584  INFO 7392 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-03 23:10:56.584  INFO 7392 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-03-03 23:10:56.585  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+2022-03-03 23:10:56.585  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-03-03 23:10:56.585  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-03-03 23:10:56.585  INFO 7392 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+2022-03-03 23:10:56.618  INFO 7392 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-03 23:10:56.619  INFO 7392 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2279 ms
+2022-03-03 23:10:57.426  INFO 7392 --- [restartedMain] c.moyang.zero.common.config.MinioConfig  : initMinio start ...
+2022-03-03 23:10:57.523  INFO 7392 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-03-03 23:10:57.800  INFO 7392 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-03-03 23:10:57.858  INFO 7392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-03-03 23:10:57.861  INFO 7392 --- [restartedMain] com.moyang.zero.ZeroWebApplication       : Started ZeroWebApplication in 3.626 seconds (JVM running for 78190.205)
+2022-03-03 23:10:57.862  INFO 7392 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

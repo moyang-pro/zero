@@ -179,11 +179,11 @@ public class BlogArticleManager {
 		return PageResult.success(articlePage.getRecords(), articlePage.getTotal());
 	}
 
-
+    // todo 类别设置
 	public List<BlogArticle> getHomeBlogTop3(){
 		return new LambdaQueryChainWrapper<>(blogArticleMapper)
 				.isNotNull(BlogArticle::getCoverUrl).eq(BlogArticle::getDelFlag, DelEnum.valid())
-				.orderByDesc(BlogArticle::getPublishTime).apply("limit {0}", 3)
+				.orderByDesc(BlogArticle::getPublishTime).last(" limit 3")
 				.list();
 	}
 }

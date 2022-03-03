@@ -46,7 +46,7 @@ public class BlogArticleController extends TemplateController {
 		return blogArticleService.getBlogHomeList(pageRequest);
 	}
 
-	@PostMapping("/page/home/top")
+	@GetMapping("/page/home/top")
 	@ApiOperation(value = "墨阳空间-博客系统首页top文章列表")
 	List<BlogArticle> getHomeBlogTopList(){
 		return blogArticleService.getHomeTopBlogList();
