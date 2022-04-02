@@ -38,6 +38,7 @@ public class BlogFollowerServiceImpl extends ServiceImpl<BlogFollowerMapper, Blo
 			blogFollower.setBlogOwner(author);
 			blogFollower.recordCreateInfo(emy);
 			this.save(blogFollower);
+			// 异步处理 作者粉丝 add count， 读者关注 add count
 			return Result.success(true);
 		}
 		return Result.success(false);

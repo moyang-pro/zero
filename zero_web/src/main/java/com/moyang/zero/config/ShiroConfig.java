@@ -51,8 +51,7 @@ public class ShiroConfig {
 		filterRuleMap.put(ZERO_API + "/sys-member/account/login", "anon");
 		filterRuleMap.put(ZERO_API + "/sys-member/register", "anon");
 		filterRuleMap.put(ZERO_API + "/sys-member/getCheckCode", "anon");
-		filterRuleMap.put(ZERO_API + "/blog-article/page/**", "anon");
-		filterRuleMap.put(ZERO_API + "/zero-banner/page/**", "anon");
+		filterRuleMap.put(ZERO_API + "/*/page/**", "anon");
 
 		// 所有的请求通过我们自己的JWT filter
 		filterRuleMap.put("/**", "jwt");

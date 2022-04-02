@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.moyang.zero.common.constant.ApplicationConstant;
 import com.moyang.zero.common.enums.RoleEnum;
 import com.moyang.zero.common.exception.BusinessException;
+import com.moyang.zero.common.util.RandomNameUtil;
 import com.moyang.zero.common.util.SignUtil;
 import com.moyang.zero.common.util.VerifyUtil;
 import com.moyang.zero.common.util.http.Result;
@@ -16,6 +17,7 @@ import com.moyang.zero.mapper.SysMemberMapper;
 import com.moyang.zero.mapper.SysMemberRoleMapper;
 import com.moyang.zero.req.AccountLoginReq;
 import com.moyang.zero.req.RegisterReq;
+import com.moyang.zero.service.IBlogUserService;
 import com.moyang.zero.service.ISysMemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -49,6 +51,9 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 	@Resource
 	SysMemberRoleMapper sysMemberRoleMapper;
 
+	@Resource
+	IBlogUserService blogUserService;
+
 	/**
 	 * 验证码位数
 	 */
@@ -76,7 +81,7 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
 		SysMember sysMember = new SysMember();
 
 		sysMember.setAvatar(ApplicationConstant.AVATAR_DEFAULT);
-		sysMember.setNick("用户_" + sysMemberManager.countZeroUser());
+		sysMember.setNick(RandomNameUtil.randomName() + sysMemberManager.countZeroUser());
 		sysMember.setTelephone(req.getPhone());
 		sysMember.setEmy(emy);
 		sysMember.setPassword(req.getPwd());
@@ -88,7 +93,14 @@ public class SysMemberServiceImpl extends ServiceImpl<SysMemberMapper, SysMember
         //保存新的用户信息
         this.save(sysMember);
         this.newMemberInit(sysMember);
+        // 初始化平台系统用户信息
+        this.initPlatAppUser(sysMember);
 		return true;
+	}
+
+	private void initPlatAppUser(SysMember sysMember) {
+		// 初始化博客系统的用户信息
+		blogUserService.initBlogUser(sysMember);
 	}
 
 	/**

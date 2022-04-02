@@ -13,8 +13,8 @@
                         <el-col :span="14" :offset="2">
                             <div style="height: 30px;line-height: 30px">
                                 作者：
-                                <span class="author-nick text-one-line" :title="authorInfo.nick">
-                                    {{ authorInfo.nick }}
+                                <span class="author-nick text-one-line" :title="authorInfo.nickName">
+                                    {{ authorInfo.nickName }}
                                 </span>
                             </div>
                             <div class="author-summary-box text-two-line">
@@ -28,7 +28,7 @@
                                 文章
                             </div>
                             <div class="author-count-num">
-                                {{ authorInfo.countInfo.articleCount }}
+                                {{ authorInfo.articleCount }}
                             </div>
                         </div>
                         <div class="follow-count item-count">
@@ -36,7 +36,7 @@
                                 关注
                             </div>
                             <div class="author-count-num">
-                                {{ authorInfo.countInfo.followCount }}
+                                {{ authorInfo.followCount }}
                             </div>
                         </div>
                         <div class="followed-count item-count">
@@ -44,7 +44,7 @@
                                 粉丝
                             </div>
                             <div class="author-count-num">
-                                {{ authorInfo.countInfo.followedCount }}
+                                {{ authorInfo.followedCount }}
                             </div>
                         </div>
                         <div class="faq-count item-count">
@@ -52,7 +52,7 @@
                                 问答
                             </div>
                             <div class="author-count-num">
-                                {{ authorInfo.countInfo.faqCount }}
+                                {{ authorInfo.faqCount }}
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             type="danger"
                             size="mini"
                             round
-                            v-if="!authorInfo.followed"
+                            v-if="!authorInfo.hasFollowed"
                             @click.stop="followAuthor"
                         >
                             <svg-icon icon-class="follow"></svg-icon>
@@ -119,7 +119,7 @@
 
 <script>
 import miniHeart from '@/components/biubiubiu';
-import { followAuthorOfBlog, unfollowAuthorOfBlog } from '@/api/blog';
+import { followAuthorOfBlog, unfollowAuthorOfBlog, getBlogAuthorInfo } from '@/api/blog';
 export default {
     //文章目录+作者
     name: 'toc',
@@ -131,23 +131,34 @@ export default {
             type: Array,
             required: false,
             default: null
+        },
+        author: {
+            type: String,
+            required: false,
+            default: null
         }
     },
     data() {
         return {
             authorInfo: {
-                nick: '一米阳光',
-                emy: '',
-                avatar: require('@/assets/img/avatar.png'),
+                articleCount: 0,
+                avatar: '',
+                birthday: null,
+                blogUser: '',
+                faqCount: 0,
+                followCount: 0,
+                followedCount: 0,
+                gender: 1,
+                gitee: null,
+                github: null,
+                hasFollowed: false,
+                nickName: '',
+                occupation: null,
+                point: 5,
+                qqNumber: null,
+                summary: null,
                 vipCode: 1,
-                countInfo: {
-                    articleCount: 0,
-                    followCount: 0,
-                    followedCount: 0,
-                    faqCount: 0
-                },
-                summary: '一抹温柔，毕生追求',
-                followed: false
+                weChat: null
             },
             cardShadow: 'always',
             tocList: [],
@@ -155,6 +166,9 @@ export default {
             activeIndex: 0,
             fixedToc: false
         };
+    },
+    created() {
+        this.getAuthorInfo();
     },
     mounted() {
         if (this.tocArr && this.tocTree.length === 0) {
@@ -173,12 +187,23 @@ export default {
         removeSmallHeart() {
             this.$refs.miniHeart.removeSmallHeart();
         },
+        getAuthorInfo() {
+            if (!this.author) {
+                this.$message.error('文章作者账号异常，账号信息:' + this.author);
+                return;
+            }
+            getBlogAuthorInfo(this.author).then(res => {
+                this.authorInfo = res.data;
+                console.log(this.authorInfo);
+            });
+        },
         followAuthor(evt) {
             // 关注作者
-            if (!this.authorInfo.followed) {
-                followAuthorOfBlog().then(res => {
+            if (!this.authorInfo.hasFollowed) {
+                followAuthorOfBlog(this.author).then(res => {
                     if (res.data) {
-                        this.authorInfo.followed = true;
+                        this.authorInfo.hasFollowed = true;
+                        this.authorInfo.followedCount++;
                     }
                 });
             }
@@ -189,10 +214,10 @@ export default {
         },
         unFollowAuthor() {
             // 取消关注作者
-            if (this.authorInfo.followed) {
-                unfollowAuthorOfBlog().then(res => {
+            if (this.authorInfo.hasFollowed) {
+                unfollowAuthorOfBlog(this.author).then(res => {
                     if (res.data) {
-                        this.authorInfo.followed = false;
+                        this.authorInfo.hasFollowed = false;
                     }
                 });
             }

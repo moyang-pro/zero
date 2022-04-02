@@ -1,12 +1,12 @@
 package com.moyang.zero.entity;
 
-import java.time.LocalDate;
-import com.moyang.zero.entity.Template;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.time.LocalDate;
 
 /**
  * <p>
@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author moyang
- * @since 2022-02-28
+ * @since 2022-03-05
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,7 +28,7 @@ public class BlogUser extends Template {
     private String blogUser;
 
     @ApiModelProperty(value = "性别(1:男2:女)")
-    private String gender;
+    private Integer gender;
 
     @ApiModelProperty(value = "个人头像")
     private String avatar;
@@ -59,6 +59,21 @@ public class BlogUser extends Template {
 
     @ApiModelProperty(value = "博主是否为VIP用户 0否 1普通VIP 2超级VIP")
     private Integer vipCode;
+
+    @ApiModelProperty(value = "博客积分")
+    private Integer point;
+
+    @ApiModelProperty(value = "文章数")
+    private Integer articleCount;
+
+    @ApiModelProperty(value = "关注数量")
+    private Integer followCount;
+
+    @ApiModelProperty(value = "粉丝数量")
+    private Integer followedCount;
+
+    @ApiModelProperty(value = "问答数量")
+    private Integer faqCount;
 
 
 }

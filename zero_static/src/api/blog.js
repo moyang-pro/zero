@@ -94,11 +94,27 @@ export function getHomeTopBannerList() {
     });
 }
 
+export function getHomeUserPopList(pageReq) {
+    return request({
+        url: '/blog-user/page/home/user',
+        method: 'post',
+        data: pageReq
+    });
+}
+
+export function getBlogAuthorInfo(author) {
+    return request({
+        url: '/blog-user/page/blog/author',
+        method: 'get',
+        params: { author }
+    });
+}
+
 export function followAuthorOfBlog(author) {
     return request({
         url: '/blog-follower/follow',
         method: 'post',
-        data: { author }
+        params: { author }
     });
 }
 
@@ -106,6 +122,6 @@ export function unfollowAuthorOfBlog(author) {
     return request({
         url: '/blog-follower/unfollow',
         method: 'post',
-        data: { author }
+        params: { author }
     });
 }

@@ -13,6 +13,7 @@ import com.moyang.zero.dto.LoginInfo;
 import com.moyang.zero.entity.BlogArticle;
 import com.moyang.zero.entity.BlogArticleReadRecord;
 import com.moyang.zero.manager.BlogArticleManager;
+import com.moyang.zero.manager.BlogUserManager;
 import com.moyang.zero.mapper.BlogArticleMapper;
 import com.moyang.zero.pojo.blog.BlogSelectParam;
 import com.moyang.zero.req.BlogPublishReq;
@@ -47,6 +48,8 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 	@Resource
 	private BlogArticleManager blogArticleManager;
 
+	@Resource
+	BlogUserManager blogUserManager;
 	/**
 	 * 注意不要相互注入
 	 */
@@ -233,8 +236,14 @@ public class BlogArticleServiceImpl extends ServiceImpl<BlogArticleMapper, BlogA
 		readRecord.setEndTime(LocalDateTime.now());
 		readRecordService.save(readRecord);
 
-		BlogArticleVo blogArticleVo = getBlogArticleVo(blogArticleBo);
+		// 更新文章的阅读量和阅读人数
+		blogArticleBo.setReadCount(blogArticleBo.getReadCount() + 1);
+		if (!blogUserManager.hasReadThisArticle(loginInfo.getEmy(), blogId)) {
+			blogArticleBo.setUserCount(blogArticleBo.getUserCount() + 1);
+		}
+		this.updateById(blogArticleBo);
 
+		BlogArticleVo blogArticleVo = getBlogArticleVo(blogArticleBo);
 		return Result.success(blogArticleVo);
 	}
 

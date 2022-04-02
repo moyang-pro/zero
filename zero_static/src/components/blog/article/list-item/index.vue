@@ -1,7 +1,7 @@
 <template>
     <div class="article-item-card">
         <div class="article-show-item">
-            <el-link :underline="false" @click.stop="showArticle(articleInfo.id)">
+            <el-link :underline="false" @click.stop="showArticle(articleInfo.id, articleInfo.author)">
                 <h3 class="text-one-line title-line-width text-title" :title="articleInfo.title">
                     {{ articleInfo.title }}
                 </h3>
@@ -9,7 +9,7 @@
             <span
                 class="text-two-line title-line-width text-des"
                 :title="articleInfo.des"
-                @click.stop="showArticle(articleInfo.id)"
+                @click.stop="showArticle(articleInfo.id, articleInfo.author)"
                 >{{ articleInfo.des }}</span
             >
             <div class="article-item-opt">
@@ -38,11 +38,11 @@ export default {
         }
     },
     methods: {
-        showArticle(id) {
+        showArticle(id, author) {
             if (!id || !Number.isSafeInteger(id)) {
                 this.$message.error('文章ID错误！');
             }
-            this.$router.push({ path: `/blog/read/${id}.html` });
+            this.$router.push({ path: `/blog/read/${id}.html`, query: { author: author } });
         }
     }
 };

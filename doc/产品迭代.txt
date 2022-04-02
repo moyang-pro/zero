@@ -18,4 +18,6 @@ blog markdown 文件编辑器 mavonEditor的使用
 # 2022.2.22
 AR#2022B004 用户体验优化
 用户登录异常处理，MyErrorController处理filter异常
+# 2022.3.5
+AR#2022B005 首页信息查询
 

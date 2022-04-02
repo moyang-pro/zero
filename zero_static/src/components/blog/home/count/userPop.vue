@@ -4,18 +4,21 @@
             <div class="bm-card-title-line">
                 <h2 class="bm-card-title" ref="cardTitle">
                     用户排行
-                    <i
-                        class="el-tooltip el-icon-refresh item"
-                        aria-describedby="el-tooltip-688"
-                        tabindex="0"
-                        style="cursor: pointer; float: right;"
-                    ></i>
+                    <el-tooltip class="item" effect="light" content="每十分钟自动刷新一次" placement="right-start">
+                        <i
+                            class="el-tooltip el-icon-refresh item"
+                            aria-describedby="el-tooltip-688"
+                            tabindex="0"
+                            @click.stop="refreshUserPopData"
+                            style="cursor: pointer; float: right;"
+                        ></i>
+                    </el-tooltip>
                 </h2>
             </div>
             <div class="bm-card-main">
-                <div v-for="item in userPopList" :key="item.emy" class="ump-line">
+                <div v-for="item in userPopList" :key="item.blogUser" class="ump-line">
                     <el-row>
-                        <el-col :span="3">
+                        <el-col :span="4">
                             <span class="upc-author-avatar-box">
                                 <el-avatar
                                     :src="item.avatar"
@@ -27,9 +30,9 @@
                         </el-col>
                         <el-col :span="16">
                             <div class="upc-line-mid upc-line-mid-top">
-                                <span>{{ item.nick }}</span>
+                                <span>{{ item.nickName }}</span>
                                 <span style="margin-left: 5px">
-                                    <svg-icon icon-class="man" v-if="item.sex === 1"></svg-icon>
+                                    <svg-icon icon-class="man" v-if="item.gender === 1"></svg-icon>
                                     <svg-icon icon-class="woman" v-else></svg-icon>
                                 </span>
                             </div>
@@ -44,22 +47,20 @@
                                 <el-divider direction="vertical"></el-divider>
                                 <span>
                                     粉丝
-                                    <span v-if="item.followCount < 1000" class="text-count-num">
-                                        {{ item.followCount }}</span
+                                    <span v-if="item.followedCount < 1000" class="text-count-num">
+                                        {{ item.followedCount }}</span
                                     >
                                     <span v-else class="text-count-num"> 999+</span>
                                 </span>
                                 <el-divider direction="vertical"></el-divider>
                                 <span>
-                                    评论
-                                    <span v-if="item.commentCount < 1000" class="text-count-num">
-                                        {{ item.commentCount }}</span
-                                    >
+                                    问答
+                                    <span v-if="item.faqCount < 1000" class="text-count-num"> {{ item.faqCount }}</span>
                                     <span v-else class="text-count-num"> 999+</span>
                                 </span>
                             </div>
                         </el-col>
-                        <el-col :span="5">
+                        <el-col :span="4">
                             <div class="upc-line-end">
                                 <span class="upc-line-end-item"><i class="el-icon-coin"></i> {{ item.point }}</span>
                             </div>
@@ -84,6 +85,8 @@
 </template>
 
 <script>
+import PublicUtils from '@/utils/PublicUtils';
+import { getHomeUserPopList } from '@/api/blog';
 export default {
     name: 'userPop',
     data() {
@@ -94,35 +97,29 @@ export default {
                 pageSize: 10,
                 total: 20
             },
-            userPopList: [
-                {
-                    emy: 'moyang',
-                    nick: '墨阳',
-                    sex: 1,
-                    vipCode: 0,
-                    avatar: require('@/assets/img/avatar.png'),
-                    articleCount: 500,
-                    followCount: 250,
-                    commentCount: 241,
-                    point: 14
-                },
-                {
-                    emy: 'moyang2',
-                    nick: '墨阳2',
-                    sex: 2,
-                    vipCode: 1,
-                    avatar: require('@/assets/img/avatar.png'),
-                    articleCount: 500,
-                    followCount: 250,
-                    commentCount: 241,
-                    point: 14
-                }
-            ]
+            userPopList: []
         };
+    },
+    mounted() {
+        this.getUserPopList();
+        //循环定时器
+        setInterval(() => {
+            this.getUserPopList();
+        }, 10 * 60 * 1000);
     },
     methods: {
         handleCurrentChange() {
-            console.log(this.page.pageIndex);
+            this.getUserPopList();
+        },
+        getUserPopList() {
+            let pageRequest = PublicUtils.getPageRequest(this.page.pageIndex, this.page.pageSize);
+            getHomeUserPopList(pageRequest).then(res => {
+                this.userPopList = res.list;
+                this.page.total = res.total;
+            });
+        },
+        refreshUserPopData() {
+            this.getUserPopList();
         }
     }
 };

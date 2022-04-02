@@ -7,10 +7,7 @@ import com.moyang.zero.service.IBlogFollowerService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -35,7 +32,7 @@ public class BlogFollowerController extends TemplateController {
 	@RequiresRoles("COMMON_USER")
 	@RequiresAuthentication
 	@ApiOperation(value = "墨阳空间-博客系统关注博主")
-	Result<Boolean> followAuthor(@RequestBody String author){
+	Result<Boolean> followAuthor(@RequestParam("author") String author){
 		String emy = LoginContext.getCurrentUser().getEmy();
 		return blogFollowerService.followAuthor(emy, author);
 	}
@@ -44,7 +41,7 @@ public class BlogFollowerController extends TemplateController {
 	@RequiresRoles("COMMON_USER")
 	@RequiresAuthentication
 	@ApiOperation(value = "墨阳空间-博客系统取消关注博主")
-	Result<Boolean> unfollowAuthor(@RequestBody String author){
+	Result<Boolean> unfollowAuthor(@RequestParam("author") String author){
 		String emy = LoginContext.getCurrentUser().getEmy();
 		return blogFollowerService.unfollowAuthor(emy, author);
 	}

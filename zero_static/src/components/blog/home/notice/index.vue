@@ -7,10 +7,10 @@
                     alt=""
                     fit="fill"
                     class="bm-carousel-img"
-                    @click.stop="showArticle(item.id)"
+                    @click.stop="showArticle(item.id, item.author)"
                 >
                 </el-image>
-                <div class="bm-carousel-title text-one-line" @click.stop="showArticle(item.id)">
+                <div class="bm-carousel-title text-one-line" @click.stop="showArticle(item.id, item.author)">
                     <span class="">{{ item.articleTitle }}</span>
                 </div>
             </el-carousel-item>
@@ -38,11 +38,11 @@ export default {
                 this.topList = res.data;
             });
         },
-        showArticle(id) {
+        showArticle(id, author) {
             if (!id || !Number.isSafeInteger(id)) {
                 this.$message.error('文章ID错误！');
             }
-            this.$router.push({ path: `/blog/read/${id}.html` });
+            this.$router.push({ path: `/blog/read/${id}.html`, query: { author: author } });
         }
     },
     mounted() {

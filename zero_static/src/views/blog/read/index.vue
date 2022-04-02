@@ -4,7 +4,7 @@
             <div class="zero-blog-wrapper">
                 <div class="blog-left-block">
                     <recommend ref="recommendCard" />
-                    <toolbox />
+                    <toolbox :blog-id="blogId" :author="author" />
                 </div>
                 <div class="blog-middle-block">
                     <el-card :shadow="cardShadow" class="article-read-card">
@@ -59,7 +59,7 @@
                     <comment-box />
                 </div>
                 <div class="blog-right-block author-info-block">
-                    <tocCard ref="tocCard" :toc-arr.sync="tocArr"></tocCard>
+                    <tocCard ref="tocCard" :toc-arr.sync="tocArr" :author="author"></tocCard>
                 </div>
             </div>
         </div>
@@ -117,12 +117,18 @@ export default {
             // 编程语言、技术领域、项目名称
             tagList: ['java语言', '博客', 'ZERO-BLOG'],
             tocArr: [],
-            blogEnum: BlogEnum
+            blogEnum: BlogEnum,
+            blogId: 0,
+            author: ''
         };
     },
     created() {
-        let blogId = this.$route.params.id;
-        this.showBlog(blogId);
+        this.blogId = this.$route.params.id;
+        this.author = this.$route.query.author;
+        if (!this.author) {
+            this.$message.error('访问URL有误，参数中作者信息为空');
+        }
+        this.showBlog(this.blogId);
     },
     methods: {
         showBlog(id) {
@@ -144,9 +150,8 @@ export default {
                     this.markToc();
                     this.isMine = this.blogInfo.author === this.$store.state.user.name;
                 })
-                .catch(err => {
+                .catch(() => {
                     loading.close();
-                    console.log('moyang blog:', err);
                     this.$router.replace({ path: `/blog/profile/${this.$store.state.user.name}` });
                     this.blogInfo = {};
                 });
